@@ -20,14 +20,14 @@ public:
     void searchName();
     void searchGender();
     void searchBirth();
-    void searchDeath();/*
+    void searchDeath();
     //sort vector by the specified order:
     void sortAlpabetFront();
     void sortAlpabetBack();
     void sortByBirthYear();
     void sortByDeathYear();
     void sortByGender();
-*/
+
     string makeLower(string& temp);
     //converts the string variable temp to all lower letters
 };

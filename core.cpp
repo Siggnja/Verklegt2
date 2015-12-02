@@ -144,6 +144,7 @@ string Core::makeLower(string& temp)
 
 void Core::searchName()
 {
+    People result;
     bool found = false;
     string tempStr, searchStr = "";
     cin.ignore();   //annars virkar getline ekki
@@ -158,10 +159,12 @@ void Core::searchName()
         tempStr = makeLower(tempStr);
         if(tempStr.find(searchStr) != string::npos)
         {
-            cout << list.getIndi(i) << endl;
+            result.addIndi(result.getIndi(i));
             found = true;
         }
     }
+    //result.sortAlpabetFront();
+    sortAlpabetFront();
     if (found == false)
     {
         ui.noMatch();
@@ -189,7 +192,8 @@ void Core::searchGender()
                 found = true;
             }
         }
-        result.sortAlpabetFront();
+        //result.sortAlpabetFront();
+        sortAlpabetFront();
     }
     else
     {
@@ -227,7 +231,8 @@ void Core::searchBirth()
         }
         if(found)
         {
-            result1.sortAlpabetFront();
+            //result1.sortAlpabetFront();
+            sortAlpabetFront();
         }
         if (found == false)
         {
@@ -237,7 +242,8 @@ void Core::searchBirth()
                     cout << "However these individuals were found within"
                             " a 10 year range of given year: " << endl;
                     cout << "--- Printing by alphabetical order ---" << endl;
-                    result2.sortAlpabetFront();
+                    //result2.sortAlpabetFront();
+                    sortAlpabetFront();
                 }
         }
     }
@@ -275,7 +281,8 @@ void Core::searchDeath()
         }
         if(found)
         {
-            result1.sortAlpabetFront();
+            //result1.sortAlpabetFront();
+            sortAlpabetFront();
         }
         if (found == false)
         {
@@ -284,7 +291,8 @@ void Core::searchDeath()
                 {
                     cout << "However these individuals were found within"
                             " a 10 year range of given year: " << endl;
-                    result2.sortAlpabetFront();
+                    //result2.sortAlpabetFront();
+                    sortAlpabetFront();
                 }
         }
     }
@@ -297,4 +305,3 @@ void Core::searchDeath()
 
     }
 }
-

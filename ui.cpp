@@ -5,6 +5,16 @@ UI::UI()
 
 }
 
+void UI::run()
+{
+    //while(true)
+    //{
+    char choice;
+    ask();
+    cin >> choice;
+    //}
+
+}
 
 void UI::errorFile()
 {
@@ -48,7 +58,7 @@ void UI::ask() {
     cout << "Select a letter: ";
 }
 
-void UI::menu(char ans, People& list)
+void UI::menu(char ans)
 {
     switch(ans) {
         case 'a':
@@ -70,7 +80,6 @@ void UI::menu(char ans, People& list)
                     break;
     }
 }
-
 
 void searchMenu(People& p)
 {

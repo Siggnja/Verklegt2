@@ -1,17 +1,16 @@
 #include <QCoreApplication>
 #include <iostream>
-#include "people.h"
 #include "ui.h"
-#include "dataread.h"
-#include "individual.h"
-#include "core.h"
+
 
 using namespace std;
 
-
-
 int main()
 {
+    UI ui;
+
+    ui.run();
+
 /*    People list(FILENAME);
     welcomeMessage(list);
 

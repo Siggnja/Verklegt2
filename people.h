@@ -7,8 +7,6 @@
 #include <fstream>
 #include <cstdlib>
 #include <algorithm>
-#include "people.h"
-#include "ui.h"
 //#include "dataread.h"
 #include "individual.h"
 //const string FILENAME = "people.txt";
@@ -23,12 +21,14 @@ public:
     Individual getIndi(const int i) const;
     int getSize() const;
     //adds and individual to vector
+    People(){};
+    //default constructor
+
     /*
     People(const string filename);
     People(const People& p1);
     //copy constructor
-    People();
-    //default constructor
+
 
     void addIndi(Individual& i1);
     //adds and individual to vector
@@ -62,7 +62,6 @@ public:
     //removes an individual from the database, returns a new variable People
     //with a vector containing every individual except the removed one
     friend ostream& operator << (ostream& outs, People& p1)
-
 
     friend ostream& operator << (ostream& outs, People& p1);
     Individual getIndi(const int i) const;
