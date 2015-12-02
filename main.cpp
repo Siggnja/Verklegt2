@@ -1,13 +1,18 @@
 #include <QCoreApplication>
 #include <iostream>
 #include "people.h"
+#include "ui.h"
+#include "dataread.h"
+#include "individual.h"
+#include "core.h"
+
 using namespace std;
 
 
 
 int main()
 {
-    People list(FILENAME);
+/*    People list(FILENAME);
     welcomeMessage(list);
 
     char choice;
@@ -15,5 +20,5 @@ int main()
         ask();
         cin >> choice;
         menu(choice, list);
-    } while (true);
+    } while (true);*/
 }

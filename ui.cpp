@@ -5,7 +5,7 @@ UI::UI()
 
 }
 
-void ask() {
+void UI::ask() {
     cout << endl;
     cout << "Do you want to: " << endl;
     cout << "(A) Add to list? " << endl;
@@ -16,28 +16,23 @@ void ask() {
     cout << "Select a letter: ";
 }
 
-void menu(char ans, People& list)
+void UI::menu(char ans, People& list)
 {
     switch(ans) {
         case 'a':
-        case 'A':   {
-                        cin.ignore();
-                        Individual id;
-                        cin >> id;
-                        list.addIndi(id);
-                    }
+        case 'A':
                     break;
         case 's':
-        case 'S':   searchMenu(list);
+        case 'S':
                     break;
         case 'p':
-        case 'P':   sortMenu(list);
+        case 'P':
                     break;
         case 'r':
-        case 'R':   list = list.removeIndi();
+        case 'R':
                     break;
         case 'q':
-        case 'Q':   exit(1);
+        case 'Q':   //exit(1);
                     break;
         default:    cout << "Incorrect input, please try again!" << endl;
                     break;
@@ -76,14 +71,14 @@ void searchMenu(People& p)
         case 'm':
                     break;
         case 'q':
-        case 'Q':   exit(1);
+        case 'Q':   //exit(1);
                     break;
         default:    cout << "Incorrect input, please try again!" << endl;
                     searchMenu(p);
     }
 }
 
-void sortMenu(People& p)
+void UI::sortMenu(People& p)
 {
     char choice;
     cout << endl;
@@ -126,7 +121,7 @@ void sortMenu(People& p)
     }
 }
 
-void welcomeMessage(People& p)
+void UI::welcomeMessage(People& p)
 {
     cout << "------------Welcome to the database of famous computer scientists-------------" << endl;
     cout << "\t" << "    In this database you can add, remove, sort and search" << endl;
