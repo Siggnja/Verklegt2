@@ -16,12 +16,12 @@ using namespace std;
 class People
 {
 public:
+    People();
     vector <Individual> getPerson() const;
     void addIndi(const Individual& i1);
     Individual getIndi(const int i) const;
     int getSize() const;
     //adds and individual to vector
-    People(){};
     //default constructor
 
     /*

@@ -17,7 +17,7 @@ void UI::run()
 
 }
 
-/*
+
 
 void UI::errorFile()
 {
@@ -28,7 +28,7 @@ void UI::errorInput()
 {
     cout << "Invalid input, try again." << endl;
 }
-
+/*
 void UI::individualsMatched()
 {
     out << "--- The following people match your search ---" << endl;
@@ -68,10 +68,10 @@ void UI::menu(char ans)
         case 'A':
                     break;
         case 's':
-        case 'S':
+        case 'S':   //searchMenu();
                     break;
         case 'p':
-        case 'P':
+        case 'P':   sortMenu();
                     break;
         case 'r':
         case 'R':
@@ -85,8 +85,8 @@ void UI::menu(char ans)
     }
 }
 
-/*
-void searchMenu(People& p)
+
+void searchMenu()
 {
     cout << endl;
     char choice;
@@ -102,29 +102,29 @@ void searchMenu(People& p)
 
     switch(choice) {
         case 'n':
-        case 'N':   p.searchName();
+        case 'N':   //p.searchName();
                     break;
         case 'g':
-        case 'G':   p.searchGender();
+        case 'G':   //p.searchGender();
                     break;
         case 'b':
-        case 'B':   p.searchBirth();
+        case 'B':   //p.searchBirth();
                     break;
         case 'd':
-        case 'D':   p.searchDeath();
+        case 'D':   //p.searchDeath();
                     break;
         case 'M':
         case 'm':
                     break;
         case 'q':
-        case 'Q':   //exit(1);
+        case 'Q':   exit(1);
                     break;
-        default:    errorInput();
-                    searchMenu(p);
+        default:    //errorInput();
+                    searchMenu();
     }
 }
 
-void UI::sortMenu(People& p)
+void UI::sortMenu()
 {
     char choice;
     cout << endl;
@@ -151,7 +151,7 @@ void UI::sortMenu(People& p)
                     break;
         case 'd':
         case 'D':
-                    p.sortByDeathYear();
+
                     break;
         case 'g':
         case 'G':
@@ -163,14 +163,14 @@ void UI::sortMenu(People& p)
         case 'Q':   exit(1);
                     break;
         default:    errorInput();
-                    sortMenu(p);
+                    sortMenu();
     }
 }
 
-void UI::welcomeMessage(People& p)
+void UI::welcomeMessage()
 {
     cout << "------------Welcome to the database of famous computer scientists-------------" << endl;
     cout << "\t" << "    In this database you can add, remove, sort and search" << endl;
-    cout << "\t \t" <<" At this moment we have "<< p.getSize() << " computer scientists!" << endl;
+    cout << "\t \t" <<" At this moment we have "<< "(stærð gagnasafns kemur hingað)" << " computer scientists!" << endl;
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
-}*/
+}

@@ -1,5 +1,10 @@
 #include "people.h"
 
+People::People()
+{
+
+}
+
 
 void People::addIndi(const Individual& i1)
 {
