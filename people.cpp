@@ -2,7 +2,6 @@
 void People::addIndi(const Individual& i1)
 {
         person.push_back(i1);
-
 }
 
  vector <Individual> People::getPerson() const
@@ -110,8 +109,6 @@ int People::getSize() const
     return(person.size());
 }
 
-<<<<<<< HEAD
-=======
 void People::addIndi(Individual& i1)
 {
     bool CheckIfNewIndi = true;
@@ -132,14 +129,10 @@ void People::addIndi(Individual& i1)
         inDatabase();
     }
 }
->>>>>>> bf860b9c75ca46379fdc9331be2c50853898f372
 
 
 void People::saveFile(const string filename)
 {
-<<<<<<< HEAD
-
-=======
     ofstream outs;
     outs.open(filename.c_str(), ios::app);
     if(outs.fail())
@@ -155,7 +148,6 @@ void People::saveFile(const string filename)
     outs << person[person.size()-1].getDeath() ;
 
     outs.close();
->>>>>>> c3ecd5d30ff9ac479edaf836ed24bb2d316266e7
 }
 
 void People::sortAlpabetFront()

@@ -4,7 +4,7 @@ UI::UI()
 {
 
 }
-/*
+
 
 void UI::errorFile()
 {
@@ -18,7 +18,7 @@ void UI::errorInput()
 
 void UI::individualsMatched()
 {
-    out << "--- The following people match your search ---" << endl;
+    cout << "--- The following people match your search ---" << endl;
 }
 
 void UI::noMatch()
@@ -36,7 +36,7 @@ void UI::readingString(string gender)
     cout << "--- Reading " << gender << " ---" << endl;
 }
 
-
+/*
 void UI::ask() {
     cout << endl;
     cout << "Do you want to: " << endl;

@@ -6,6 +6,8 @@
 //#include "dataread.h"
 #include "individual.h"
 
+using namespace std;
+
 
 class UI
 {
@@ -23,12 +25,12 @@ public:
     void welcomeMessage(People& p);*/
 
     //cout setningar:
-    //void errorFile();
-    //void errorInput();
-    //void individualsMatched();
-    //void noMatch();
-    //void inDatabase();
-    //void readingString(string gender);
+    void errorFile();
+    void errorInput();
+    void individualsMatched();
+    void noMatch();
+    void inDatabase();
+    void readingString(string gender);
 private:
 };
 

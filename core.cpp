@@ -127,9 +127,22 @@ void People::sortByGender()
 
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*    Search functions:
+string Core::makeLower(string& temp)
+{
+    for (unsigned int i = 0; i < temp.length(); i++)
+    {
+        if(isupper(temp[i]))
+        {
+            temp[i] = tolower(temp[i]);
+        }
+    }
+    return temp;
+}
 
-void People::searchName()
+
+//    Search functions:
+
+void Core::searchName()
 {
     bool found = false;
     string tempStr, searchStr = "";
@@ -138,24 +151,24 @@ void People::searchName()
     getline(cin, searchStr);
     searchStr = makeLower(searchStr);
 
-    cout << "--- The following people match your search ---" << endl;
-    for(unsigned int i = 0; i < person.size(); i++)
+    ui.individualsMatched();
+    for(unsigned int i = 0; i < list.getSize(); i++)
     {
-        tempStr = person[i].getName() + " " + person[i].getSurname();
+        tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
         tempStr = makeLower(tempStr);
         if(tempStr.find(searchStr) != string::npos)
         {
-            cout << person[i] << endl;
+            cout << list.getIndi(i) << endl;
             found = true;
         }
     }
     if (found == false)
     {
-        cout << "No one matched your search." << endl;
+        ui.noMatch();
     }
 }
 
-void People::searchGender()
+void Core::searchGender()
 {
     People result;
     bool found = false;
@@ -166,13 +179,13 @@ void People::searchGender()
     cout << endl;
     if(ansGender == 'm' || ansGender == 'M' || ansGender=='f' || ansGender=='F')
     {
-        cout << "--- The following people match your search ---" << endl;
-        for (unsigned int i = 0; i < person.size(); i++)
+        ui.individualsMatched();
+        for (unsigned int i = 0; i < list.getSize(); i++)
         {
-            findGender = person[i].getGender();
+            findGender = list.getIndi(i).getGender();
             if (tolower(ansGender) == tolower(findGender))
             {
-                result.person.push_back(person[i]);
+                result.addIndi(result.getIndi(i));
                 found = true;
             }
         }
@@ -180,16 +193,16 @@ void People::searchGender()
     }
     else
     {
-        cout << "Incorrect input, please try again!" << endl;
+        ui.errorInput();
         this->searchGender();
     }
     if (found == false)
     {
-        cout << "No one matched your search!" << endl;
+        ui.noMatch();
     }
 }
 
-void People::searchBirth()
+void Core::searchBirth()
 {
     People result1, result2;
     bool found = false;
@@ -198,18 +211,18 @@ void People::searchBirth()
     cin >> ansYear;
     if(!cin.fail())
     {
-        cout << "--- The following people match your search ---" << endl;
-        for (unsigned int i = 0; i < person.size(); i++)
+        ui.individualsMatched();
+        for (unsigned int i = 0; i < list.getSize(); i++)
         {
-            findYear = person[i].getBirth();
+            findYear = list.getIndi(i).getBirth();
             if (ansYear == findYear)
             {
-                result1.person.push_back(person[i]);
+                result1.addIndi(result1.getIndi(i));
                 found = true;
             }
             if (ansYear - 5 <= findYear && ansYear+5 >= findYear)
             {
-                result2.person.push_back(person[i]);
+                result2.addIndi(result2.getIndi(i));
             }
         }
         if(found)
@@ -218,8 +231,8 @@ void People::searchBirth()
         }
         if (found == false)
         {
-           cout << "No one matched your search." << endl;
-                if(result2.person.size()!=0)
+            ui.individualsMatched();
+                if(result2.getSize() != 0)
                 {
                     cout << "However these individuals were found within"
                             " a 10 year range of given year: " << endl;
@@ -230,14 +243,14 @@ void People::searchBirth()
     }
     else
     {
-        cout << "Incorrect input, please try again!" << endl;
+        ui.errorInput();
         cin.clear();
         cin.ignore();
         this->searchBirth();
     }
 }
 
-void People::searchDeath()
+void Core::searchDeath()
 {
     People result1, result2;
     bool found = false;
@@ -246,18 +259,18 @@ void People::searchDeath()
     cin >> ansYear;
     if(!cin.fail())
     {
-        cout << "--- The following people match your search ---" << endl;
-        for (unsigned int i = 0; i < person.size(); i++)
+        ui.individualsMatched();
+        for (unsigned int i = 0; i < list.getSize(); i++)
         {
-            findYear = person[i].getDeath();
+            findYear = list.getIndi(i).getDeath();
             if (ansYear == findYear)
             {
-                result1.person.push_back(person[i]);
+                result1.addIndi(result1.getIndi(i));
                 found = true;
             }
             if (ansYear - 5 <= findYear && ansYear + 5 >= findYear)
             {
-                result2.person.push_back(person[i]);
+                result2.addIndi(result2.getIndi(i));
             }
         }
         if(found)
@@ -266,8 +279,8 @@ void People::searchDeath()
         }
         if (found == false)
         {
-           cout << "No one matched your search." << endl;
-                if(result2.person.size()!=0)
+            ui.errorInput();
+                if(result2.getSize() != 0)
                 {
                     cout << "However these individuals were found within"
                             " a 10 year range of given year: " << endl;
@@ -277,7 +290,7 @@ void People::searchDeath()
     }
     else
     {
-        cout << "Incorrect input, please try again!" << endl;
+        ui.errorInput();
         cin.clear();
         cin.ignore();
         this->searchDeath();
@@ -285,4 +298,3 @@ void People::searchDeath()
     }
 }
 
-*/
