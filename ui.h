@@ -34,6 +34,7 @@ public:
     void welcomeMessage();
 
     void printSize();
+    void printList();
 
     //cout setningar:
 

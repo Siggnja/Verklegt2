@@ -7,6 +7,7 @@ UI::UI()
 
 void UI::run()
 {
+    welcomeMessage();
     while(true)
     {
     char choice;
@@ -80,7 +81,7 @@ void UI::menu(char ans)
         case 'R':
                     break;
         case 'l':
-        case 'L':   cout << core.getSizeOfList() << endl;
+        case 'L':   cout << "The size of this list is: " << core.getSizeOfList() << endl;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -134,7 +135,8 @@ void UI::sortMenu()
     char choice;
     cout << endl;
     cout << "Print/Sort by: " << endl;
-    cout << "(A) Alphabetic order" << endl
+    cout << "(U) Unordered" << endl
+         << "(A) Alphabetic order" << endl
          << "(R) Reverse alphabetic order" << endl
          << "(B) Year of Birth" << endl
          << "(D) Year of Death" << endl
@@ -145,6 +147,10 @@ void UI::sortMenu()
     cin >> choice;
 
     switch(choice) {
+        case 'u':
+        case 'U':
+                    break;
+
         case 'a':
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
                     break;
@@ -176,7 +182,7 @@ void UI::welcomeMessage()
 {
     cout << "------------Welcome to the database of famous computer scientists-------------" << endl;
     cout << "\t" << "    In this database you can add, remove, sort and search" << endl;
-    cout << "\t \t" <<" At this moment we have "<< "(stærð gagnasafns kemur hingað)" << " computer scientists!" << endl;
+    cout << "\t \t" <<" At this moment we have "<< core.getSizeOfList() << " computer scientists!" << endl;
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
 }
 
