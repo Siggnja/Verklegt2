@@ -68,7 +68,7 @@ void UI::menu(char ans)
 {
     switch(ans) {
         case 'a':
-        case 'A':
+        case 'A':   addIndividual();
                     break;
         case 's':
         case 'S':
@@ -81,7 +81,7 @@ void UI::menu(char ans)
         case 'R':
                     break;
         case 'l':
-        case 'L':   cout << "The size of this list is: " << core.getSizeOfList() << endl;
+        case 'L':   cout << "The current size of this list is: " << core.getSizeOfList() << endl;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -108,7 +108,7 @@ void UI::searchMenu()
 
     switch(choice) {
         case 'n':
-        case 'N':   //p.searchName();
+        case 'N':   //p.searchName(); <- breyta í core.searchName þegar core hefur það fall
                     break;
         case 'g':
         case 'G':   //p.searchGender();
@@ -185,6 +185,63 @@ void UI::welcomeMessage()
     cout << "\t \t" <<" At this moment we have "<< core.getSizeOfList() << " computer scientists!" << endl;
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
 }
+
+void UI::addIndividual()
+{
+    string surname, name;
+    int birth, death;
+    char gender;
+
+
+    cin.ignore();
+    cout << endl;
+    char ans;
+    cout << "Surname: ";
+    getline(cin, surname);
+    cout << "Given name: ";
+    getline(cin, name);
+
+    do{
+        cout << "Gender (m/f): ";
+        cin >> gender;
+        if(gender != 'f' && gender != 'm' && gender != 'F' && gender != 'M')
+            cout << "Invalid input, please try again!" << endl << endl;
+    } while(gender != 'f' && gender != 'm' && gender != 'F' && gender != 'M');
+
+    do {
+        cin.clear();
+        cin.ignore();
+        cout << "Year of birth: ";
+        cin >> birth;
+        if(cin.fail())
+            cout << endl << "Invalid input, please try again!" << endl << endl;
+    } while(cin.fail());
+
+    cout << "Is the individual alive?(y/n) ";
+    cin >> ans;
+    if (ans == 'n' || ans == 'N') {
+        do {
+            cin.clear();
+            cin.ignore();
+            cout << "Year of death: ";
+            cin >> death;
+            if(cin.fail()) {
+                cout << endl << "Invalid input, please try again!" << endl << endl;
+            }
+            if(birth>death) {
+                cout<<"Illegal deathyear! Input again: "<<endl<<endl;
+            }
+        } while(cin.fail()||birth>death);
+    }
+    else {
+        death = 0;
+    }
+
+    Individual temp(surname, name, gender, birth, death);//fer inn i add
+
+
+}
+// a eftir ad klara
 
 void UI::searchName()
 {

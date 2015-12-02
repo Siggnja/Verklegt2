@@ -4,6 +4,7 @@
 #include <iostream>
 #include "core.h"
 #include "people.h"
+#include "individual.h"
 using namespace std;
 
 class UI
@@ -22,6 +23,9 @@ public:
     void menu(char ans, People& list);
     //call for changes to the list
     void searchMenu();
+
+    void addIndividual();
+    //void printIndividual();
 
     //
     void searchName();
