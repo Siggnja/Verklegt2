@@ -14,7 +14,6 @@ void UI::run()
     cin >> choice;
     menu(choice);
     }
-
 }
 
 
@@ -66,7 +65,8 @@ void UI::menu(char ans)
         case 'A':
                     break;
         case 's':
-        case 'S':   //searchMenu();
+        case 'S':
+                    searchMenu();
                     break;
         case 'p':
         case 'P':   sortMenu();
@@ -83,6 +83,10 @@ void UI::menu(char ans)
     }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9d22921c11defab2bceab09c12000c2a7eb69e83
 void UI::searchMenu()
 {
     cout << endl;
