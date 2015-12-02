@@ -11,16 +11,17 @@ void People::addIndi(const Individual& i1)
 }
 
 vector <Individual> People::getPerson() const
- {
+{
     return person;
- }
+}
 Individual People::getIndi(const int i) const
- {
+{
      return person[i];
- }
+}
 int People::getSize() const
- {
+{
      return(person.size());
+
  }
  void People::swap(const int i, const int j)
  {
@@ -50,6 +51,22 @@ int People::getSize() const
 
      return(t2>t1);
  }
+
+void People::removeIndi(string name)
+{
+    string tempName;
+    vector<Individual> newlist;
+
+    for (unsigned int i = 0; i < person.size(); i++)
+    {
+        tempName = person[i].getName() + " " + person[i].getSurname();
+        if(tempName != name)
+        {
+            newlist.push_back(person[i]);
+        }
+    }
+    person = newlist;
+}
 
 /*
 People::People(const People& p1)

@@ -78,7 +78,7 @@ void UI::menu(char ans)
         case 'P':   sortMenu();
                     break;
         case 'r':
-        case 'R':
+        case 'R':   remove();
                     break;
         case 'l':
         case 'L':   cout << "The current size of this list is: " << core.getSizeOfList() << endl;
@@ -191,7 +191,7 @@ void UI::addIndividual()
     string surname, name;
     int birth, death;
     char gender;
-
+    //bool found = false;
 
     cin.ignore();
     cout << endl;
@@ -244,6 +244,21 @@ void UI::addIndividual()
 
 }
 // a eftir ad klara
+
+
+
+void UI::remove()
+{
+    string str;
+    cin.ignore();
+    cout << endl;
+    cout << "Type exactly the name of the individual:" << endl;
+    getline(cin, str);
+    core.removeIndividual(str);
+
+}
+//a eftir ad klara
+
 
 void UI::searchName()
 {

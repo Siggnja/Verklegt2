@@ -21,6 +21,8 @@ public:
     void sortByGender(People& male, People& female);
     int getSizeOfList();
     void addIndividual(const Individual& ind);
+    void removeIndividual(const string str);
+
     //functions used to search for individuals in vector with specific traits:
     //void searchName();
     void searchNam(bool& found, string searchStr, People& result);

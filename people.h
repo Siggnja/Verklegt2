@@ -24,8 +24,9 @@ public:
     bool checkBirthYearOrder(const Individual& i1, const Individual& i2);
     bool checkDeathYearOrder(const Individual& i1, const Individual& i2);
     //adds and individual to vector
-
-    //default constructor
+    void removeIndi(string name);
+    //removes an individual from the database, returns a new variable People
+    //with a vector containing every individual except the removed one
 
     /*
     People(const string filename);

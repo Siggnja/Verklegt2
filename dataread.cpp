@@ -61,10 +61,11 @@ void Dataread::addToFile(const Individual& i1)
 }
 void Dataread::removeFromFile(const People& p1,const Individual& i1)
 {
+    //bool atBegin = true;
     People removed;
     for (int i = 0; i < p1.getSize(); i++)
     {
-        if(p1.getIndi(i) == i1)
+        if(!(p1.getIndi(i) == i1))
         {
             removed.addIndi(p1.getIndi(i));
         }
@@ -73,7 +74,8 @@ void Dataread::removeFromFile(const People& p1,const Individual& i1)
     file.open(filename.c_str());
     for (int i = 0; i < removed.getSize(); i++)
     {
-        file << endl;
+        //cout << atBegin << endl;
+
         file << removed.getIndi(i).getSurname() << endl;
         file << removed.getIndi(i).getName() << endl;
         file << removed.getIndi(i).getGender() << endl;
