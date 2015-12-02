@@ -2,53 +2,43 @@ Turing
 Alan
 m
 1912
-1954
-Babbage
+1954Babbage
 Charles
 m
 1791
-1871
-Lovelace
+1871Lovelace
 Ada
 f
 1815
-1852
-Hopper
+1852Hopper
 Grace Murray
 f
 1906
-1992
-Pascal
+1992Pascal
 Blaise
 m
 1623
-1662
-Atanasoff
+1662Atanasoff
 John Vincent
 m
 1903
-1995
-Berry
+1995Berry
 Clifford Edward
 m
 1918
-1963
-Kahn
+1963Kahn
 Robert Elliot
 m
 1938
-0
-Kleinrock
+0Kleinrock
 Leonard
 m
 1934
-0
-Roberts
+0Roberts
 Lawrence
 m
 1937
-0
-Cerf
+0Cerf
 Vinton Gray
 m
 1943
