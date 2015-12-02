@@ -1,14 +1,10 @@
 #ifndef UI_H
 #define UI_H
 
-#include "ui.h"
 #include "dataread.h"
 #include "individual.h"
-<<<<<<< HEAD
 #include "core.h"
-=======
 #include<iostream>
->>>>>>> origin
 
 using namespace std;
 
@@ -36,6 +32,7 @@ public:
     //void inDatabase();
     //void readingString(string gender);
 private:
+    Core c1;
 };
 
 #endif // UI_H

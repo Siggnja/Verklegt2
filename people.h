@@ -7,11 +7,6 @@
 #include <fstream>
 #include <cstdlib>
 #include <algorithm>
-<<<<<<< HEAD
-=======
-#include "people.h"
-//#include "dataread.h"
->>>>>>> origin
 #include "individual.h"
 //const string FILENAME = "people.txt";
 
@@ -20,6 +15,7 @@ using namespace std;
 class People
 {
 public:
+    People();
     vector <Individual> getPerson() const;
     void addIndi(const Individual& i1);
     Individual getIndi(const int i) const;
@@ -27,7 +23,7 @@ public:
     void swap(const int i, const int j);
     bool checkIndiOrder(const int i, const int j);
     //adds and individual to vector
-    People(){};
+
     //default constructor
 
     /*

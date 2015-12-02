@@ -16,7 +16,7 @@ void Core::sortAlpabetFront(People p1)
             }
         }
     }
-    //p1.printVector();
+    this->printVector();
 
 }
 //void sortAlpabetBack(const People& p1)

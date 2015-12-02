@@ -2,16 +2,13 @@
 #define CORE_H
 
 #include "people.h"
-#include "ui.h"
 #include "dataread.h"
-#include "individual.h"
 
 
 class Core
 {
 public:
     Core();
-public:
     void sortAlpabetFront(People p1);
     void sortAlpabetBack(const People& p1);
     void sortByBirthYear(const People& p1);
@@ -24,9 +21,10 @@ public:
     void searchBirth();
     void searchDeath();
     //sort vector by the specified order:
-
 */
-
+private:
+    void printVector();
+    People p1;
     //converts the string variable temp to all lower letters */
 
 };

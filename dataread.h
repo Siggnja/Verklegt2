@@ -3,7 +3,6 @@
 
 #include "people.h"
 #include "ui.h"
-#include "dataread.h"
 #include "individual.h"
 using namespace std;
 
