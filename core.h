@@ -19,15 +19,20 @@ public:
     //functions used to search for individuals in vector with specific traits:
     //void searchName();
     void searchNam(bool& found, string searchStr, People& result);
-    void searchGender();
-    void searchBirth();
-    void searchDeath();
+    void searchGend(bool& found, char ansGender, People& result);
+    void searchBir(bool& found, int ansYear, People& result1, People& result2);
+    void searchDea(bool& found, int ansYear, People& result1, People& result2);
+
     //sort vector by the specified order:
-    void sortAlpabetFront();
-    void sortAlpabetBack();
+    //void sortAlpabetFront();
+    void sortAlpabetFront(People& result);
+    void sortAlpabetBack(People& result);
+
     void sortByBirthYear();
     void sortByDeathYear();
     void sortByGender();
+
+    void swap(int& i, int& j);
 
     int getSizeOfList();
 

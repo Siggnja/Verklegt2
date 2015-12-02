@@ -68,6 +68,7 @@ public:
     //takes in two indexis of the person vector and swaps two individuals
     //who belong to these indexes in the vector
     void printVector(); */
+    bool checkIndiOrder(const Individual& i1, const Individual& i2);
 private:
     vector <Individual> person;
     /*
