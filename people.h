@@ -14,7 +14,7 @@ using namespace std;
 
 class People
 {
-public:
+public:/*
     People(const string filename);
     People(const People& p1);
     //copy constructor
@@ -52,7 +52,7 @@ private:
     bool checkBirthYearOrder(const Individual& i1, const Individual& i2);
     bool checkDeathYearOrder(const Individual& i1, const Individual& i2);
     string makeLower(string& temp);
-    //converts the string variable temp to all lower letters
+    //converts the string variable temp to all lower letters*/
 };
 
 #endif // PEOPLE_H

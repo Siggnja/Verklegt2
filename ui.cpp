@@ -4,7 +4,7 @@ UI::UI()
 {
 
 }
-
+/*
 void UI::ask() {
     cout << endl;
     cout << "Do you want to: " << endl;
@@ -127,4 +127,4 @@ void UI::welcomeMessage(People& p)
     cout << "\t" << "    In this database you can add, remove, sort and search" << endl;
     cout << "\t \t" <<" At this moment we have "<< p.getSize() << " computer scientists!" << endl;
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
-}
+}*/

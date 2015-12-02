@@ -11,7 +11,7 @@ class UI
 {
 public:
     UI();
-
+/*
     void ask();
     //asks what should be done with the list
     void menu(char ans, People& list);
@@ -20,7 +20,7 @@ public:
     //choose what shall be searched for
     void sortMenu(People& p);
     //choose in what order the list shall be printed
-    void welcomeMessage(People& p);
+    void welcomeMessage(People& p);*/
 
 private:
 };

@@ -9,7 +9,7 @@
 using namespace std;
 
 class Individual
-{
+{/*
 private:
     string name, surname;
     char gender;    // f/F or m/M
@@ -28,7 +28,7 @@ public:
     string getSurname() const;
     char getGender() const;
     int getBirth() const;
-    int getDeath() const;
+    int getDeath() const;*/
 };
 
 #endif // INDIVIDUAL_H

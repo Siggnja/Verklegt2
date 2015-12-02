@@ -1,5 +1,5 @@
 #include "people.h"
-
+/*
 People::People()
 {
 
@@ -492,4 +492,4 @@ ostream& operator << (ostream& outs, People& p1)
     }
     return outs;
 }
-
+*/

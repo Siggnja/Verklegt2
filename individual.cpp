@@ -1,5 +1,5 @@
 #include "individual.h"
-
+/*
 Individual::Individual()
 {
 
@@ -125,3 +125,4 @@ int Individual::getDeath() const
 {
     return death;
 }
+*/
