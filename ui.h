@@ -5,16 +5,19 @@
 #include "ui.h"
 //#include "dataread.h"
 #include "individual.h"
+#include<iostream>
 
+using namespace std;
 
 class UI
 {
 public:
     UI();
-/*
+    void run();
+
     void ask();
     //asks what should be done with the list
-    void menu(char ans, People& list);
+/*    void menu(char ans, People& list);
     //call for changes to the list
     void searchMenu(People& p);
     //choose what shall be searched for

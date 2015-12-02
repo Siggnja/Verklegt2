@@ -4,6 +4,12 @@ UI::UI()
 {
 
 }
+
+void UI::run()
+{
+    ask();
+}
+
 /*
 
 void UI::errorFile()
@@ -35,7 +41,7 @@ void UI::readingString(string gender)
 {
     cout << "--- Reading " << gender << " ---" << endl;
 }
-
+*/
 
 void UI::ask() {
     cout << endl;
@@ -47,7 +53,7 @@ void UI::ask() {
     cout << "(Q) Quit program. " << endl;
     cout << "Select a letter: ";
 }
-
+/*
 void UI::menu(char ans, People& list)
 {
     switch(ans) {

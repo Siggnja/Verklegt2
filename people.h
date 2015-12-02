@@ -8,7 +8,6 @@
 #include <cstdlib>
 #include <algorithm>
 #include "people.h"
-#include "ui.h"
 //#include "dataread.h"
 #include "individual.h"
 //const string FILENAME = "people.txt";
@@ -23,12 +22,14 @@ public:
     Individual getIndi(const int i) const;
     int getSize() const;
     //adds and individual to vector
+    People(){};
+    //default constructor
+
     /*
     People(const string filename);
     People(const People& p1);
     //copy constructor
-    People();
-    //default constructor
+
 
     void addIndi(Individual& i1);
     //adds and individual to vector

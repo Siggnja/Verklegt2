@@ -1,4 +1,6 @@
 #include "people.h"
+
+
 void People::addIndi(const Individual& i1)
 {
         person.push_back(i1);
@@ -19,12 +21,9 @@ void People::addIndi(const Individual& i1)
      return(person.size());
  }
 
+
+
 /*
-People::People()
-{
-
-}
-
 People::People(const People& p1)
 {
     for(unsigned int i = 0 ; i < p1.person.size(); i++)
