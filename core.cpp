@@ -17,6 +17,12 @@ void Core::swap(int& i, int& j)
     j = temp;
 }
 
+void Core::addIndividual(const Individual& ind)
+{
+    list.addIndi(ind);
+    data.addToFile(ind);
+}
+
 
 /*  Sort functions:
 

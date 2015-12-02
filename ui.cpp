@@ -239,6 +239,8 @@ void UI::addIndividual()
 
     Individual temp(surname, name, gender, birth, death);//fer inn i add
 
+    core.addIndividual(temp);
+
 
 }
 // a eftir ad klara

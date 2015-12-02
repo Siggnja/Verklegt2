@@ -15,6 +15,7 @@ private:
 public:
     Core();
 
+    void addIndividual(const Individual& ind);
 
     //functions used to search for individuals in vector with specific traits:
     //void searchName();
