@@ -4,7 +4,6 @@ Dataread::Dataread(const string FILENAME)
 {
         filename = FILENAME;
 }
-
 People Dataread::readData()
 {
     People p1;
@@ -64,7 +63,7 @@ void Dataread::removeFromFile(const People& p1,const Individual& i1)
         }
     }
     ofstream file;
-    file.open(FILENAME.c_str());
+    file.open(filename.c_str());
     for (int i = 0; i < removed.getSize(); i++)
     {
         file << endl;
