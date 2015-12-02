@@ -22,6 +22,10 @@ public:
     //choose in what order the list shall be printed
     void welcomeMessage(People& p);*/
 
+    //void errorFile();
+    //void errorInput();
+    //void individualsMatched();
+    //void noMatch();
 private:
 };
 

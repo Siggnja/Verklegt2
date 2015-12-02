@@ -5,6 +5,30 @@ UI::UI()
 
 }
 /*
+
+
+
+void UI::errorFile()
+{
+    cout << "Something went wrong while opening the file" << endl;
+}
+
+void UI::errorInput()
+{
+    cout << "Invalid input, try again." << endl;
+}
+
+void UI::individualsMatched()
+{
+    cout << "Invalid input, try again." << endl;
+}
+
+void UI::noMatch()
+{
+    cout << "No one matched your search." << endl;
+}
+
+
 void UI::ask() {
     cout << endl;
     cout << "Do you want to: " << endl;

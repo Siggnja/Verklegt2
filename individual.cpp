@@ -13,6 +13,10 @@ Individual::Individual(const string surnam, const string nam, const char gend, c
     birth = bir;
     death = dea;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> c3ecd5d30ff9ac479edaf836ed24bb2d316266e7
 bool operator == (const Individual& indi, const Individual& indi2)
 {
     if (indi.birth == indi2.birth && indi.death == indi2.death && indi.surname == indi2.surname
@@ -25,6 +29,7 @@ bool operator == (const Individual& indi, const Individual& indi2)
         return false;
     }
 }
+<<<<<<< HEAD
 /*
 ostream& operator << (ostream& outs, Individual& id)
 {
@@ -43,63 +48,40 @@ ostream& operator << (ostream& outs, Individual& id)
 }
 
 istream& operator >> (istream& ins, Individual& id)
+=======
+
+void Individual::setName(string str)
+>>>>>>> c3ecd5d30ff9ac479edaf836ed24bb2d316266e7
 {
-    cout << endl;
-    char ans;
-    cout << "Surname: ";
-    getline(ins, id.surname);
-    cout << "Given name: ";
-    getline(ins, id.name);
-
-    do{
-        cout << "Gender (m/f): ";
-        ins >> id.gender;
-        if(id.gender != 'f' && id.gender != 'm' && id.gender != 'F' && id.gender != 'M')
-        {
-            cout << "Invalid input, please try again!" << endl << endl;
-        }
-    } while(id.gender != 'f' && id.gender != 'm' && id.gender != 'F' && id.gender != 'M');
-
-    do {
-        ins.clear();
-        ins.ignore();
-        cout << "Year of birth: ";
-        ins >> id.birth;
-        if(ins.fail())
-        {
-            cout << endl << "Invalid input, please try again!" << endl << endl;
-        }
-    } while(ins.fail());
-
-    cout << "Is the individual alive?(y/n) ";
-    cin >> ans;
-    if (ans == 'n' || ans == 'N')
-    {
-        do {
-            ins.clear();
-            ins.ignore();
-            cout << "Year of death: ";
-            ins >> id.death;
-            if(ins.fail())
-            {
-                cout << endl << "Invalid input, please try again!" << endl << endl;
-            }
-            if(id.birth>id.death)
-            {
-                cout<<"Illegal deathyear! Input again: "<<endl<<endl;
-            }
-        } while(ins.fail()||id.birth>id.death);
-
-        id.alive = 1;
-    }
-    else
-    {
-        id.death = 0;
-        id.alive = 0;
-    }    
-    return ins;
+    name = str;
 }
+
+void Individual::setSurname(string str)
+{
+    name = str;
+}
+
+void Individual::setGender(char g)
+{
+    gender = g;
+}
+
+void Individual::setBirth(int i)
+{
+    birth = i;
+}
+
+void Individual::setDeath(int i)
+{
+    death = i;
+}
+<<<<<<< HEAD
 */
+=======
+
+
+
+>>>>>>> c3ecd5d30ff9ac479edaf836ed24bb2d316266e7
 string Individual::getName() const
 {
     return name;

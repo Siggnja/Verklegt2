@@ -25,13 +25,59 @@ People::People()
 
 }
 
+People::People(const People& p1)
+{
+    for(unsigned int i = 0 ; i < p1.person.size(); i++)
+    {
+       person.push_back(p1.person[i]);
+    }
+}
+
+int People::getSize() const
+{
+    return(person.size());
+}
+
+vector<Individual> People::getVector()
+{
+    return person;
+}
+
+void People::removeIndi(string name)
+{
+    People removed;
+    string tempName;
+    vector<Individual> newlist;
+
+    for (unsigned int i = 0; i < person.size(); i++)
+    {
+        tempName = person[i].getName() + " " + person[i].getSurname();
+        if(tempName != name)
+        {
+            newlist.push_back(person[i]);
+        }
+    }
+    person = newlist;
+}
+
+void People::addIndi(Individual& i1)
+{
+    person.push_back(i1);
+}
+
+Individual People::getIndi(const int i) const
+{
+    return person[i];
+}
+
+/*
 People::People(const string filename)
 {
     ifstream ins;
     ins.open(filename.c_str());
     if(ins.fail())
     {
-        cout << "Something went wrong while opening the file" << endl;
+        errorFile();
         exit(1);
     }
     string first ,last;
@@ -70,7 +116,25 @@ int People::getSize() const
 
 void People::saveFile(const string filename)
 {
+<<<<<<< HEAD
 
+=======
+    ofstream outs;
+    outs.open(filename.c_str(), ios::app);
+    if(outs.fail())
+    {
+        errorFile();
+        exit(1);
+    }
+    outs << endl;
+    outs << person[person.size()-1].getSurname() << endl;
+    outs << person[person.size()-1].getName() << endl;
+    outs << person[person.size()-1].getGender() << endl;
+    outs << person[person.size()-1].getBirth() << endl;
+    outs << person[person.size()-1].getDeath() ;
+
+    outs.close();
+>>>>>>> c3ecd5d30ff9ac479edaf836ed24bb2d316266e7
 }
 
 void People::sortAlpabetFront()
@@ -184,7 +248,7 @@ void People::sortByGender()
     }
     else
     {
-        cout << "Wrong input try again" << endl;
+        errorInput();
         this->sortByGender();
     }
 }
@@ -274,7 +338,7 @@ void People::searchName()
     }
     if (found == false)
     {
-        cout << "No one matched your search." << endl;
+        noMatch();
     }
 }
 
@@ -303,12 +367,12 @@ void People::searchGender()
     }
     else
     {
-        cout << "Incorrect input, please try again!" << endl;
+        errorInput();
         this->searchGender();
     }
     if (found == false)
     {
-        cout << "No one matched your search!" << endl;
+        noMatch();
     }
 }
 
@@ -341,7 +405,7 @@ void People::searchBirth()
         }
         if (found == false)
         {
-           cout << "No one matched your search." << endl;
+            noMatch();
                 if(result2.person.size()!=0)
                 {
                     cout << "However these individuals were found within"
@@ -353,7 +417,7 @@ void People::searchBirth()
     }
     else
     {
-        cout << "Incorrect input, please try again!" << endl;
+        errorInput();
         cin.clear();
         cin.ignore();
         this->searchBirth();
@@ -389,7 +453,7 @@ void People::searchDeath()
         }
         if (found == false)
         {
-           cout << "No one matched your search." << endl;
+           noMatch();
                 if(result2.person.size()!=0)
                 {
                     cout << "However these individuals were found within"
@@ -400,11 +464,10 @@ void People::searchDeath()
     }
     else
     {
-        cout << "Incorrect input, please try again!" << endl;
+        errorInput();
         cin.clear();
         cin.ignore();
         this->searchDeath();
-
     }
 }
 
