@@ -6,8 +6,6 @@ UI::UI()
 }
 /*
 
-
-
 void UI::errorFile()
 {
     cout << "Something went wrong while opening the file" << endl;
@@ -20,12 +18,22 @@ void UI::errorInput()
 
 void UI::individualsMatched()
 {
-    cout << "Invalid input, try again." << endl;
+    out << "--- The following people match your search ---" << endl;
 }
 
 void UI::noMatch()
 {
     cout << "No one matched your search." << endl;
+}
+
+void UI::inDatabase()
+{
+    cout << "This individual is already in the database " << endl;
+}
+
+void UI::readingString(string gender)
+{
+    cout << "--- Reading " << gender << " ---" << endl;
 }
 
 
@@ -97,7 +105,7 @@ void searchMenu(People& p)
         case 'q':
         case 'Q':   //exit(1);
                     break;
-        default:    cout << "Incorrect input, please try again!" << endl;
+        default:    errorInput();
                     searchMenu(p);
     }
 }
@@ -140,7 +148,7 @@ void UI::sortMenu(People& p)
         case 'q':
         case 'Q':   exit(1);
                     break;
-        default:    cout << "Incorrect input, please try again!" << endl;
+        default:    errorInput();
                     sortMenu(p);
     }
 }

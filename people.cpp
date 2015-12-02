@@ -109,7 +109,7 @@ void People::addIndi(Individual& i1)
     }
     else
     {
-        cout << "This person is already in the database " << endl;
+        inDatabase();
     }
 }
 
@@ -234,16 +234,16 @@ void People::sortByGender()
     }
     if(ans == 'm' || ans == 'M')
     {
-        cout << "--- Reading males ---" << endl;
+        readingString("males");
         male.sortAlpabetFront();
-        cout << "--- Reading females ---" << endl;
+        readingString("females");
         female.sortAlpabetFront();
     }
     else if(ans == 'f' || ans == 'F')
     {
-        cout << "--- Reading females ---" << endl;
+        readingString("females");
         female.sortAlpabetFront();
-        cout << "--- Reading males ---" << endl;
+        readingString("males");
         male.sortAlpabetFront();
     }
     else
@@ -325,7 +325,7 @@ void People::searchName()
     getline(cin, searchStr);
     searchStr = makeLower(searchStr);
 
-    cout << "--- The following people match your search ---" << endl;
+    individualsMatched();
     for(unsigned int i = 0; i < person.size(); i++)
     {
         tempStr = person[i].getName() + " " + person[i].getSurname();
@@ -353,7 +353,7 @@ void People::searchGender()
     cout << endl;
     if(ansGender == 'm' || ansGender == 'M' || ansGender=='f' || ansGender=='F')
     {
-        cout << "--- The following people match your search ---" << endl;
+        individualsMatched();
         for (unsigned int i = 0; i < person.size(); i++)
         {
             findGender = person[i].getGender();
@@ -385,7 +385,7 @@ void People::searchBirth()
     cin >> ansYear;
     if(!cin.fail())
     {
-        cout << "--- The following people match your search ---" << endl;
+        individualsMatched();
         for (unsigned int i = 0; i < person.size(); i++)
         {
             findYear = person[i].getBirth();
@@ -433,7 +433,7 @@ void People::searchDeath()
     cin >> ansYear;
     if(!cin.fail())
     {
-        cout << "--- The following people match your search ---" << endl;
+        individualsMatched();
         for (unsigned int i = 0; i < person.size(); i++)
         {
             findYear = person[i].getDeath();
