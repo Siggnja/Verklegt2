@@ -4,29 +4,38 @@
 #include "people.h"
 #include "dataread.h"
 
+using namespace std;
 
 class Core
 {
+private:
+    People list;
+    Dataread data;
+    void swap(const int i, const int j);
 public:
     Core();
-    void sortAlpabetFront(People p1);
-    void sortAlpabetBack(const People& p1);
-    void sortByBirthYear(const People& p1);
-    void sortByDeathYear(const People& p1);
-    void sortByGender(const People& p1);
-    /*
+    void sortAlpabetFront();
+    void sortAlpabetBack();
+    void sortByBirthYear();
+    void sortByDeathYear();
+    void sortByGender(People& male, People& female);
+    int getSizeOfList();
+    void addIndividual(const Individual& ind);
     //functions used to search for individuals in vector with specific traits:
-    void searchName();
-    void searchGender();
-    void searchBirth();
-    void searchDeath();
+    //void searchName();
+    void searchNam(bool& found, string searchStr, People& result);
+    void searchGend(bool& found, char ansGender, People& result);
+    void searchBir(bool& found, int ansYear, People& result1, People& result2);
+    void searchDea(bool& found, int ansYear, People& result1, People& result2);
+    People getList() const;
     //sort vector by the specified order:
-*/
-private:
-    void printVector();
-    People p1;
-    //converts the string variable temp to all lower letters */
 
+
+
+
+
+    string makeLower(string& temp);
+    //converts the string variable temp to all lower letters */
 };
 
 #endif // CORE_H

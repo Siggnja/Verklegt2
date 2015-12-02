@@ -7,6 +7,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <algorithm>
+//#include "dataread.h"
 #include "individual.h"
 //const string FILENAME = "people.txt";
 
@@ -20,8 +21,8 @@ public:
     void addIndi(const Individual& i1);
     Individual getIndi(const int i) const;
     int getSize() const;
-    void swap(const int i, const int j);
-    bool checkIndiOrder(const int i, const int j);
+    bool checkBirthYearOrder(const Individual& i1, const Individual& i2);
+    bool checkDeathYearOrder(const Individual& i1, const Individual& i2);
     //adds and individual to vector
 
     //default constructor
@@ -65,24 +66,18 @@ public:
     //with a vector containing every individual except the removed one
     friend ostream& operator << (ostream& outs, People& p1)
 
-
     friend ostream& operator << (ostream& outs, People& p1);
     Individual getIndi(const int i) const;
     //takes in two indexis of the person vector and swaps two individuals
     //who belong to these indexes in the vector
     void printVector(); */
+    bool checkIndiOrder(const Individual& i1, const Individual& i2);
 private:
-
-    vector <Individual> person;
-    /*
-
-    void saveFile(const string filename);
     void swap(const int i, const int j);
+    bool checkIndiOrder(const int i, const int j);
+    vector <Individual> person;
     //saves individuals in vector to file
-    bool checkBirthYearOrder(const Individual& i1, const Individual& i2);
-    bool checkDeathYearOrder(const Individual& i1, const Individual& i2);
-    string makeLower(string& temp);
-    //converts the string variable temp to all lower letters */
-};
 
+
+};
 #endif // PEOPLE_H

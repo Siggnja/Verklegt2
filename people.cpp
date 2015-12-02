@@ -4,22 +4,21 @@ People::People()
 {
 
 }
+
 void People::addIndi(const Individual& i1)
 {
         person.push_back(i1);
-
 }
 
- vector <Individual> People::getPerson() const
+vector <Individual> People::getPerson() const
  {
     return person;
-
  }
- Individual People::getIndi(const int i) const
+Individual People::getIndi(const int i) const
  {
      return person[i];
  }
- int People::getSize() const
+int People::getSize() const
  {
      return(person.size());
  }
@@ -138,8 +137,6 @@ int People::getSize() const
     return(person.size());
 }
 
-<<<<<<< HEAD
-=======
 void People::addIndi(Individual& i1)
 {
     bool CheckIfNewIndi = true;
@@ -160,14 +157,10 @@ void People::addIndi(Individual& i1)
         inDatabase();
     }
 }
->>>>>>> bf860b9c75ca46379fdc9331be2c50853898f372
 
 
 void People::saveFile(const string filename)
 {
-<<<<<<< HEAD
-
-=======
     ofstream outs;
     outs.open(filename.c_str(), ios::app);
     if(outs.fail())
@@ -183,7 +176,6 @@ void People::saveFile(const string filename)
     outs << person[person.size()-1].getDeath() ;
 
     outs.close();
->>>>>>> c3ecd5d30ff9ac479edaf836ed24bb2d316266e7
 }
 
 void People::sortAlpabetFront()
@@ -309,8 +301,37 @@ void People::printVector()
         cout << person[i] << endl;
      }
 }
+<<<<<<< HEAD
 
 
+
+=======
+*/
+bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
+{
+    string s1 = i1.getSurname();
+    string s2 = i2.getSurname();
+    char c1 = tolower(s1[0]);
+    char c2 = tolower(s2[0]);
+    int t1 = static_cast <int> (c1);
+    int t2 = static_cast <int> (c2);
+    if(t1==t2)
+    {
+        c1 = tolower(s1[1]);
+        c2 = tolower(s2[1]);
+        t1 = static_cast <int> (c1);
+        t2 = static_cast <int> (c2);
+        if(t1==t2)
+        {
+            c1 = tolower(s1[2]);
+            c2 = tolower(s2[2]);
+            t1 = static_cast <int> (c1);
+            t2 = static_cast <int> (c2);
+        }
+    }
+
+    return(t2>t1);
+}
 
 bool People::checkBirthYearOrder(const Individual& i1, const Individual& i2)
 {
@@ -321,7 +342,7 @@ bool People::checkDeathYearOrder(const Individual& i1, const Individual& i2)
 {
     return(i1.getDeath()>i2.getDeath());
 }
-
+/*
 string People::makeLower(string& temp)
 {
     for (unsigned int i = 0; i < temp.length(); i++)
@@ -333,7 +354,6 @@ string People::makeLower(string& temp)
     }
     return temp;
 }
-
 void People::searchName()
 {
     bool found = false;
