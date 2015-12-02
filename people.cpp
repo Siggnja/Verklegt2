@@ -1,4 +1,24 @@
 #include "people.h"
+void People::addIndi(const Individual& i1)
+{
+        person.push_back(i1);
+
+}
+
+ vector <Individual> People::getPerson() const
+ {
+    return person;
+
+ }
+ Individual People::getIndi(const int i) const
+ {
+     return person[i];
+ }
+ int People::getSize() const
+ {
+     return(person.size());
+ }
+
 /*
 People::People()
 {
@@ -46,49 +66,11 @@ int People::getSize() const
     return(person.size());
 }
 
-void People::addIndi(Individual& i1)
-{
-    bool CheckIfNewIndi = true;
-    for(unsigned int i = 0 ; i < person.size(); i++)
-    {
-        if(person[i]==i1)
-        {
-            CheckIfNewIndi=false;
-        }
-    }
-    if(CheckIfNewIndi)
-    {
-        person.push_back(i1);
-        saveFile(FILENAME);
-    }
-    else
-    {
-        cout << "This person is already in the database " << endl;
-    }
-}
 
-Individual People::getIndi(const int i) const
-{
-    return person[i];
-}
 
 void People::saveFile(const string filename)
 {
-    ofstream outs;
-    outs.open(filename.c_str(), ios::app);
-    if(outs.fail())
-    {
-        cout << "Something went wrong with opening the output file" << endl;
-        exit(1);
-    }
-    outs << endl;
-    outs << person[person.size()-1].getSurname() << endl;
-    outs << person[person.size()-1].getName() << endl;
-    outs << person[person.size()-1].getGender() << endl;
-    outs << person[person.size()-1].getBirth() << endl;
-    outs << person[person.size()-1].getDeath() ;
 
-    outs.close();
 }
 
 void People::sortAlpabetFront()

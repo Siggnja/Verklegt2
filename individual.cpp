@@ -1,5 +1,5 @@
 #include "individual.h"
-/*
+
 Individual::Individual()
 {
 
@@ -13,7 +13,19 @@ Individual::Individual(const string surnam, const string nam, const char gend, c
     birth = bir;
     death = dea;
 }
-
+bool operator == (const Individual& indi, const Individual& indi2)
+{
+    if (indi.birth == indi2.birth && indi.death == indi2.death && indi.surname == indi2.surname
+       && indi.gender == indi2.gender && indi.name == indi2.name)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+/*
 ostream& operator << (ostream& outs, Individual& id)
 {
     outs << "Name: " << id.surname << ", " << id.name << endl;
@@ -28,19 +40,6 @@ ostream& operator << (ostream& outs, Individual& id)
         outs << "Year of death: " << id.death << endl;
     }
     return outs;
-}
-
-bool operator == (const Individual& indi, const Individual& indi2)
-{
-    if (indi.birth == indi2.birth && indi.death == indi2.death && indi.surname == indi2.surname
-       && indi.gender == indi2.gender && indi.name == indi2.name)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
 }
 
 istream& operator >> (istream& ins, Individual& id)
@@ -100,7 +99,7 @@ istream& operator >> (istream& ins, Individual& id)
     }    
     return ins;
 }
-
+*/
 string Individual::getName() const
 {
     return name;
@@ -125,4 +124,4 @@ int Individual::getDeath() const
 {
     return death;
 }
-*/
+
