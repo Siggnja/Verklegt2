@@ -42,6 +42,7 @@ public:
 
     void printSize();
     void printList();
+    void remove();
 
     //cout setningar:
 

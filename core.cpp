@@ -23,6 +23,26 @@ void Core::addIndividual(const Individual& ind)
     data.addToFile(ind);
 }
 
+void Core::removeIndividual(const string str)
+{
+    Individual temp;
+    string tempstr;
+    list.removeIndi(str);
+
+    for(int i = 0; i < list.getSize(); i++)
+    {
+        tempstr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
+        if(tempstr == str)
+        {
+            temp = list.getIndi(i);
+            break;
+        }
+    }
+
+    for(int i = 0; i < list.getSize(); i++)
+        data.removeFromFile(list, temp);
+}
+
 
 /*  Sort functions:
 
