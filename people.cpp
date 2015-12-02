@@ -1,6 +1,7 @@
 #include "people.h"
 
-People::People() {
+People::People()
+{
 
 }
 
@@ -34,7 +35,8 @@ People::People(const string filename)
 
 People::People(const People& p1)
 {
-    for(unsigned int i = 0 ; i < p1.person.size(); i++) {
+    for(unsigned int i = 0 ; i < p1.person.size(); i++)
+    {
        person.push_back(p1.person[i]);
     }
 }
@@ -47,16 +49,22 @@ int People::getSize() const
 void People::addIndi(Individual& i1)
 {
     bool CheckIfNewIndi = true;
-    for(unsigned int i = 0 ; i < person.size(); i++) {
+    for(unsigned int i = 0 ; i < person.size(); i++)
+    {
         if(person[i]==i1)
+        {
             CheckIfNewIndi=false;
+        }
     }
-    if(CheckIfNewIndi) {
+    if(CheckIfNewIndi)
+    {
         person.push_back(i1);
         saveFile(FILENAME);
     }
     else
+    {
         cout << "This person is already in the database " << endl;
+    }
 }
 
 Individual People::getIndi(const int i) const
@@ -167,11 +175,16 @@ void People::sortByGender()
     char ans;
     cout << "Do you want to sort by male(m) or female(f)? " ;
     cin >> ans;
-    for(unsigned int j = 0; j<r1.person.size(); j++) {
+    for(unsigned int j = 0; j<r1.person.size(); j++)
+    {
         if(r1.getIndi(j).getGender() == 'm' || r1.getIndi(j).getGender()=='M')
+        {
             male.person.push_back(r1.person[j]);
+        }
         else
+        {
             female.person.push_back(r1.person[j]);
+        }
     }
     if(ans == 'm' || ans == 'M')
     {
@@ -203,7 +216,8 @@ void People::swap(const int i, const int j)
 
 void People::printVector()
 {
-     for(unsigned int i = 0; i < person.size(); i++) {
+     for(unsigned int i = 0; i < person.size(); i++)
+     {
         cout << person[i] << endl;
      }
 }
@@ -246,9 +260,12 @@ bool People::checkDeathYearOrder(const Individual& i1, const Individual& i2)
 
 string People::makeLower(string& temp)
 {
-    for (unsigned int i = 0; i < temp.length(); i++) {
+    for (unsigned int i = 0; i < temp.length(); i++)
+    {
         if(isupper(temp[i]))
+        {
             temp[i] = tolower(temp[i]);
+        }
     }
     return temp;
 }
@@ -263,16 +280,20 @@ void People::searchName()
     searchStr = makeLower(searchStr);
 
     cout << "--- The following people match your search ---" << endl;
-    for(unsigned int i = 0; i < person.size(); i++) {
+    for(unsigned int i = 0; i < person.size(); i++)
+    {
         tempStr = person[i].getName() + " " + person[i].getSurname();
         tempStr = makeLower(tempStr);
-        if(tempStr.find(searchStr) != string::npos) {  //if ( . == string::npos) ->not found
+        if(tempStr.find(searchStr) != string::npos)
+        {
             cout << person[i] << endl;
             found = true;
         }
     }
     if (found == false)
+    {
         cout << "No one matched your search." << endl;
+    }
 }
 
 void People::searchGender()
@@ -290,7 +311,8 @@ void People::searchGender()
         for (unsigned int i = 0; i < person.size(); i++)
         {
             findGender = person[i].getGender();
-            if (tolower(ansGender) == tolower(findGender)) {
+            if (tolower(ansGender) == tolower(findGender))
+            {
                 result.person.push_back(person[i]);
                 found = true;
             }
@@ -318,17 +340,21 @@ void People::searchBirth()
     if(!cin.fail())
     {
         cout << "--- The following people match your search ---" << endl;
-        for (unsigned int i = 0; i < person.size(); i++) {
+        for (unsigned int i = 0; i < person.size(); i++)
+        {
             findYear = person[i].getBirth();
-            if (ansYear == findYear) {
+            if (ansYear == findYear)
+            {
                 result1.person.push_back(person[i]);
                 found = true;
             }
-            if (ansYear - 5 <= findYear && ansYear+5 >= findYear) {
+            if (ansYear - 5 <= findYear && ansYear+5 >= findYear)
+            {
                 result2.person.push_back(person[i]);
             }
         }
-        if(found) {
+        if(found)
+        {
             result1.sortAlpabetFront();
         }
         if (found == false)
@@ -350,7 +376,6 @@ void People::searchBirth()
         cin.ignore();
         this->searchBirth();
     }
-
 }
 
 void People::searchDeath()
@@ -363,18 +388,21 @@ void People::searchDeath()
     if(!cin.fail())
     {
         cout << "--- The following people match your search ---" << endl;
-        for (unsigned int i = 0; i < person.size(); i++) {
+        for (unsigned int i = 0; i < person.size(); i++)
+        {
             findYear = person[i].getDeath();
             if (ansYear == findYear)
             {
                 result1.person.push_back(person[i]);
                 found = true;
             }
-            if (ansYear - 5 <= findYear && ansYear + 5 >= findYear) {
+            if (ansYear - 5 <= findYear && ansYear + 5 >= findYear)
+            {
                 result2.person.push_back(person[i]);
             }
         }
-        if(found) {
+        if(found)
+        {
             result1.sortAlpabetFront();
         }
         if (found == false)
@@ -408,26 +436,34 @@ People People::removeIndi()
     cout << endl << "Do you want to see the list of all people?(y/n) " << endl;
     cin >> ans;
     if (ans == 'y' || ans == 'Y')
+    {
         printVector();
+    }
     cin.ignore();
 
     cout << "Enter the exact name of the individual that will be removed: ";
     getline(cin, name);     // input as: name surname
 
-    for (unsigned int i = 0; i < person.size(); i++) {
+    for (unsigned int i = 0; i < person.size(); i++)
+    {
         tempName = person[i].getName() + " " + person[i].getSurname();
-        if(tempName != name) {
+        if(tempName != name)
+        {
             removed.person.push_back(person[i]);
         }
         else if(tempName == name)
+        {
             found = true;
+        }
     }
 
-    if (found == false) {
+    if (found == false)
+    {
         cout << "There is no one named " << name << " on the list." << endl;
         return *this;
     }
-    else {
+    else
+    {
         ofstream file;
         file.open(FILENAME.c_str());
         file << removed;
@@ -446,9 +482,13 @@ ostream& operator << (ostream& outs, People& p1)
         outs << p1.person[i].getGender() << endl;
         outs << p1.person[i].getBirth() << endl;
         if(i == p1.person.size()-1)
+        {
             outs << p1.person[i].getDeath();
+        }
         else
+        {
             outs << p1.person[i].getDeath() << endl;
+        }
     }
     return outs;
 }
