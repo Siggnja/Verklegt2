@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "core.h"
+#include "people.h"
 using namespace std;
 
 class UI
@@ -32,7 +33,7 @@ public:
     //choose in what order the list shall be printed
     void welcomeMessage();
 
-    //void printList();
+    void printSize();
 
     //cout setningar:
 

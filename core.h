@@ -15,6 +15,7 @@ private:
 public:
     Core();
 
+
     //functions used to search for individuals in vector with specific traits:
     //void searchName();
     void searchNam(bool& found, string searchStr, People& result);
@@ -27,6 +28,8 @@ public:
     void sortByBirthYear();
     void sortByDeathYear();
     void sortByGender();
+
+    int getSizeOfList();
 
     string makeLower(string& temp);
     //converts the string variable temp to all lower letters

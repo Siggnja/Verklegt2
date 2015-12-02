@@ -5,6 +5,11 @@ Core::Core()
     list = data.readData();
 }
 
+int Core::getSizeOfList()
+{
+    return list.getSize();
+}
+
 /*  Sort functions:
 
 void People::sortAlpabetFront()

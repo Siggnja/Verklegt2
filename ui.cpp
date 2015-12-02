@@ -16,6 +16,10 @@ void UI::run()
     }
 }
 
+void UI::printSize()
+{
+    cout << core.getSizeOfList();
+}
 
 void UI::errorFile()
 {
