@@ -14,7 +14,6 @@ class UI
 public:
     UI();
     void run();
-
     void ask();
     void menu(char ans);
     //asks what should be done with the list
