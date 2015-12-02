@@ -83,10 +83,7 @@ void UI::menu(char ans)
     }
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 9d22921c11defab2bceab09c12000c2a7eb69e83
 void UI::searchMenu()
 {
     cout << endl;

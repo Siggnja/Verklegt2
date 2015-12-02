@@ -1,8 +1,8 @@
 #ifndef UI_H
 #define UI_H
 
-#include<iostream>
-#include"core.h"
+#include <iostream>
+#include "core.h"
 using namespace std;
 
 class UI

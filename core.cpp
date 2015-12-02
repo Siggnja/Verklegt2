@@ -152,8 +152,8 @@ void Core::searchName()
     getline(cin, searchStr);
     searchStr = makeLower(searchStr);
 
-    ui.individualsMatched();
-    for(unsigned int i = 0; i < list.getSize(); i++)
+
+    for(int i = 0; i < list.getSize(); i++)
     {
         tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
         tempStr = makeLower(tempStr);
@@ -164,10 +164,10 @@ void Core::searchName()
         }
     }
     //result.sortAlpabetFront();
-    sortAlpabetFront();
+    //sortAlpabetFront();
     if (found == false)
     {
-        ui.noMatch();
+        //ui.noMatch();
     }
 }
 
@@ -182,8 +182,8 @@ void Core::searchGender()
     cout << endl;
     if(ansGender == 'm' || ansGender == 'M' || ansGender=='f' || ansGender=='F')
     {
-        ui.individualsMatched();
-        for (unsigned int i = 0; i < list.getSize(); i++)
+        //ui.individualsMatched();
+        for (int i = 0; i < list.getSize(); i++)
         {
             findGender = list.getIndi(i).getGender();
             if (tolower(ansGender) == tolower(findGender))
@@ -193,16 +193,16 @@ void Core::searchGender()
             }
         }
         //result.sortAlpabetFront();
-        sortAlpabetFront();
+        //sortAlpabetFront();
     }
     else
     {
-        ui.errorInput();
+        //ui.errorInput();
         this->searchGender();
     }
     if (found == false)
     {
-        ui.noMatch();
+        //ui.noMatch();
     }
 }
 
@@ -215,8 +215,8 @@ void Core::searchBirth()
     cin >> ansYear;
     if(!cin.fail())
     {
-        ui.individualsMatched();
-        for (unsigned int i = 0; i < list.getSize(); i++)
+        //ui.individualsMatched();
+        for (int i = 0; i < list.getSize(); i++)
         {
             findYear = list.getIndi(i).getBirth();
             if (ansYear == findYear)
@@ -232,24 +232,24 @@ void Core::searchBirth()
         if(found)
         {
             //result1.sortAlpabetFront();
-            sortAlpabetFront();
+            //sortAlpabetFront();
         }
         if (found == false)
         {
-            ui.individualsMatched();
+            //ui.individualsMatched();
                 if(result2.getSize() != 0)
                 {
                     cout << "However these individuals were found within"
                             " a 10 year range of given year: " << endl;
                     cout << "--- Printing by alphabetical order ---" << endl;
                     //result2.sortAlpabetFront();
-                    sortAlpabetFront();
+                    //sortAlpabetFront();
                 }
         }
     }
     else
     {
-        ui.errorInput();
+        //ui.errorInput();
         cin.clear();
         cin.ignore();
         this->searchBirth();
@@ -265,8 +265,8 @@ void Core::searchDeath()
     cin >> ansYear;
     if(!cin.fail())
     {
-        ui.individualsMatched();
-        for (unsigned int i = 0; i < list.getSize(); i++)
+        //ui.individualsMatched();
+        for (int i = 0; i < list.getSize(); i++)
         {
             findYear = list.getIndi(i).getDeath();
             if (ansYear == findYear)
@@ -282,23 +282,23 @@ void Core::searchDeath()
         if(found)
         {
             //result1.sortAlpabetFront();
-            sortAlpabetFront();
+            //sortAlpabetFront();
         }
         if (found == false)
         {
-            ui.errorInput();
+            //ui.errorInput();
                 if(result2.getSize() != 0)
                 {
                     cout << "However these individuals were found within"
                             " a 10 year range of given year: " << endl;
                     //result2.sortAlpabetFront();
-                    sortAlpabetFront();
+                    //sortAlpabetFront();
                 }
         }
     }
     else
     {
-        ui.errorInput();
+        //ui.errorInput();
         cin.clear();
         cin.ignore();
         this->searchDeath();
