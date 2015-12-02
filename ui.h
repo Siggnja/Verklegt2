@@ -16,6 +16,7 @@ public:
     void run();
 
     void ask();
+    void menu(char ans);
     //asks what should be done with the list
 /*    void menu(char ans, People& list);
     //call for changes to the list

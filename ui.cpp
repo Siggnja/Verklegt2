@@ -7,7 +7,13 @@ UI::UI()
 
 void UI::run()
 {
+    //while(true)
+    //{
+    char choice;
     ask();
+    cin >> choice;
+    //}
+
 }
 
 /*
@@ -53,8 +59,8 @@ void UI::ask() {
     cout << "(Q) Quit program. " << endl;
     cout << "Select a letter: ";
 }
-/*
-void UI::menu(char ans, People& list)
+
+void UI::menu(char ans)
 {
     switch(ans) {
         case 'a':
@@ -77,7 +83,7 @@ void UI::menu(char ans, People& list)
     }
 }
 
-
+/*
 void searchMenu(People& p)
 {
     cout << endl;

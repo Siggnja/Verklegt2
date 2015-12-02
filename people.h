@@ -7,7 +7,6 @@
 #include <fstream>
 #include <cstdlib>
 #include <algorithm>
-#include "people.h"
 //#include "dataread.h"
 #include "individual.h"
 //const string FILENAME = "people.txt";
