@@ -11,6 +11,7 @@ class Core
 {
 private:
     People list;
+    Dataread data;
 public:
     Core();
 

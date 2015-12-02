@@ -2,7 +2,7 @@
 
 Core::Core()
 {
-
+    list = data.readData();
 }
 
 /*  Sort functions:
