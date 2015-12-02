@@ -2,7 +2,12 @@
 
 Core::Core()
 {
+    list = data.readData();
+}
 
+int Core::getSizeOfList()
+{
+    return list.getSize();
 }
 
 void Core::swap(int& i, int& j)
@@ -227,7 +232,10 @@ void Core::searchNam(bool& found, string searchStr, People& result)
             found = true;
         }
     }
+
     sortAlpabetFront(result);
+    //sortAlpabetFront();
+
 }
 /*
 void Core::searchGender()

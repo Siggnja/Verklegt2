@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "core.h"
+#include "people.h"
 using namespace std;
 
 class UI
@@ -16,7 +17,6 @@ public:
     void run();
     void ask();
     void menu(char ans);
-
     //asks what should be done with the list
 
     void menu(char ans, People& list);
@@ -35,6 +35,9 @@ public:
     void sortMenu();
     //choose in what order the list shall be printed
     void welcomeMessage();
+
+    void printSize();
+    void printList();
 
     //cout setningar:
 
