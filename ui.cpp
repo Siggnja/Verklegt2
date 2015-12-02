@@ -57,6 +57,7 @@ void UI::ask() {
     cout << "(A) Add to list? " << endl;
     cout << "(S) Search list? " << endl;
     cout << "(P) Print list? " << endl;
+    cout << "(L) Print list size?" << endl;
     cout << "(R) Remove from list? " << endl;
     cout << "(Q) Quit program. " << endl;
     cout << "Select a letter: ";
@@ -77,6 +78,9 @@ void UI::menu(char ans)
                     break;
         case 'r':
         case 'R':
+                    break;
+        case 'l':
+        case 'L':   cout << core.getSizeOfList() << endl;
                     break;
         case 'q':
         case 'Q':   cout << endl;
