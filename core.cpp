@@ -152,8 +152,13 @@ string Core::makeLower(string& temp)
     getline(cin, searchStr);
     searchStr = makeLower(searchStr);
 
+<<<<<<< HEAD
     //ui.individualsMatched();
     for(unsigned int i = 0; i < list.getSize(); i++)
+=======
+
+    for(int i = 0; i < list.getSize(); i++)
+>>>>>>> dbdb95b99a97d3441fc583f4d9d3b7405d33430c
     {
         tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
         tempStr = makeLower(tempStr);
@@ -164,7 +169,7 @@ string Core::makeLower(string& temp)
         }
     }
     //result.sortAlpabetFront();
-    sortAlpabetFront();
+    //sortAlpabetFront();
     if (found == false)
     {
         //ui.noMatch();
@@ -210,7 +215,7 @@ void Core::searchGender()
             }
         }
         //result.sortAlpabetFront();
-        sortAlpabetFront();
+        //sortAlpabetFront();
     }
     else
     {
@@ -249,7 +254,7 @@ void Core::searchBirth()
         if(found)
         {
             //result1.sortAlpabetFront();
-            sortAlpabetFront();
+            //sortAlpabetFront();
         }
         if (found == false)
         {
@@ -260,7 +265,7 @@ void Core::searchBirth()
                             " a 10 year range of given year: " << endl;
                     cout << "--- Printing by alphabetical order ---" << endl;
                     //result2.sortAlpabetFront();
-                    sortAlpabetFront();
+                    //sortAlpabetFront();
                 }
         }
     }
@@ -299,7 +304,7 @@ void Core::searchDeath()
         if(found)
         {
             //result1.sortAlpabetFront();
-            sortAlpabetFront();
+            //sortAlpabetFront();
         }
         if (found == false)
         {
@@ -309,7 +314,7 @@ void Core::searchDeath()
                     cout << "However these individuals were found within"
                             " a 10 year range of given year: " << endl;
                     //result2.sortAlpabetFront();
-                    sortAlpabetFront();
+                    //sortAlpabetFront();
                 }
         }
     }
