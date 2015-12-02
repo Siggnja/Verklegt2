@@ -69,7 +69,6 @@ public:
     //who belong to these indexes in the vector
     void printVector(); */
 private:
-
     vector <Individual> person;
     /*
 
@@ -81,5 +80,6 @@ private:
     bool checkDeathYearOrder(const Individual& i1, const Individual& i2);
     */
 };
+
 
 #endif // PEOPLE_H

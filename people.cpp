@@ -10,16 +10,15 @@ void People::addIndi(const Individual& i1)
         person.push_back(i1);
 }
 
- vector <Individual> People::getPerson() const
+vector <Individual> People::getPerson() const
  {
     return person;
-
  }
- Individual People::getIndi(const int i) const
+Individual People::getIndi(const int i) const
  {
      return person[i];
  }
- int People::getSize() const
+int People::getSize() const
  {
      return(person.size());
  }

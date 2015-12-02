@@ -142,7 +142,7 @@ string Core::makeLower(string& temp)
 
 //    Search functions:
 
-void Core::searchName()
+/*void Core::searchName()
 {
     People result;
     bool found = false;
@@ -152,8 +152,13 @@ void Core::searchName()
     getline(cin, searchStr);
     searchStr = makeLower(searchStr);
 
+<<<<<<< HEAD
+    //ui.individualsMatched();
+    for(unsigned int i = 0; i < list.getSize(); i++)
+=======
 
     for(int i = 0; i < list.getSize(); i++)
+>>>>>>> dbdb95b99a97d3441fc583f4d9d3b7405d33430c
     {
         tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
         tempStr = makeLower(tempStr);
@@ -169,6 +174,23 @@ void Core::searchName()
     {
         //ui.noMatch();
     }
+}*/
+
+void Core::searchNam(bool& found, string searchStr, People& result)
+{
+    string tempStr;
+    searchStr = makeLower(searchStr);
+    for(int i = 0; i < list.getSize(); i++)
+    {
+        tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
+        tempStr = makeLower(tempStr);
+        if(tempStr.find(searchStr) != string::npos)
+        {
+            result.addIndi(result.getIndi(i));
+            found = true;
+        }
+    }
+    //sortAlpabetFront();
 }
 
 void Core::searchGender()
