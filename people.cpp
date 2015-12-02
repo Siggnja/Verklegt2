@@ -1,10 +1,56 @@
 #include "people.h"
-/*
+
 People::People()
 {
 
 }
 
+People::People(const People& p1)
+{
+    for(unsigned int i = 0 ; i < p1.person.size(); i++)
+    {
+       person.push_back(p1.person[i]);
+    }
+}
+
+int People::getSize() const
+{
+    return(person.size());
+}
+
+vector<Individual> People::getVector()
+{
+    return person;
+}
+
+void People::removeIndi(string name)
+{
+    People removed;
+    string tempName;
+    vector<Individual> newlist;
+
+    for (unsigned int i = 0; i < person.size(); i++)
+    {
+        tempName = person[i].getName() + " " + person[i].getSurname();
+        if(tempName != name)
+        {
+            newlist.push_back(person[i]);
+        }
+    }
+    person = newlist;
+}
+
+void People::addIndi(Individual& i1)
+{
+    person.push_back(i1);
+}
+
+Individual People::getIndi(const int i) const
+{
+    return person[i];
+}
+
+/*
 People::People(const string filename)
 {
     ifstream ins;
