@@ -7,12 +7,13 @@ UI::UI()
 
 void UI::run()
 {
-    //while(true)
-    //{
+    while(true)
+    {
     char choice;
     ask();
     cin >> choice;
-    //}
+    menu(choice);
+    }
 
 }
 
@@ -74,7 +75,8 @@ void UI::menu(char ans)
         case 'R':
                     break;
         case 'q':
-        case 'Q':   //exit(1);
+        case 'Q':   cout << endl;
+                    exit(1);
                     break;
         default:    cout << "Incorrect input, please try again!" << endl;
                     break;

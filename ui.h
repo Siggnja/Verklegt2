@@ -2,7 +2,6 @@
 #define UI_H
 
 #include "people.h"
-#include "ui.h"
 //#include "dataread.h"
 #include "individual.h"
 #include<iostream>
@@ -14,7 +13,6 @@ class UI
 public:
     UI();
     void run();
-
     void ask();
     void menu(char ans);
     //asks what should be done with the list
