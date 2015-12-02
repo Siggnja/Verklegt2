@@ -83,10 +83,6 @@ void UI::menu(char ans)
     }
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 9d22921c11defab2bceab09c12000c2a7eb69e83
 void UI::searchMenu()
 {
     cout << endl;
@@ -174,4 +170,23 @@ void UI::welcomeMessage()
     cout << "\t" << "    In this database you can add, remove, sort and search" << endl;
     cout << "\t \t" <<" At this moment we have "<< "(stærð gagnasafns kemur hingað)" << " computer scientists!" << endl;
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
+}
+
+void UI::searchName()
+{
+    People result;
+    bool found = false;
+    string tempStr, searchStr = "";
+    cin.ignore();   //annars virkar getline ekki
+    cout << "Enter a name to search for: " ;
+    getline(cin, searchStr);
+
+    individualsMatched();
+    core.searchNam(found, searchStr, result);
+
+    //core.sortAlpabetFront();
+    if (found == false)
+    {
+        noMatch();
+    }
 }

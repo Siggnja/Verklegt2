@@ -23,6 +23,10 @@ public:
     //call for changes to the list
     void searchMenu();
 
+    //
+    void searchName();
+    //
+
     //choose what shall be searched for
 
     void sortMenu();

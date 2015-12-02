@@ -2,7 +2,6 @@
 #include <iostream>
 #include "ui.h"
 
-
 using namespace std;
 
 int main()
@@ -10,6 +9,7 @@ int main()
     UI ui;
 
     ui.run();
+
 
 /*    People list(FILENAME);
     welcomeMessage(list);

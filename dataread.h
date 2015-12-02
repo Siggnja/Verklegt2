@@ -2,7 +2,7 @@
 #define DATAREAD_H
 
 #include "people.h"
-#include "ui.h"
+//#include "ui.h"
 #include "individual.h"
 using namespace std;
 

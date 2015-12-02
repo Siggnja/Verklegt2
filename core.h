@@ -2,7 +2,6 @@
 #define CORE_H
 
 #include "people.h"
-#include "ui.h"
 #include "dataread.h"
 #include "individual.h"
 
@@ -16,7 +15,8 @@ public:
     Core();
 
     //functions used to search for individuals in vector with specific traits:
-    void searchName();
+    //void searchName();
+    void searchNam(bool& found, string searchStr, People& result);
     void searchGender();
     void searchBirth();
     void searchDeath();
