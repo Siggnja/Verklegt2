@@ -176,7 +176,7 @@ void UI::searchName()
 {
     People result;
     bool found = false;
-    string tempStr, searchStr = "";
+    string searchStr = "";
     cin.ignore();   //annars virkar getline ekki
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
@@ -184,9 +184,107 @@ void UI::searchName()
     individualsMatched();
     core.searchNam(found, searchStr, result);
 
-    //core.sortAlpabetFront();
+    //core.sortAlpabetFront(result);
     if (found == false)
     {
         noMatch();
+    }
+}
+
+void UI::searchGender()
+{
+    People result;
+    bool found = false;
+    char ansGender;
+    cout << endl;
+    cout << "Enter which gender you want to search for (m/f): ";
+    cin >> ansGender;
+    cout << endl;
+    if(ansGender == 'm' || ansGender == 'M' || ansGender=='f' || ansGender=='F')
+    {
+        individualsMatched();
+        core.searchGend(found, ansGender, result);
+        //core.sortAlpabetFront(result);
+    }
+    else
+    {
+        errorInput();
+        this->searchGender();
+    }
+    if (found == false)
+    {
+        noMatch();
+    }
+}
+
+void UI::searchBirth()
+{
+    People result1, result2;
+    bool found = false;
+    int ansYear;
+    cout << "Enter a birth year: ";
+    cin >> ansYear;
+    if(!cin.fail())
+    {
+        individualsMatched();
+        core.searchBir(found, ansYear, result1, result2);
+        if(found)
+        {
+            //core.sortAlpabetFront(result1);
+        }
+        if (found == false)
+        {
+            //ui.individualsMatched();
+                if(result2.getSize() != 0)
+                {
+                    cout << "However these individuals were found within"
+                            " a 10 year range of given year: " << endl;
+                    cout << "--- Printing by alphabetical order ---" << endl;
+                    //core.sortAlpabetFront(result2);
+                }
+        }
+    }
+    else
+    {
+        errorInput();
+        cin.clear();
+        cin.ignore();
+        this->searchBirth();
+    }
+}
+
+void UI::searchDeath()
+{
+    People result1, result2;
+    bool found = false;
+    int ansYear;
+    cout << "Enter a death year: ";
+    cin >> ansYear;
+    if(!cin.fail())
+    {
+        individualsMatched();
+        core.searchDea(found, ansYear, result1, result2);
+        if(found)
+        {
+            //core.sortAlpabetFront(result1);
+        }
+        if (found == false)
+        {
+            errorInput();
+                if(result2.getSize() != 0)
+                {
+                    cout << "However these individuals were found within"
+                            " a 10 year range of given year: " << endl;
+                    //core.sortAlpabetFront(result2);
+                }
+        }
+    }
+    else
+    {
+        errorInput();
+        cin.clear();
+        cin.ignore();
+        this->searchDeath();
+
     }
 }

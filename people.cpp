@@ -282,7 +282,7 @@ void People::printVector()
         cout << person[i] << endl;
      }
 }
-
+*/
 bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
 {
     string s1 = i1.getSurname();
@@ -308,7 +308,7 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
 
     return(t2>t1);
 }
-
+/*
 bool People::checkBirthYearOrder(const Individual& i1, const Individual& i2)
 {
     return(i1.getBirth()>i2.getBirth());

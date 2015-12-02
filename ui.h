@@ -25,6 +25,9 @@ public:
 
     //
     void searchName();
+    void searchGender();
+    void searchBirth();
+    void searchDeath();
     //
 
     //choose what shall be searched for

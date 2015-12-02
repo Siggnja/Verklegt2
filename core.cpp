@@ -5,6 +5,14 @@ Core::Core()
 
 }
 
+void Core::swap(int& i, int& j)
+{
+    int temp = i;
+    i = j;
+    j = temp;
+}
+
+
 /*  Sort functions:
 
 void People::sortAlpabetFront()
@@ -21,9 +29,27 @@ void People::sortAlpabetFront()
         }
     }
     result.printVector();
+}*/
+
+void Core::sortAlpabetFront(People& result)
+{
+    //People result(*this);
+    for(int i = 1 ; i < result.getSize(); i++)
+    {
+        for(int j = 0; j < result.getSize(); j++)
+        {
+            if(result.checkIndiOrder(result.getIndi(i),result.getIndi(j)))
+            {
+                //result.swap(j,i);
+                swap(j,i);
+            }
+        }
+    }
+    //result.printVector();
 }
 
-void People::sortAlpabetBack()
+
+/*void People::sortAlpabetBack()
 {
     People result(*this);
     for(unsigned int i = 1 ; i < result.person.size(); i++)
@@ -37,9 +63,26 @@ void People::sortAlpabetBack()
         }
     }
    result.printVector();
+}*/
+
+void Core::sortAlpabetBack(People& result)
+{
+    //People result(*this);
+    for(int i = 1 ; i < result.getSize(); i++)
+    {
+        for(int j = 0; j < result.getSize(); j++)
+        {
+            if(result.checkIndiOrder(result.getIndi(j),result.getIndi(i)))
+            {
+                //result.swap(j,i);
+                swap(j,i);
+            }
+        }
+    }
+    //result.printVector();
 }
 
-void People::sortByBirthYear()
+/*void People::sortByBirthYear()
 {
     People result(*this);
     for(unsigned int i = 1 ; i < result.person.size(); i++)
@@ -152,13 +195,7 @@ string Core::makeLower(string& temp)
     getline(cin, searchStr);
     searchStr = makeLower(searchStr);
 
-<<<<<<< HEAD
-    //ui.individualsMatched();
-    for(unsigned int i = 0; i < list.getSize(); i++)
-=======
-
     for(int i = 0; i < list.getSize(); i++)
->>>>>>> dbdb95b99a97d3441fc583f4d9d3b7405d33430c
     {
         tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
         tempStr = makeLower(tempStr);
@@ -190,9 +227,9 @@ void Core::searchNam(bool& found, string searchStr, People& result)
             found = true;
         }
     }
-    sortAlpabetFront();
+    sortAlpabetFront(result);
 }
-
+/*
 void Core::searchGender()
 {
     People result;
@@ -226,9 +263,26 @@ void Core::searchGender()
     {
         //ui.noMatch();
     }
+}*/
+
+void Core::searchGend(bool& found, char ansGender, People& result)
+{
+    char findGender;
+    for (int i = 0; i < list.getSize(); i++)
+    {
+        findGender = list.getIndi(i).getGender();
+        if (tolower(ansGender) == tolower(findGender))
+        {
+            result.addIndi(result.getIndi(i));
+            found = true;
+        }
+    }
+    sortAlpabetFront(result);
 }
 
-void Core::searchBirth()
+
+
+/*void Core::searchBirth()
 {
     People result1, result2;
     bool found = false;
@@ -276,9 +330,27 @@ void Core::searchBirth()
         cin.ignore();
         this->searchBirth();
     }
+}*/
+
+void Core::searchBir(bool& found, int ansYear, People& result1, People& result2)
+{
+    int findYear;
+    for (int i = 0; i < list.getSize(); i++)
+    {
+        findYear = list.getIndi(i).getBirth();
+        if (ansYear == findYear)
+        {
+            result1.addIndi(result1.getIndi(i));
+            found = true;
+        }
+        if (ansYear - 5 <= findYear && ansYear+5 >= findYear)
+        {
+            result2.addIndi(result2.getIndi(i));
+        }
+    }
 }
 
-void Core::searchDeath()
+/*void Core::searchDeath()
 {
     People result1, result2;
     bool found = false;
@@ -325,5 +397,23 @@ void Core::searchDeath()
         cin.ignore();
         this->searchDeath();
 
+    }
+}*/
+
+void Core::searchDea(bool& found, int ansYear, People& result1, People& result2)
+{
+    int findYear;
+    for (int i = 0; i < list.getSize(); i++)
+    {
+        findYear = list.getIndi(i).getDeath();
+        if (ansYear == findYear)
+        {
+            result1.addIndi(result1.getIndi(i));
+            found = true;
+        }
+        if (ansYear - 5 <= findYear && ansYear + 5 >= findYear)
+        {
+            result2.addIndi(result2.getIndi(i));
+        }
     }
 }
