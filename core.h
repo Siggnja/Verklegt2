@@ -11,7 +11,6 @@ using namespace std;
 class Core
 {
 private:
-    UI ui;
     People list;
 public:
     Core();
