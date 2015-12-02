@@ -13,10 +13,6 @@ Individual::Individual(const string surnam, const string nam, const char gend, c
     birth = bir;
     death = dea;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> c3ecd5d30ff9ac479edaf836ed24bb2d316266e7
 bool operator == (const Individual& indi, const Individual& indi2)
 {
     if (indi.birth == indi2.birth && indi.death == indi2.death && indi.surname == indi2.surname
@@ -29,29 +25,8 @@ bool operator == (const Individual& indi, const Individual& indi2)
         return false;
     }
 }
-<<<<<<< HEAD
-/*
-ostream& operator << (ostream& outs, Individual& id)
-{
-    outs << "Name: " << id.surname << ", " << id.name << endl;
-    outs << "Gender: " << id.gender << endl;
-    outs << "Year of birth: " << id.birth << endl;
-    if (id.death == 0)
-    {
-        outs << "The individual is still alive." << endl;
-    }
-    else
-    {
-        outs << "Year of death: " << id.death << endl;
-    }
-    return outs;
-}
-
-istream& operator >> (istream& ins, Individual& id)
-=======
 
 void Individual::setName(string str)
->>>>>>> c3ecd5d30ff9ac479edaf836ed24bb2d316266e7
 {
     name = str;
 }
@@ -75,13 +50,7 @@ void Individual::setDeath(int i)
 {
     death = i;
 }
-<<<<<<< HEAD
-*/
-=======
 
-
-
->>>>>>> c3ecd5d30ff9ac479edaf836ed24bb2d316266e7
 string Individual::getName() const
 {
     return name;

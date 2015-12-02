@@ -69,8 +69,6 @@ Individual People::getIndi(const int i) const
 {
     return person[i];
 }
-
-/*
 People::People(const string filename)
 {
     ifstream ins;

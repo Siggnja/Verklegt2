@@ -12,6 +12,7 @@ using namespace std;
 
 int main()
 {
+    Dataread("People.txt");
 /*    People list(FILENAME);
     welcomeMessage(list);
 
