@@ -4,7 +4,25 @@ Core::Core()
 {
 
 }
+void Core::sortAlpabetFront(People p1)
+{
+    for(int i = 1 ; i < p1.getSize(); i++)
+    {
+        for(int j = 0; j < p1.getSize(); j++)
+        {
+            if(p1.checkIndiOrder(i,j))
+            {
+               p1.swap(i,j);
+            }
+        }
+    }
+    //p1.printVector();
 
+}
+//void sortAlpabetBack(const People& p1)
+//void sortByBirthYear(const People& p1)
+//void sortByDeathYear(const People& p1)
+//void sortByGender(const People& p1)
 /*  Sort functions:
 
 void People::sortAlpabetFront()

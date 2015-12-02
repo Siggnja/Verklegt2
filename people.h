@@ -7,9 +7,6 @@
 #include <fstream>
 #include <cstdlib>
 #include <algorithm>
-#include "people.h"
-#include "ui.h"
-//#include "dataread.h"
 #include "individual.h"
 //const string FILENAME = "people.txt";
 
@@ -22,6 +19,8 @@ public:
     void addIndi(const Individual& i1);
     Individual getIndi(const int i) const;
     int getSize() const;
+    void swap(const int i, const int j);
+    bool checkIndiOrder(const int i, const int j);
     //adds and individual to vector
     /*
     People(const string filename);
@@ -77,7 +76,6 @@ private:
     void saveFile(const string filename);
     void swap(const int i, const int j);
     //saves individuals in vector to file
-    bool checkIndiOrder(const Individual& i1, const Individual& i2);
     bool checkBirthYearOrder(const Individual& i1, const Individual& i2);
     bool checkDeathYearOrder(const Individual& i1, const Individual& i2);
     string makeLower(string& temp);

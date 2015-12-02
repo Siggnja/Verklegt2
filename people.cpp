@@ -18,7 +18,34 @@ void People::addIndi(const Individual& i1)
  {
      return(person.size());
  }
+ void People::swap(const int i, const int j)
+ {
+     Individual temp = person[i];
+     person[i] = person[j];
+     person[j] = temp;
+ }
+ bool People::checkIndiOrder(const int i, const int j)
+ {
+     string s1,s2;
+     char c1,c2;
+     int t1=0,t2=0;
+     do
+     {
+         s1 = person[i].getSurname();
+        s2 = person[j].getSurname();
+        c1 = tolower(s1[i]);
+         c2 = tolower(s2[i]);
+         t1 = static_cast <int> (c1);
+        int t2 = static_cast <int> (c2);
+         if(t2>t1)
+         {
+            break;
+         }
 
+     }while(t2<t1);
+
+     return(t2>t1);
+ }
 /*
 People::People()
 {
@@ -274,13 +301,6 @@ void People::sortByGender()
     }
 }
 
-void People::swap(const int i, const int j)
-{
-    Individual temp = person[i];
-    person[i] = person[j];
-    person[j] = temp;
-}
-
 void People::printVector()
 {
      for(unsigned int i = 0; i < person.size(); i++)
@@ -289,31 +309,7 @@ void People::printVector()
      }
 }
 
-bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
-{
-    string s1 = i1.getSurname();
-    string s2 = i2.getSurname();
-    char c1 = tolower(s1[0]);
-    char c2 = tolower(s2[0]);
-    int t1 = static_cast <int> (c1);
-    int t2 = static_cast <int> (c2);
-    if(t1==t2)
-    {
-        c1 = tolower(s1[1]);
-        c2 = tolower(s2[1]);
-        t1 = static_cast <int> (c1);
-        t2 = static_cast <int> (c2);
-        if(t1==t2)
-        {
-            c1 = tolower(s1[2]);
-            c2 = tolower(s2[2]);
-            t1 = static_cast <int> (c1);
-            t2 = static_cast <int> (c2);
-        }
-    }
 
-    return(t2>t1);
-}
 
 bool People::checkBirthYearOrder(const Individual& i1, const Individual& i2)
 {

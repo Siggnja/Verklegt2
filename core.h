@@ -12,6 +12,11 @@ class Core
 public:
     Core();
 public:
+    void sortAlpabetFront(People p1);
+    void sortAlpabetBack(const People& p1);
+    void sortByBirthYear(const People& p1);
+    void sortByDeathYear(const People& p1);
+    void sortByGender(const People& p1);
     /*
     //functions used to search for individuals in vector with specific traits:
     void searchName();
@@ -19,12 +24,11 @@ public:
     void searchBirth();
     void searchDeath();
     //sort vector by the specified order:
-    void sortAlpabetFront();
-    void sortAlpabetBack();
-    void sortByBirthYear();
-    void sortByDeathYear();
-    void sortByGender();
+
 */
+
+    //converts the string variable temp to all lower letters */
+
 };
 
 #endif // CORE_H
