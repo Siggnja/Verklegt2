@@ -14,11 +14,12 @@ using namespace std;
 
 class People
 {
-public:/*
+public:
     People(const string filename);
     People(const People& p1);
     //copy constructor
     People();
+    /*
     //functions used to search for individuals in vector with specific traits:
     void searchName();
     void searchGender();

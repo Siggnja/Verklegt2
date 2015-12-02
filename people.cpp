@@ -1,4 +1,6 @@
 #include "people.h"
+#include "ui.h"
+#include "core.h"
 /*
 People::People()
 {
@@ -11,7 +13,7 @@ People::People(const string filename)
     ins.open(filename.c_str());
     if(ins.fail())
     {
-        cout << "Something went wrong while opening the file" << endl;
+        errorFile();
         exit(1);
     }
     string first ,last;
@@ -78,7 +80,7 @@ void People::saveFile(const string filename)
     outs.open(filename.c_str(), ios::app);
     if(outs.fail())
     {
-        cout << "Something went wrong with opening the output file" << endl;
+        errorFile();
         exit(1);
     }
     outs << endl;
@@ -202,7 +204,7 @@ void People::sortByGender()
     }
     else
     {
-        cout << "Wrong input try again" << endl;
+        errorInput();
         this->sortByGender();
     }
 }
@@ -292,7 +294,7 @@ void People::searchName()
     }
     if (found == false)
     {
-        cout << "No one matched your search." << endl;
+        noMatch();
     }
 }
 
@@ -321,12 +323,12 @@ void People::searchGender()
     }
     else
     {
-        cout << "Incorrect input, please try again!" << endl;
+        errorInput();
         this->searchGender();
     }
     if (found == false)
     {
-        cout << "No one matched your search!" << endl;
+        noMatch();
     }
 }
 
@@ -359,7 +361,7 @@ void People::searchBirth()
         }
         if (found == false)
         {
-           cout << "No one matched your search." << endl;
+            noMatch();
                 if(result2.person.size()!=0)
                 {
                     cout << "However these individuals were found within"
@@ -371,7 +373,7 @@ void People::searchBirth()
     }
     else
     {
-        cout << "Incorrect input, please try again!" << endl;
+        errorInput();
         cin.clear();
         cin.ignore();
         this->searchBirth();
@@ -407,7 +409,7 @@ void People::searchDeath()
         }
         if (found == false)
         {
-           cout << "No one matched your search." << endl;
+           noMatch();
                 if(result2.person.size()!=0)
                 {
                     cout << "However these individuals were found within"
@@ -418,11 +420,10 @@ void People::searchDeath()
     }
     else
     {
-        cout << "Incorrect input, please try again!" << endl;
+        errorInput();
         cin.clear();
         cin.ignore();
         this->searchDeath();
-
     }
 }
 
