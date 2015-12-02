@@ -1,4 +1,6 @@
 #include "people.h"
+
+
 void People::addIndi(const Individual& i1)
 {
         person.push_back(i1);
@@ -18,6 +20,7 @@ void People::addIndi(const Individual& i1)
  {
      return(person.size());
  }
+<<<<<<< HEAD
  void People::swap(const int i, const int j)
  {
      Individual temp = person[i];
@@ -49,9 +52,12 @@ void People::addIndi(const Individual& i1)
 /*
 People::People()
 {
+=======
 
-}
+>>>>>>> origin
 
+
+/*
 People::People(const People& p1)
 {
     for(unsigned int i = 0 ; i < p1.person.size(); i++)

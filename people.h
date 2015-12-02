@@ -7,6 +7,11 @@
 #include <fstream>
 #include <cstdlib>
 #include <algorithm>
+<<<<<<< HEAD
+=======
+#include "people.h"
+//#include "dataread.h"
+>>>>>>> origin
 #include "individual.h"
 //const string FILENAME = "people.txt";
 
@@ -22,12 +27,14 @@ public:
     void swap(const int i, const int j);
     bool checkIndiOrder(const int i, const int j);
     //adds and individual to vector
+    People(){};
+    //default constructor
+
     /*
     People(const string filename);
     People(const People& p1);
     //copy constructor
-    People();
-    //default constructor
+
 
     void addIndi(Individual& i1);
     //adds and individual to vector
