@@ -21,6 +21,7 @@ public:
 
     void searchMenu();
     //choose what shall be searched for
+
     void sortMenu();
     //choose in what order the list shall be printed
     void welcomeMessage();
