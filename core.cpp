@@ -171,7 +171,6 @@ People Core::searchNam(bool& found, string searchStr, People& result)
     {
         tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
         tempStr = makeLower(tempStr);
-        cout << tempStr << endl; //taka burt
         if(tempStr.find(searchStr) != string::npos)
         {
             result.addIndi(list.getIndi(i));
@@ -242,58 +241,7 @@ People Core::searchGend(const char ansGender)
 }
 
 
-
-/*void Core::searchBirth()
-{
-    People result1, result2;
-    bool found = false;
-    int findYear, ansYear;
-    cout << "Enter a birth year: ";
-    cin >> ansYear;
-    if(!cin.fail())
-    {
-        //ui.individualsMatched();
-        for (int i = 0; i < list.getSize(); i++)
-        {
-            findYear = list.getIndi(i).getBirth();
-            if (ansYear == findYear)
-            {
-                result1.addIndi(result1.getIndi(i));
-                found = true;
-            }
-            if (ansYear - 5 <= findYear && ansYear+5 >= findYear)
-            {
-                result2.addIndi(result2.getIndi(i));
-            }
-        }
-        if(found)
-        {
-            //result1.sortAlpabetFront();
-            //sortAlpabetFront();
-        }
-        if (found == false)
-        {
-            //ui.individualsMatched();
-                if(result2.getSize() != 0)
-                {
-                    cout << "However these individuals were found within"
-                            " a 10 year range of given year: " << endl;
-                    cout << "--- Printing by alphabetical order ---" << endl;
-                    //result2.sortAlpabetFront();
-                    //sortAlpabetFront();
-                }
-        }
-    }
-    else
-    {
-        //ui.errorInput();
-        cin.clear();
-        cin.ignore();
-        this->searchBirth();
-    }
-}*/
-
-void Core::searchBir(bool& found, int ansYear, People& result1, People& result2)
+People Core::searchBir(bool& found, int ansYear, People& result1, People& result2)
 {
     int findYear;
     for (int i = 0; i < list.getSize(); i++)
@@ -301,67 +249,25 @@ void Core::searchBir(bool& found, int ansYear, People& result1, People& result2)
         findYear = list.getIndi(i).getBirth();
         if (ansYear == findYear)
         {
-            result1.addIndi(result1.getIndi(i));
+            result1.addIndi(list.getIndi(i));
             found = true;
         }
         if (ansYear - 5 <= findYear && ansYear+5 >= findYear)
         {
-            result2.addIndi(result2.getIndi(i));
+            result2.addIndi(list.getIndi(i));
         }
     }
-}
-
-/*void Core::searchDeath()
-{
-    People result1, result2;
-    bool found = false;
-    int findYear, ansYear;
-    cout << "Enter a death year: ";
-    cin >> ansYear;
-    if(!cin.fail())
+    if (found)
     {
-        //ui.individualsMatched();
-        for (int i = 0; i < list.getSize(); i++)
-        {
-            findYear = list.getIndi(i).getDeath();
-            if (ansYear == findYear)
-            {
-                result1.addIndi(result1.getIndi(i));
-                found = true;
-            }
-            if (ansYear - 5 <= findYear && ansYear + 5 >= findYear)
-            {
-                result2.addIndi(result2.getIndi(i));
-            }
-        }
-        if(found)
-        {
-            //result1.sortAlpabetFront();
-            //sortAlpabetFront();
-        }
-        if (found == false)
-        {
-            //ui.errorInput();
-                if(result2.getSize() != 0)
-                {
-                    cout << "However these individuals were found within"
-                            " a 10 year range of given year: " << endl;
-                    //result2.sortAlpabetFront();
-                    //sortAlpabetFront();
-                }
-        }
+        return result1;
     }
     else
     {
-        //ui.errorInput();
-        cin.clear();
-        cin.ignore();
-        this->searchDeath();
-
+        return result2;
     }
-}*/
+}
 
-void Core::searchDea(bool& found, int ansYear, People& result1, People& result2)
+People Core::searchDea(bool& found, int ansYear, People& result1, People& result2)
 {
     int findYear;
     for (int i = 0; i < list.getSize(); i++)
@@ -369,12 +275,20 @@ void Core::searchDea(bool& found, int ansYear, People& result1, People& result2)
         findYear = list.getIndi(i).getDeath();
         if (ansYear == findYear)
         {
-            result1.addIndi(result1.getIndi(i));
+            result1.addIndi(list.getIndi(i));
             found = true;
         }
         if (ansYear - 5 <= findYear && ansYear + 5 >= findYear)
         {
-            result2.addIndi(result2.getIndi(i));
+            result2.addIndi(list.getIndi(i));
         }
+    }
+    if (found)
+    {
+        return result1;
+    }
+    else
+    {
+        return result2;
     }
 }
