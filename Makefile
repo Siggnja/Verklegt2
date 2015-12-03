@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-DEFINES       = -DQT_CORE_LIB
+DEFINES       = -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.7 -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.7 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I. -I../Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -I../Qt/5.5/clang_64/mkspecs/macx-clang -F/Users/thordis/Qt/5.5/clang_64/lib
+INCPATH       = -I. -I../Qt/5.5/clang_64/lib/QtSql.framework/Headers -I../Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -I../Qt/5.5/clang_64/mkspecs/macx-clang -F/Users/thordis/Qt/5.5/clang_64/lib
 QMAKE         = /Users/thordis/Qt/5.5/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -36,7 +36,7 @@ DISTNAME      = Vika21.0.0
 DISTDIR = /Users/thordis/Verklegt2/.tmp/Vika21.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -headerpad_max_install_names -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.7 -Wl,-rpath,/Users/thordis/Qt/5.5/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/thordis/Qt/5.5/clang_64/lib -framework QtCore -framework DiskArbitration -framework IOKit 
+LIBS          = $(SUBLIBS) -F/Users/thordis/Qt/5.5/clang_64/lib -framework QtSql -framework QtCore -framework DiskArbitration -framework IOKit 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -181,6 +181,7 @@ DIST          = ../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../Qt/5.5/clang_64/mkspecs/features/qt_config.prf \
 		../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf \
 		../Qt/5.5/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf \
 		../Qt/5.5/clang_64/mkspecs/features/default_pre.prf \
 		../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -370,6 +371,7 @@ Makefile: Vika2.pro ../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf ../Qt/5.5/c
 		../Qt/5.5/clang_64/mkspecs/features/qt_config.prf \
 		../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf \
 		../Qt/5.5/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf \
 		../Qt/5.5/clang_64/mkspecs/features/default_pre.prf \
 		../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -389,6 +391,7 @@ Makefile: Vika2.pro ../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf ../Qt/5.5/c
 		../Qt/5.5/clang_64/mkspecs/features/yacc.prf \
 		../Qt/5.5/clang_64/mkspecs/features/lex.prf \
 		Vika2.pro \
+		/Users/thordis/Qt/5.5/clang_64/lib/QtSql.framework/QtSql.prl \
 		/Users/thordis/Qt/5.5/clang_64/lib/QtCore.framework/QtCore.prl
 	$(QMAKE) -spec macx-clang CONFIG+=debug CONFIG+=x86_64 -o Makefile Vika2.pro
 ../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf:
@@ -512,6 +515,7 @@ Makefile: Vika2.pro ../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf ../Qt/5.5/c
 ../Qt/5.5/clang_64/mkspecs/features/qt_config.prf:
 ../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf:
 ../Qt/5.5/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf:
 ../Qt/5.5/clang_64/mkspecs/features/default_pre.prf:
 ../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf:
@@ -531,6 +535,7 @@ Makefile: Vika2.pro ../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf ../Qt/5.5/c
 ../Qt/5.5/clang_64/mkspecs/features/yacc.prf:
 ../Qt/5.5/clang_64/mkspecs/features/lex.prf:
 Vika2.pro:
+/Users/thordis/Qt/5.5/clang_64/lib/QtSql.framework/QtSql.prl:
 /Users/thordis/Qt/5.5/clang_64/lib/QtCore.framework/QtCore.prl:
 qmake: FORCE
 	@$(QMAKE) -spec macx-clang CONFIG+=debug CONFIG+=x86_64 -o Makefile Vika2.pro
@@ -591,8 +596,11 @@ compiler_clean:
 
 main.o: main.cpp ../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QCoreApplication \
 		../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qcoreapplication.h \
+		ui.h \
+		dataread.h \
 		people.h \
-		individual.h
+		individual.h \
+		core.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 individual.o: individual.cpp individual.h
@@ -602,13 +610,22 @@ people.o: people.cpp people.h \
 		individual.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o people.o people.cpp
 
-dataread.o: dataread.cpp dataread.h
+dataread.o: dataread.cpp dataread.h \
+		people.h \
+		individual.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataread.o dataread.cpp
 
-ui.o: ui.cpp ui.h
+ui.o: ui.cpp ui.h \
+		dataread.h \
+		people.h \
+		individual.h \
+		core.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ui.o ui.cpp
 
-core.o: core.cpp core.h
+core.o: core.cpp core.h \
+		people.h \
+		individual.h \
+		dataread.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o core.o core.cpp
 
 ####### Install

@@ -14,10 +14,10 @@ void UI::run()
     welcomeMessage();
     while(true)
     {
-    char choice;
-    ask();
-    cin >> choice;
-    menu(choice);
+        char choice;
+        ask();
+        cin >> choice;
+        menu(choice);
     }
 }
 
@@ -129,7 +129,7 @@ void UI::searchMenu()
         case 'q':
         case 'Q':   exit(1);
                     break;
-        default:    //errorInput();
+        default:    errorInput();
                     searchMenu();
     }
 }
@@ -176,11 +176,9 @@ void UI::sortMenu()
                     core.sortByDeathYear();
                      this->print();
                     break;
-        case 'g':
-        case 'G':
-                    break;
         case 'M':
-        case 'm':   break;
+        case 'm':   this->searchMenu();
+                    break;
 
         case 'q':
         case 'Q':   exit(1);
@@ -226,21 +224,26 @@ void UI::addIndividual()
         cout << "Year of birth: ";
         cin >> birth;
         if(cin.fail())
+        {
             cout << endl << "Invalid input, please try again!" << endl << endl;
+        }
     } while(cin.fail());
 
     cout << "Is the individual alive?(y/n) ";
     cin >> ans;
-    if (ans == 'n' || ans == 'N') {
+    if (ans == 'n' || ans == 'N')
+    {
         do {
-            cin.clear();
-            cin.ignore();
-            cout << "Year of death: ";
-            cin >> death;
-            if(cin.fail()) {
+                cin.clear();
+                cin.ignore();
+                cout << "Year of death: ";
+                cin >> death;
+                if(cin.fail())
+            {
                 cout << endl << "Invalid input, please try again!" << endl << endl;
             }
-            if(birth>death) {
+            if(birth>death)
+            {
                 cout<<"Illegal deathyear! Input again: "<<endl<<endl;
             }
         } while(cin.fail()||birth>death);
@@ -249,11 +252,8 @@ void UI::addIndividual()
         death = 0;
     }
 
-    Individual temp(surname, name, gender, birth, death);//fer inn i add
-
+    Individual temp(surname, name, gender, birth, death); //fer inn i add
     core.addIndividual(temp);
-
-
 }
 // a eftir ad klara
 
@@ -285,9 +285,12 @@ void UI::printList() const
         printIndi(i);
     }
 }
+/*
+void UI::printList(People& list) const
+{
 
-
-
+}
+*/
 void UI::remove()
 {
     string str;
@@ -314,6 +317,7 @@ void UI::searchName()
     core.searchNam(found, searchStr, result);
 
     //core.sortAlpabetFront(result);
+    printList();
     if (found == false)
     {
         noMatch();
@@ -334,6 +338,7 @@ void UI::searchGender()
         individualsMatched();
         core.searchGend(found, ansGender, result);
         //core.sortAlpabetFront(result);
+        printList();
     }
     else
     {
@@ -360,6 +365,7 @@ void UI::searchBirth()
         if(found)
         {
             //core.sortAlpabetFront(result1);
+            printList();
         }
         if (found == false)
         {
@@ -370,6 +376,7 @@ void UI::searchBirth()
                             " a 10 year range of given year: " << endl;
                     cout << "--- Printing by alphabetical order ---" << endl;
                     //core.sortAlpabetFront(result2);
+                    printList();
                 }
         }
     }
@@ -405,6 +412,7 @@ void UI::searchDeath()
                     cout << "However these individuals were found within"
                             " a 10 year range of given year: " << endl;
                     //core.sortAlpabetFront(result2);
+                    printList();
                 }
         }
     }
@@ -414,7 +422,6 @@ void UI::searchDeath()
         cin.clear();
         cin.ignore();
         this->searchDeath();
-
     }
 }
 void UI::print()

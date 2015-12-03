@@ -1,13 +1,14 @@
 #include "dataread.h"
 //tekur vid , eydir og les skjalid
-
-/*Dataread::Dataread(const string FILENAME)
+/*
+Dataread::Dataread(const string FILENAME)
 {
-    filename = FILENAME;
-}*/
 
+}
+*/
 Dataread::Dataread()
 {
+    filename = "people.txt";
 }
 
 People Dataread::readData(const string filename)
