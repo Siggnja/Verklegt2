@@ -38,7 +38,7 @@ void UI::errorInput()
 
 void UI::individualsMatched()
 {
-    cout << "--- The following people match your search ---" << endl;
+    cout << endl << "--- The following people match your search ---" << endl;
 }
 
 void UI::noMatch()
@@ -264,7 +264,7 @@ void UI::printIndi(int i) const
     Individual temp = core.getList().getIndi(i);
     cout << endl;
     cout << "Name: " << temp.getName() << " " << temp.getSurname() << endl;
-
+    cout << "Gender: ";
     if(temp.getGender() == 'f' || temp.getGender() == 'F')
     {
         cout << "female" << endl;
@@ -486,7 +486,6 @@ void UI::print()
         {
             cout << "Female" << endl;
         }
-
 
         cout << core.getBirth(i) << " - ";
         if(core.getDeath(i) == 0)

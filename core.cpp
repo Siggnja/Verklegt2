@@ -278,7 +278,7 @@ People Core::searchDea(bool& found, int ansYear, People& result1, People& result
             result1.addIndi(list.getIndi(i));
             found = true;
         }
-        if (ansYear - 5 <= findYear && ansYear + 5 >= findYear)
+        if ((ansYear - 5 <= findYear && ansYear + 5 >= findYear)&&(list.getIndi(i).getDeath() != 0))
         {
             result2.addIndi(list.getIndi(i));
         }
