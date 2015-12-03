@@ -15,6 +15,7 @@ private:
     char gender;
     // f/F or m/M
     int birth, death;
+    int id;
 public:
     Individual();
     Individual(const string surnam, const string nam, const char gend, const int bir, const int dea);
@@ -24,12 +25,14 @@ public:
     void setGender(char g);
     void setBirth(int i);
     void setDeath(int i);
+    //void setId(int i);
     //Check if person already exists in database.
     string getName() const;
     string getSurname() const;
     char getGender() const;
     int getBirth() const;
     int getDeath() const;
+    //int getId() const;
 };
 
 #endif // INDIVIDUAL_H

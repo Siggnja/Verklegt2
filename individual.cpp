@@ -7,6 +7,7 @@ Individual::Individual()
 
 Individual::Individual(const string surnam, const string nam, const char gend, const int bir, const int dea)
 {
+    id = 1;
     name = nam;
     surname = surnam;
     gender = gend;
