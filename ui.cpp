@@ -38,7 +38,7 @@ void UI::errorInput()
 
 void UI::individualsMatched()
 {
-    cout << "--- The following people match your search ---" << endl;
+    cout << endl << "--- The following people match your search ---" << endl;
 }
 
 void UI::noMatch()
@@ -75,8 +75,7 @@ void UI::menu(char ans)
         case 'A':   addIndividual();
                     break;
         case 's':
-        case 'S':
-                    searchMenu();
+        case 'S':   searchMenu();
                     break;
         case 'p':
         case 'P':   sortMenu();
@@ -139,7 +138,7 @@ void UI::sortMenu()
 {
     char choice;
     cout << endl;
-    cout << "Print/Sort by: " << endl;
+    cout << "Print by: " << endl;
     cout << "(U) Unordered" << endl
          << "(A) Alphabetic order" << endl
          << "(R) Reverse alphabetic order" << endl
@@ -154,7 +153,6 @@ void UI::sortMenu()
         case 'u':
         case 'U':   this->print();
                     break;
-
         case 'a':
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
                     core.sortAlpabetFront();
@@ -171,8 +169,7 @@ void UI::sortMenu()
                     this->print();
                     break;
         case 'd':
-        case 'D':
-                    cout << endl << "--- Printing by year of Death --- " << endl;
+        case 'D':   cout << endl << "--- Printing by year of Death --- " << endl;
                     core.sortByDeathYear();
                     this->print();
                     break;
@@ -245,9 +242,9 @@ void UI::addIndividual()
             }
             if(birth>death)
             {
-                cout<<"Illegal deathyear! Input again: "<<endl<<endl;
+                cout << "Illegal deathyear! Input again: " << endl << endl;
             }
-        } while(cin.fail()||birth>death);
+        } while(cin.fail() || birth > death);
     }
     else {
         death = 0;
@@ -264,14 +261,14 @@ void UI::printIndi(int i) const
     Individual temp = core.getList().getIndi(i);
     cout << endl;
     cout << "Name: " << temp.getName() << " " << temp.getSurname() << endl;
-
+    cout << "Gender: ";
     if(temp.getGender() == 'f' || temp.getGender() == 'F')
     {
-        cout << "female" << endl;
+        cout << "Female" << endl;
     }
     else
     {
-        cout << "male" << endl;
+        cout << "Male" << endl;
     }
     //cout << temp.getGender() << endl;
     cout << temp.getBirth() << " - ";
@@ -309,14 +306,14 @@ void UI::printIndi(Individual& temp) const
 {
     cout << endl;
     cout << "Name: " << temp.getName() << " " << temp.getSurname() << endl;
-
+    cout << "Gender: ";
     if(temp.getGender() == 'f' || temp.getGender() == 'F')
     {
-        cout << "female" << endl;
+        cout << "Female" << endl;
     }
     else
     {
-        cout << "male" << endl;
+        cout << "Male" << endl;
     }
     cout << temp.getBirth() << " - ";
 
@@ -335,15 +332,22 @@ void UI::printIndi(Individual& temp) const
 void UI::remove()
 {
     string str;
+    bool removed = false;
     cin.ignore();
     cout << endl;
     cout << "Type exactly the name of the individual:" << endl;
     getline(cin, str);
-    core.removeIndividual(str);
+    core.removeIndividual(str, removed);
+    if (removed)
+    {
+        cout << str << " hase been removed." << endl;
+    }
+    else if (!removed)
+    {
+        cout << str << "was not found in list and therefore not removed." << endl;
+    }
 
 }
-
-
 
 void UI::searchName()
 {
@@ -486,7 +490,6 @@ void UI::print()
         {
             cout << "Female" << endl;
         }
-
 
         cout << core.getBirth(i) << " - ";
         if(core.getDeath(i) == 0)

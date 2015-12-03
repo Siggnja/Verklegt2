@@ -13,12 +13,14 @@ SOURCES += main.cpp \
     people.cpp \
     dataread.cpp \
     ui.cpp \
-    core.cpp
+    core.cpp \
+    sqlitedata.cpp
 
 HEADERS += \
     individual.h \
     people.h \
     dataread.h \
     ui.h \
-    core.h
+    core.h \
+    sqlitedata.h
 

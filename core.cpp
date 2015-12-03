@@ -28,7 +28,13 @@ void Core::addIndividual(const Individual& ind)
 }
 
 
-void Core::removeIndividual(const string str)
+//void sortAlpabetBack(const People& p1)
+//void sortByBirthYear(const People& p1)
+//void sortByDeathYear(const People& p1)
+//void sortByGender(const People& p1)
+
+
+void Core::removeIndividual(const string str, bool& removed)
 {
     Individual temp;
     string tempstr;
@@ -40,6 +46,7 @@ void Core::removeIndividual(const string str)
         if(tempstr == str)
         {
             temp = list.getIndi(i);
+            removed = true;
             break;
         }
     }
@@ -48,7 +55,10 @@ void Core::removeIndividual(const string str)
     {
         data.removeFromFile(list, temp);
     }
-    cout << str << " hase been removed." << endl;
+<<<<<<< HEAD
+    cout << str << " has been removed." << endl;
+=======
+>>>>>>> 132da9d7b723a609f812024a1c19d732767ab010
 }
 
 void Core::sortAlpabetFront()
@@ -203,7 +213,7 @@ People Core::searchDea(bool& found, int ansYear, People& result1, People& result
             result1.addIndi(list.getIndi(i));
             found = true;
         }
-        if (ansYear - 5 <= findYear && ansYear + 5 >= findYear)
+        if ((ansYear - 5 <= findYear && ansYear + 5 >= findYear)&&(list.getIndi(i).getDeath() != 0))
         {
             result2.addIndi(list.getIndi(i));
         }
