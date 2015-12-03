@@ -200,10 +200,8 @@ void Core::searchNam(bool& found, string searchStr, People& result)
             found = true;
         }
     }
-
     sortAlpabetFront();
-    //sortAlpabetFront();
-
+    //print
 }
 People Core::getList() const
 {
