@@ -96,7 +96,7 @@ void Core::sortByDeathYear()
     {
         for(int j = 0; j < list.getSize(); j++)
         {
-            if(list.checkDeathYearOrder(list.getIndi(j),list.getIndi(i)))
+            if((list.checkDeathYearOrder(list.getIndi(j),list.getIndi(i)) && (list.getIndi(i).getDeath() != 0)))
             {
                list.swap(i,j);
             }
