@@ -67,8 +67,13 @@ void People::removeIndi(string name)
     }
     person = newlist;
 }
-
 /*
+void People::swap(const int i, const int j)
+{
+    Individual temp = person(i);
+    perosn(i) = person(j);
+    person(j) = temp;
+}
 People::People(const People& p1)
 {
     for(unsigned int i = 0 ; i < p1.person.size(); i++)

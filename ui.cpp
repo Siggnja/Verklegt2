@@ -162,13 +162,19 @@ void UI::sortMenu()
                     break;
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
+                    core.sortAlpabetBack();
+                     this->print();
                     break;
         case 'b':
         case 'B':   cout << endl << "--- Printing by year of Birth --- " << endl;
+                    core.sortByBirthYear();
+                    this->print();
                     break;
         case 'd':
         case 'D':
-
+                    cout << endl << "--- Printing by year of Death --- " << endl;
+                    core.sortByDeathYear();
+                     this->print();
                     break;
         case 'g':
         case 'G':
@@ -278,11 +284,6 @@ void UI::printList() const
     {
         printIndi(i);
     }
-}
-
-void UI::printList(People& list) const
-{
-
 }
 
 

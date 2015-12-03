@@ -25,6 +25,7 @@ public:
     bool checkDeathYearOrder(const Individual& i1, const Individual& i2);
     //adds and individual to vector
     void removeIndi(string name);
+    void swap(const int i, const int j);
     //removes an individual from the database, returns a new variable People
     //with a vector containing every individual except the removed one
 
@@ -74,7 +75,7 @@ public:
     void printVector(); */
     bool checkIndiOrder(const Individual& i1, const Individual& i2);
 private:
-    void swap(const int i, const int j);
+    //void swap(const int i, const int j);
     bool checkIndiOrder(const int i, const int j);
     vector <Individual> person;
     //saves individuals in vector to file

@@ -85,7 +85,7 @@ void Core::sortByBirthYear()
         {
             if(list.checkBirthYearOrder(list.getIndi(j),list.getIndi(i)))
             {
-               this->getList().swap(i,j);
+               list.swap(i,j);
             }
         }
     }
@@ -97,9 +97,9 @@ void Core::sortByDeathYear()
     {
         for(int j = 0; j < list.getSize(); j++)
         {
-            if(list.checkDeathYearOrder(list.getIndi(i),list.getIndi(j)))
+            if(list.checkDeathYearOrder(list.getIndi(j),list.getIndi(i)))
             {
-               this->getList().swap(i,j);
+               list.swap(i,j);
             }
         }
     }

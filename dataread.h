@@ -10,7 +10,7 @@ class Dataread
 public:
     Dataread();
     //Dataread(const string FILENAME);
-    People readData();
+    People readData(const string filename);
     void addToFile(const Individual& i1);
     void removeFromFile(const People& p1, const Individual& i1);
 private:

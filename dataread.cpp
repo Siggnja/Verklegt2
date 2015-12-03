@@ -8,10 +8,9 @@
 
 Dataread::Dataread()
 {
-    filename = "people.txt";
 }
 
-People Dataread::readData()
+People Dataread::readData(const string filename)
 {
     People p1;
     ifstream ins;
