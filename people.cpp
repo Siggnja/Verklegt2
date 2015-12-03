@@ -36,17 +36,16 @@ int People::getSize() const
      int t1=0,t2=0;
      do
      {
-         s1 = person[i].getSurname();
+        s1 = person[i].getSurname();
         s2 = person[j].getSurname();
         c1 = tolower(s1[i]);
-         c2 = tolower(s2[i]);
-         t1 = static_cast <int> (c1);
+        c2 = tolower(s2[i]);
+        t1 = static_cast <int> (c1);
         int t2 = static_cast <int> (c2);
-         if(t2>t1)
-         {
+        if(t2>t1)
+        {
             break;
-         }
-
+        }
      }while(t2<t1);
 
      return(t2>t1);
@@ -77,16 +76,6 @@ People::People(const People& p1)
     }
 }
 
-int People::getSize() const
-{
-    return(person.size());
-}
-
-vector<Individual> People::getVector()
-{
-    return person;
-}
-
 void People::removeIndi(string name)
 {
     People removed;
@@ -104,15 +93,6 @@ void People::removeIndi(string name)
     person = newlist;
 }
 
-void People::addIndi(Individual& i1)
-{
-    person.push_back(i1);
-}
-
-Individual People::getIndi(const int i) const
-{
-    return person[i];
-}
 People::People(const string filename)
 {
     ifstream ins;
@@ -147,11 +127,6 @@ People::People(const People& p1)
     {
        person.push_back(p1.person[i]);
     }
-}
-
-int People::getSize() const
-{
-    return(person.size());
 }
 
 void People::addIndi(Individual& i1)
@@ -318,11 +293,7 @@ void People::printVector()
         cout << person[i] << endl;
      }
 }
-<<<<<<< HEAD
 
-
-
-=======
 */
 bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
 {

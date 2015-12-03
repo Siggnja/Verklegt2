@@ -44,7 +44,9 @@ void Core::removeIndividual(const string str)
     }
 
     for(int i = 0; i < list.getSize(); i++)
+    {
         data.removeFromFile(list, temp);
+    }
     cout << str << " hase been removed." << endl;
 }
 
@@ -201,7 +203,7 @@ void Core::searchNam(bool& found, string searchStr, People& result)
         }
     }
     sortAlpabetFront();
-    //print
+    //printed in ui
 }
 People Core::getList() const
 {

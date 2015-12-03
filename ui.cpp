@@ -214,21 +214,26 @@ void UI::addIndividual()
         cout << "Year of birth: ";
         cin >> birth;
         if(cin.fail())
+        {
             cout << endl << "Invalid input, please try again!" << endl << endl;
+        }
     } while(cin.fail());
 
     cout << "Is the individual alive?(y/n) ";
     cin >> ans;
-    if (ans == 'n' || ans == 'N') {
+    if (ans == 'n' || ans == 'N')
+    {
         do {
-            cin.clear();
-            cin.ignore();
-            cout << "Year of death: ";
-            cin >> death;
-            if(cin.fail()) {
+                cin.clear();
+                cin.ignore();
+                cout << "Year of death: ";
+                cin >> death;
+                if(cin.fail())
+            {
                 cout << endl << "Invalid input, please try again!" << endl << endl;
             }
-            if(birth>death) {
+            if(birth>death)
+            {
                 cout<<"Illegal deathyear! Input again: "<<endl<<endl;
             }
         } while(cin.fail()||birth>death);
@@ -237,11 +242,9 @@ void UI::addIndividual()
         death = 0;
     }
 
-    Individual temp(surname, name, gender, birth, death);//fer inn i add
+    Individual temp(surname, name, gender, birth, death); //fer inn i add
 
     core.getList().addIndi(temp);
-
-
 }
 // a eftir ad klara
 
@@ -279,8 +282,6 @@ void UI::printList(People& list) const
 
 }
 
-
-
 void UI::remove()
 {
     string str;
@@ -307,7 +308,7 @@ void UI::searchName()
     core.searchNam(found, searchStr, result);
 
     //core.sortAlpabetFront(result);
-    //print
+    printList();
     if (found == false)
     {
         noMatch();
@@ -328,7 +329,7 @@ void UI::searchGender()
         individualsMatched();
         core.searchGend(found, ansGender, result);
         //core.sortAlpabetFront(result);
-        //print
+        printList();
     }
     else
     {
@@ -355,7 +356,7 @@ void UI::searchBirth()
         if(found)
         {
             //core.sortAlpabetFront(result1);
-            //print
+            printList();
         }
         if (found == false)
         {
@@ -366,7 +367,7 @@ void UI::searchBirth()
                             " a 10 year range of given year: " << endl;
                     cout << "--- Printing by alphabetical order ---" << endl;
                     //core.sortAlpabetFront(result2);
-                    //print
+                    printList();
                 }
         }
     }
@@ -402,7 +403,7 @@ void UI::searchDeath()
                     cout << "However these individuals were found within"
                             " a 10 year range of given year: " << endl;
                     //core.sortAlpabetFront(result2);
-                    //print
+                    printList();
                 }
         }
     }
