@@ -294,17 +294,43 @@ void UI::printList() const
         printIndi(i);
     }
 }
-/*
+
 void UI::printList(People& list) const
 {
     for (int i = 0; i < list.getSize(); i++)
     {
-        //prenta list
-        //Individual temp = list.getIndi(i);
-        printIndi(i);
+        Individual id = list.getIndi(i);
+        printIndi(id);
     }
 }
-*/
+
+void UI::printIndi(Individual& temp) const
+{
+    cout << endl;
+    cout << "Name: " << temp.getName() << " " << temp.getSurname() << endl;
+
+    if(temp.getGender() == 'f' || temp.getGender() == 'F')
+    {
+        cout << "female" << endl;
+    }
+    else
+    {
+        cout << "male" << endl;
+    }
+    cout << temp.getBirth() << " - ";
+
+    if(temp.getDeath() == 0)
+    {
+        cout << "Today";
+    }
+    else
+    {
+        cout << temp.getDeath();
+    }
+
+    cout << endl;
+}
+
 void UI::remove()
 {
     string str;
