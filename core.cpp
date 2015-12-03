@@ -5,7 +5,7 @@ Core::Core()
     list = data.readData();
 }
 
-int Core::getSizeOfList()
+int Core::getSizeOfList() const
 {
     return list.getSize();
 }

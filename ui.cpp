@@ -246,7 +246,7 @@ void UI::addIndividual()
 // a eftir ad klara
 
 
-void UI::printIndi(int i)
+void UI::printIndi(int i) const
 {
     Individual temp = core.getList().getIndi(i);
     cout << endl;
@@ -266,13 +266,19 @@ void UI::printIndi(int i)
     cout << endl;
 }
 
-void UI::printList()
+void UI::printList() const
 {
     for(int i = 0; i < core.getSizeOfList(); i++)
     {
         printIndi(i);
     }
 }
+
+void UI::printList(People& list) const
+{
+
+}
+
 
 
 void UI::remove()
