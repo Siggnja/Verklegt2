@@ -144,7 +144,6 @@ void UI::sortMenu()
          << "(R) Reverse alphabetic order" << endl
          << "(B) Year of Birth" << endl
          << "(D) Year of Death" << endl
-         << "(G) Gender" << endl
          << "(M) Return to Menu" << endl
          << "(Q) Quit program " << endl;
     cout << "Select a letter: ";
@@ -407,22 +406,24 @@ void UI::searchBirth()
     cin >> ansYear;
     if(!cin.fail())
     {
-        People result = core.searchBir(found, ansYear, result1, result2);
+        individualsMatched();
+        core.searchBir(found, ansYear, result1, result2);
         if(found)
         {
-            individualsMatched();
-            printList(result);
+            //core.sortAlpabetFront(result1);
+            printList();
         }
-        else if (!found)
+        if (found == false)
         {
-            cout << endl;
-            noMatch();
-            if(result2.getSize() != 0)
-            {
-                cout << "However these individuals were found within"
-                        " a 10 year range of given year: " << endl;
-                printList(result);
-            }
+            //ui.individualsMatched();
+                if(result2.getSize() != 0)
+                {
+                    cout << "However these individuals were found within"
+                            " a 10 year range of given year: " << endl;
+                    cout << "--- Printing by alphabetical order ---" << endl;
+                    //core.sortAlpabetFront(result2);
+                    printList();
+                }
         }
     }
     else
@@ -443,22 +444,22 @@ void UI::searchDeath()
     cin >> ansYear;
     if(!cin.fail())
     {
-        People result = core.searchDea(found, ansYear, result1, result2);
+        individualsMatched();
+        core.searchDea(found, ansYear, result1, result2);
         if(found)
         {
-            individualsMatched();
-            printList(result);
+            //core.sortAlpabetFront(result1);
         }
-        else if (!found)
+        if (found == false)
         {
-            cout << endl;
-            noMatch();
-            if(result2.getSize() != 0)
-            {
-                cout << "However these individuals were found within"
-                        " a 10 year range of given year: " << endl;
-                printList(result);
-            }
+            errorInput();
+                if(result2.getSize() != 0)
+                {
+                    cout << "However these individuals were found within"
+                            " a 10 year range of given year: " << endl;
+                    //core.sortAlpabetFront(result2);
+                    printList();
+                }
         }
     }
     else
@@ -476,25 +477,15 @@ void UI::print()
     {
 
         cout << "Name: " << core.getList().getIndi(i).getSurname() + ", " + core.getList().getIndi(i).getName()<<endl;
-        cout << "Gender: ";
-        if(core.getList().getIndi(i).getGender() == 'm' || core.getList().getIndi(i).getGender() == 'M')
-        {
-            cout << "Male" << endl;
-        }
-        else
-        {
-            cout << "Female" << endl;
-        }
-
-
-        cout << core.getList().getIndi(i).getBirth() << " - ";
+        cout << "Gender: " << core.getList().getIndi(i).getGender()<<endl;
+        cout << "Year of birth: " << core.getList().getIndi(i).getBirth()<<endl;
         if(core.getList().getIndi(i).getDeath() == 0)
         {
-            cout << "Today" << endl;
+            cout << "Alive" << endl;
         }
         else
         {
-            cout << core.getList().getIndi(i).getDeath()<<endl;
+            cout << "Year of death: " << core.getList().getIndi(i).getDeath()<<endl;
         }
         cout << endl;
     }
