@@ -31,7 +31,7 @@ void Core::addIndividual(const Individual& ind)
 //void sortByBirthYear(const People& p1)
 //void sortByDeathYear(const People& p1)
 //void sortByGender(const People& p1)
-void Core::removeIndividual(const string str)
+void Core::removeIndividual(const string str, bool& removed)
 {
     Individual temp;
     string tempstr;
@@ -43,6 +43,7 @@ void Core::removeIndividual(const string str)
         if(tempstr == str)
         {
             temp = list.getIndi(i);
+            removed = true;
             break;
         }
     }
@@ -51,7 +52,6 @@ void Core::removeIndividual(const string str)
     {
         data.removeFromFile(list, temp);
     }
-    cout << str << " hase been removed." << endl;
 }
 
 void Core::sortAlpabetFront()
