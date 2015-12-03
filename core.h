@@ -28,6 +28,13 @@ public:
     void addIndividual(const Individual& ind);
     void removeIndividual(const string str, bool& removed);
 
+    string getSurname(int i) const;
+    string getName(int i) const;
+    int getBirth(int i) const;
+    int getDeath(int i) const;
+    char getGender(int i) const;
+
+
     //functions used to search for individuals in vector with specific traits:
     //void searchName();
     People searchGend(char ansGender);
