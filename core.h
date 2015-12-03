@@ -30,8 +30,8 @@ public:
     //void searchName();
     People searchNam(bool& found, string searchStr, People& result);
     void searchGend(bool& found, char ansGender, People& result);
-    void searchBir(bool& found, int ansYear, People& result1, People& result2);
-    void searchDea(bool& found, int ansYear, People& result1, People& result2);
+    People searchBir(bool& found, int ansYear, People& result1, People& result2);
+    People searchDea(bool& found, int ansYear, People& result1, People& result2);
     People getList() const;
     //sort vector by the specified order:
 

@@ -402,24 +402,22 @@ void UI::searchBirth()
     cin >> ansYear;
     if(!cin.fail())
     {
-        individualsMatched();
-        core.searchBir(found, ansYear, result1, result2);
+        People result = core.searchBir(found, ansYear, result1, result2);
         if(found)
         {
-            //core.sortAlpabetFront(result1);
-            printList();
+            individualsMatched();
+            printList(result);
         }
-        if (found == false)
+        else if (!found)
         {
-            //ui.individualsMatched();
-                if(result2.getSize() != 0)
-                {
-                    cout << "However these individuals were found within"
-                            " a 10 year range of given year: " << endl;
-                    cout << "--- Printing by alphabetical order ---" << endl;
-                    //core.sortAlpabetFront(result2);
-                    printList();
-                }
+            cout << endl;
+            noMatch();
+            if(result2.getSize() != 0)
+            {
+                cout << "However these individuals were found within"
+                        " a 10 year range of given year: " << endl;
+                printList(result);
+            }
         }
     }
     else
@@ -440,22 +438,22 @@ void UI::searchDeath()
     cin >> ansYear;
     if(!cin.fail())
     {
-        individualsMatched();
-        core.searchDea(found, ansYear, result1, result2);
+        People result = core.searchDea(found, ansYear, result1, result2);
         if(found)
         {
-            //core.sortAlpabetFront(result1);
+            individualsMatched();
+            printList(result);
         }
-        if (found == false)
+        else if (!found)
         {
-            errorInput();
-                if(result2.getSize() != 0)
-                {
-                    cout << "However these individuals were found within"
-                            " a 10 year range of given year: " << endl;
-                    //core.sortAlpabetFront(result2);
-                    printList();
-                }
+            cout << endl;
+            noMatch();
+            if(result2.getSize() != 0)
+            {
+                cout << "However these individuals were found within"
+                        " a 10 year range of given year: " << endl;
+                printList(result);
+            }
         }
     }
     else
