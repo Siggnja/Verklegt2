@@ -124,7 +124,7 @@ void UI::searchMenu()
         case 'D':   searchDeath();
                     break;
         case 'M':
-        case 'm':   return;
+        case 'm':   return; //this->menu();
                     break;
         case 'q':
         case 'Q':   exit(1);
@@ -132,6 +132,7 @@ void UI::searchMenu()
         default:    errorInput();
                     searchMenu();
     }
+    searchMenu();
 }
 
 void UI::sortMenu()
@@ -173,10 +174,10 @@ void UI::sortMenu()
         case 'D':
                     cout << endl << "--- Printing by year of Death --- " << endl;
                     core.sortByDeathYear();
-                     this->print();
+                    this->print();
                     break;
         case 'M':
-        case 'm':   this->searchMenu();
+        case 'm':   return; //this->menu();
                     break;
 
         case 'q':
@@ -185,6 +186,7 @@ void UI::sortMenu()
         default:    errorInput();
                     sortMenu();
     }
+    sortMenu();
 }
 
 void UI::welcomeMessage()
