@@ -304,6 +304,23 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
 {
     string s1 = i1.getSurname();
     string s2 = i2.getSurname();
+
+    int namelength = s1.size();
+
+    for(int i = 0; i < namelength; i++)
+    {
+        if(static_cast<int>(tolower(s1[i])) == static_cast<int>(tolower(s2[i])))
+        {
+            //ekkert gerist
+        }
+        else
+        {
+            return (static_cast<int>(tolower(s1[i])) < static_cast<int>(tolower(s2[i])));
+        }
+    }
+    int compare = s2.size();
+    return(namelength < compare);
+    /*
     char c1 = tolower(s1[0]);
     char c2 = tolower(s2[0]);
     int t1 = static_cast <int> (c1);
@@ -323,7 +340,7 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
         }
     }
 
-    return(t2>t1);
+    return(t2>t1);*/
 }
 
 bool People::checkBirthYearOrder(const Individual& i1, const Individual& i2)
