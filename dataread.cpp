@@ -87,6 +87,6 @@ void Dataread::removeFromFile(const People& p1,const Individual& i1)
         file << removed.getIndi(removed.getSize()-1).getName() << endl;
         file << removed.getIndi(removed.getSize()-1).getGender() << endl;
         file << removed.getIndi(removed.getSize()-1).getBirth() << endl;
-        file << removed.getIndi(removed.getSize()-1).getDeath()<<endl;
+        file << removed.getIndi(removed.getSize()-1).getDeath();
     file.close();
 }

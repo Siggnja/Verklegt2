@@ -144,7 +144,6 @@ void UI::sortMenu()
          << "(R) Reverse alphabetic order" << endl
          << "(B) Year of Birth" << endl
          << "(D) Year of Death" << endl
-         << "(G) Gender" << endl
          << "(M) Return to Menu" << endl
          << "(Q) Quit program " << endl;
     cout << "Select a letter: ";
