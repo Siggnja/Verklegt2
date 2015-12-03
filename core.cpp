@@ -70,8 +70,6 @@ void Core::sortAlpabetFront()
 
 void Core::sortAlpabetBack()
 {
-
-
         for(int i = 1 ; i < list.getSize(); i++)
         {
             for(int j = 0; j < list.getSize(); j++)
@@ -82,7 +80,6 @@ void Core::sortAlpabetBack()
                 }
             }
         }
-
 }
 
 void Core::sortByBirthYear()
@@ -105,7 +102,7 @@ void Core::sortByDeathYear()
     {
         for(int j = 0; j < list.getSize(); j++)
         {
-            if(list.checkDeathYearOrder(list.getIndi(j),list.getIndi(i)))
+            if((list.checkDeathYearOrder(list.getIndi(j),list.getIndi(i)) && (list.getIndi(i).getDeath() != 0)))
             {
                list.swap(i,j);
             }
@@ -129,6 +126,10 @@ void Core::sortByGender(People& male, People& female)
         }
     // verdur svo ad kalla a sort by alphabet i ui
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 222bb038a66785658d43dbff1343ec6cb2618e66
     for(int i = 0; i < list.getSize(); i++)
     {
        if(list.getIndi(i).getDeath()!=0)
@@ -162,7 +163,7 @@ string Core::makeLower(string& temp)
 
 //    Search functions:
 
-void Core::searchNam(bool& found, string searchStr, People& result)
+People Core::searchNam(bool& found, string searchStr, People& result)
 {
     string tempStr;
     searchStr = makeLower(searchStr);
@@ -170,19 +171,21 @@ void Core::searchNam(bool& found, string searchStr, People& result)
     {
         tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
         tempStr = makeLower(tempStr);
+        cout << tempStr << endl; //taka burt
         if(tempStr.find(searchStr) != string::npos)
         {
             result.addIndi(list.getIndi(i));
             found = true;
         }
     }
-    sortAlpabetFront();
-    //printed in ui
+    return result;
 }
+
 People Core::getList() const
 {
     return list;
 }
+
 /*
 void Core::searchGender()
 {
