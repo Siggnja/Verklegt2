@@ -1,5 +1,6 @@
 QT += core
 QT -= gui
+QT += core sql
 
 TARGET = Vika2
 CONFIG += console
