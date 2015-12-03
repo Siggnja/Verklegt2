@@ -1,13 +1,14 @@
 #include "dataread.h"
 //tekur vid , eydir og les skjalid
-
-/*Dataread::Dataread(const string FILENAME)
+/*
+Dataread::Dataread(const string FILENAME)
 {
-    filename = FILENAME;
-}*/
 
+}
+*/
 Dataread::Dataread()
 {
+    filename = "people.txt";
 }
 
 People Dataread::readData(const string filename)
@@ -71,7 +72,7 @@ void Dataread::removeFromFile(const People& p1,const Individual& i1)
     }
     ofstream file;
     file.open(filename.c_str());
-    for (int i = 0; i < removed.getSize(); i++)
+    for (int i = 0; i < removed.getSize()-1; i++)
     {
         //cout << atBegin << endl;
 
@@ -79,8 +80,13 @@ void Dataread::removeFromFile(const People& p1,const Individual& i1)
         file << removed.getIndi(i).getName() << endl;
         file << removed.getIndi(i).getGender() << endl;
         file << removed.getIndi(i).getBirth() << endl;
-        file << removed.getIndi(i).getDeath();
+        file << removed.getIndi(i).getDeath()<<endl;
 
     }
+        file << removed.getIndi(removed.getSize()-1).getSurname() << endl;
+        file << removed.getIndi(removed.getSize()-1).getName() << endl;
+        file << removed.getIndi(removed.getSize()-1).getGender() << endl;
+        file << removed.getIndi(removed.getSize()-1).getBirth() << endl;
+        file << removed.getIndi(removed.getSize()-1).getDeath()<<endl;
     file.close();
 }

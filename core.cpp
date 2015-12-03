@@ -64,8 +64,6 @@ void Core::sortAlpabetFront()
 
 void Core::sortAlpabetBack()
 {
-
-
         for(int i = 1 ; i < list.getSize(); i++)
         {
             for(int j = 0; j < list.getSize(); j++)
@@ -76,7 +74,6 @@ void Core::sortAlpabetBack()
                 }
             }
         }
-
 }
 
 void Core::sortByBirthYear()
@@ -99,13 +96,14 @@ void Core::sortByDeathYear()
     {
         for(int j = 0; j < list.getSize(); j++)
         {
-            if(list.checkDeathYearOrder(list.getIndi(j),list.getIndi(i)))
+            if((list.checkDeathYearOrder(list.getIndi(j),list.getIndi(i)) && (list.getIndi(i).getDeath() != 0)))
             {
                list.swap(i,j);
             }
         }
     }
 }
+/*
 void Core::sortByGender(People& male, People& female)
 {
 
@@ -122,7 +120,7 @@ void Core::sortByGender(People& male, People& female)
         }
     // verdur svo ad kalla a sort by alphabet i ui
 }
-    /*
+
     for(int i = 0; i < list.getSize(); i++)
     {
        if(list.getIndi(i).getDeath()!=0)

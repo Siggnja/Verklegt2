@@ -1,0 +1,60 @@
+Turing
+Alan
+m
+1912
+1954
+Babbage
+Charles
+m
+1791
+1871
+Lovelace
+Ada
+f
+1815
+1852
+Hopper
+Grace Murray
+f
+1906
+1992
+Pascal
+Blaise
+m
+1623
+1662
+Atanasoff
+John Vincent
+m
+1903
+1995
+Berry
+Clifford Edward
+m
+1918
+1963
+Kahn
+Robert Elliot
+m
+1938
+0
+Kleinrock
+Leonard
+m
+1934
+0
+Roberts
+Lawrence
+m
+1937
+0
+Cerf
+Vinton Gray
+m
+1943
+0
+Siggi
+Njalli
+m
+1994
+0

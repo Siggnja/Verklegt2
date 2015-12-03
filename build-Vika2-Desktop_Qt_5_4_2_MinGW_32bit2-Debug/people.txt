@@ -1,0 +1,55 @@
+Atanasoff
+John Vincent
+m
+1903
+1995
+Babbage
+Charles
+m
+1791
+1871
+Berry
+Clifford Edward
+m
+1918
+1963
+Cerf
+Vinton Gray
+m
+1943
+0
+Hopper
+Grace Murray
+f
+1906
+1992
+Kahn
+Robert Elliot
+m
+1938
+0
+Kleinrock
+Leonard
+m
+1934
+0
+Lovelace
+Ada
+f
+1815
+1852
+Pascal
+Blaise
+m
+1623
+1662
+Roberts
+Lawrence
+m
+1937
+0
+Turing
+Alan
+m
+1912
+1954
