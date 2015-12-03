@@ -3,6 +3,7 @@
 
 #include "people.h"
 #include "dataread.h"
+#include <string>
 
 using namespace std;
 
@@ -14,6 +15,7 @@ private:
     void swap(const int i, const int j);
 public:
     Core();
+    Core(const People& p1);
     void createList(const string filename);
     void sortAlpabetFront();
     void sortAlpabetBack();
@@ -27,7 +29,7 @@ public:
     //functions used to search for individuals in vector with specific traits:
     //void searchName();
     void searchNam(bool& found, string searchStr, People& result);
-    void searchGend(bool& found, char ansGender, People& result);
+    People searchGend(char ansGender);
     void searchBir(bool& found, int ansYear, People& result1, People& result2);
     void searchDea(bool& found, int ansYear, People& result1, People& result2);
     People getList() const;

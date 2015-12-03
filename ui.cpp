@@ -115,7 +115,7 @@ void UI::searchMenu()
         case 'N':   //p.searchName(); <- breyta í core.searchName þegar core hefur það fall
                     break;
         case 'g':
-        case 'G':   //p.searchGender();
+        case 'G':   this->searchGender();
                     break;
         case 'b':
         case 'B':   //p.searchBirth();
@@ -327,7 +327,6 @@ void UI::searchName()
 void UI::searchGender()
 {
     People result;
-    bool found = false;
     char ansGender;
     cout << endl;
     cout << "Enter which gender you want to search for (m/f): ";
@@ -336,18 +335,29 @@ void UI::searchGender()
     if(ansGender == 'm' || ansGender == 'M' || ansGender=='f' || ansGender=='F')
     {
         individualsMatched();
-        core.searchGend(found, ansGender, result);
-        //core.sortAlpabetFront(result);
-        printList();
+        Core c1(core.searchGend(ansGender));
+        c1.sortAlpabetFront();
+        if(c1.getList().getSize()!=0)
+        {
+            for(int i =0 ; i < c1.getList().getSize() ; i++)
+            {
+                cout << "Name: " <<c1.getList().getIndi(i).getSurname() + ", " + c1.getList().getIndi(i).getName()<<endl;
+                cout << "Gender: " << c1.getList().getIndi(i).getGender()<<endl;
+                cout << "Year of birth: " << c1.getList().getIndi(i).getBirth()<<endl;
+                cout << "Year of death: " << c1.getList().getIndi(i).getDeath()<<endl;
+            }
+
+        }
+        else
+        {
+            this->noMatch();
+        }
+
     }
     else
     {
         errorInput();
         this->searchGender();
-    }
-    if (found == false)
-    {
-        noMatch();
     }
 }
 

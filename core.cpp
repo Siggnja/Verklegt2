@@ -3,11 +3,17 @@
  {
 
  }
+ Core::Core(const People& p1)
+ {
+
+     list =p1;
+ }
 
 void Core::createList(const string filename)
 {
     list = data.readData(filename);
 }
+
 
 int Core::getSizeOfList() const
 {
@@ -123,7 +129,6 @@ void Core::sortByGender(People& male, People& female)
         }
     // verdur svo ad kalla a sort by alphabet i ui
 }
-    /*
     for(int i = 0; i < list.getSize(); i++)
     {
        if(list.getIndi(i).getDeath()!=0)
@@ -179,7 +184,6 @@ People Core::getList() const
     return list;
 }
 /*
-
 void Core::searchGender()
 {
     People result;
@@ -215,19 +219,23 @@ void Core::searchGender()
     }
 }*/
 
-void Core::searchGend(bool& found, char ansGender, People& result)
+People Core::searchGend(const char ansGender)
 {
     char findGender;
-    for (int i = 0; i < list.getSize(); i++)
+    People result;
+   //  cout << "hello";
+     cout << list.getSize();
+    for(int i = 0 ; i < 10 ; i++)
     {
         findGender = list.getIndi(i).getGender();
+
         if (tolower(ansGender) == tolower(findGender))
         {
-            result.addIndi(result.getIndi(i));
-            found = true;
+            result.addIndi(list.getIndi(i));
         }
     }
-    //sortAlpabetFront(result);
+
+    return result;
 }
 
 
