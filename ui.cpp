@@ -431,15 +431,25 @@ void UI::print()
     {
 
         cout << "Name: " << core.getList().getIndi(i).getSurname() + ", " + core.getList().getIndi(i).getName()<<endl;
-        cout << "Gender: " << core.getList().getIndi(i).getGender()<<endl;
-        cout << "Year of birth: " << core.getList().getIndi(i).getBirth()<<endl;
-        if(core.getList().getIndi(i).getDeath() == 0)
+        cout << "Gender: ";
+        if(core.getList().getIndi(i).getGender() == 'm' || core.getList().getIndi(i).getGender() == 'M')
         {
-            cout << "Alive" << endl;
+            cout << "Male" << endl;
         }
         else
         {
-            cout << "Year of death: " << core.getList().getIndi(i).getDeath()<<endl;
+            cout << "Female" << endl;
+        }
+
+
+        cout << core.getList().getIndi(i).getBirth() << " - ";
+        if(core.getList().getIndi(i).getDeath() == 0)
+        {
+            cout << "Today" << endl;
+        }
+        else
+        {
+            cout << core.getList().getIndi(i).getDeath()<<endl;
         }
         cout << endl;
     }
