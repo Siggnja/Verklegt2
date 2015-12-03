@@ -156,7 +156,7 @@ string Core::makeLower(string& temp)
 
 //    Search functions:
 
-void Core::searchNam(bool& found, string searchStr, People& result)
+People Core::searchNam(bool& found, string searchStr, People& result)
 {
     string tempStr;
     searchStr = makeLower(searchStr);
@@ -164,19 +164,21 @@ void Core::searchNam(bool& found, string searchStr, People& result)
     {
         tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
         tempStr = makeLower(tempStr);
+        cout << tempStr << endl; //taka burt
         if(tempStr.find(searchStr) != string::npos)
         {
             result.addIndi(list.getIndi(i));
             found = true;
         }
     }
-    sortAlpabetFront();
-    //printed in ui
+    return result;
 }
+
 People Core::getList() const
 {
     return list;
 }
+
 /*
 
 void Core::searchGender()

@@ -112,19 +112,19 @@ void UI::searchMenu()
 
     switch(choice) {
         case 'n':
-        case 'N':   //p.searchName(); <- breyta í core.searchName þegar core hefur það fall
+        case 'N':   searchName(); //<- breyta í core.searchName þegar core hefur það fall
                     break;
         case 'g':
-        case 'G':   //p.searchGender();
+        case 'G':   searchGender();
                     break;
         case 'b':
-        case 'B':   //p.searchBirth();
+        case 'B':   searchBirth();
                     break;
         case 'd':
-        case 'D':   //p.searchDeath();
+        case 'D':   searchDeath();
                     break;
         case 'M':
-        case 'm':
+        case 'm':   return;
                     break;
         case 'q':
         case 'Q':   exit(1);
@@ -266,10 +266,19 @@ void UI::printIndi(int i) const
     Individual temp = core.getList().getIndi(i);
     cout << endl;
     cout << "Name: " << temp.getName() << " " << temp.getSurname() << endl;
-    cout << temp.getGender() << endl;
+
+    if(temp.getGender() == 'f' || temp.getGender() == 'F')
+    {
+        cout << "female" << endl;
+    }
+    else
+    {
+        cout << "male" << endl;
+    }
+    //cout << temp.getGender() << endl;
     cout << temp.getBirth() << " - ";
 
-    if(0 == temp.getDeath())
+    if(temp.getDeath() == 0)
     {
         cout << "Today";
     }
@@ -291,7 +300,12 @@ void UI::printList() const
 
 void UI::printList(People& list) const
 {
-
+    for (int i = 0; i < list.getSize(); i++)
+    {
+        //prenta list
+        //Individual temp = list.getIndi(i);
+        printIndi(i);
+    }
 }
 
 void UI::remove()
@@ -311,17 +325,19 @@ void UI::searchName()
 {
     People result;
     bool found = false;
-    string searchStr = "";
+    string searchStr;
     cin.ignore();
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
 
-    individualsMatched();
-    core.searchNam(found, searchStr, result);
+    result = core.searchNam(found, searchStr, result);
 
-    //core.sortAlpabetFront(result);
-    printList();
-    if (found == false)
+    if (found)
+    {
+        individualsMatched();
+        printList(result);
+    }
+    if (!found)
     {
         noMatch();
     }

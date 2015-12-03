@@ -15,7 +15,9 @@ private:
 public:
     Core();
     void createList(const string filename);
+
     void sortAlpabetFront();
+
     void sortAlpabetBack();
     void sortByBirthYear();
     void sortByDeathYear();
@@ -26,7 +28,7 @@ public:
 
     //functions used to search for individuals in vector with specific traits:
     //void searchName();
-    void searchNam(bool& found, string searchStr, People& result);
+    People searchNam(bool& found, string searchStr, People& result);
     void searchGend(bool& found, char ansGender, People& result);
     void searchBir(bool& found, int ansYear, People& result1, People& result2);
     void searchDea(bool& found, int ansYear, People& result1, People& result2);
