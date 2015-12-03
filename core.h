@@ -26,7 +26,7 @@ public:
     void sortByGender(People& male, People& female);
     int getSizeOfList()const;
     void addIndividual(const Individual& ind);
-    void removeIndividual(const string str);
+    void removeIndividual(const string str, bool& removed);
 
     string getSurname(int i) const;
     string getName(int i) const;
