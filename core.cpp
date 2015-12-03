@@ -3,11 +3,17 @@
  {
 
  }
+ Core::Core(const People& p1)
+ {
+
+     list =p1;
+ }
 
 void Core::createList(const string filename)
 {
     list = data.readData(filename);
 }
+
 
 int Core::getSizeOfList() const
 {
@@ -120,7 +126,10 @@ void Core::sortByGender(People& male, People& female)
         }
     // verdur svo ad kalla a sort by alphabet i ui
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 222bb038a66785658d43dbff1343ec6cb2618e66
     for(int i = 0; i < list.getSize(); i++)
     {
        if(list.getIndi(i).getDeath()!=0)
@@ -154,7 +163,7 @@ string Core::makeLower(string& temp)
 
 //    Search functions:
 
-void Core::searchNam(bool& found, string searchStr, People& result)
+People Core::searchNam(bool& found, string searchStr, People& result)
 {
     string tempStr;
     searchStr = makeLower(searchStr);
@@ -162,21 +171,22 @@ void Core::searchNam(bool& found, string searchStr, People& result)
     {
         tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
         tempStr = makeLower(tempStr);
+        cout << tempStr << endl; //taka burt
         if(tempStr.find(searchStr) != string::npos)
         {
             result.addIndi(list.getIndi(i));
             found = true;
         }
     }
-    sortAlpabetFront();
-    //printed in ui
+    return result;
 }
+
 People Core::getList() const
 {
     return list;
 }
-/*
 
+/*
 void Core::searchGender()
 {
     People result;
@@ -212,19 +222,23 @@ void Core::searchGender()
     }
 }*/
 
-void Core::searchGend(bool& found, char ansGender, People& result)
+People Core::searchGend(const char ansGender)
 {
     char findGender;
-    for (int i = 0; i < list.getSize(); i++)
+    People result;
+   //  cout << "hello";
+     cout << list.getSize();
+    for(int i = 0 ; i < 10 ; i++)
     {
         findGender = list.getIndi(i).getGender();
+
         if (tolower(ansGender) == tolower(findGender))
         {
-            result.addIndi(result.getIndi(i));
-            found = true;
+            result.addIndi(list.getIndi(i));
         }
     }
-    //sortAlpabetFront(result);
+
+    return result;
 }
 
 

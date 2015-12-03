@@ -7,7 +7,7 @@ People::People()
 
 void People::addIndi(const Individual& i1)
 {
-        person.push_back(i1);
+    person.push_back(i1);
 }
 
 vector <Individual> People::getPerson() const

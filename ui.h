@@ -41,6 +41,8 @@ public:
     void welcomeMessage();
 
     void printIndi(int i) const;
+    void printIndi(Individual& id) const;
+
     void printSize();
     void printList() const;
     void printList(People& list) const;
