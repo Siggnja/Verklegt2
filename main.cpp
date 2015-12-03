@@ -7,8 +7,7 @@ using namespace std;
 
 int main()
 {
-    UI ui;
-
+    UI ui("People.txt");
     ui.run();
 
 

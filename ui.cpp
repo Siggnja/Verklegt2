@@ -4,6 +4,10 @@ UI::UI()
 {
 
 }
+UI::UI(const string filename)
+{
+    core.createList(filename);
+}
 
 void UI::run()
 {
@@ -153,16 +157,24 @@ void UI::sortMenu()
 
         case 'a':
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
+                    core.sortAlpabetFront();
+                    this->print();
                     break;
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
+                    core.sortAlpabetBack();
+                     this->print();
                     break;
         case 'b':
         case 'B':   cout << endl << "--- Printing by year of Birth --- " << endl;
+                    core.sortByBirthYear();
+                    this->print();
                     break;
         case 'd':
         case 'D':
-
+                    cout << endl << "--- Printing by year of Death --- " << endl;
+                    core.sortByDeathYear();
+                     this->print();
                     break;
         case 'g':
         case 'G':
@@ -182,7 +194,7 @@ void UI::welcomeMessage()
 {
     cout << "------------Welcome to the database of famous computer scientists-------------" << endl;
     cout << "\t" << "    In this database you can add, remove, sort and search" << endl;
-    cout << "\t \t" <<" At this moment we have "<< core.getSizeOfList() << " computer scientists!" << endl;
+    cout << "\t \t" <<" At this moment we have "<< core.getList().getSize() << " computer scientists!" << endl;
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
 }
 
@@ -413,5 +425,16 @@ void UI::searchDeath()
         cin.clear();
         cin.ignore();
         this->searchDeath();
+    }
+}
+void UI::print()
+{
+    for(int i = 0 ; i < core.getList().getSize() ; i++)
+    {
+
+        cout << "Name: " << core.getList().getIndi(i).getSurname() + ", " + core.getList().getIndi(i).getName()<<endl;
+        cout << "Gender: " << core.getList().getIndi(i).getGender()<<endl;
+        cout << "Year of birth: " << core.getList().getIndi(i).getBirth()<<endl;
+        cout << "Year of death: " << core.getList().getIndi(i).getDeath()<<endl;
     }
 }

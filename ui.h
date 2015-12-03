@@ -11,10 +11,10 @@ class UI
 {
 public:
     UI();
-
+    UI(const string filename);
     void errorFile();
     void errorInput();
-
+    void print();
     void run();
     void ask();
     void menu(char ans);
@@ -57,6 +57,7 @@ public:
 
 private:
     Core core;
+    Dataread data;
 };
 
 #endif // UI_H

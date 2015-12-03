@@ -14,6 +14,7 @@ private:
     void swap(const int i, const int j);
 public:
     Core();
+    void createList(const string filename);
     void sortAlpabetFront();
     void sortAlpabetBack();
     void sortByBirthYear();

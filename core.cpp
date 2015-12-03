@@ -1,8 +1,12 @@
 #include "core.h"
+ Core::Core()
+ {
 
-Core::Core()
+ }
+
+void Core::createList(const string filename)
 {
-    list = data.readData();
+    list = data.readData(filename);
 }
 
 int Core::getSizeOfList() const
@@ -10,12 +14,6 @@ int Core::getSizeOfList() const
     return list.getSize();
 }
 
-void Core::swap(const int i, const int j)
-{
-    Individual temp = list.getIndi(i);
-    list.getIndi(i) = list.getIndi(j);
-    list.getIndi(j) = temp;
-}
 
 void Core::addIndividual(const Individual& ind)
 {
@@ -52,15 +50,13 @@ void Core::removeIndividual(const string str)
 
 void Core::sortAlpabetFront()
 {
-    //People result(*this);
     for(int i = 1 ; i < list.getSize(); i++)
     {
         for(int j = 0; j < list.getSize(); j++)
         {
             if(list.checkIndiOrder(list.getIndi(i),list.getIndi(j)))
             {
-                //result.swap(j,i);
-                swap(i,j);
+                list.swap(i,j);
             }
         }
     }
@@ -68,19 +64,19 @@ void Core::sortAlpabetFront()
 
 void Core::sortAlpabetBack()
 {
-    {
-        //People result(*this);
+
+
         for(int i = 1 ; i < list.getSize(); i++)
         {
             for(int j = 0; j < list.getSize(); j++)
             {
                 if(list.checkIndiOrder(list.getIndi(j),list.getIndi(i)))
                 {
-                    swap(i,j);
+                    list.swap(i,j);
                 }
             }
         }
-    }
+
 }
 
 void Core::sortByBirthYear()
@@ -91,7 +87,7 @@ void Core::sortByBirthYear()
         {
             if(list.checkBirthYearOrder(list.getIndi(j),list.getIndi(i)))
             {
-               swap(j,i);
+               list.swap(i,j);
             }
         }
     }
@@ -103,9 +99,9 @@ void Core::sortByDeathYear()
     {
         for(int j = 0; j < list.getSize(); j++)
         {
-            if(list.checkDeathYearOrder(list.getIndi(i),list.getIndi(j)))
+            if(list.checkDeathYearOrder(list.getIndi(j),list.getIndi(i)))
             {
-               swap(j,i);
+               list.swap(i,j);
             }
         }
     }
@@ -160,34 +156,6 @@ string Core::makeLower(string& temp)
 
 //    Search functions:
 
-/*void Core::searchName()
-{
-    People result;
-    bool found = false;
-    string tempStr, searchStr = "";
-    cin.ignore();   //annars virkar getline ekki
-    cout << "Enter a name to search for: " ;
-    getline(cin, searchStr);
-    searchStr = makeLower(searchStr);
-
-    for(int i = 0; i < list.getSize(); i++)
-    {
-        tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
-        tempStr = makeLower(tempStr);
-        if(tempStr.find(searchStr) != string::npos)
-        {
-            result.addIndi(result.getIndi(i));
-            found = true;
-        }
-    }
-    //result.sortAlpabetFront();
-    //sortAlpabetFront();
-    if (found == false)
-    {
-        //ui.noMatch();
-    }
-}*/
-
 void Core::searchNam(bool& found, string searchStr, People& result)
 {
     string tempStr;
@@ -198,7 +166,7 @@ void Core::searchNam(bool& found, string searchStr, People& result)
         tempStr = makeLower(tempStr);
         if(tempStr.find(searchStr) != string::npos)
         {
-            result.addIndi(result.getIndi(i));
+            result.addIndi(list.getIndi(i));
             found = true;
         }
     }
@@ -210,6 +178,7 @@ People Core::getList() const
     return list;
 }
 /*
+
 void Core::searchGender()
 {
     People result;
