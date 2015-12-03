@@ -148,7 +148,7 @@ void UI::sortMenu()
 
     switch(choice) {
         case 'u':
-        case 'U':
+        case 'U':   printList();
                     break;
 
         case 'a':
@@ -244,6 +244,40 @@ void UI::addIndividual()
 
 }
 // a eftir ad klara
+
+
+void UI::printIndi(int i) const
+{
+    Individual temp = core.getList().getIndi(i);
+    cout << endl;
+    cout << "Name: " << temp.getName() << " " << temp.getSurname() << endl;
+    cout << temp.getGender() << endl;
+    cout << temp.getBirth() << " - ";
+
+    if(0 == temp.getDeath())
+    {
+        cout << "Today";
+    }
+    else
+    {
+        cout << temp.getDeath();
+    }
+
+    cout << endl;
+}
+
+void UI::printList() const
+{
+    for(int i = 0; i < core.getSizeOfList(); i++)
+    {
+        printIndi(i);
+    }
+}
+
+void UI::printList(People& list) const
+{
+
+}
 
 
 
