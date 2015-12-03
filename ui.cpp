@@ -340,7 +340,7 @@ void UI::remove()
     core.removeIndividual(str);
 
 }
-//a eftir ad klara
+
 
 
 void UI::searchName()
