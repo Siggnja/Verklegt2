@@ -152,7 +152,7 @@ void UI::sortMenu()
 
     switch(choice) {
         case 'u':
-        case 'U':   printList();
+        case 'U':   this->print();
                     break;
 
         case 'a':
@@ -163,7 +163,7 @@ void UI::sortMenu()
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
                     core.sortAlpabetBack();
-                     this->print();
+                    this->print();
                     break;
         case 'b':
         case 'B':   cout << endl << "--- Printing by year of Birth --- " << endl;
@@ -426,12 +426,21 @@ void UI::searchDeath()
 }
 void UI::print()
 {
+    cout << endl;
     for(int i = 0 ; i < core.getList().getSize() ; i++)
     {
 
         cout << "Name: " << core.getList().getIndi(i).getSurname() + ", " + core.getList().getIndi(i).getName()<<endl;
         cout << "Gender: " << core.getList().getIndi(i).getGender()<<endl;
         cout << "Year of birth: " << core.getList().getIndi(i).getBirth()<<endl;
-        cout << "Year of death: " << core.getList().getIndi(i).getDeath()<<endl;
+        if(core.getList().getIndi(i).getDeath() == 0)
+        {
+            cout << "Alive" << endl;
+        }
+        else
+        {
+            cout << "Year of death: " << core.getList().getIndi(i).getDeath()<<endl;
+        }
+        cout << endl;
     }
 }
