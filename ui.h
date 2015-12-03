@@ -40,6 +40,7 @@ public:
     //choose in what order the list shall be printed
     void welcomeMessage();
 
+    void printIndi(int i);
     void printSize();
     void printList();
     void remove();
