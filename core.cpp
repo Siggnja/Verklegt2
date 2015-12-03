@@ -9,7 +9,7 @@ void Core::createList(const string filename)
     list = data.readData(filename);
 }
 
-int Core::getSizeOfList()
+int Core::getSizeOfList() const
 {
     return list.getSize();
 }

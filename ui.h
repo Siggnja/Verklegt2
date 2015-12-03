@@ -40,9 +40,10 @@ public:
     //choose in what order the list shall be printed
     void welcomeMessage();
 
-    void printIndi(int i);
+    void printIndi(int i) const;
     void printSize();
-    void printList();
+    void printList() const;
+    void printList(People& list) const;
     void remove();
 
     //cout setningar:

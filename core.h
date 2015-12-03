@@ -20,7 +20,7 @@ public:
     void sortByBirthYear();
     void sortByDeathYear();
     void sortByGender(People& male, People& female);
-    int getSizeOfList();
+    int getSizeOfList()const;
     void addIndividual(const Individual& ind);
     void removeIndividual(const string str);
 
