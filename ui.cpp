@@ -474,9 +474,9 @@ void UI::print()
     for(int i = 0 ; i < core.getList().getSize() ; i++)
     {
 
-        cout << "Name: " << core.getList().getIndi(i).getSurname() + ", " + core.getList().getIndi(i).getName()<<endl;
+        cout << "Name: " << core.getSurname(i) + ", " + core.getName(i)<<endl;
         cout << "Gender: ";
-        if(core.getList().getIndi(i).getGender() == 'm' || core.getList().getIndi(i).getGender() == 'M')
+        if(core.getGender(i) == 'm' || core.getGender(i) == 'M')
         {
             cout << "Male" << endl;
         }
@@ -486,14 +486,14 @@ void UI::print()
         }
 
 
-        cout << core.getList().getIndi(i).getBirth() << " - ";
-        if(core.getList().getIndi(i).getDeath() == 0)
+        cout << core.getBirth(i) << " - ";
+        if(core.getDeath(i) == 0)
         {
             cout << "Today" << endl;
         }
         else
         {
-            cout << core.getList().getIndi(i).getDeath()<<endl;
+            cout << core.getDeath(i)<<endl;
         }
         cout << endl;
     }
