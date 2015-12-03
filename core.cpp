@@ -48,7 +48,7 @@ void Core::removeIndividual(const string str)
     {
         data.removeFromFile(list, temp);
     }
-    cout << str << " hase been removed." << endl;
+    cout << str << " has been removed." << endl;
 }
 
 void Core::sortAlpabetFront()
