@@ -27,10 +27,7 @@ void Core::addIndividual(const Individual& ind)
     data.addToFile(ind);
 }
 
-//void sortAlpabetBack(const People& p1)
-//void sortByBirthYear(const People& p1)
-//void sortByDeathYear(const People& p1)
-//void sortByGender(const People& p1)
+
 void Core::removeIndividual(const string str)
 {
     Individual temp;
@@ -109,44 +106,7 @@ void Core::sortByDeathYear()
         }
     }
 }
-/*
-void Core::sortByGender(People& male, People& female)
-{
 
-        for(int j = 0; j<list.getSize(); j++)
-        {
-            if(list.getIndi(j).getGender() == 'm' || list.getIndi(j).getGender()=='M')
-            {
-                male.addIndi(list.getIndi(j));
-            }
-            else
-            {
-                female.addIndi(list.getIndi(j));
-            }
-        }
-    // verdur svo ad kalla a sort by alphabet i ui
-}
-<<<<<<< HEAD
-=======
-
->>>>>>> 222bb038a66785658d43dbff1343ec6cb2618e66
-    for(int i = 0; i < list.getSize(); i++)
-    {
-       if(list.getIndi(i).getDeath()!=0)
-        {
-            dead.person.push_back(list.getIndi(i));
-        }
-        else
-        {
-            alive.person.push_back(list.getIndi(i));
-        }
-    }
-    dead.printVector();
-    alive.sortAlpabetFront();
-}
-
-
-*/
 
 string Core::makeLower(string& temp)
 {
@@ -185,41 +145,6 @@ People Core::getList() const
     return list;
 }
 
-/*
-void Core::searchGender()
-{
-    People result;
-    bool found = false;
-    char findGender, ansGender;
-    cout << endl;
-    cout << "Enter which gender you want to search for (m/f): ";
-    cin >> ansGender;
-    cout << endl;
-    if(ansGender == 'm' || ansGender == 'M' || ansGender=='f' || ansGender=='F')
-    {
-        //ui.individualsMatched();
-        for (int i = 0; i < list.getSize(); i++)
-        {
-            findGender = list.getIndi(i).getGender();
-            if (tolower(ansGender) == tolower(findGender))
-            {
-                result.addIndi(result.getIndi(i));
-                found = true;
-            }
-        }
-        //result.sortAlpabetFront();
-        //sortAlpabetFront();
-    }
-    else
-    {
-        //ui.errorInput();
-        this->searchGender();
-    }
-    if (found == false)
-    {
-        //ui.noMatch();
-    }
-}*/
 
 People Core::searchGend(const char ansGender)
 {
