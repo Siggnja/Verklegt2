@@ -217,3 +217,29 @@ People Core::searchDea(bool& found, int ansYear, People& result1, People& result
         return result2;
     }
 }
+
+
+string Core::getSurname(int i) const
+{
+    return getList().getIndi(i).getSurname();
+}
+
+string Core::getName(int i) const
+{
+    return getList().getIndi(i).getName();
+}
+
+int Core::getBirth(int i) const
+{
+    return getList().getIndi(i).getBirth();
+}
+
+int Core::getDeath(int i) const
+{
+    return getList().getIndi(i).getDeath();
+}
+
+char Core::getGender(int i) const
+{
+    return getList().getIndi(i).getGender();
+}
