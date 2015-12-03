@@ -17,10 +17,12 @@ int main()
     ui.run();
 
 }
-void test(){
+/*void test()
+ {
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
     QString dbName = "Vika2";
     db.setDatabaseName(dbName);
     db.open();
 }
+*/
