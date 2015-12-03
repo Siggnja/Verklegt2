@@ -251,7 +251,7 @@ void UI::addIndividual()
 
     Individual temp(surname, name, gender, birth, death);//fer inn i add
 
-    core.getList().addIndi(temp);
+    core.addIndividual(temp);
 
 
 }

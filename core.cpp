@@ -104,6 +104,7 @@ void Core::sortByDeathYear()
         }
     }
 }
+/*
 void Core::sortByGender(People& male, People& female)
 {
 
