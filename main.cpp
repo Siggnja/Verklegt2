@@ -16,7 +16,7 @@ int main()
     ui.run();
 
 }
-/*void test()
+void test()
  {
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
@@ -24,4 +24,4 @@ int main()
     db.setDatabaseName(dbName);
     db.open();
 }
-*/
+
