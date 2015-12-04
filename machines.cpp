@@ -39,10 +39,10 @@ void Machines::swap(const int i, const int j)
 
 bool Machines::checkCompOrder(const int i, const int j)
 {
-     string s1,s2;
-     char c1,c2;
-     int t1=0,t2=0;
-     do
+     //string s1,s2;
+     //char c1,c2;
+     //int t1=0,t2=0;
+     /*do
      {
         //s1 = computers[i].getCompName();
         //s2 = computers[j].getCompName();
@@ -56,7 +56,27 @@ bool Machines::checkCompOrder(const int i, const int j)
         }
      }while(t2<t1);
 
-     return(t2>t1);
+     return(t2>t1);*/
+
+     string s1 = computers[i].getName();
+     string s2 = computers[j].getName();
+
+     int namelength = s1.size();
+
+     for(int i = 0; i < namelength; i++)
+     {
+         if(static_cast<int>(tolower(s1[i])) == static_cast<int>(tolower(s2[i])))
+         {
+             // Nothing happens
+         }
+         else
+         {
+             return (static_cast<int>(tolower(s1[i])) < static_cast<int>(tolower(s2[i])));
+         }
+     }
+     int compare = s2.size();
+     return(namelength < compare);
+
 }
 
 void Machines::removeComputer(string name)
