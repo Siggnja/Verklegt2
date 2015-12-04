@@ -13,12 +13,19 @@ using namespace std;
 
 int main()
 {
+    SQLiteData s;
+    People p1 = s.getIndiFromBase();
+    for(int i = 0; i < p1.getSize(); i++)
+    {
+       cout << p1.getIndi(i).getSurname() << endl;
 
-    UI ui("people.txt");
-    ui.run();
+    }
+
+   // UI ui("people.txt");
+  //  ui.run();
 
 }
-/*void test()
+void test()
  {
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
@@ -26,4 +33,4 @@ int main()
     db.setDatabaseName(dbName);
     db.open();
 }
-*/
+

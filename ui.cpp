@@ -15,11 +15,21 @@ void UI::run()
     while(true)
     {
         char choice;
-        ask();
-        cin >> choice;
-        menu(choice);
+        choiceMenu();
+        cin>>choice;
+        choiceSwitch(choice);
+
     }
 }
+void UI::choiceMenu(){
+    cout << "(C) Work with computer database " << endl;
+    cout << "(S) Work with scientist database " << endl;
+    cout << "(L) Work with linking of databases" << endl;
+    cout << "(Q) Quit program"<< endl;
+    cout << "Select a letter: ";
+}
+
+
 
 void UI::printSize()
 {
@@ -38,7 +48,7 @@ void UI::errorInput()
 
 void UI::individualsMatched()
 {
-    cout << endl << "--- The following people match your search ---" << endl;
+    cout << endl << "--- The following entries match your search ---" << endl;
 }
 
 void UI::noMatch()
@@ -67,9 +77,30 @@ void UI::ask() {
     cout << "(Q) Quit program. " << endl;
     cout << "Select a letter: ";
 }
+void UI::choiceSwitch(char ans){
 
-void UI::menu(char ans)
+
+    switch(ans){
+        case 's':
+        case 'S':   menu();
+                break;
+        case 'c':
+        case 'C':
+                break;
+        case 'a':
+        case 'A':
+                break;
+        default:
+              cout << "Incorrect input, please try again!" << endl;
+                        break;
+    }
+    }
+
+void UI::menu()
 {
+    char ans;
+    ask();
+    cin >> ans;
     switch(ans) {
         case 'a':
         case 'A':   addIndividual();
@@ -94,6 +125,7 @@ void UI::menu(char ans)
                     break;
     }
 }
+
 
 void UI::searchMenu()
 {
@@ -508,3 +540,15 @@ void UI::print()
         cout << endl;
     }
 }
+/*void UI::printComputers()
+{
+    cout << endl;
+    for(int i = 0 ; i < computer.getList().getSize() ; i++)
+    {
+
+        cout << "Name: " << computer.getName();
+        cout << "Type: " << computer.getType();
+        cout << "Creation year: " << computer.getYear();
+
+    }
+}*/

@@ -17,7 +17,9 @@ public:
     void print();
     void run();
     void ask();
-    void menu(char ans);
+    void menu();
+    void choiceMenu();
+    void choiceSwitch(char ans);
     //asks what should be done with the list
 
     void menu(char ans, People& list);

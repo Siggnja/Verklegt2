@@ -7,8 +7,8 @@ SQLiteData::SQLiteData()
 People SQLiteData::getIndiFromBase()
 {
     QSqlDatabase db;
-    QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName =  "ScientistsComputers.sqlite";
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName = "ScientistsComputers.sqlite";
     db.setDatabaseName(dbName);
     db.open();
     QSqlQuery queryname(db);
@@ -24,5 +24,7 @@ People SQLiteData::getIndiFromBase()
         Individual i1(surname,name,gender,byear,dyear);
         p1.addIndi(i1);
     }
+    db.close();
     return p1;
+
 }
