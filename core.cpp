@@ -9,6 +9,16 @@
      list =p1;
  }
 
+ void Core::setList(const People p1)
+ {
+     list = p1;
+ }
+
+ void Core::setComplist(const Machines c1)
+ {
+     complist = c1;
+ }
+
 void Core::createList(const string filename)
 {
     list = data.readData(filename);
@@ -18,6 +28,7 @@ void Core::createList(const string filename)
 int Core::getSizeOfList() const
 {
     return list.getSize();
+    //  query.exec("SELECT count(*)"); -- nota þetta til að fá stærð
 }
 
 
@@ -149,6 +160,11 @@ People Core::getList() const
     return list;
 }
 
+Machines Core::getComputers() const
+{
+    return complist;
+}
+
 
 People Core::searchGend(const char ansGender)
 {
@@ -245,6 +261,31 @@ char Core::getGender(int i) const
 {
     return getList().getIndi(i).getGender();
 }
+
+string Core::getCompname(int i) const
+{
+    string dummy = "dummy";
+    return dummy;
+}
+
+string Core::getComptype(int i) const
+{
+    string dummy = "dummy";
+    return dummy;
+}
+
+int Core::getYear(int i) const
+{
+    int dummy = 13;
+    return dummy;
+}
+
+int Core::id(int i) const
+{
+    int dummy = 13;
+    return dummy;
+}
+
 bool Core::checkIfIndiIsNew(const Individual i1)
 {
   bool check = true;

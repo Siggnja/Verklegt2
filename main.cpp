@@ -5,6 +5,7 @@
 #include "dataread.h"
 #include "individual.h"
 #include "core.h"
+#include "sqlitedata.h"
 #include<QtSql>
 using namespace std;
 
@@ -12,8 +13,16 @@ using namespace std;
 
 int main()
 {
-    UI ui("people.txt");
-    ui.run();
+    SQLiteData s;
+    People p1 = s.getIndiFromBase();
+    for(int i = 0; i < p1.getSize(); i++)
+    {
+       cout << p1.getIndi(i).getSurname() << endl;
+
+    }
+
+   // UI ui("people.txt");
+  //  ui.run();
 
 }
 void test()

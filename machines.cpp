@@ -71,10 +71,10 @@ void Machines::removeComputer(string name)
 
 bool Machines::checkCompOrder(const Computer& c1, const Computer& c2)
 {
-    /*string s1 = c1.getCompName();
-    string s2 = c2.getCompName();
+    string s1 = c1.getName();
+    string s2 = c2.getName();
 
-    int namelength = c1.size();
+    int namelength = s1.size();
 
     for(int i = 0; i < namelength; i++)
     {
@@ -88,7 +88,7 @@ bool Machines::checkCompOrder(const Computer& c1, const Computer& c2)
         }
     }
     int compare = s2.size();
-    return(namelength < compare);*/
+    return(namelength < compare);
 
 }
 /*
