@@ -4,7 +4,7 @@ Machines::Machines()
 {
 
 }
-Computer Machines::getCompuer(const int i) const
+Computer Machines::getComputer(const int i) const
 {
     return computers[i];
 }
