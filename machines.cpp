@@ -4,6 +4,10 @@ Machines::Machines()
 {
 
 }
+Computer Machines::getCompuer(const int i) const
+{
+    return computers[i];
+}
 
 void Machines::addMach(const Computer& com)
 {

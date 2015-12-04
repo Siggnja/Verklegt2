@@ -29,8 +29,8 @@ People Dataread::readData(const string filename)
         ins >> gender;
         ins >> byear;
         ins >> dyear;
-        Individual i1(last,first,gender,byear,dyear);
-        p1.addIndi(i1);
+        //Individual i1(last,first,gender,byear,dyear);
+       // p1.addIndi(i1);
     }
     ins.close();
     return p1;

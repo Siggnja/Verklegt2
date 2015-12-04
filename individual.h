@@ -18,6 +18,7 @@ private:
     int id;
 public:
     Individual();
+    Individual(const int i,const string surnam, const string nam, const char gend, const int bir, const int dea);
     Individual(const string surnam, const string nam, const char gend, const int bir, const int dea);
     friend bool operator ==(const Individual& indi, const Individual& indi2);
     void setName(string str);
