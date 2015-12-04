@@ -14,6 +14,7 @@ public:
     SQLiteData();
     People getIndiFromBase();
     Machines getCompFromBase();
+    void sortAlphaFront();
 };
 
 #endif // SQLITEDATA_H
