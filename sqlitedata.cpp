@@ -25,6 +25,27 @@ People SQLiteData::sortIndiAlphaBack()
     People p1 = doQuerySci(Query);
     return p1;
 }
+People SQLiteData::sortIndiBYear()
+{
+    string Query = selectAllSci + " " + orderByBYear;
+    People p1 = doQuerySci(Query);
+    return p1;
+}
+
+Machines  SQLiteData::sortCompAlphaBack()
+{
+    string Query = selectAllComp + " " + orderByNameDe;
+    Machines p1 = doQueryComp(Query);
+    return p1;
+}
+Machines SQLiteData::sortCompBYear()
+{
+
+    string Query = selectAllComp + " " + orderByBYear;
+    Machines p1 = doQueryComp(Query);
+    return p1;
+
+}
 
 Machines SQLiteData::doQueryComp(const string que)
 {
@@ -37,7 +58,6 @@ Machines SQLiteData::doQueryComp(const string que)
     QSqlQuery queryname(db);
     queryname.exec(Q);
     Machines p1;
-    if(!queryname.exec())
     while(queryname.next())
     {
         int id  = queryname.value("id").toUInt();

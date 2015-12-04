@@ -12,12 +12,22 @@ using namespace std;
 int main()
 {
     SQLiteData s;
-    People p1 = s.sortIndiAlphaBack();
+    /*
+    People p1 = s.sortIndiBYear();
     for(int i = 0; i < p1.getSize(); i++)
     {
-       cout << p1.getIndi(i).getSurname() << endl;
+       cout << p1.getIndi(i).getSurname() << " ";
+       cout << p1.getIndi(i).getBirth() << endl;
     }
+    */
 
+    Machines p1 = s.sortCompBYear();
+    //cout << p1.getSize();
+    for(int i = 0; i < p1.getSize(); i++)
+    {
+       cout << p1.getComputer(i).getName() << " ";
+       cout << p1.getComputer(i).getYear() << endl;
+    }
    // UI ui("people.txt");
   //  ui.run();
 

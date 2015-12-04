@@ -21,8 +21,10 @@ public:
 
     People sortIndiAlphaFront();
     People sortIndiAlphaBack();
+    People sortIndiBYear();
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
+    Machines sortCompBYear();
 private:
 
     Machines doQueryComp(const string que);
