@@ -15,11 +15,13 @@ public:
     void setYear(int i);
     void setName(string str);
     void setType(string str);
+    // These are the set functions, they are used to set the values of the private variables
 
     int getId() const;
     int getYear() const;
     string getName() const;
     string getType() const;
+    // These are the getline functions, they are used to get the values of the private variables
 
 
 
@@ -29,6 +31,7 @@ private:
     int year;
     string name;
     string type;
+    // User typse in the types
 
 
 };
