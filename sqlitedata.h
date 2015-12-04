@@ -22,6 +22,7 @@ public:
     People sortIndiAlphaFront();
     People sortIndiAlphaBack();
     People sortIndiBYear();
+    People sortByDYear();
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
     Machines sortCompBYear();

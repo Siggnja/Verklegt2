@@ -31,6 +31,13 @@ People SQLiteData::sortIndiBYear()
     People p1 = doQuerySci(Query);
     return p1;
 }
+People SQLiteData::sortByDYear()
+{
+    string Query = selectAllSci + " " + orderByDYear;
+    People p1 = doQuerySci(Query);
+    return p1;
+
+}
 
 Machines  SQLiteData::sortCompAlphaBack()
 {

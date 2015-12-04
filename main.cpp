@@ -16,15 +16,15 @@ int main()
 {
     SQLiteData s;
 
-/*
-    People p1 = s.sortIndiAlphaBack();
+
+    People p1 = s.sortByDYear();
     for(int i = 0; i < p1.getSize(); i++)
     {
        cout << p1.getIndi(i).getSurname() << " ";
-       cout << p1.getIndi(i).getBirth() << endl;
+       cout << p1.getIndi(i).getDeath() << endl;
     }
-      */
 
+/*
     Machines p1 = s.sortCompByType();
     //cout << p1.getSize();
     for(int i = 0; i < p1.getSize(); i++)
@@ -33,7 +33,7 @@ int main()
        cout << p1.getComputer(i).getYear() << " ";
        cout << p1.getComputer(i).getType() << endl;
     }
-
+ */
    // UI ui("people.txt");
   //  ui.run();
 
