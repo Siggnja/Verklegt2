@@ -211,7 +211,7 @@ void UI::searchSciMenu()
 
     switch(choice) {
         case 'n':
-        case 'N':   searchName();
+        case 'N':   searchSciName();
                     break;
         case 'g':
         case 'G':   searchGender();
@@ -504,7 +504,7 @@ void UI::remove()
 
 }
 
-void UI::searchName()
+void UI::searchSciName()
 {
     People result;
     bool found = false;
