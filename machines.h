@@ -18,7 +18,6 @@ public:
     //void addIndi(const Individual& i1);
     void addMach(const Computer& com);
     vector <Computer> getComs() const;
-    Computer getMach(const int i) const;
     int getSize() const;
     void swap(const int i, const int j);
     bool checkCompOrder(const int i, const int j);

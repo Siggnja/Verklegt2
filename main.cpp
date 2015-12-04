@@ -6,14 +6,13 @@
 #include "individual.h"
 #include "core.h"
 #include "sqlitedata.h"
-#include<QtSql>
+#include <QtSql>
 using namespace std;
-
 
 int main()
 {
     SQLiteData s;
-    People p1 = s.sortIndiAlphaFront();
+    People p1 = s.sortIndiAlphaBack();
     for(int i = 0; i < p1.getSize(); i++)
     {
        cout << p1.getIndi(i).getSurname() << endl;

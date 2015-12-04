@@ -19,10 +19,6 @@ vector <Computer> Machines::getComs() const
     return computers;
 }
 
-Computer Machines::getMach(const int i) const
-{
-     return computers[i];
-}
 int Machines::getSize() const
 {
      return(computers.size());

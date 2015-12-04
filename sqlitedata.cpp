@@ -1,5 +1,6 @@
 #include "sqlitedata.h"
 
+
 SQLiteData::SQLiteData()
 {
 
@@ -20,9 +21,8 @@ Machines SQLiteData::sortCompAlphaFront()
 }
 People SQLiteData::sortIndiAlphaBack()
 {
-    string Query = selectAllSci + " " + orderBySurname;
+    string Query = selectAllSci + " " + orderBySurnameDe;
     People p1 = doQuerySci(Query);
-    cout << p1.getSize();
     return p1;
 }
 
@@ -59,7 +59,7 @@ People SQLiteData::doQuerySci(const string que)
     db.open();
     QString Q = QString::fromStdString(que);
     QSqlQuery queryname(db);
-    queryname.exec("SELECT * FROM Scientist");
+    queryname.exec(Q);
     People p1;
     while(queryname.next())
     {
@@ -74,6 +74,5 @@ People SQLiteData::doQuerySci(const string que)
     }
     db.close();
     return p1;
-
 }
 

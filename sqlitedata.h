@@ -1,8 +1,8 @@
 #ifndef SQLITEDATA_H
 #define SQLITEDATA_H
+
 #include <QtSql>
 #include "people.h"
-#include "individual.h"
 #include "machines.h"
 #include <iostream>
 #include "globalconstants.h"
@@ -24,8 +24,11 @@ public:
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
 private:
+
     Machines doQueryComp(const string que);
     People doQuerySci(const string que);
+    void getDatabase();
+    void sortAlphaFront();
 };
 
 #endif // SQLITEDATA_H
