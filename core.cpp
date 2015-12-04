@@ -9,6 +9,16 @@
      list =p1;
  }
 
+ void Core::setList(const People p1)
+ {
+     list = p1;
+ }
+
+ void Core::setComplist(const Machines c1)
+ {
+     complist = c1;
+ }
+
 void Core::createList(const string filename)
 {
     list = data.readData(filename);
