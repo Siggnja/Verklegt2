@@ -16,20 +16,10 @@ void UI::run()
     {
         char choice;
         choiceMenu();
-        cin>>choice;
+        cin >> choice;
         choiceSwitch(choice);
-
     }
 }
-void UI::choiceMenu(){
-    cout << "(C) Work with computer database " << endl;
-    cout << "(S) Work with scientist database " << endl;
-    cout << "(L) Work with linking of databases" << endl;
-    cout << "(Q) Quit program"<< endl;
-    cout << "Select a letter: ";
-}
-
-
 
 void UI::printSize()
 {
@@ -66,37 +56,52 @@ void UI::readingString(string gender)
     cout << "--- Reading " << gender << " ---" << endl;
 }
 
-void UI::ask() {
+
+void UI::choiceMenu()
+{
+    cout << endl;
+    cout << "(C) Work with computer database " << endl;
+    cout << "(S) Work with scientist database " << endl;
+    cout << "(L) Work with linking of databases" << endl;
+    cout << "(Q) Quit program"<< endl;
+    cout << "Select a letter: ";
+}
+
+void UI::choiceSwitch(char ans)
+{
+    switch(ans) {
+        case 's':
+        case 'S':   sciMenu();
+                    break;
+        case 'c':
+        case 'C':   comMenu();
+                    break;
+        case 'l':
+        case 'L':   // linking databases
+                    break;
+        case 'q':
+        case 'Q':   cout << endl;
+                    exit(1);
+                    break;
+        default:    errorInput();
+                    break;
+    }
+}
+
+void UI::ask()
+{
     cout << endl;
     cout << "Do you want to: " << endl;
     cout << "(A) Add to list? " << endl;
     cout << "(S) Search list? " << endl;
     cout << "(P) Print list? " << endl;
-    cout << "(L) Print list size?" << endl;
+    cout << "(L) Print list size?" << endl;         // ?
     cout << "(R) Remove from list? " << endl;
     cout << "(Q) Quit program. " << endl;
     cout << "Select a letter: ";
 }
-void UI::choiceSwitch(char ans){
 
-
-    switch(ans){
-        case 's':
-        case 'S':   menu();
-                break;
-        case 'c':
-        case 'C':
-                break;
-        case 'a':
-        case 'A':
-                break;
-        default:
-              cout << "Incorrect input, please try again!" << endl;
-                        break;
-    }
-    }
-
-void UI::menu()
+void UI::sciMenu()
 {
     char ans;
     ask();
@@ -121,7 +126,37 @@ void UI::menu()
         case 'Q':   cout << endl;
                     exit(1);
                     break;
-        default:    cout << "Incorrect input, please try again!" << endl;
+        default:    errorInput();
+                    break;
+    }
+}
+
+void UI::comMenu()
+{
+    char ans;
+    ask();
+    cin >> ans;
+    switch(ans) {
+        case 'a':
+        case 'A':   //addComputer();
+                    break;
+        case 's':
+        case 'S':   //searchMenu();
+                    break;
+        case 'p':
+        case 'P':   //sortMenu();
+                    break;
+        case 'r':
+        case 'R':   //removeComputer();
+                    break;
+        case 'l':
+        case 'L':   //cout << "The current size of this list is: " << core.getSizeOfList() << endl;
+                    break;
+        case 'q':
+        case 'Q':   cout << endl;
+                    exit(1);
+                    break;
+        default:    errorInput();
                     break;
     }
 }

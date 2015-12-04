@@ -18,6 +18,8 @@ public:
     void run();
     void ask();
     void menu();
+    void sciMenu();
+    void comMenu();
     void choiceMenu();
     void choiceSwitch(char ans);
     //asks what should be done with the list
