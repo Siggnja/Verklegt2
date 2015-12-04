@@ -28,8 +28,9 @@ public:
 
     void addIndividual();
     //void printIndividual();
-
-    //
+    void searchComType();
+    void searchComYear();
+    void searchComName();
     void searchSciName();
     void searchGender();
     void searchBirth();
