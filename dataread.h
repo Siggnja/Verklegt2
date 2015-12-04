@@ -2,7 +2,7 @@
 #define DATAREAD_H
 
 #include "people.h"
-#include "individual.h"
+#include "machines.h"
 using namespace std;
 
 class Dataread

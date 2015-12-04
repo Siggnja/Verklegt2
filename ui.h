@@ -1,10 +1,9 @@
 #ifndef UI_H
 #define UI_H
 
-#include "dataread.h"
-#include "individual.h"
+//#include "dataread.h"
 #include "core.h"
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 class UI

@@ -6,10 +6,8 @@
 #include "individual.h"
 #include "core.h"
 #include "sqlitedata.h"
-#include<QtSql>
+#include <QtSql>
 using namespace std;
-
-
 
 int main()
 {

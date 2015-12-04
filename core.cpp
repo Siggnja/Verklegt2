@@ -1,4 +1,5 @@
 #include "core.h"
+
  Core::Core()
  {
 
@@ -28,6 +29,12 @@ void Core::createList(const string filename)
 int Core::getSizeOfList() const
 {
     return list.getSize();
+    //  query.exec("SELECT count(*)"); -- nota þetta til að fá stærð
+}
+
+int Core::getSizeOfComplist() const
+{
+    return complist.getSize();
     //  query.exec("SELECT count(*)"); -- nota þetta til að fá stærð
 }
 

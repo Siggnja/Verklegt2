@@ -80,6 +80,7 @@ People SQLiteData::sortIndiAlphaFront()
     db.close();
     return p1;
 }
+
 Machines SQLiteData::sortCompAlphaFront()
 {
     QSqlDatabase db;
