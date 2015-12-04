@@ -15,6 +15,13 @@ using namespace std;
 int main()
 {
     SQLiteData s;
+
+    vector<int> relations = s.getRelationsToComp(3);
+    for(unsigned int i = 0; i < relations.size(); i++)
+    {
+        cout << relations[i] << endl;
+    }
+
     People p1 = s.sortIndiAlphaBack();
     for(int i = 0; i < p1.getSize(); i++)
     {
