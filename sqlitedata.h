@@ -13,6 +13,14 @@ class SQLiteData
 public:
     SQLiteData();
     People getIndiFromBase();
+
+
+    // Aukaföll sem hægt er að búa til
+    // Machines getCompFromBase();
+    // People getRelationToComp(const int i); <- skilar people sem tengjast tölvu með id i
+    // Machines getRelationToIndi(const int i); <- skilar machines sem tengjast tölvunarfræðing með id i
+
+
     Machines getCompFromBase();
     People sortIndiAlphaFront();
     Machines sortCompAlphaFront();
@@ -20,6 +28,10 @@ public:
     Machines sortCompAlphaBack();
 private:
     void getDatabase();
+=======
+    void sortAlphaFront();
+
+>>>>>>> df382e82feccaf73c806ea9b80c1123286571a21
 };
 
 #endif // SQLITEDATA_H

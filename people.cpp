@@ -78,7 +78,7 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
     {
         if(static_cast<int>(tolower(s1[i])) == static_cast<int>(tolower(s2[i])))
         {
-            //ekkert gerist
+            // Nothing happens
         }
         else
         {

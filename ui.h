@@ -26,7 +26,8 @@ public:
 
     void menu(char ans, People& list);
     //call for changes to the list
-    void searchMenu();
+    void searchComMenu();
+    void searchSciMenu();
 
     void addIndividual();
     //void printIndividual();
@@ -40,7 +41,8 @@ public:
 
     //choose what shall be searched for
 
-    void sortMenu();
+    void sortComMenu();
+    void sortSciMenu();
     //choose in what order the list shall be printed
     void welcomeMessage();
 
