@@ -32,6 +32,12 @@ int Core::getSizeOfList() const
     //  query.exec("SELECT count(*)"); -- nota þetta til að fá stærð
 }
 
+int Core::getSizeOfComplist() const
+{
+    return complist.getSize();
+    //  query.exec("SELECT count(*)"); -- nota þetta til að fá stærð
+}
+
 
 void Core::addIndividual(const Individual& ind, bool& notfound)
 {

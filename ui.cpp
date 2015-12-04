@@ -4,6 +4,7 @@ UI::UI()
 {
 
 }
+
 UI::UI(const string filename)
 {
     core.createList(filename);
@@ -21,47 +22,11 @@ void UI::run()
     }
 }
 
-void UI::printSize()
-{
-    cout << core.getSizeOfList();
-}
-
-void UI::errorFile()
-{
-    cout << "Something went wrong while opening the file" << endl;
-}
-
-void UI::errorInput()
-{
-    cout << "Invalid input, try again." << endl;
-}
-
-void UI::individualsMatched()
-{
-    cout << endl << "--- The following entries match your search ---" << endl;
-}
-
-void UI::noMatch()
-{
-    cout << "No one matched your search." << endl;
-}
-
-void UI::inDatabase()
-{
-    cout << "This instance is already in the database " << endl;
-}
-
-void UI::readingString(string gender)
-{
-    cout << "--- Reading " << gender << " ---" << endl;
-}
-
-
 void UI::choiceMenu()
 {
     cout << endl;
-    cout << "(C) Work with computer database " << endl;
     cout << "(S) Work with scientist database " << endl;
+    cout << "(C) Work with computer database " << endl;
     cout << "(L) Work with linking of databases" << endl;
     cout << "(Q) Quit program"<< endl;
     cout << "Select a letter: ";
@@ -97,6 +62,7 @@ void UI::ask()
     cout << "(P) Print list? " << endl;
     cout << "(L) Print list size?" << endl;
     cout << "(R) Remove from list? " << endl;
+    cout << "(M) Return to main menu? " << endl;
     cout << "(Q) Quit program. " << endl;
     cout << "Select a letter: ";
 }
@@ -116,11 +82,14 @@ void UI::sciMenu()
         case 'p':
         case 'P':   sortSciMenu();
                     break;
+        case 'l':
+        case 'L':   cout << "The current size of this list is: " << core.getSizeOfList() << endl;
+                    break;
         case 'r':
         case 'R':   remove();
                     break;
-        case 'l':
-        case 'L':   cout << "The current size of this list is: " << core.getSizeOfList() << endl;
+        case 'm':
+        case 'M':   return;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -146,11 +115,14 @@ void UI::comMenu()
         case 'p':
         case 'P':   sortComMenu();
                     break;
+        case 'l':
+        case 'L':   cout << "The current size of this list is: " << core.getSizeOfComplist() << endl;
+                    break;     
         case 'r':
         case 'R':   //removeComputer();
                     break;
-        case 'l':
-        case 'L':   //cout << "The current size of this list is: " << core.getSizeOfList() << endl;
+        case 'm':
+        case 'M':   return;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -705,4 +677,39 @@ void UI::printComputer()
         }
 
     }
+}
+
+void UI::printSize()
+{
+    cout << core.getSizeOfList();
+}
+
+void UI::errorFile()
+{
+    cout << "Something went wrong while opening the file" << endl;
+}
+
+void UI::errorInput()
+{
+    cout << "Invalid input, try again." << endl;
+}
+
+void UI::individualsMatched()
+{
+    cout << endl << "--- The following entries match your search ---" << endl;
+}
+
+void UI::noMatch()
+{
+    cout << "No one matched your search." << endl;
+}
+
+void UI::inDatabase()
+{
+    cout << "This instance is already in the database " << endl;
+}
+
+void UI::readingString(string gender)
+{
+    cout << "--- Reading " << gender << " ---" << endl;
 }
