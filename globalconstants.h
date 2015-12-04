@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-using namsespace std;
+using namespace std;
 
 const string selectAllSci = "SELECT * FROM Scientist as s";
 const string selectAllComp = "SELECT * FROM Computer as s";
