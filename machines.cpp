@@ -9,8 +9,6 @@ Computer Machines::getCompuer(const int i) const
     return computers[i];
 }
 
-
-
 void Machines::addMach(const Computer& com)
 {
     computers.push_back(com);
@@ -122,5 +120,3 @@ bool Machines::checkYearOrder(const Computer& c1, const Computer& c2)
 {
     return(c1.getYear() > c2.getYear());
 }
-
-
