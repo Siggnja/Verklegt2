@@ -11,8 +11,6 @@ class UI
 public:
     UI();
     UI(const string filename);
-    void errorFile();
-    void errorInput();
     void print();
     void run();
     void ask();
@@ -30,8 +28,9 @@ public:
 
     void addIndividual();
     //void printIndividual();
-
-    //
+    void searchComType();
+    void searchComYear();
+    void searchComName();
     void searchSciName();
     void searchGender();
     void searchBirth();
@@ -53,10 +52,9 @@ public:
     void printList(People& list) const;
     void remove();
 
-    //cout setningar:
-
-    //void errorFile();
-    //void errorInput();
+    // cout sentences:
+    void errorFile();
+    void errorInput();
     void individualsMatched();
     void noMatch();
     void inDatabase();

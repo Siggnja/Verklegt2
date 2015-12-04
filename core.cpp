@@ -271,22 +271,22 @@ char Core::getGender(int i) const
 
 string Core::getCompname(int i) const
 {
-    return getComputers().getMach(i).getName();
+    return getComputers().getComputer(i).getName();
 }
 
 string Core::getComptype(int i) const
 {
-    return getComputers().getMach(i).getType();
+    return getComputers().getComputer(i).getType();
 }
 
 int Core::getYear(int i) const
 {
-    return getComputers().getMach(i).getYear();
+    return getComputers().getComputer(i).getYear();
 }
 
 int Core::id(int i) const
 {
-    return getComputers().getMach(i).getId();
+    return getComputers().getComputer(i).getId();
 }
 
 bool Core::checkIfIndiIsNew(const Individual i1)

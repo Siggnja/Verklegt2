@@ -12,16 +12,24 @@ class SQLiteData
 {
 public:
     SQLiteData();
-    People getIndiFromBase();
-    Machines getCompFromBase();
+
+
+    // Aukaföll sem hægt er að búa til
+    // Machines getCompFromBase();
+    // People getRelationToComp(const int i); <- skilar people sem tengjast tölvu með id i
+    // Machines getRelationToIndi(const int i); <- skilar machines sem tengjast tölvunarfræðing með id i
+
     People sortIndiAlphaFront();
-    Machines sortCompAlphaFront();
     People sortIndiAlphaBack();
+    Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
     vector<int> getRelationsToComp(const int i);
     string int_to_string(int i);
 
 private:
+
+    Machines doQueryComp(const string que);
+    People doQuerySci(const string que);
     void getDatabase();
     void sortAlphaFront();
 };
