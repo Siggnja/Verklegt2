@@ -111,10 +111,10 @@ void UI::sciMenu()
         case 'A':   addIndividual();
                     break;
         case 's':
-        case 'S':   searchMenu();
+        case 'S':   searchSciMenu();
                     break;
         case 'p':
-        case 'P':   sortMenu();
+        case 'P':   sortSciMenu();
                     break;
         case 'r':
         case 'R':   remove();
@@ -138,13 +138,13 @@ void UI::comMenu()
     cin >> ans;
     switch(ans) {
         case 'a':
-        case 'A':   //addComputer();
+        case 'A':   addComputer();
                     break;
         case 's':
-        case 'S':   //searchMenu();
+        case 'S':   searchComMenu();
                     break;
         case 'p':
-        case 'P':   //sortMenu();
+        case 'P':   sortComMenu();
                     break;
         case 'r':
         case 'R':   //removeComputer();
@@ -160,9 +160,42 @@ void UI::comMenu()
                     break;
     }
 }
+void UI::searchComMenu(){
+    cout << endl;
+    char choice;
+    cout << "Search by: " << endl;
+    cout << "(N) Name" << endl
+         << "(T) Type" << endl
+         << "(C) Year of Creation" << endl
+         << "(Q) Quit program" <<endl;
+    cout << "Select a letter: ";
+    cin >> choice;
+    switch(choice)
+    {
+        case 'n':
+        case 'N':   //searchComName();
+                break;
+        case 't':
+        case 'T':   // searchType();
+                break;
+        case 'c':
+        case 'C':   // searchCreation();
+                break;
+        case 'q':
+        case 'Q':
+                // quit program
+                break;
+        default:
+                errorInput();
+                searchSciMenu();
+                break;
+    }
+    searchSciMenu();
+
+}
 
 
-void UI::searchMenu()
+void UI::searchSciMenu()
 {
     cout << endl;
     char choice;
@@ -196,12 +229,60 @@ void UI::searchMenu()
         case 'Q':   exit(1);
                     break;
         default:    errorInput();
-                    searchMenu();
+                    searchSciMenu();
     }
-    searchMenu();
+    searchSciMenu();
+}
+void UI::sortComMenu()
+{
+    char choice;
+    cout << endl;
+    cout << "Print by: " << endl;
+    cout << "(U) Unordered" << endl
+         << "(A) Alphabetic order" << endl
+         << "(R) Reverse alphabetic order" << endl
+         << "(T) Type alphabetic order"
+         << "(C) Year of Creation" << endl
+         << "(M) Return to Menu" << endl
+         << "(Q) Quit program " << endl;
+    cout << "Select a letter: ";
+    cin >> choice;
+    switch(choice) {
+        case 'a':
+        case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
+                   // sort alpha front
+                    //princom
+                    break;
+        case 'r':
+        case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
+                   // sort reverse alpha
+                   // printcom
+                    break;
+        case 'b':
+        case 'B':   cout << endl << "--- Printing by year of Creation --- " << endl;
+                    // sort creation year eftir ad utfæra
+                     //printcom
+                    break;
+        case 't':
+        case 'T':
+                    cout<<endl<<"--- Printing by alphebetical type order ---"<<endl;
+                     break;
+
+        case 'm':
+        case 'M':   return;
+                    break;
+
+        case 'q':
+        case 'Q':   exit(1);
+                    break;
+        default:    errorInput();
+                    sortSciMenu();
+                       break;
+    }
+    sortSciMenu();
 }
 
-void UI::sortMenu()
+void UI::sortSciMenu()
 {
     char choice;
     cout << endl;
@@ -248,10 +329,10 @@ void UI::sortMenu()
         case 'Q':   exit(1);
                     break;
         default:    errorInput();
-                    sortMenu();
+                    sortSciMenu();
                        break;
     }
-    sortMenu();
+    sortSciMenu();
 }
 
 void UI::welcomeMessage()
@@ -261,6 +342,7 @@ void UI::welcomeMessage()
     cout << "\t \t" << " At this moment we have "<< core.getList().getSize() << " computer scientists" << endl;
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
 }
+
 
 void UI::addIndividual()
 {
