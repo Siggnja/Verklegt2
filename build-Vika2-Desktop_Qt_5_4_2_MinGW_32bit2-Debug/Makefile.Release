@@ -208,6 +208,8 @@ release/main.o: ../main.cpp C:/Qt/5.5/mingw492_32/include/QtCore/QCoreApplicatio
 		../ui.h \
 		../dataread.h \
 		../core.h \
+		../machines.h \
+		../computer.h \
 		../sqlitedata.h \
 		C:/Qt/5.5/mingw492_32/include/QtSql/QtSql \
 		C:/Qt/5.5/mingw492_32/include/QtSql/QtSqlDepends \
@@ -417,12 +419,16 @@ release/ui.o: ../ui.cpp ../ui.h \
 		../dataread.h \
 		../people.h \
 		../individual.h \
-		../core.h
+		../core.h \
+		../machines.h \
+		../computer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\ui.o ..\ui.cpp
 
 release/core.o: ../core.cpp ../core.h \
 		../people.h \
 		../individual.h \
+		../machines.h \
+		../computer.h \
 		../dataread.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\core.o ..\core.cpp
 
@@ -672,7 +678,9 @@ release/sqlitedata.o: ../sqlitedata.cpp ../sqlitedata.h \
 		C:/Qt/5.5/mingw492_32/include/QtSql/qsqltablemodel.h \
 		C:/Qt/5.5/mingw492_32/include/QtSql/qtsqlversion.h \
 		../people.h \
-		../individual.h
+		../individual.h \
+		../machines.h \
+		../computer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\sqlitedata.o ..\sqlitedata.cpp
 
 release/computer.o: ../computer.cpp ../computer.h

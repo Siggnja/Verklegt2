@@ -25,7 +25,7 @@ public:
     void removeComputer(string name);
     bool checkCompOrder(const Computer& c1, const Computer& c2);
     Computer getCompuer(const int i) const;
-
+    bool checkYearOrder(const Computer& c1, const Computer& c2);
 private:
     vector<Computer> computers;
 };

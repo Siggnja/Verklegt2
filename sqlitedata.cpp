@@ -22,7 +22,7 @@ People SQLiteData::getIndiFromBase()
         char gender = queryname.value("gender").toChar().toLatin1();
         int byear  = queryname.value("byear").toUInt();
         int dyear  = queryname.value("dyear").toUInt();
-        Individual i1(surname,name,gender,byear,dyear);
+        Individual i1(id,surname,name,gender,byear,dyear);
         p1.addIndi(i1);
     }
     db.close();

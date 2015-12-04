@@ -60,6 +60,8 @@ public:
     void noMatch();
     void inDatabase();
     void readingString(string gender);
+    void addComputer();
+    void printComputer();
 
 private:
     Core core;

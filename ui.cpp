@@ -178,7 +178,7 @@ void UI::searchMenu()
 
     switch(choice) {
         case 'n':
-        case 'N':   searchName(); //<- breyta í core.searchName þegar core hefur það fall
+        case 'N':   searchName();
                     break;
         case 'g':
         case 'G':   searchGender();
@@ -576,15 +576,51 @@ void UI::print()
         cout << endl;
     }
 }
-/*void UI::printComputers()
-{
-    cout << endl;
-    for(int i = 0 ; i < computer.getList().getSize() ; i++)
-    {
 
-        cout << "Name: " << computer.getName();
-        cout << "Type: " << computer.getType();
-        cout << "Creation year: " << computer.getYear();
+void UI::addComputer(){
+    string name, type;
+    int year;
+    char ans;
+    cin.ignore();
+    cout << endl;
+    cout << "Surname: ";
+    getline(cin, name);
+    cout << "Type: ";
+    getline(cin, type);
+
+    cout<<"Was the computer created(y/n)?";
+    cin>>ans;
+
+
+    if(ans == 'y'|| ans =='Y')
+    {
+        cout<<"Creation year: ";
+        cin>>year;
 
     }
-}*/
+     else
+    {
+        year =0;
+    }
+}
+
+void UI::printComputer()
+{
+    cout << endl;
+    for(int i = 0 ; i < core.getList().getSize() ; i++)
+    {
+
+        cout << "Name: " << core.getCompname(i)<<endl;
+        cout << "Type: "<<core.getComptype(i)<<endl;
+        if(core.getYear(i)!=0)
+        {
+            cout<<"Creation year: "<<core.getYear(i);
+
+        }
+        else
+        {
+            cout<<"The computer was not created "<<endl;
+        }
+
+    }
+}
