@@ -213,7 +213,7 @@ void UI::sortComMenu()
     cout << "(U) Unordered" << endl
          << "(A) Alphabetic order" << endl
          << "(R) Reverse alphabetic order" << endl
-         << "(T) Type alphabetic order"
+         << "(T) Type alphabetic order" << endl
          << "(C) Year of Creation" << endl
          << "(M) Return to Menu" << endl
          << "(Q) Quit program " << endl;
@@ -312,6 +312,7 @@ void UI::welcomeMessage()
     cout << "------------Welcome to the database of famous computer scientists-------------" << endl;
     cout << "\t" << "    In this database you can add, remove, sort and search" << endl;
     cout << "\t \t" << " At this moment we have "<< core.getList().getSize() << " computer scientists" << endl;
+    cout << "\t \t" << " At this moment we have "<< core.getComputers().getSize() << " computers" << endl;
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
 }
 
