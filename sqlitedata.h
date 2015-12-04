@@ -18,6 +18,9 @@ public:
     Machines sortCompAlphaFront();
     People sortIndiAlphaBack();
     Machines sortCompAlphaBack();
+    vector<int> getRelationsToComp(const int i);
+    string int_to_string(int i);
+
 private:
     void getDatabase();
     void sortAlphaFront();

@@ -112,3 +112,44 @@ void SQLiteData::getDatabase()
     db.open();
 
 }
+
+
+vector<int> SQLiteData::getRelationsToComp(const int i)
+{
+    string querystring = "SELECT scientist_id FROM Relation AS s WHERE s.computer_id = ";
+    querystring = querystring + int_to_string(i);
+    vector<int> temp;
+
+    QSqlDatabase db;
+    getDatabase();
+    QSqlQuery queryname(db);
+    queryname.exec(QString::fromStdString(querystring));
+
+    while(queryname.next())
+    {
+        /*int id  = queryname.value("id").toUInt();
+        string name = queryname.value("name").toString().toStdString();
+        string type = queryname.value("type").toString().toStdString();
+        int byear  = queryname.value("byear").toUInt();
+        Computer c1(id,byear,name,type);
+        p1.addMach(c1);*/
+        int sci_id = queryname.value("scientist_id").toUInt();
+
+        temp.push_back(sci_id);
+
+    }
+
+    db.close();
+    return temp;
+}
+
+string SQLiteData::int_to_string(int i)
+{
+    return QString::number(i).toStdString();
+    /*
+    string pi = "pi is " + QString::number(3.14159265358979323846264338).toStdString();
+    string perfect = QString::number(1+2+4+7+14).toStdString() + " is a perfect number";
+    cout << pi << '\n';
+    cout << perfect << '\n';
+    */
+}

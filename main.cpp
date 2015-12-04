@@ -7,7 +7,10 @@
 #include "core.h"
 #include "sqlitedata.h"
 #include <QtSql>
+//#include <string>
+
 using namespace std;
+
 
 int main()
 {
