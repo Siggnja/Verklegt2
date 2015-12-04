@@ -47,6 +47,14 @@ Machines SQLiteData::sortCompBYear()
 
 }
 
+Machines SQLiteData::sortCompByType()
+{
+
+    string Query = selectAllComp + " " + orderByType;
+    Machines p1 = doQueryComp(Query);
+    return p1;
+
+}
 Machines SQLiteData::doQueryComp(const string que)
 {
     QSqlDatabase db;
@@ -96,3 +104,59 @@ People SQLiteData::doQuerySci(const string que)
     return p1;
 }
 
+void SQLiteData::getDatabase()
+{
+    QSqlDatabase db;
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName = "ScientistsComputers.sqlite";
+    db.setDatabaseName(dbName);
+    db.open();
+
+}
+
+vector<int> SQLiteData::getRelationsToComp(const int i)
+{
+    string querystring = "SELECT scientist_id FROM Relation AS s WHERE s.computer_id = ";
+    querystring = querystring + int_to_string(i);
+    vector<int> temp;
+
+    QSqlDatabase db;
+    getDatabase();
+    QSqlQuery queryname(db);
+    queryname.exec(QString::fromStdString(querystring));
+
+    while(queryname.next())
+    {
+        int sci_id = queryname.value("scientist_id").toUInt();
+        temp.push_back(sci_id);
+    }
+
+    db.close();
+    return temp;
+}
+
+vector<int> SQLiteData::getRelationsToSci(const int i)
+{
+    string querystring = "SELECT computer_id FROM Relation AS s WHERE s.scientist_id = ";
+    querystring = querystring + int_to_string(i);
+    vector<int> temp;
+
+    QSqlDatabase db;
+    getDatabase();
+    QSqlQuery queryname(db);
+    queryname.exec(QString::fromStdString(querystring));
+
+    while(queryname.next())
+    {
+        int comp_id = queryname.value("computer_id").toUInt();
+        temp.push_back(comp_id);
+    }
+
+    db.close();
+    return temp;
+}
+
+string SQLiteData::int_to_string(int i)
+{
+    return QString::number(i).toStdString();
+}

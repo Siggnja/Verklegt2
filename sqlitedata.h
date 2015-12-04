@@ -25,6 +25,10 @@ public:
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
     Machines sortCompBYear();
+    Machines sortCompByType();
+    vector<int> getRelationsToComp(const int i);
+    vector<int> getRelationsToSci(const int i);
+    string int_to_string(int i);
 private:
 
     Machines doQueryComp(const string que);
