@@ -2,6 +2,7 @@
 #define CORE_H
 
 #include "people.h"
+#include "machines.h"
 #include "dataread.h"
 #include <string>
 
@@ -11,6 +12,7 @@ class Core
 {
 private:
     People list;
+    Machines complist;
     Dataread data;
     void swap(const int i, const int j);
     bool checkIfIndiIsNew(const Individual i1);
@@ -43,11 +45,13 @@ public:
     void searchGend(bool& found, char ansGender, People& result);
     People searchBir(bool& found, int ansYear, People& result1, People& result2);
     People searchDea(bool& found, int ansYear, People& result1, People& result2);
-    People getList() const;
+     //<--
     //sort vector by the specified order:
 
-
-
+    People getList() const;
+    Machines getComputers() const;
+    void setList(const People p1);
+    void setComplist(const Machines c1);
 
 
     string makeLower(string& temp);

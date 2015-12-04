@@ -53,13 +53,19 @@ SOURCES       = main.cpp \
 		people.cpp \
 		dataread.cpp \
 		ui.cpp \
-		core.cpp 
+		core.cpp \
+		sqlitedata.cpp \
+		computer.cpp \
+		machines.cpp 
 OBJECTS       = main.o \
 		individual.o \
 		people.o \
 		dataread.o \
 		ui.o \
-		core.o
+		core.o \
+		sqlitedata.o \
+		computer.o \
+		machines.o
 DIST          = ../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../Qt/5.5/clang_64/mkspecs/qdevice.pri \
 		../Qt/5.5/clang_64/mkspecs/features/device_config.prf \
@@ -204,12 +210,18 @@ DIST          = ../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		people.h \
 		dataread.h \
 		ui.h \
-		core.h main.cpp \
+		core.h \
+		sqlitedata.h \
+		computer.h \
+		machines.h main.cpp \
 		individual.cpp \
 		people.cpp \
 		dataread.cpp \
 		ui.cpp \
-		core.cpp
+		core.cpp \
+		sqlitedata.cpp \
+		computer.cpp \
+		machines.cpp
 QMAKE_TARGET  = Vika2
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = Vika2
@@ -551,8 +563,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents individual.h people.h dataread.h ui.h core.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp individual.cpp people.cpp dataread.cpp ui.cpp core.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents individual.h people.h dataread.h ui.h core.h sqlitedata.h computer.h machines.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp individual.cpp people.cpp dataread.cpp ui.cpp core.cpp sqlitedata.cpp computer.cpp machines.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -596,11 +608,27 @@ compiler_clean:
 
 main.o: main.cpp ../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QCoreApplication \
 		../Qt/5.5/clang_64/lib/QtCore.framework/Headers/qcoreapplication.h \
-		ui.h \
-		dataread.h \
 		people.h \
 		individual.h \
-		core.h
+		ui.h \
+		dataread.h \
+		core.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsql.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 individual.o: individual.cpp individual.h
@@ -627,6 +655,34 @@ core.o: core.cpp core.h \
 		individual.h \
 		dataread.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o core.o core.cpp
+
+sqlitedata.o: sqlitedata.cpp sqlitedata.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsql.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		people.h \
+		individual.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sqlitedata.o sqlitedata.cpp
+
+computer.o: computer.cpp computer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o computer.o computer.cpp
+
+machines.o: machines.cpp machines.h \
+		computer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o machines.o machines.cpp
 
 ####### Install
 
