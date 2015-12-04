@@ -4,6 +4,7 @@
 #include "people.h"
 #include "machines.h"
 #include "dataread.h"
+#include "sqlitedata.h"
 #include <string>
 
 using namespace std;
@@ -14,6 +15,7 @@ private:
     People list;
     Machines complist;
     Dataread data;
+    SQLiteData newdata;
     void swap(const int i, const int j);
     bool checkIfIndiIsNew(const Individual i1);
 public:
@@ -43,7 +45,7 @@ public:
     int getYear(int i) const;
     int id(int i) const;
 
-
+    int getSizeOfComplist() const;
 
     //functions used to search for individuals in vector with specific traits:
     //void searchName();
@@ -59,7 +61,6 @@ public:
     Machines getComputers() const;
     void setList(const People p1);
     void setComplist(const Machines c1);
-
 
     string makeLower(string& temp);
     //converts the string variable temp to all lower letters */
