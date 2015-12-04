@@ -14,6 +14,7 @@ SOURCES += main.cpp \
     dataread.cpp \
     ui.cpp \
     core.cpp \
+    sqlitedata.cpp \
     sqlitedata.cpp
 
 HEADERS += \
@@ -22,5 +23,6 @@ HEADERS += \
     dataread.h \
     ui.h \
     core.h \
+    sqlitedata.h \
     sqlitedata.h
 
