@@ -15,7 +15,8 @@ SOURCES += main.cpp \
     ui.cpp \
     core.cpp \
     sqlitedata.cpp \
-    computer.cpp
+    computer.cpp \
+    machines.cpp
 
 
 HEADERS += \
@@ -25,6 +26,7 @@ HEADERS += \
     ui.h \
     core.h \
     sqlitedata.h \
-    computer.h
+    computer.h \
+    machines.h
 
 
