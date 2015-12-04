@@ -18,6 +18,13 @@ Machines SQLiteData::sortCompAlphaFront()
 
 
 }
+People SQLiteData::sortIndiAlphaBack()
+{
+    string Query = selectAllSci + " " + orderBySurname;
+    People p1 = doQuerySci(Query);
+    cout << p1.getSize();
+    return p1;
+}
 
 Machines SQLiteData::doQueryComp(const string que)
 {
@@ -30,6 +37,7 @@ Machines SQLiteData::doQueryComp(const string que)
     QSqlQuery queryname(db);
     queryname.exec(Q);
     Machines p1;
+    if(!queryname.exec())
     while(queryname.next())
     {
         int id  = queryname.value("id").toUInt();
@@ -51,7 +59,7 @@ People SQLiteData::doQuerySci(const string que)
     db.open();
     QString Q = QString::fromStdString(que);
     QSqlQuery queryname(db);
-    queryname.exec(Q);
+    queryname.exec("SELECT * FROM Scientist");
     People p1;
     while(queryname.next())
     {

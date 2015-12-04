@@ -20,8 +20,8 @@ public:
     // Machines getRelationToIndi(const int i); <- skilar machines sem tengjast tölvunarfræðing með id i
 
     People sortIndiAlphaFront();
-    Machines sortCompAlphaFront();
     People sortIndiAlphaBack();
+    Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
 private:
     Machines doQueryComp(const string que);
