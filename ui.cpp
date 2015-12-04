@@ -25,6 +25,7 @@ void UI::choiceMenu(){
     cout << "(C) Work with computer database " << endl;
     cout << "(S) Work with scientist database " << endl;
     cout << "(L) Work with linking of databases" << endl;
+    cout << "(Q) Quit program"<< endl;
     cout << "Select a letter: ";
 }
 
