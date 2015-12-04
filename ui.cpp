@@ -48,7 +48,7 @@ void UI::errorInput()
 
 void UI::individualsMatched()
 {
-    cout << endl << "--- The following people match your search ---" << endl;
+    cout << endl << "--- The following entries match your search ---" << endl;
 }
 
 void UI::noMatch()
