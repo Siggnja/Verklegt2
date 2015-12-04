@@ -5,6 +5,8 @@ Machines::Machines()
 
 }
 
+
+
 void Machines::addMach(const Computer& com)
 {
     computers.push_back(com);
@@ -91,14 +93,10 @@ bool Machines::checkCompOrder(const Computer& c1, const Computer& c2)
     return(namelength < compare);
 
 }
-/*
-bool People::checkBirthYearOrder(const Individual& i1, const Individual& i2)
+
+bool Machines::checkYearOrder(const Computer& c1, const Computer& c2)
 {
-    return(i1.getBirth()>i2.getBirth());
+    return(c1.getYear() > c2.getYear());
 }
 
-bool People::checkDeathYearOrder(const Individual& i1, const Individual& i2)
-{
-    return(i1.getDeath()>i2.getDeath());
-}
-*/
+

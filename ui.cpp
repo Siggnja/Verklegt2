@@ -178,7 +178,7 @@ void UI::searchMenu()
 
     switch(choice) {
         case 'n':
-        case 'N':   searchName(); //<- breyta í core.searchName þegar core hefur það fall
+        case 'N':   searchName();
                     break;
         case 'g':
         case 'G':   searchGender();
