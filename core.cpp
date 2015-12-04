@@ -261,6 +261,31 @@ char Core::getGender(int i) const
 {
     return getList().getIndi(i).getGender();
 }
+
+string Core::getCompname(int i) const
+{
+    string dummy = "dummy";
+    return dummy;
+}
+
+string Core::getComptype(int i) const
+{
+    string dummy = "dummy";
+    return dummy;
+}
+
+int Core::getYear(int i) const
+{
+    int dummy = 13;
+    return dummy;
+}
+
+int Core::id(int i) const
+{
+    int dummy = 13;
+    return dummy;
+}
+
 bool Core::checkIfIndiIsNew(const Individual i1)
 {
   bool check = true;

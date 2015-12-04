@@ -38,6 +38,13 @@ public:
     char getGender(int i) const;
 
 
+    string getCompname(int i) const;
+    string getComptype(int i) const;
+    int getYear(int i) const;
+    int id(int i) const;
+
+
+
     //functions used to search for individuals in vector with specific traits:
     //void searchName();
     People searchGend(char ansGender);
