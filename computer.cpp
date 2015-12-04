@@ -33,22 +33,22 @@ void Computer::setType(string str)
     type = str;
 }
 
-int Computer::getId()
+int Computer::getId() const
 {
     return id;
 }
 
-int Computer::getYear()
+int Computer::getYear() const
 {
     return year;
 }
 
-string Computer::getName()
+string Computer::getName() const
 {
     return name;
 }
 
-string Computer::getType()
+string Computer::getType() const
 {
     return type;
 }
