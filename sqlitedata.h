@@ -5,7 +5,7 @@
 #include "individual.h"
 #include "machines.h"
 #include <iostream>
-
+#include "globalconstants.h"
 using namespace std;
 
 class SQLiteData
@@ -22,8 +22,16 @@ public:
 
 
     Machines getCompFromBase();
+    People sortIndiAlphaFront();
+    Machines sortCompAlphaFront();
+    People sortIndiAlphaBack();
+    Machines sortCompAlphaBack();
+private:
+    void getDatabase();
+=======
     void sortAlphaFront();
 
+>>>>>>> df382e82feccaf73c806ea9b80c1123286571a21
 };
 
 #endif // SQLITEDATA_H

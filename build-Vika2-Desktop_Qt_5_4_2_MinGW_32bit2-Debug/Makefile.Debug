@@ -69,7 +69,8 @@ DIST          =  ..\individual.h \
 		..\core.h \
 		..\sqlitedata.h \
 		..\computer.h \
-		..\machines.h ..\main.cpp \
+		..\machines.h \
+		..\globalconstants.h ..\main.cpp \
 		..\individual.cpp \
 		..\people.cpp \
 		..\dataread.cpp \
@@ -400,7 +401,8 @@ debug/main.o: ../main.cpp C:/Program\ Files\ (x86)/QQTT/5.5/mingw492_32/include/
 		C:/Program\ Files\ (x86)/QQTT/5.5/mingw492_32/include/QtWidgets/qcombobox.h \
 		C:/Program\ Files\ (x86)/QQTT/5.5/mingw492_32/include/QtSql/qsqlrelationaltablemodel.h \
 		C:/Program\ Files\ (x86)/QQTT/5.5/mingw492_32/include/QtSql/qsqltablemodel.h \
-		C:/Program\ Files\ (x86)/QQTT/5.5/mingw492_32/include/QtSql/qtsqlversion.h
+		C:/Program\ Files\ (x86)/QQTT/5.5/mingw492_32/include/QtSql/qtsqlversion.h \
+		../globalconstants.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\main.cpp
 
 debug/individual.o: ../individual.cpp ../individual.h
@@ -680,7 +682,8 @@ debug/sqlitedata.o: ../sqlitedata.cpp ../sqlitedata.h \
 		../people.h \
 		../individual.h \
 		../machines.h \
-		../computer.h
+		../computer.h \
+		../globalconstants.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\sqlitedata.o ..\sqlitedata.cpp
 
 debug/computer.o: ../computer.cpp ../computer.h
