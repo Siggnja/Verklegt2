@@ -503,6 +503,65 @@ void UI::remove()
     }
 
 }
+void UI::searchComYear()
+{
+    Computer result1, result2;
+    bool found = false;
+    int ansYear;
+    cout << "Enter year of creation: ";
+    cin >> ansYear;
+    if(!cin.fail())
+    {
+       // People result = core.searchBir(found, ansYear, result1, result2);
+        if(found)
+        {
+         //   individualsMatched();
+         //   printList(result);
+        }
+        else if (!found)
+        {
+            cout << endl;
+           // noMatch();
+          //  if(result2.getSize() != 0)
+            {
+                cout << "However these individuals were found within"
+                        " a 10 year range of given year: " << endl;
+               // printList(result);
+            }
+        }
+    }
+    else
+    {
+        errorInput();
+        cin.clear();
+        cin.ignore();
+        searchComYear();
+    }
+
+}
+
+void UI::searchComName()
+{
+    Computer result;
+    bool found = false;
+    string searchStr;
+    cin.ignore();
+    cout << "Enter a name to search for: " ;
+    getline(cin, searchStr);
+  //  result = core.searchComName(found, searchStr, result);
+
+    if (found)
+    {
+       // individualsMatched();
+       // printList(result);
+    }
+    if (!found)
+    {
+      //  noMatch();
+    }
+}
+
+
 
 void UI::searchSciName()
 {
@@ -525,7 +584,27 @@ void UI::searchSciName()
         noMatch();
     }
 }
+void UI::searchComType()
+{
+    People result;
+    bool found = false;
+    string searchStr;
+    cin.ignore();
+    cout << "Enter a type to search for: " ;
+    getline(cin, searchStr);
 
+   // result = core.searchNam(found, searchStr, result);
+
+    if (found)
+    {
+      //  individualsMatched();
+      //  printList(result);
+    }
+    if (!found)
+    {
+      //  noMatch();
+    }
+}
 void UI::searchGender()
 {
     People result;

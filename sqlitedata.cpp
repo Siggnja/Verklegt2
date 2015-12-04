@@ -81,7 +81,8 @@ People SQLiteData::sortIndiAlphaFront()
     return p1;
 }
 Machines SQLiteData::sortCompAlphaFront()
-{    QSqlDatabase db;
+{
+    QSqlDatabase db;
     getDatabase();
     QSqlQuery queryname(db);
     queryname.exec("SELECT * FROM Computer as s WHERE s.deleted =0 "
