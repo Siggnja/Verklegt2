@@ -213,7 +213,8 @@ DIST          = ../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../core.h \
 		../sqlitedata.h \
 		../computer.h \
-		../machines.h ../main.cpp \
+		../machines.h \
+		../globalconstants.h ../main.cpp \
 		../individual.cpp \
 		../people.cpp \
 		../dataread.cpp \
@@ -563,7 +564,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../individual.h ../people.h ../dataread.h ../ui.h ../core.h ../sqlitedata.h ../computer.h ../machines.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../individual.h ../people.h ../dataread.h ../ui.h ../core.h ../sqlitedata.h ../computer.h ../machines.h ../globalconstants.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../main.cpp ../individual.cpp ../people.cpp ../dataread.cpp ../ui.cpp ../core.cpp ../sqlitedata.cpp ../computer.cpp ../machines.cpp $(DISTDIR)/
 
 
@@ -630,7 +631,8 @@ main.o: ../main.cpp ../../Qt/5.5/clang_64/lib/QtCore.framework/Headers/QCoreAppl
 		../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
 		../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
 		../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
-		../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h
+		../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../globalconstants.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../main.cpp
 
 individual.o: ../individual.cpp ../individual.h
@@ -684,7 +686,8 @@ sqlitedata.o: ../sqlitedata.cpp ../sqlitedata.h \
 		../people.h \
 		../individual.h \
 		../machines.h \
-		../computer.h
+		../computer.h \
+		../globalconstants.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sqlitedata.o ../sqlitedata.cpp
 
 computer.o: ../computer.cpp ../computer.h

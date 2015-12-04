@@ -12,11 +12,10 @@ using namespace std;
 int main()
 {
     SQLiteData s;
-    Machines p1 = s.getCompFromBase();
+    Machines p1 = s.sortCompAlphaFront();
     for(int i = 0; i < p1.getSize(); i++)
     {
-       cout << p1.getCompuer(i).getName() << endl;
-
+       cout << p1.getComputer(i).getName() << endl;
     }
 
    // UI ui("people.txt");

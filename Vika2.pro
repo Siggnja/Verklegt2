@@ -27,6 +27,7 @@ HEADERS += \
     core.h \
     sqlitedata.h \
     computer.h \
-    machines.h
+    machines.h \
+    globalconstants.h
 
 
