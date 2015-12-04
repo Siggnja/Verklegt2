@@ -18,6 +18,7 @@ void Core::createList(const string filename)
 int Core::getSizeOfList() const
 {
     return list.getSize();
+    //  query.exec("SELECT count(*)"); -- nota þetta til að fá stærð
 }
 
 
@@ -147,6 +148,11 @@ People Core::searchNam(bool& found, string searchStr, People& result)
 People Core::getList() const
 {
     return list;
+}
+
+Machines Core::getComputers() const
+{
+    return complist;
 }
 
 
