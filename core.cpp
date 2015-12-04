@@ -21,18 +21,16 @@ int Core::getSizeOfList() const
 }
 
 
-void Core::addIndividual(const Individual& ind)
+void Core::addIndividual(const Individual& ind,bool& notfound)
 {
+    notfound = checkIfIndiIsNew(ind);
+    if(notfound)
+    {
     list.addIndi(ind);
     data.addToFile(ind);
+    }
+
 }
-
-
-//void sortAlpabetBack(const People& p1)
-//void sortByBirthYear(const People& p1)
-//void sortByDeathYear(const People& p1)
-//void sortByGender(const People& p1)
-
 
 void Core::removeIndividual(const string str, bool& removed)
 {
@@ -55,10 +53,6 @@ void Core::removeIndividual(const string str, bool& removed)
     {
         data.removeFromFile(list, temp);
     }
-<<<<<<< HEAD
-    cout << str << " has been removed." << endl;
-=======
->>>>>>> 132da9d7b723a609f812024a1c19d732767ab010
 }
 
 void Core::sortAlpabetFront()
@@ -160,8 +154,6 @@ People Core::searchGend(const char ansGender)
 {
     char findGender;
     People result;
-   //  cout << "hello";
-     cout << list.getSize();
     for(int i = 0 ; i < 10 ; i++)
     {
         findGender = list.getIndi(i).getGender();
@@ -252,4 +244,18 @@ int Core::getDeath(int i) const
 char Core::getGender(int i) const
 {
     return getList().getIndi(i).getGender();
+}
+bool Core::checkIfIndiIsNew(const Individual i1)
+{
+  bool check = true;
+  for(int i = 0 ; i < list.getSize();i++)
+  {
+      if(list.getIndi(i)==i1)
+      {
+          check = false;
+      }
+
+  }
+  return check;
+
 }

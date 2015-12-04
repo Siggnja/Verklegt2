@@ -151,30 +151,30 @@ void UI::sortMenu()
 
     switch(choice) {
         case 'u':
-        case 'U':   this->print();
+        case 'U':   print();
                     break;
         case 'a':
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
                     core.sortAlpabetFront();
-                    this->print();
+                    print();
                     break;
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
                     core.sortAlpabetBack();
-                    this->print();
+                    print();
                     break;
         case 'b':
         case 'B':   cout << endl << "--- Printing by year of Birth --- " << endl;
                     core.sortByBirthYear();
-                    this->print();
+                    print();
                     break;
         case 'd':
         case 'D':   cout << endl << "--- Printing by year of Death --- " << endl;
                     core.sortByDeathYear();
-                    this->print();
+                    print();
                     break;
         case 'M':
-        case 'm':   return; //this->menu();
+        case 'm':   return;
                     break;
 
         case 'q':
@@ -182,6 +182,7 @@ void UI::sortMenu()
                     break;
         default:    errorInput();
                     sortMenu();
+                       break;
     }
     sortMenu();
 }
@@ -199,7 +200,7 @@ void UI::addIndividual()
     string surname, name;
     int birth, death;
     char gender;
-    //bool found = false;
+    bool notfound = false;
 
     cin.ignore();
     cout << endl;
@@ -251,9 +252,13 @@ void UI::addIndividual()
     }
 
     Individual temp(surname, name, gender, birth, death); //fer inn i add
-    core.addIndividual(temp);
+    core.addIndividual(temp,notfound);
+    if(!notfound)
+    {
+        cout << endl;
+        cout << "This Individual is already in the database! " << endl;
+    }
 }
-// a eftir ad klara
 
 
 void UI::printIndi(int i) const
@@ -399,7 +404,7 @@ void UI::searchGender()
     else
     {
         errorInput();
-        this->searchGender();
+        searchGender();
     }
 }
 
@@ -435,7 +440,7 @@ void UI::searchBirth()
         errorInput();
         cin.clear();
         cin.ignore();
-        this->searchBirth();
+        searchBirth();
     }
 }
 
@@ -471,7 +476,7 @@ void UI::searchDeath()
         errorInput();
         cin.clear();
         cin.ignore();
-        this->searchDeath();
+        searchDeath();
     }
 }
 void UI::print()

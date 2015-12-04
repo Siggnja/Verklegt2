@@ -13,6 +13,7 @@ private:
     People list;
     Dataread data;
     void swap(const int i, const int j);
+    bool checkIfIndiIsNew(const Individual i1);
 public:
     Core();
     Core(const People& p1);
@@ -25,7 +26,7 @@ public:
     void sortByDeathYear();
     void sortByGender(People& male, People& female);
     int getSizeOfList()const;
-    void addIndividual(const Individual& ind);
+    void addIndividual(const Individual& ind, bool& notfound);
     void removeIndividual(const string str, bool& removed);
 
     string getSurname(int i) const;
