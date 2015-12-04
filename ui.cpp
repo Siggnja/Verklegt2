@@ -48,7 +48,7 @@ void UI::noMatch()
 
 void UI::inDatabase()
 {
-    cout << "This individual is already in the database " << endl;
+    cout << "This instance is already in the database " << endl;
 }
 
 void UI::readingString(string gender)
@@ -95,7 +95,7 @@ void UI::ask()
     cout << "(A) Add to list? " << endl;
     cout << "(S) Search list? " << endl;
     cout << "(P) Print list? " << endl;
-    cout << "(L) Print list size?" << endl;         // ?
+    cout << "(L) Print list size?" << endl;
     cout << "(R) Remove from list? " << endl;
     cout << "(Q) Quit program. " << endl;
     cout << "Select a letter: ";
@@ -187,10 +187,10 @@ void UI::searchComMenu(){
                 break;
         default:
                 errorInput();
-                searchSciMenu();
+                searchComMenu();
                 break;
     }
-    searchSciMenu();
+    searchComMenu();
 
 }
 
