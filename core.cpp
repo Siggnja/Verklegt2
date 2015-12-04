@@ -32,13 +32,13 @@ int Core::getSizeOfList() const
 }
 
 
-void Core::addIndividual(const Individual& ind,bool& notfound)
+void Core::addIndividual(const Individual& ind, bool& notfound)
 {
     notfound = checkIfIndiIsNew(ind);
     if(notfound)
     {
-    list.addIndi(ind);
-    data.addToFile(ind);
+        list.addIndi(ind);
+        data.addToFile(ind);
     }
 
 }
@@ -264,26 +264,22 @@ char Core::getGender(int i) const
 
 string Core::getCompname(int i) const
 {
-    string dummy = "dummy";
-    return dummy;
+    return getComputers().getMach(i).getName();
 }
 
 string Core::getComptype(int i) const
 {
-    string dummy = "dummy";
-    return dummy;
+    return getComputers().getMach(i).getType();
 }
 
 int Core::getYear(int i) const
 {
-    int dummy = 13;
-    return dummy;
+    return getComputers().getMach(i).getYear();
 }
 
 int Core::id(int i) const
 {
-    int dummy = 13;
-    return dummy;
+    return getComputers().getMach(i).getId();
 }
 
 bool Core::checkIfIndiIsNew(const Individual i1)
