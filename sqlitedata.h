@@ -24,6 +24,7 @@ public:
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
     vector<int> getRelationsToComp(const int i);
+    vector<int> getRelationsToSci(const int i);
     string int_to_string(int i);
 
 private:

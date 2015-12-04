@@ -107,6 +107,27 @@ vector<int> SQLiteData::getRelationsToComp(const int i)
     return temp;
 }
 
+vector<int> SQLiteData::getRelationsToSci(const int i)
+{
+    string querystring = "SELECT computer_id FROM Relation AS s WHERE s.scientist_id = ";
+    querystring = querystring + int_to_string(i);
+    vector<int> temp;
+
+    QSqlDatabase db;
+    getDatabase();
+    QSqlQuery queryname(db);
+    queryname.exec(QString::fromStdString(querystring));
+
+    while(queryname.next())
+    {
+        int comp_id = queryname.value("computer_id").toUInt();
+        temp.push_back(comp_id);
+    }
+
+    db.close();
+    return temp;
+}
+
 string SQLiteData::int_to_string(int i)
 {
     return QString::number(i).toStdString();
