@@ -15,12 +15,12 @@ public:
     void setYear(int i);
     void setName(string str);
     void setType(string str);
-    /*
+
     int getId();
     int getYear();
     string getName();
     string getType();
-    */
+
 
 
 

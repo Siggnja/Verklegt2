@@ -32,3 +32,23 @@ void Computer::setType(string str)
 {
     type = str;
 }
+
+int Computer::getId()
+{
+    return id;
+}
+
+int Computer::getYear()
+{
+    return year;
+}
+
+string Computer::getName()
+{
+    return name;
+}
+
+string Computer::getType()
+{
+    return type;
+}
