@@ -258,7 +258,7 @@ void UI::welcomeMessage()
 {
     cout << "------------Welcome to the database of famous computer scientists-------------" << endl;
     cout << "\t" << "    In this database you can add, remove, sort and search" << endl;
-    cout << "\t \t" <<" At this moment we have "<< core.getList().getSize() << " computer scientists!" << endl;
+    cout << "\t \t" << " At this moment we have "<< core.getList().getSize() << " computer scientists" << endl;
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
 }
 
@@ -281,7 +281,9 @@ void UI::addIndividual()
         cout << "Gender (m/f): ";
         cin >> gender;
         if(gender != 'f' && gender != 'm' && gender != 'F' && gender != 'M')
-            cout << "Invalid input, please try again!" << endl << endl;
+        {
+            errorInput();
+        }
     } while(gender != 'f' && gender != 'm' && gender != 'F' && gender != 'M');
 
     do {
@@ -291,7 +293,7 @@ void UI::addIndividual()
         cin >> birth;
         if(cin.fail())
         {
-            cout << endl << "Invalid input, please try again!" << endl << endl;
+            errorInput();
         }
     } while(cin.fail());
 
@@ -306,9 +308,9 @@ void UI::addIndividual()
                 cin >> death;
                 if(cin.fail())
             {
-                cout << endl << "Invalid input, please try again!" << endl << endl;
+                errorInput();
             }
-            if(birth>death)
+            if(birth > death)
             {
                 cout << "Illegal deathyear! Input again: " << endl << endl;
             }
@@ -342,7 +344,6 @@ void UI::printIndi(int i) const
     {
         cout << "Male" << endl;
     }
-    //cout << temp.getGender() << endl;
     cout << temp.getBirth() << " - ";
 
     if(temp.getDeath() == 0)

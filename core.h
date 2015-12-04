@@ -2,6 +2,7 @@
 #define CORE_H
 
 #include "people.h"
+#include "machines.h"
 #include "dataread.h"
 #include <string>
 
@@ -11,6 +12,7 @@ class Core
 {
 private:
     People list;
+    Machines directory;
     Dataread data;
     void swap(const int i, const int j);
     bool checkIfIndiIsNew(const Individual i1);
