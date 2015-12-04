@@ -21,6 +21,10 @@ public:
 private:
     void getDatabase();
     void sortAlphaFront();
+<<<<<<< HEAD
+=======
+
+>>>>>>> dcc05f67ba2048864d8ac9efc3f8478b17ad89b0
 };
 
 #endif // SQLITEDATA_H

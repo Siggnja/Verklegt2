@@ -32,7 +32,7 @@ public:
     //void printIndividual();
 
     //
-    void searchName();
+    void searchSciName();
     void searchGender();
     void searchBirth();
     void searchDeath();

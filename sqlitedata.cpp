@@ -1,5 +1,6 @@
 #include "sqlitedata.h"
 
+
 SQLiteData::SQLiteData()
 {
 
@@ -80,8 +81,12 @@ People SQLiteData::sortIndiAlphaFront()
     return p1;
 }
 Machines SQLiteData::sortCompAlphaFront()
+<<<<<<< HEAD
 {
     QSqlDatabase db; // ///
+=======
+{    QSqlDatabase db;
+>>>>>>> dcc05f67ba2048864d8ac9efc3f8478b17ad89b0
     getDatabase();
     QSqlQuery queryname(db);
     queryname.exec("SELECT * FROM Computer as s WHERE s.deleted =0 "
