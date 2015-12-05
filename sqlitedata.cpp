@@ -81,10 +81,10 @@ Machines SQLiteData::sortCompByType()
 }
 Machines SQLiteData::doQueryComp(const string que)
 {
-    QSqlDatabase db;
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "ScientistsComputers.sqlite";
-    db.setDatabaseName(dbName);
+    //QSqlDatabase db;
+    //db = QSqlDatabase::addDatabase("QSQLITE");
+    //QString dbName = "ScientistsComputers.sqlite";
+    //db.setDatabaseName(dbName);
     db.open();
     QString Q = QString::fromStdString(que);
     QSqlQuery queryname(db);
@@ -104,10 +104,10 @@ Machines SQLiteData::doQueryComp(const string que)
 }
 People SQLiteData::doQuerySci(const string que)
 {
-    QSqlDatabase db;
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "ScientistsComputers.sqlite";
-    db.setDatabaseName(dbName);
+    //QSqlDatabase db;
+    //db = QSqlDatabase::addDatabase("QSQLITE");
+    //QString dbName = "ScientistsComputers.sqlite";
+    //db.setDatabaseName(dbName);
     db.open();
     QString Q = QString::fromStdString(que);
     QSqlQuery queryname(db);
@@ -130,10 +130,10 @@ People SQLiteData::doQuerySci(const string que)
 }
 People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
 {
-    QSqlDatabase db;
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "ScientistsComputers.sqlite";
-    db.setDatabaseName(dbName);
+    //QSqlDatabase db;
+    //db = QSqlDatabase::addDatabase("QSQLITE");
+    //QString dbName = "ScientistsComputers.sqlite";
+    //db.setDatabaseName(dbName);
     db.open();
     QString Q = QString::fromStdString(que1);
     QSqlQuery queryname(db);
@@ -175,10 +175,10 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
 
 void SQLiteData::getDatabase()
 {
-    QSqlDatabase db;
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "ScientistsComputers.sqlite";
-    db.setDatabaseName(dbName);
+    //QSqlDatabase db;
+    //db = QSqlDatabase::addDatabase("QSQLITE");
+    //QString dbName = "ScientistsComputers.sqlite";
+    //db.setDatabaseName(dbName);
     db.open();
 
 }
@@ -189,7 +189,7 @@ vector<int> SQLiteData::getRelationsToComp(const int i)
     querystring = querystring + int_to_string(i);
     vector<int> temp;
 
-    QSqlDatabase db;
+    //QSqlDatabase db;
     getDatabase();
     QSqlQuery queryname(db);
     queryname.exec(QString::fromStdString(querystring));
@@ -210,7 +210,7 @@ vector<int> SQLiteData::getRelationsToSci(const int i)
     querystring = querystring + int_to_string(i);
     vector<int> temp;
 
-    QSqlDatabase db;
+    //QSqlDatabase db;
     getDatabase();
     QSqlQuery queryname(db);
     queryname.exec(QString::fromStdString(querystring));
