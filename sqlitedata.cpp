@@ -41,12 +41,19 @@ People SQLiteData::sortByDYear()
 People SQLiteData::searchByByear(const int year)
 {
     string Query1 = selectAllSci + " " + searchbYear + int_to_string(year);
-    string Query2 = selectAllSci + " " + searchbYearFrom + int_to_string(year-5) + " " + searchbYearTo + int_to_string(year+5);
+    string Query2 = selectAllSci + " " + searchbYearFrom + int_to_string(year-6) + " " + searchbYearTo + int_to_string(year+6);
     People p1 = doQuerySciOrOther(Query1, Query2);
 
     return p1;
 }
+People SQLiteData::searchByDyear(const int year)
+{
+    string Query1 = selectAllSci + " " + searchdYear + int_to_string(year);
+    string Query2 = selectAllSci + " " + searchdYearFrom + int_to_string(year-6) + " " + searchdYearTo + int_to_string(year+6);
+    People p1 = doQuerySciOrOther(Query1, Query2);
 
+    return p1;
+}
 Machines  SQLiteData::sortCompAlphaBack()
 {
     string Query = selectAllComp + " " + orderByNameDe;

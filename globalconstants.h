@@ -19,6 +19,9 @@ const string orderByType = "ORDER BY s.type";
 const string searchbYear = "WHERE s.byear =";
 const string searchbYearFrom = "WHERE s.byear >";
 const string searchbYearTo = "AND s.byear <";
+const string searchdYear = "WHERE s.dyear =";
+const string searchdYearFrom = "WHERE s.dyear >";
+const string searchdYearTo = "AND s.dyear <";
 
 
 

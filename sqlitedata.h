@@ -24,6 +24,7 @@ public:
     People sortIndiBYear();
     People sortByDYear();
     People searchByByear(const int year);
+    People searchByDyear(const int year);
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
     Machines sortCompBYear();
