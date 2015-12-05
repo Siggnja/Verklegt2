@@ -44,6 +44,7 @@ private:
     People doQuerySciOrOther(const string que1, const string qui2);
     People doQuerySci(const string que);
     void getDatabase();
+    QSqlDatabase db;
 };
 
 #endif // SQLITEDATA_H

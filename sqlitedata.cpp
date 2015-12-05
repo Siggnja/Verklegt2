@@ -3,7 +3,9 @@
 
 SQLiteData::SQLiteData()
 {
-
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName = "ScientistsComputers.sqlite";
+    db.setDatabaseName(dbName);
 }
 People SQLiteData::sortIndiAlphaFront()
 {
@@ -231,10 +233,10 @@ string SQLiteData::int_to_string(int i)
 
 Individual SQLiteData::getSingleIndi(const int i)
 {
-    QSqlDatabase db;
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "ScientistsComputers.sqlite";
-    db.setDatabaseName(dbName);
+    //QSqlDatabase db;
+    //db = QSqlDatabase::addDatabase("QSQLITE");
+    // dbName = "ScientistsComputers.sqlite";
+    //db.setDatabaseName(dbName);
     db.open();
 
     string Query = selectAllSci + " WHERE s.id = " + int_to_string(i) + " AND s.deleted = 0";
@@ -257,10 +259,10 @@ Individual SQLiteData::getSingleIndi(const int i)
 
 Computer SQLiteData::getSingleComp(const int i)
 {
-    QSqlDatabase db;
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "ScientistsComputers.sqlite";
-    db.setDatabaseName(dbName);
+    //QSqlDatabase db;
+    //db = QSqlDatabase::addDatabase("QSQLITE");
+    //QString dbName = "ScientistsComputers.sqlite";
+    //db.setDatabaseName(dbName);
     db.open();
 
     string Query = selectAllComp + " WHERE s.id = " + int_to_string(i) + " AND s.deleted = 0";

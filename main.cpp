@@ -15,10 +15,10 @@ using namespace std;
 int main()
 {
     SQLiteData s;
-    //Individual sci = s.getSingleIndi(1);
+    Individual sci = s.getSingleIndi(1);
     Computer comp = s.getSingleComp(1);
 
-    //cout << sci.getSurname() << endl;
+    cout << sci.getSurname() << endl;
     cout << comp.getName() << endl;
 
 /*
