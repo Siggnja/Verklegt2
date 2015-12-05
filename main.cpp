@@ -16,7 +16,7 @@ int main()
 {
     SQLiteData s;
 
-    int i = 1990;
+    int i = 1903;
     char g = 'm';
     People p1 = s.searchByGender(g);
     for(int i = 0; i < p1.getSize(); i++)
