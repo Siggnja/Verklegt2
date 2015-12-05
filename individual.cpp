@@ -13,12 +13,12 @@ Individual::Individual(const string surnam, const string nam, const char gend, c
     death = dea;
 }
 
-Individual::Individual(const int i,const string surnam, const string nam, const char gend, const int bir, const int dea)
+Individual::Individual(const int i,const string surnam, const string nam, const string gend, const int bir, const int dea)
 {
     id = i;
     name = nam;
     surname = surnam;
-    gender = gend;
+    gender = gend[0];
     birth = bir;
     death = dea;
 }

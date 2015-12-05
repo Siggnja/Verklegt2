@@ -25,6 +25,7 @@ public:
     People sortByDYear();
     People searchByByear(const int year);
     People searchByDyear(const int year);
+    People searchByGender(const char gender);
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
     Machines sortCompBYear();

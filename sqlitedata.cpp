@@ -54,6 +54,15 @@ People SQLiteData::searchByDyear(const int year)
 
     return p1;
 }
+People SQLiteData::searchByGender(const char gender)
+{
+    string Query = selectAllSci + " " + searchGender + "'" + gender + "'";
+    cout << Query << endl;
+    People p1 = doQuerySci(Query);
+    return p1;
+
+}
+
 Machines  SQLiteData::sortCompAlphaBack()
 {
     string Query = selectAllComp + " " + orderByNameDe;
@@ -116,7 +125,7 @@ People SQLiteData::doQuerySci(const string que)
         int id  = queryname.value("id").toUInt();
         string surname = queryname.value("surname").toString().toStdString();
         string name = queryname.value("name").toString().toStdString();
-        char gender = queryname.value("gender").toChar().toLatin1();
+        string gender = queryname.value("gender").toString().toStdString();
         int byear  = queryname.value("byear").toUInt();
         int dyear  = queryname.value("dyear").toUInt();
         Individual i1(id,surname,name,gender,byear,dyear);
@@ -142,7 +151,7 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
         int id  = queryname.value("id").toUInt();
         string surname = queryname.value("surname").toString().toStdString();
         string name = queryname.value("name").toString().toStdString();
-        char gender = queryname.value("gender").toChar().toLatin1();
+        string gender = queryname.value("gender").toString().toStdString();
         int byear  = queryname.value("byear").toUInt();
         int dyear  = queryname.value("dyear").toUInt();
         Individual i1(id,surname,name,gender,byear,dyear);
@@ -158,7 +167,7 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
             int id  = queryname.value("id").toUInt();
             string surname = queryname.value("surname").toString().toStdString();
             string name = queryname.value("name").toString().toStdString();
-            char gender = queryname.value("gender").toChar().toLatin1();
+            string gender = queryname.value("gender").toString().toStdString();
             int byear  = queryname.value("byear").toUInt();
             int dyear  = queryname.value("dyear").toUInt();
             Individual i1(id,surname,name,gender,byear,dyear);
