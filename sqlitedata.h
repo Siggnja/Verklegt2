@@ -5,6 +5,7 @@
 #include "people.h"
 #include "machines.h"
 #include "individual.h"
+#include "computer.h"
 #include <iostream>
 #include "globalconstants.h"
 using namespace std;
@@ -27,10 +28,13 @@ public:
     People searchByByear(const int year);
     People searchByDyear(const int year);
     Individual getSingleIndi(const int id);
+    // Gets a single Scientist based on hid id
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
     Machines sortCompBYear();
     Machines sortCompByType();
+    Computer getSingleComp(const int id);
+    // Gets a single Computer based on hid id
     vector<int> getRelationsToComp(const int i);
     vector<int> getRelationsToSci(const int i);
     string int_to_string(int i);

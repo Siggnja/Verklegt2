@@ -240,7 +240,7 @@ Individual SQLiteData::getSingleIndi(const int i)
     string Query = selectAllSci + " WHERE s.id = " + int_to_string(i) + " AND s.deleted = 0";
     QString Q = QString::fromStdString(Query);
     QSqlQuery queryname(db);
-    cout << queryname.exec(Q);
+    queryname.exec(Q);
     queryname.next();
 
     int id  = queryname.value("id").toUInt();
@@ -250,6 +250,30 @@ Individual SQLiteData::getSingleIndi(const int i)
     int byear  = queryname.value("byear").toUInt();
     int dyear  = queryname.value("dyear").toUInt();
     Individual temp(id,surname,name,gender,byear,dyear);
+
+    db.close();
+    return temp;
+}
+
+Computer SQLiteData::getSingleComp(const int i)
+{
+    QSqlDatabase db;
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName = "ScientistsComputers.sqlite";
+    db.setDatabaseName(dbName);
+    db.open();
+
+    string Query = selectAllComp + " WHERE s.id = " + int_to_string(i) + " AND s.deleted = 0";
+    QString Q = QString::fromStdString(Query);
+    QSqlQuery queryname(db);
+    queryname.exec(Q);
+    queryname.next();
+
+    int id  = queryname.value("id").toUInt();
+    string name = queryname.value("name").toString().toStdString();
+    string type = queryname.value("type").toString().toStdString();
+    int byear  = queryname.value("byear").toUInt();
+    Computer temp(id,byear,name,type);
 
     db.close();
     return temp;
