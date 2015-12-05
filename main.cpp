@@ -15,19 +15,19 @@ using namespace std;
 int main()
 {
     SQLiteData s;
-
-    int i = 1903;
+    /*
+    int i = 1905;
     char g = 'm';
     string name = "a";
-    People p1 = s.searchByName(name);
+    People p1 = s.searchIndiByDyear(1990);
     for(int i = 0; i < p1.getSize(); i++)
     {
        cout << p1.getIndi(i).getSurname() << " ";
-       cout << p1.getIndi(i).getGender() << endl;
+       cout << p1.getIndi(i).getBirth() << endl;
     }
-
-/*
-    Machines p1 = s.sortCompByType();
+    */
+    string name = "engine";
+    Machines p1 = s.searchCompByName(name);
     //cout << p1.getSize();
     for(int i = 0; i < p1.getSize(); i++)
     {
@@ -35,7 +35,6 @@ int main()
        cout << p1.getComputer(i).getYear() << " ";
        cout << p1.getComputer(i).getType() << endl;
     }
- */
    // UI ui("people.txt");
   //  ui.run();
 

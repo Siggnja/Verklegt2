@@ -33,14 +33,14 @@ People SQLiteData::sortIndiBYear()
     People p1 = doQuerySci(Query);
     return p1;
 }
-People SQLiteData::sortByDYear()
+People SQLiteData::sortIndiByDYear()
 {
     string Query = selectAllSci + " " + orderByDYear;
     People p1 = doQuerySci(Query);
     return p1;
 
 }
-People SQLiteData::searchByByear(const int year)
+People SQLiteData::searchIndiByByear(const int year)
 {
     string Query1 = selectAllSci + " " + searchbYear + int_to_string(year);
     string Query2 = selectAllSci + " " + searchbYearFrom + int_to_string(year-6) + " " + searchbYearTo + int_to_string(year+6);
@@ -48,7 +48,7 @@ People SQLiteData::searchByByear(const int year)
 
     return p1;
 }
-People SQLiteData::searchByDyear(const int year)
+People SQLiteData::searchIndiByDyear(const int year)
 {
     string Query1 = selectAllSci + " " + searchdYear + int_to_string(year);
     string Query2 = selectAllSci + " " + searchdYearFrom + int_to_string(year-6) + " " + searchdYearTo + int_to_string(year+6);
@@ -56,14 +56,14 @@ People SQLiteData::searchByDyear(const int year)
 
     return p1;
 }
-People SQLiteData::searchByGender(const char gender)
+People SQLiteData::searchIndiByGender(const char gender)
 {
     string Query = selectAllSci + " " + searchGender +  gender + "'" + " " + orderBySurname;
     People p1 = doQuerySci(Query);
     return p1;
 
 }
-People SQLiteData::searchByName(const string name)
+People SQLiteData::searchIndiByName(const string name)
 {
     string Query = selectAllSci + " " + searchName + name + "%'" + " " + searchSurname +name + "%'";
     People p1 = doQuerySci(Query);
@@ -93,6 +93,21 @@ Machines SQLiteData::sortCompByType()
     return p1;
 
 }
+Machines SQLiteData::searchCompByName(const string name)
+{
+    string Query = selectAllComp + " " + searchName + name + "%'" + orderByName;
+    Machines p1 = doQueryComp(Query);
+    return p1;
+}
+Machines SQLiteData::searchCompByByear(const int year)
+{
+
+}
+Machines SQLiteData::searchCompByType(const string type)
+{
+
+}
+
 Machines SQLiteData::doQueryComp(const string que)
 {
     //QSqlDatabase db;

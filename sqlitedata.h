@@ -24,17 +24,20 @@ public:
     People sortIndiAlphaFront();
     People sortIndiAlphaBack();
     People sortIndiBYear();
-    People sortByDYear();
-    People searchByName(const string name);
-    People searchByByear(const int year);
-    People searchByDyear(const int year);
-    People searchByGender(const char gender);
+    People sortIndiByDYear();
+    People searchIndiByName(const string name);
+    People searchIndiByByear(const int year);
+    People searchIndiByDyear(const int year);
+    People searchIndiByGender(const char gender);
     Individual getSingleIndi(const int id);
     // Gets a single Scientist based on hid id
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
     Machines sortCompBYear();
     Machines sortCompByType();
+    Machines searchCompByName(const string name);
+    Machines searchCompByByear(const int year);
+    Machines searchCompByType(const string type);
     Computer getSingleComp(const int id);
     // Gets a single Computer based on hid id
     vector<int> getRelationsToComp(const int i);
