@@ -16,7 +16,9 @@ const string orderByNameDe = "ORDER BY s.name DESC";
 const string orderByBYear = "ORDER BY s.byear";
 const string orderByDYear = "ORDER BY s.dyear";
 const string orderByType = "ORDER BY s.type";
-
+const string searchbYear = "WHERE s.byear =";
+const string searchbYearFrom = "WHERE s.byear >";
+const string searchbYearTo = "AND s.byear <";
 
 
 

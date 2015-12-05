@@ -38,6 +38,14 @@ People SQLiteData::sortByDYear()
     return p1;
 
 }
+People SQLiteData::searchByByear(const int year)
+{
+    string Query1 = selectAllSci + " " + searchbYear + int_to_string(year);
+    string Query2 = selectAllSci + " " + searchbYearFrom + int_to_string(year-5) + " " + searchbYearTo + int_to_string(year+5);
+    People p1 = doQuerySciOrOther(Query1, Query2);
+
+    return p1;
+}
 
 Machines  SQLiteData::sortCompAlphaBack()
 {
@@ -107,8 +115,53 @@ People SQLiteData::doQuerySci(const string que)
         Individual i1(id,surname,name,gender,byear,dyear);
         p1.addIndi(i1);
     }
+
     db.close();
     return p1;
+}
+People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
+{
+    QSqlDatabase db;
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName = "ScientistsComputers.sqlite";
+    db.setDatabaseName(dbName);
+    db.open();
+    QString Q = QString::fromStdString(que1);
+    QSqlQuery queryname(db);
+    queryname.exec(Q);
+    People p1;
+    while(queryname.next())
+    {
+        int id  = queryname.value("id").toUInt();
+        string surname = queryname.value("surname").toString().toStdString();
+        string name = queryname.value("name").toString().toStdString();
+        char gender = queryname.value("gender").toChar().toLatin1();
+        int byear  = queryname.value("byear").toUInt();
+        int dyear  = queryname.value("dyear").toUInt();
+        Individual i1(id,surname,name,gender,byear,dyear);
+        p1.addIndi(i1);
+    }
+    if(p1.getSize()==0)
+    {
+
+        Q =  QString::fromStdString(que2);
+        queryname.exec(Q);
+        while(queryname.next())
+        {
+            int id  = queryname.value("id").toUInt();
+            string surname = queryname.value("surname").toString().toStdString();
+            string name = queryname.value("name").toString().toStdString();
+            char gender = queryname.value("gender").toChar().toLatin1();
+            int byear  = queryname.value("byear").toUInt();
+            int dyear  = queryname.value("dyear").toUInt();
+            Individual i1(id,surname,name,gender,byear,dyear);
+            p1.addIndi(i1);
+        }
+
+    }
+    db.close();
+    return p1;
+
 }
 
 void SQLiteData::getDatabase()

@@ -16,12 +16,12 @@ int main()
 {
     SQLiteData s;
 
-
-    People p1 = s.sortByDYear();
+    int i = 1903;
+    People p1 = s.searchByByear(i);
     for(int i = 0; i < p1.getSize(); i++)
     {
        cout << p1.getIndi(i).getSurname() << " ";
-       cout << p1.getIndi(i).getDeath() << endl;
+       cout << p1.getIndi(i).getBirth() << endl;
     }
 
 /*

@@ -23,6 +23,7 @@ public:
     People sortIndiAlphaBack();
     People sortIndiBYear();
     People sortByDYear();
+    People searchByByear(const int year);
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
     Machines sortCompBYear();
@@ -33,9 +34,9 @@ public:
 private:
 
     Machines doQueryComp(const string que);
+    People doQuerySciOrOther(const string que1, const string qui2);
     People doQuerySci(const string que);
     void getDatabase();
-    void sortAlphaFront();
 };
 
 #endif // SQLITEDATA_H
