@@ -139,7 +139,8 @@ void UI::searchComMenu(){
     cout << "(N) Name" << endl
          << "(T) Type" << endl
          << "(C) Year of Creation" << endl
-         << "(Q) Quit program" <<endl;
+         << "(Q) Quit program" <<endl
+         << "(M) Return to Menu"<<endl;
     cout << "Select a letter: ";
     cin >> choice;
     switch(choice)
@@ -153,8 +154,13 @@ void UI::searchComMenu(){
         case 'c':
         case 'C':   // searchCreation();
                 break;
+        case 'm':
+        case 'M':
+                return;
+                break;
         case 'q':
         case 'Q':
+
                 // quit program
                 break;
         default:
@@ -715,7 +721,7 @@ void UI::addComputer(){
     char ans;
     cin.ignore();
     cout << endl;
-    cout << "Surname: ";
+    cout << "Name: ";
     getline(cin, name);
     cout << "Type: ";
     getline(cin, type);
