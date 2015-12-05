@@ -25,6 +25,7 @@ public:
     People sortIndiAlphaBack();
     People sortIndiBYear();
     People sortByDYear();
+    People searchByName(const string name);
     People searchByByear(const int year);
     People searchByDyear(const int year);
     People searchByGender(const char gender);

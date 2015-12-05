@@ -58,11 +58,16 @@ People SQLiteData::searchByDyear(const int year)
 }
 People SQLiteData::searchByGender(const char gender)
 {
-    string Query = selectAllSci + " " + " " + searchGender +  gender + "'" + " " + orderBySurname;
-    cout << Query << endl;
+    string Query = selectAllSci + " " + searchGender +  gender + "'" + " " + orderBySurname;
     People p1 = doQuerySci(Query);
     return p1;
 
+}
+People SQLiteData::searchByName(const string name)
+{
+    string Query = selectAllSci + " " + searchName + name + "%'" + " " + searchSurname +name + "%'";
+    People p1 = doQuerySci(Query);
+    return p1;
 }
 
 Machines  SQLiteData::sortCompAlphaBack()

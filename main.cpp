@@ -18,7 +18,8 @@ int main()
 
     int i = 1903;
     char g = 'm';
-    People p1 = s.searchByGender(g);
+    string name = "a";
+    People p1 = s.searchByName(name);
     for(int i = 0; i < p1.getSize(); i++)
     {
        cout << p1.getIndi(i).getSurname() << " ";
