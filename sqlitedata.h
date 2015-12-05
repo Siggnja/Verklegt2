@@ -4,6 +4,7 @@
 #include <QtSql>
 #include "people.h"
 #include "machines.h"
+#include "individual.h"
 #include <iostream>
 #include "globalconstants.h"
 using namespace std;
@@ -25,6 +26,7 @@ public:
     People sortByDYear();
     People searchByByear(const int year);
     People searchByDyear(const int year);
+    Individual getSingleIndi(const int id);
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
     Machines sortCompBYear();

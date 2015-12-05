@@ -227,3 +227,30 @@ string SQLiteData::int_to_string(int i)
 {
     return QString::number(i).toStdString();
 }
+
+
+Individual SQLiteData::getSingleIndi(const int i)
+{
+    QSqlDatabase db;
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName = "ScientistsComputers.sqlite";
+    db.setDatabaseName(dbName);
+    db.open();
+
+    string Query = selectAllSci + " WHERE s.id = " + int_to_string(i) + " AND s.deleted = 0";
+    QString Q = QString::fromStdString(Query);
+    QSqlQuery queryname(db);
+    cout << queryname.exec(Q);
+    queryname.next();
+
+    int id  = queryname.value("id").toUInt();
+    string surname = queryname.value("surname").toString().toStdString();
+    string name = queryname.value("name").toString().toStdString();
+    char gender = queryname.value("gender").toChar().toLatin1();
+    int byear  = queryname.value("byear").toUInt();
+    int dyear  = queryname.value("dyear").toUInt();
+    Individual temp(id,surname,name,gender,byear,dyear);
+
+    db.close();
+    return temp;
+}

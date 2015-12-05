@@ -15,7 +15,11 @@ using namespace std;
 int main()
 {
     SQLiteData s;
+    Individual sci = s.getSingleIndi(1);
 
+    cout << sci.getSurname() << endl;
+
+/*
     int i = 1990;
     People p1 = s.searchByDyear(i);
     for(int i = 0; i < p1.getSize(); i++)
@@ -23,7 +27,7 @@ int main()
        cout << p1.getIndi(i).getSurname() << " ";
        cout << p1.getIndi(i).getDeath() << endl;
     }
-
+*/
 /*
     Machines p1 = s.sortCompByType();
     //cout << p1.getSize();
