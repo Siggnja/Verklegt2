@@ -374,6 +374,14 @@ vector<int> SQLiteData::getRelationsToSci(const int i)
     db.close();
     return temp;
 }
+void SQLiteData::createConnection(const int idSci, const int idComp)
+{
+
+    string Query = createNewRelation + int_to_string(idSci) + ", " + int_to_string(idComp) + ")";
+    cout << Query;
+    executeQuery(Query);
+
+}
 
 string SQLiteData::int_to_string(int i)
 {
