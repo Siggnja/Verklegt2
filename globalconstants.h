@@ -32,6 +32,7 @@ const string setDYear = "SET dyear = ";
 const string setGender = "SET gender = '";
 const string setName = "SET name = '";
 const string setSurname = "SET surname = '";
+const string setDel = "SET deleted = 1";
 const string findId = "WHERE id = ";
 
 

@@ -101,7 +101,13 @@ void  SQLiteData::updateIndiGender(const char gender, const int id)
     string Query = updateSci + " " + setGender + gender + " '" + " " + findId + int_to_string(id);
     executeQuery(Query);
 }
-//void  SQLiteData::deleteIndi(const int id, const int id)
+void  SQLiteData::deleteIndi(const int id)
+{
+
+    string Query = updateSci + " " + setDel + " " + findId + int_to_string(id);
+    executeQuery(Query);
+}
+
 Machines  SQLiteData::sortCompAlphaBack()
 {
     string Query = selectAllComp + " " + orderByNameDe;
