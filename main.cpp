@@ -19,7 +19,7 @@ int main()
     int i = 1905;
     char g = 'm';
     string name = "a";
-    s.updateIndiSurname("Turing",11);
+   s.updateIndiBYear(1,11);
     /*
     People p1 = s.searchIndiBySurname("");
     for(int i = 0; i < p1.getSize(); i++)

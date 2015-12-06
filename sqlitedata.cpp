@@ -84,8 +84,13 @@ void  SQLiteData::updateIndiSurname(const string name, const int id)
     string Query = updateSci + " " + setSurname + name + "'" + " " + findId + int_to_string(id);
     executeQuery(Query);
 }
-/*
 void  SQLiteData::updateIndiBYear(const int year, const int id)
+{
+    string Query = updateSci + " " + setBYear + int_to_string(year) + " " + findId + int_to_string(id);
+    executeQuery(Query);
+
+}
+/*
 void  SQLiteData::updateIndiDYear(const int year, const int id)
 void  SQLiteData::updateIndiGender(const char gender, const int id)
 void  SQLiteData::deleteIndi(const int id, const int id)
