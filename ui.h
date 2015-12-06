@@ -46,6 +46,7 @@ public:
 
     void printIndi(int i) const;
     void printIndi(Individual& id) const;
+    void printIndiIndent(Individual &id) const;
 
     void printSize();
     void printList() const;
