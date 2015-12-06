@@ -1,11 +1,11 @@
 #include <QCoreApplication>
 #include <iostream>
-#include "people.h"
+//#include "people.h"
 #include "ui.h"
-#include "dataread.h"
-#include "individual.h"
-#include "core.h"
-#include "sqlitedata.h"
+//#include "dataread.h"
+//#include "individual.h"
+//#include "core.h"
+//#include "sqlitedata.h"
 #include <QtSql>
 //#include <string>
 

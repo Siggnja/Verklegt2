@@ -1,68 +1,70 @@
 #include "sqlitedata.h"
 
-
 SQLiteData::SQLiteData()
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
     QString dbName = "ScientistsComputers.sqlite";
     db.setDatabaseName(dbName);
 }
+
 People SQLiteData::sortIndiAlphaFront()
 {
     string Query = selectAllSci + " " + orderBySurname;
     People p1 = doQuerySci(Query);
     return p1;
 }
+
 Machines SQLiteData::sortCompAlphaFront()
 {
     string Query = selectAllComp + " " + orderByName;
     Machines p1 = doQueryComp(Query);
     return p1;
-
-
 }
+
 People SQLiteData::sortIndiAlphaBack()
 {
     string Query = selectAllSci + " " + orderBySurnameDe;
     People p1 = doQuerySci(Query);
     return p1;
 }
+
 People SQLiteData::sortIndiBYear()
 {
     string Query = selectAllSci + " " + orderByBYear;
     People p1 = doQuerySci(Query);
     return p1;
 }
+
 People SQLiteData::sortIndiByDYear()
 {
     string Query = selectAllSci + " " + orderByDYear;
     People p1 = doQuerySci(Query);
     return p1;
-
 }
+
 People SQLiteData::searchIndiByByear(const int year)
 {
     string Query1 = selectAllSci + " " + searchbYear + int_to_string(year);
     string Query2 = selectAllSci + " " + searchbYearFrom + int_to_string(year-6) + " " + searchbYearTo + int_to_string(year+6);
     People p1 = doQuerySciOrOther(Query1, Query2);
-
     return p1;
 }
+
 People SQLiteData::searchIndiByDyear(const int year)
 {
     string Query1 = selectAllSci + " " + searchdYear + int_to_string(year);
     string Query2 = selectAllSci + " " + searchdYearFrom + int_to_string(year-6) + " " + searchdYearTo + int_to_string(year+6);
     People p1 = doQuerySciOrOther(Query1, Query2);
-
     return p1;
 }
+
 People SQLiteData::searchIndiByGender(const char gender)
 {
     string Query = selectAllSci + " " + searchGender +  gender + "'" + " " + orderBySurname;
     People p1 = doQuerySci(Query);
     return p1;
-
 }
+
 People SQLiteData::searchIndiByName(const string name)
 {
     string Query = selectAllSci + " " + searchName + name + "%'" + " " + searchSurname +name + "%'";
@@ -76,37 +78,36 @@ Machines  SQLiteData::sortCompAlphaBack()
     Machines p1 = doQueryComp(Query);
     return p1;
 }
+
 Machines SQLiteData::sortCompBYear()
 {
-
     string Query = selectAllComp + " " + orderByBYear;
     Machines p1 = doQueryComp(Query);
     return p1;
-
 }
 
 Machines SQLiteData::sortCompByType()
 {
-
     string Query = selectAllComp + " " + orderByType;
     Machines p1 = doQueryComp(Query);
     return p1;
-
 }
+
 Machines SQLiteData::searchCompByName(const string name)
 {
     string Query = selectAllComp + " " + searchName + name + "%'" + orderByName;
     Machines p1 = doQueryComp(Query);
     return p1;
 }
+
 Machines SQLiteData::searchCompByByear(const int year)
 {
     string Query1 = selectAllComp + " " + searchbYear + int_to_string(year);
     string Query2 = selectAllComp + " " + searchbYearFrom + int_to_string(year-6) + " " + searchbYearTo + int_to_string(year+6);
     Machines p1 = doQueryCompOrOther(Query1, Query2);
-
     return p1;
 }
+
 Machines SQLiteData::searchCompByType(const string type)
 {
     string Query = selectAllComp + " " + searchType + type + "%'";
@@ -137,6 +138,7 @@ Machines SQLiteData::doQueryComp(const string que)
     db.close();
     return p1;
 }
+
 People SQLiteData::doQuerySci(const string que)
 {
     //QSqlDatabase db;
@@ -159,10 +161,10 @@ People SQLiteData::doQuerySci(const string que)
         Individual i1(id,surname,name,gender,byear,dyear);
         p1.addIndi(i1);
     }
-
     db.close();
     return p1;
 }
+
 People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
 {
     //QSqlDatabase db;
@@ -187,7 +189,6 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
     }
     if(p1.getSize()==0)
     {
-
         Q =  QString::fromStdString(que2);
         queryname.exec(Q);
         while(queryname.next())
@@ -201,13 +202,12 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
             Individual i1(id,surname,name,gender,byear,dyear);
             p1.addIndi(i1);
         }
-
     }
     db.close();
     return p1;
-
 }
- Machines SQLiteData::doQueryCompOrOther(const string que1, const string que2)
+
+Machines SQLiteData::doQueryCompOrOther(const string que1, const string que2)
 {
     //QSqlDatabase db;
     //db = QSqlDatabase::addDatabase("QSQLITE");
@@ -229,7 +229,6 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
     }
     if(p1.getSize()==0)
     {
-
         Q =  QString::fromStdString(que2);
         queryname.exec(Q);
         while(queryname.next())
@@ -241,12 +240,11 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
             Computer c1(id,byear,name,type);
             p1.addMach(c1);
         }
-
     }
     db.close();
     return p1;
-
 }
+
 void SQLiteData::getDatabase()
 {
     //QSqlDatabase db;
@@ -254,7 +252,6 @@ void SQLiteData::getDatabase()
     //QString dbName = "ScientistsComputers.sqlite";
     //db.setDatabaseName(dbName);
     db.open();
-
 }
 
 vector<int> SQLiteData::getRelationsToComp(const int i)
@@ -273,7 +270,6 @@ vector<int> SQLiteData::getRelationsToComp(const int i)
         int sci_id = queryname.value("scientist_id").toUInt();
         temp.push_back(sci_id);
     }
-
     db.close();
     return temp;
 }
@@ -294,7 +290,6 @@ vector<int> SQLiteData::getRelationsToSci(const int i)
         int comp_id = queryname.value("computer_id").toUInt();
         temp.push_back(comp_id);
     }
-
     db.close();
     return temp;
 }
@@ -303,7 +298,6 @@ string SQLiteData::int_to_string(int i)
 {
     return QString::number(i).toStdString();
 }
-
 
 Individual SQLiteData::getSingleIndi(const int i)
 {

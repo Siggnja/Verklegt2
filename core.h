@@ -32,6 +32,7 @@ public:
     int getSizeOfList()const;
     void addIndividual(const Individual& ind, bool& notfound);
     void removeIndividual(const string str, bool& removed);
+    void removeComputer(const string str, bool& removed);
 
     string getSurname(int i) const;
     string getName(int i) const;

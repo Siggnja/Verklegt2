@@ -24,16 +24,12 @@ public:
     string getType() const;
     // These are the getline functions, they are used to get the values of the private variables
 
-
-
-
 private:
     int id;
     int year;
     string name;
     string type;
     // User typse in the types
-
 
 };
 
