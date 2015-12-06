@@ -489,6 +489,34 @@ void UI::removeCom()
     }
 }
 
+void UI::printIndiIndent(Individual &id) const
+{
+    cout << endl;
+    cout << "/t" << id.getName() << " " << id.getSurname() << "/t";
+
+    if(id.getGender() == 'f' || id.getGender() == 'F')
+    {
+        cout << "Female";
+    }
+    else
+    {
+        cout << "Male";
+    }
+
+    cout << "/t" << id.getBirth() << " - ";
+
+    if(id.getDeath() == 0)
+    {
+        cout << "Today";
+    }
+    else
+    {
+    cout << id.getDeath();
+    }
+    cout << endl;
+
+}
+
 void UI::removeSci()
 {
     string str;

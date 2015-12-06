@@ -46,6 +46,9 @@ public:
     // of mörg print föll? erum með printComputers() og printScientists()
     void printIndi(int i) const;
     void printIndi(Individual& id) const;
+
+    void printIndiIndent(Individual &id) const;
+
     void printList() const;
     void printList(People& list) const;
 
