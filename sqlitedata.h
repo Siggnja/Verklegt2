@@ -46,6 +46,7 @@ public:
 private:
 
     Machines doQueryComp(const string que);
+    Machines doQueryCompOrOther(const string que1, const string que2);
     People doQuerySciOrOther(const string que1, const string qui2);
     People doQuerySci(const string que);
     void getDatabase();

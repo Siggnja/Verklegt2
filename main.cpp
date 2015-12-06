@@ -27,7 +27,7 @@ int main()
     }
     */
     string name = "engine";
-    Machines p1 = s.searchCompByName(name);
+    Machines p1 = s.searchCompByByear(1939);
     //cout << p1.getSize();
     for(int i = 0; i < p1.getSize(); i++)
     {

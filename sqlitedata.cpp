@@ -101,7 +101,11 @@ Machines SQLiteData::searchCompByName(const string name)
 }
 Machines SQLiteData::searchCompByByear(const int year)
 {
+    string Query1 = selectAllComp + " " + searchbYear + int_to_string(year);
+    string Query2 = selectAllComp + " " + searchbYearFrom + int_to_string(year-6) + " " + searchbYearTo + int_to_string(year+6);
+    Machines p1 = doQueryCompOrOther(Query1, Query2);
 
+    return p1;
 }
 Machines SQLiteData::searchCompByType(const string type)
 {
@@ -201,7 +205,46 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
     return p1;
 
 }
+ Machines SQLiteData::doQueryCompOrOther(const string que1, const string que2)
+{
+    //QSqlDatabase db;
+    //db = QSqlDatabase::addDatabase("QSQLITE");
+    //QString dbName = "ScientistsComputers.sqlite";
+    //db.setDatabaseName(dbName);
+    db.open();
+    QString Q = QString::fromStdString(que1);
+    QSqlQuery queryname(db);
+    queryname.exec(Q);
+    Machines p1;
+    while(queryname.next())
+    {
+        int id  = queryname.value("id").toUInt();
+        string name = queryname.value("name").toString().toStdString();
+        string type = queryname.value("type").toString().toStdString();
+        int byear  = queryname.value("byear").toUInt();
+        Computer c1(id,byear,name,type);
+        p1.addMach(c1);
+    }
+    if(p1.getSize()==0)
+    {
 
+        Q =  QString::fromStdString(que2);
+        queryname.exec(Q);
+        while(queryname.next())
+        {
+            int id  = queryname.value("id").toUInt();
+            string name = queryname.value("name").toString().toStdString();
+            string type = queryname.value("type").toString().toStdString();
+            int byear  = queryname.value("byear").toUInt();
+            Computer c1(id,byear,name,type);
+            p1.addMach(c1);
+        }
+
+    }
+    db.close();
+    return p1;
+
+}
 void SQLiteData::getDatabase()
 {
     //QSqlDatabase db;
