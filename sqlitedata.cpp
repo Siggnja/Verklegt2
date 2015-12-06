@@ -171,7 +171,12 @@ void SQLiteData::updateCompBYear(const int year, const int id)
 
 }
 
-//void SQLiteData::deleteComp(const int id)
+void SQLiteData::deleteComp(const int id)
+{
+    string Query = updateComp + " " + setDel + " " + findId + int_to_string(id);
+    executeQuery(Query);
+}
+
 Machines SQLiteData::doQueryComp(const string que)
 {
     //QSqlDatabase db;
