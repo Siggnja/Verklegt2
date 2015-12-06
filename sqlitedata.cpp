@@ -326,15 +326,6 @@ void SQLiteData::executeQuery(const string query)
     queryname.exec(Q);
 }
 
-void SQLiteData::getDatabase()
-{
-    //QSqlDatabase db;
-    //db = QSqlDatabase::addDatabase("QSQLITE");
-    //QString dbName = "ScientistsComputers.sqlite";
-    //db.setDatabaseName(dbName);
-    db.open();
-}
-
 vector<int> SQLiteData::getRelationsToComp(const int i)
 {
     string querystring = "SELECT scientist_id FROM Relation AS s WHERE s.computer_id = ";
@@ -342,7 +333,8 @@ vector<int> SQLiteData::getRelationsToComp(const int i)
     vector<int> temp;
 
     //QSqlDatabase db;
-    getDatabase();
+    //getDatabase();
+    db.open();
     QSqlQuery queryname(db);
     queryname.exec(QString::fromStdString(querystring));
 
@@ -362,7 +354,8 @@ vector<int> SQLiteData::getRelationsToSci(const int i)
     vector<int> temp;
 
     //QSqlDatabase db;
-    getDatabase();
+    //getDatabase();
+    db.open();
     QSqlQuery queryname(db);
     queryname.exec(QString::fromStdString(querystring));
 

@@ -29,6 +29,7 @@ public:
     People searchIndiByByear(const int year);
     People searchIndiByDyear(const int year);
     People searchIndiByGender(const char gender);
+
     void updateIndiName(const string name, const int id);
     void updateIndiSurname(const string name, const int id);
     void updateIndiBYear(const int year, const int id);
@@ -48,6 +49,7 @@ public:
     Machines searchCompByName(const string name);
     Machines searchCompByByear(const int year);
     Machines searchCompByType(const string type);
+
     void updateCompName(const string name, const int id);
     void updateCompType(const string type, const int id);
     void updateCompBYear(const int year, const int id);
@@ -60,7 +62,8 @@ public:
     void createConnection(const int idSci, const int idComp);
     void deleteConnectionWithIndi(const int idSci);
     void deleteConnectionWithComp(const int idComp);
-    string int_to_string(int i);
+    //kollum a thessi foll thegar thad er verid a delete-a annadhvort tolvu eda indi
+    // tha removar hann einnig oll tengst vid annahvort tolvuna eda scientistinn
     //spurning med thessa nafnagift -- vera samraemi her
 private:
     Machines doQueryComp(const string que);
@@ -68,7 +71,7 @@ private:
     People doQuerySciOrOther(const string que1, const string qui2);
     People doQuerySci(const string que);
     void executeQuery(const string query);
-    void getDatabase();
+    string int_to_string(int i);
     QSqlDatabase db;
 };
 

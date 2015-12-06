@@ -19,7 +19,6 @@ int main()
     int i = 1905;
     char g = 'm';
     string name = "a";
-    s.deleteConnectionWithComp(2);
     /*
     People p1 = s.searchIndiBySurname("");
     for(int i = 0; i < p1.getSize(); i++)
