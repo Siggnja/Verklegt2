@@ -4,8 +4,8 @@
 #include <QtSql>
 #include "people.h"
 #include "machines.h"
-#include "individual.h"
-#include "computer.h"
+//#include "individual.h"
+//#include "computer.h"
 #include <iostream>
 #include "globalconstants.h"
 using namespace std;
@@ -14,7 +14,6 @@ class SQLiteData
 {
 public:
     SQLiteData();
-
 
     // Aukaföll sem hægt er að búa til
     // Machines getCompFromBase();
@@ -25,6 +24,7 @@ public:
     People sortIndiAlphaBack();
     People sortIndiBYear();
     People sortIndiByDYear();
+
     People searchIndiByName(const string name);
     People searchIndiByByear(const int year);
     People searchIndiByDyear(const int year);
@@ -37,23 +37,26 @@ public:
     void deleteIndi(const int id);
     Individual getSingleIndi(const int id);
     // Gets a single Scientist based on hid id
+
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
     Machines sortCompBYear();
     Machines sortCompByType();
     //Here we have to give the user options to pick from the varieties of types so he can pick from,
     //and have a switch sentence which return the exact string of the type you are looking for
+
     Machines searchCompByName(const string name);
     Machines searchCompByByear(const int year);
     Machines searchCompByType(const string type);
+
     Computer getSingleComp(const int id);
     // Gets a single Computer based on hid id
+
     vector<int> getRelationsToComp(const int i);
     vector<int> getRelationsToSci(const int i);
     string int_to_string(int i);
     //spurning med thessa nafnagift -- vera samraemi her
 private:
-
     Machines doQueryComp(const string que);
     Machines doQueryCompOrOther(const string que1, const string que2);
     People doQuerySciOrOther(const string que1, const string qui2);

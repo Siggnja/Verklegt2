@@ -11,7 +11,6 @@ class UI
 public:
     UI();
     UI(const string filename);
-    void print();
     void run();
     void ask();
     void menu();
@@ -44,23 +43,37 @@ public:
     //choose in what order the list shall be printed
     void welcomeMessage();
 
+    // of mörg print föll? erum með printComputers() og printScientists()
     void printIndi(int i) const;
     void printIndi(Individual& id) const;
 
-    void printSize();
+    void printIndiIndent(Individual &id) const;
+
     void printList() const;
     void printList(People& list) const;
-    void remove();
+
+    void printComp(int i) const;
+    void printComp(Computer& id) const;
+    void printComplist() const;
+    void printComplist(Machines& list) const;
+
+
+    void printComputers();
+    void printScientists();
+
+    void printSize();
+
+    void removeSci();
+    void removeCom();
 
     // cout sentences:
     void errorFile();
     void errorInput();
-    void individualsMatched();
+    void entriesMatched();
     void noMatch();
     void inDatabase();
     void readingString(string gender);
     void addComputer();
-    void printComputer();
 
 private:
     Core core;

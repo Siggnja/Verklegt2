@@ -4,6 +4,7 @@ Individual::Individual()
 {
 
 }
+
 Individual::Individual(const string surnam, const string nam, const char gend, const int bir, const int dea)
 {
     name = nam;
@@ -22,6 +23,7 @@ Individual::Individual(const int i,const string surnam, const string nam, const 
     birth = bir;
     death = dea;
 }
+
 bool operator == (const Individual& indi, const Individual& indi2)
 {
     if (indi.birth == indi2.birth && indi.death == indi2.death && indi.surname == indi2.surname

@@ -14,42 +14,44 @@ vector <Individual> People::getPerson() const
 {
     return person;
 }
+
 Individual People::getIndi(const int i) const
 {
      return person[i];
 }
+
 int People::getSize() const
 {
-     return(person.size());
+    return(person.size());
+}
 
- }
- void People::swap(const int i, const int j)
- {
-     Individual temp = person[i];
-     person[i] = person[j];
-     person[j] = temp;
- }
- bool People::checkIndiOrder(const int i, const int j)
- {
-     string s1,s2;
-     char c1,c2;
-     int t1=0,t2=0;
-     do
-     {
+void People::swap(const int i, const int j)
+{
+    Individual temp = person[i];
+    person[i] = person[j];
+    person[j] = temp;
+}
+
+bool People::checkIndiOrder(const int i, const int j)
+{
+    string s1,s2;
+    char c1, c2;
+    int t1 = 0, t2 = 0;
+    do
+    {
         s1 = person[i].getSurname();
         s2 = person[j].getSurname();
         c1 = tolower(s1[i]);
         c2 = tolower(s2[i]);
         t1 = static_cast <int> (c1);
         int t2 = static_cast <int> (c2);
-        if(t2>t1)
+        if(t2 > t1)
         {
             break;
         }
-     }while(t2<t1);
-
-     return(t2>t1);
- }
+     } while(t2 < t1);
+    return(t2 > t1);
+}
 
 void People::removeIndi(string name)
 {
@@ -71,7 +73,6 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
 {
     string s1 = i1.getSurname();
     string s2 = i2.getSurname();
-
     int namelength = s1.size();
 
     for(int i = 0; i < namelength; i++)
@@ -87,15 +88,14 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
     }
     int compare = s2.size();
     return(namelength < compare);
-
 }
 
 bool People::checkBirthYearOrder(const Individual& i1, const Individual& i2)
 {
-    return(i1.getBirth()>i2.getBirth());
+    return(i1.getBirth() > i2.getBirth());
 }
 
 bool People::checkDeathYearOrder(const Individual& i1, const Individual& i2)
 {
-    return(i1.getDeath()>i2.getDeath());
+    return(i1.getDeath() > i2.getDeath());
 }

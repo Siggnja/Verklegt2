@@ -35,9 +35,9 @@ People Dataread::readData(const string filename)
     ins.close();
     return p1;
 }
+
 void Dataread::addToFile(const Individual& i1)
 {
-
     ofstream outs;
     outs.open(filename.c_str(), ios::app);
     if(outs.fail())
@@ -54,6 +54,7 @@ void Dataread::addToFile(const Individual& i1)
 
     outs.close();
 }
+
 void Dataread::removeFromFile(const People& p1,const Individual& i1)
 {
     //bool atBegin = true;

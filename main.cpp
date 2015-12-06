@@ -1,11 +1,11 @@
 #include <QCoreApplication>
 #include <iostream>
-#include "people.h"
+//#include "people.h"
 #include "ui.h"
-#include "dataread.h"
-#include "individual.h"
-#include "core.h"
-#include "sqlitedata.h"
+//#include "dataread.h"
+//#include "individual.h"
+//#include "core.h"
+//#include "sqlitedata.h"
 #include <QtSql>
 //#include <string>
 
@@ -27,7 +27,6 @@ int main()
        cout << p1.getIndi(i).getName() << " ";
        cout << p1.getIndi(i).getBirth() << endl;
     }
-   // */
     /*
     string name = "engine";
     Machines p1 = s.searchCompByType("Electronic");
