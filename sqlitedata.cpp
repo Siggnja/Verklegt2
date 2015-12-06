@@ -79,12 +79,16 @@ void SQLiteData::updateIndiName(const string name, const int id)
 
 }
 
+void  SQLiteData::updateIndiSurname(const string name, const int id)
+{
+    string Query = updateSci + " " + setSurname + name + "'" + " " + findId + int_to_string(id);
+    executeQuery(Query);
+}
 /*
-void updateIndiSurname(const string name, const int id)
-void updateIndiBYear(const int year, const int id)
-void updateIndiDYear(const int year, const int id)
-void updateIndiGender(const char gender, const int id)
-void deleteIndi(const int id, const int id)
+void  SQLiteData::updateIndiBYear(const int year, const int id)
+void  SQLiteData::updateIndiDYear(const int year, const int id)
+void  SQLiteData::updateIndiGender(const char gender, const int id)
+void  SQLiteData::deleteIndi(const int id, const int id)
 */
 Machines  SQLiteData::sortCompAlphaBack()
 {
