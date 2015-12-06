@@ -69,7 +69,21 @@ People SQLiteData::searchIndiByName(const string name)
     People p1 = doQuerySci(Query);
     return p1;
 }
+void SQLiteData::updateIndiName(const string name, const int id)
+{
 
+    string Query = updateSci + " " + setName + name + "'" + " " + findId + int_to_string(id);
+    executeQuery(Query);
+
+}
+
+/*
+void updateIndiSurname(const string name, const int id)
+void updateIndiBYear(const int year, const int id)
+void updateIndiDYear(const int year, const int id)
+void updateIndiGender(const char gender, const int id)
+void deleteIndi(const int id, const int id)
+*/
 Machines  SQLiteData::sortCompAlphaBack()
 {
     string Query = selectAllComp + " " + orderByNameDe;
@@ -247,6 +261,14 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
     return p1;
 
 }
+void SQLiteData::executeQuery(const string query)
+{
+    db.open();
+    QString Q = QString::fromStdString(query);
+    QSqlQuery queryname(db);
+    queryname.exec(Q);
+}
+
 void SQLiteData::getDatabase()
 {
     //QSqlDatabase db;

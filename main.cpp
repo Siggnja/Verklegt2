@@ -15,17 +15,20 @@ using namespace std;
 int main()
 {
     SQLiteData s;
-    /*
+    ///*
     int i = 1905;
     char g = 'm';
     string name = "a";
-    People p1 = s.searchIndiByDyear(1990);
+    s.updateIndiName("Alan",11);
+    People p1 = s.searchIndiByName("Alan");
     for(int i = 0; i < p1.getSize(); i++)
     {
        cout << p1.getIndi(i).getSurname() << " ";
+       cout << p1.getIndi(i).getName() << " ";
        cout << p1.getIndi(i).getBirth() << endl;
     }
-    */
+   // */
+    /*
     string name = "engine";
     Machines p1 = s.searchCompByType("Electronic");
     //cout << p1.getSize();
@@ -35,6 +38,7 @@ int main()
        cout << p1.getComputer(i).getYear() << " ";
        cout << p1.getComputer(i).getType() << endl;
     }
+    */
    // UI ui("people.txt");
   //  ui.run();
 

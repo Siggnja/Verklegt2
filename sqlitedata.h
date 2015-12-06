@@ -29,6 +29,12 @@ public:
     People searchIndiByByear(const int year);
     People searchIndiByDyear(const int year);
     People searchIndiByGender(const char gender);
+    void updateIndiName(const string name, const int id);
+    void updateIndiSurname(const string name, const int id);
+    void updateIndiBYear(const int year, const int id);
+    void updateIndiDYear(const int year, const int id);
+    void updateIndiGender(const char gender, const int id);
+    void deleteIndi(const int id);
     Individual getSingleIndi(const int id);
     // Gets a single Scientist based on hid id
     Machines sortCompAlphaFront();
@@ -45,12 +51,14 @@ public:
     vector<int> getRelationsToComp(const int i);
     vector<int> getRelationsToSci(const int i);
     string int_to_string(int i);
+    //spurning med thessa nafnagift -- vera samraemi her
 private:
 
     Machines doQueryComp(const string que);
     Machines doQueryCompOrOther(const string que1, const string que2);
     People doQuerySciOrOther(const string que1, const string qui2);
     People doQuerySci(const string que);
+    void executeQuery(const string query);
     void getDatabase();
     QSqlDatabase db;
 };
