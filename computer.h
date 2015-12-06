@@ -11,6 +11,7 @@ class Computer
 public:
     Computer();
     Computer(int idd, int yearr, string namee, string typee);
+    Computer(int yearr, string namee, string typee);
 
     void setId(int i);
     void setYear(int i);

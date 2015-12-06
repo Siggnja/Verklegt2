@@ -113,6 +113,12 @@ void SQLiteData::addNewIndi(const Individual i1)
     executeQuery(Query);
 
 }
+void SQLiteData::addNewComp(const Computer c1)
+{
+    string Query = createNewComp + c1.getName() + "'," + int_to_string(c1.getYear()) + ",'" + c1.getType() + "')";
+    executeQuery(Query);
+
+}
 
 Machines  SQLiteData::sortCompAlphaBack()
 {

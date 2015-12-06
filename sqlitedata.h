@@ -37,7 +37,7 @@ public:
     void deleteIndi(const int id);
     Individual getSingleIndi(const int id);
     // Gets a single Scientist based on hid id
-
+    void addNewComp(const Computer c1);
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
     Machines sortCompBYear();
