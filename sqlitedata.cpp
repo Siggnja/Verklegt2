@@ -257,7 +257,7 @@ void SQLiteData::getDatabase()
 vector<int> SQLiteData::getRelationsToComp(const int i)
 {
     string querystring = "SELECT scientist_id FROM Relation AS s WHERE s.computer_id = ";
-    querystring = querystring + int_to_string(i);
+    querystring = querystring + int_to_string(i) + " AND s.deleted = 0";
     vector<int> temp;
 
     //QSqlDatabase db;

@@ -26,6 +26,8 @@ int main()
        cout << p1.getIndi(i).getBirth() << endl;
     }
     */
+    vector <int> indiId = s.getRelationsToComp(1);
+    cout << indiId[0] << endl;
     string name = "engine";
     Machines p1 = s.searchCompByType("Electronic");
     //cout << p1.getSize();
