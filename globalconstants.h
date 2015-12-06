@@ -24,6 +24,7 @@ const string searchdYearTo = "AND s.dyear <";
 const string searchGender = " AND s.gender ='";
 const string searchName = "AND s.name LIKE '%";
 const string searchSurname = "OR s.surname LIKE '%";
+const string searchType = "AND s.type LIKE '%";
 
 
 

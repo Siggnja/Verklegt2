@@ -35,6 +35,8 @@ public:
     Machines sortCompAlphaBack();
     Machines sortCompBYear();
     Machines sortCompByType();
+    //Here we have to give the user options to pick from the varieties of types so he can pick from,
+    //and have a switch sentence which return the exact string of the type you are looking for
     Machines searchCompByName(const string name);
     Machines searchCompByByear(const int year);
     Machines searchCompByType(const string type);

@@ -109,7 +109,9 @@ Machines SQLiteData::searchCompByByear(const int year)
 }
 Machines SQLiteData::searchCompByType(const string type)
 {
-
+    string Query = selectAllComp + " " + searchType + type + "%'";
+    Machines p1 = doQueryComp(Query);
+    return p1;
 }
 
 Machines SQLiteData::doQueryComp(const string que)
