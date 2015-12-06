@@ -90,11 +90,18 @@ void  SQLiteData::updateIndiBYear(const int year, const int id)
     executeQuery(Query);
 
 }
-/*
+
 void  SQLiteData::updateIndiDYear(const int year, const int id)
+{
+    string Query = updateSci + " " + setDYear + int_to_string(year) + " " + findId + int_to_string(id);
+    executeQuery(Query);
+}
 void  SQLiteData::updateIndiGender(const char gender, const int id)
-void  SQLiteData::deleteIndi(const int id, const int id)
-*/
+{
+    string Query = updateSci + " " + setGender + gender + " '" + " " + findId + int_to_string(id);
+    executeQuery(Query);
+}
+//void  SQLiteData::deleteIndi(const int id, const int id)
 Machines  SQLiteData::sortCompAlphaBack()
 {
     string Query = selectAllComp + " " + orderByNameDe;
