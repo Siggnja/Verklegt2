@@ -150,7 +150,17 @@ Machines SQLiteData::searchCompByType(const string type)
     Machines p1 = doQueryComp(Query);
     return p1;
 }
+void SQLiteData::updateCompName(const string name, const int id)
+{
+    string Query = updateComp + " " + setName + name + "'" + " " + findId + int_to_string(id);
+    executeQuery(Query);
+}
 
+/*
+void SQLiteData::updateCompType(const string name, const int id)
+void SQLiteData::updateCompBYear(const int year, const int id)
+void SQLiteData::deleteComp(const int id)
+*/
 Machines SQLiteData::doQueryComp(const string que)
 {
     //QSqlDatabase db;

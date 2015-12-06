@@ -19,7 +19,6 @@ int main()
     int i = 1905;
     char g = 'm';
     string name = "a";
-    s.deleteIndi(11);
     /*
     People p1 = s.searchIndiBySurname("");
     for(int i = 0; i < p1.getSize(); i++)
@@ -28,10 +27,11 @@ int main()
        cout << p1.getIndi(i).getName() << " ";
        cout << p1.getIndi(i).getBirth() << endl;
     }
-    /*
-    string name = "engine";
-    Machines p1 = s.searchCompByType("Electronic");
+    */
+    //string name = "engine";
+    s.updateCompName("ABC",2);
     //cout << p1.getSize();
+    /*
     for(int i = 0; i < p1.getSize(); i++)
     {
        cout << p1.getComputer(i).getName() << " ";
