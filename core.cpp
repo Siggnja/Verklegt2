@@ -1,30 +1,29 @@
 #include "core.h"
 
- Core::Core()
- {
+Core::Core()
+{
 
- }
- Core::Core(const People& p1)
- {
+}
 
-     list =p1;
- }
+Core::Core(const People& p1)
+{
+    list =p1;
+}
 
- void Core::setList(const People p1)
- {
-     list = p1;
- }
+void Core::setList(const People p1)
+{
+    list = p1;
+}
 
- void Core::setComplist(const Machines c1)
- {
-     complist = c1;
- }
+void Core::setComplist(const Machines c1)
+{
+    complist = c1;
+}
 
 void Core::createList(const string filename)
 {
     list = data.readData(filename);
 }
-
 
 int Core::getSizeOfList() const
 {
@@ -38,7 +37,6 @@ int Core::getSizeOfComplist() const
     //  query.exec("SELECT count(*)"); -- nota þetta til að fá stærð
 }
 
-
 void Core::addIndividual(const Individual& ind, bool& notfound)
 {
     notfound = checkIfIndiIsNew(ind);
@@ -47,7 +45,6 @@ void Core::addIndividual(const Individual& ind, bool& notfound)
         list.addIndi(ind);
         data.addToFile(ind);
     }
-
 }
 
 void Core::removeIndividual(const string str, bool& removed)
@@ -73,13 +70,36 @@ void Core::removeIndividual(const string str, bool& removed)
     }
 }
 
+void Core::removeComputer(const string str, bool& removed)
+{
+    Computer temp;
+    string tempstr;
+    complist.removeComputer(str);
+
+    for(int i = 0; i < complist.getSize(); i++)
+    {
+        tempstr = complist.getComputer(i).getName();
+        if(tempstr == str)
+        {
+            temp = complist.getComputer(i);
+            removed = true;
+            break;
+        }
+    }
+
+    for(int i = 0; i < complist.getSize(); i++)
+    {
+        //data.removeFromFile(complist, temp);
+    }
+}
+
 void Core::sortAlpabetFront()
 {
     for(int i = 1 ; i < list.getSize(); i++)
     {
         for(int j = 0; j < list.getSize(); j++)
         {
-            if(list.checkIndiOrder(list.getIndi(i),list.getIndi(j)))
+            if(list.checkIndiOrder(list.getIndi(i), list.getIndi(j)))
             {
                 list.swap(i,j);
             }
@@ -89,16 +109,16 @@ void Core::sortAlpabetFront()
 
 void Core::sortAlpabetBack()
 {
-        for(int i = 1 ; i < list.getSize(); i++)
+    for(int i = 1 ; i < list.getSize(); i++)
+    {
+        for(int j = 0; j < list.getSize(); j++)
         {
-            for(int j = 0; j < list.getSize(); j++)
+            if(list.checkIndiOrder(list.getIndi(j), list.getIndi(i)))
             {
-                if(list.checkIndiOrder(list.getIndi(j),list.getIndi(i)))
-                {
                     list.swap(i,j);
-                }
             }
         }
+    }
 }
 
 void Core::sortByBirthYear()
@@ -107,21 +127,7 @@ void Core::sortByBirthYear()
     {
         for(int j = 0; j < list.getSize(); j++)
         {
-            if(list.checkBirthYearOrder(list.getIndi(j),list.getIndi(i)))
-            {
-               list.swap(i,j);
-            }
-        }
-    }
-}
-void Core::sortByDeathYear()
-{
-   // People dead, alive;
-    for(int i = 1 ; i < list.getSize(); i++)
-    {
-        for(int j = 0; j < list.getSize(); j++)
-        {
-            if((list.checkDeathYearOrder(list.getIndi(j),list.getIndi(i)) && (list.getIndi(i).getDeath() != 0)))
+            if(list.checkBirthYearOrder(list.getIndi(j), list.getIndi(i)))
             {
                list.swap(i,j);
             }
@@ -129,6 +135,20 @@ void Core::sortByDeathYear()
     }
 }
 
+void Core::sortByDeathYear()
+{
+   // People dead, alive;
+    for(int i = 1 ; i < list.getSize(); i++)
+    {
+        for(int j = 0; j < list.getSize(); j++)
+        {
+            if((list.checkDeathYearOrder(list.getIndi(j), list.getIndi(i)) && (list.getIndi(i).getDeath() != 0)))
+            {
+               list.swap(i,j);
+            }
+        }
+    }
+}
 
 string Core::makeLower(string& temp)
 {
@@ -141,9 +161,6 @@ string Core::makeLower(string& temp)
     }
     return temp;
 }
-
-
-//    Search functions:
 
 People Core::searchNam(bool& found, string searchStr, People& result)
 {
@@ -172,7 +189,6 @@ Machines Core::getComputers() const
     return complist;
 }
 
-
 People Core::searchGend(const char ansGender)
 {
     char findGender;
@@ -180,16 +196,13 @@ People Core::searchGend(const char ansGender)
     for(int i = 0 ; i < 10 ; i++)
     {
         findGender = list.getIndi(i).getGender();
-
         if (tolower(ansGender) == tolower(findGender))
         {
             result.addIndi(list.getIndi(i));
         }
     }
-
     return result;
 }
-
 
 People Core::searchBir(bool& found, int ansYear, People& result1, People& result2)
 {
@@ -243,7 +256,6 @@ People Core::searchDea(bool& found, int ansYear, People& result1, People& result
     }
 }
 
-
 string Core::getSurname(int i) const
 {
     return getList().getIndi(i).getSurname();
@@ -291,15 +303,13 @@ int Core::id(int i) const
 
 bool Core::checkIfIndiIsNew(const Individual i1)
 {
-  bool check = true;
-  for(int i = 0 ; i < list.getSize();i++)
-  {
-      if(list.getIndi(i)==i1)
-      {
-          check = false;
-      }
-
-  }
-  return check;
-
+    bool check = true;
+    for(int i = 0; i < list.getSize(); i++)
+    {
+        if(list.getIndi(i) == i1)
+        {
+            check = false;
+        }
+    }
+    return check;
 }

@@ -51,7 +51,9 @@ public:
     void printSize();
     void printList() const;
     void printList(People& list) const;
-    void remove();
+
+    void removeSci();
+    void removeCom();
 
     // cout sentences:
     void errorFile();
