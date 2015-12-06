@@ -49,7 +49,7 @@ public:
     Machines searchCompByByear(const int year);
     Machines searchCompByType(const string type);
     void updateCompName(const string name, const int id);
-    void updateCompType(const string name, const int id);
+    void updateCompType(const string type, const int id);
     void updateCompBYear(const int year, const int id);
     void deleteComp(const int id);
     Computer getSingleComp(const int id);

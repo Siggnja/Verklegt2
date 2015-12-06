@@ -156,8 +156,15 @@ void SQLiteData::updateCompName(const string name, const int id)
     executeQuery(Query);
 }
 
+
+void SQLiteData::updateCompType(const string type, const int id)
+{
+    string Query = updateComp + " " + setType + type + "'" + " " + findId + int_to_string(id);
+    executeQuery(Query);
+
+}
+
 /*
-void SQLiteData::updateCompType(const string name, const int id)
 void SQLiteData::updateCompBYear(const int year, const int id)
 void SQLiteData::deleteComp(const int id)
 */
