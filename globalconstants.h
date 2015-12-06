@@ -14,7 +14,8 @@ const string createNewComp = "INSERT INTO Computer(name,byear,type) VALUES ('";
 const string createNewRelation = "INSERT INTO Relation(scientist_id, computer_id) VALUES(";
 
 const string updateSci = "UPDATE Scientist";
-const string updateComp = "UPDATE  Computer";
+const string updateComp = "UPDATE Computer";
+const string updateRel = "UPDATE Relation";
 
 const string orderBySurname = "ORDER BY s.surname";
 const string orderBySurnameDe = "ORDER BY s.surname DESC";
@@ -44,6 +45,8 @@ const string setType = "SET type = '";
 const string setDel = "SET deleted = 1";
 
 const string findId = "WHERE id = ";
+const string findSciId = "WHERE scientist_id = ";
+const string findCompId = "WHERE computer_id = ";
 
 
 

@@ -378,7 +378,19 @@ void SQLiteData::createConnection(const int idSci, const int idComp)
 {
 
     string Query = createNewRelation + int_to_string(idSci) + ", " + int_to_string(idComp) + ")";
-    cout << Query;
+    executeQuery(Query);
+
+}
+void SQLiteData::deleteConnectionWithIndi(const int idSci)
+{
+    string Query = updateRel + " " + setDel + " " + findSciId + int_to_string(idSci);
+    executeQuery(Query);
+}
+
+void SQLiteData::deleteConnectionWithComp(const int idComp)
+{
+
+    string Query = updateRel + " " + setDel + " " + findCompId + int_to_string(idComp);
     executeQuery(Query);
 
 }

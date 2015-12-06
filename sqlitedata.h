@@ -58,6 +58,8 @@ public:
     vector<int> getRelationsToComp(const int i);
     vector<int> getRelationsToSci(const int i);
     void createConnection(const int idSci, const int idComp);
+    void deleteConnectionWithIndi(const int idSci);
+    void deleteConnectionWithComp(const int idComp);
     string int_to_string(int i);
     //spurning med thessa nafnagift -- vera samraemi her
 private:
