@@ -8,6 +8,7 @@ using namespace std;
 
 const string selectAllSci = "SELECT * FROM Scientist as s WHERE s.deleted = 0";
 const string selectAllComp = "SELECT * FROM Computer as s WHERE s.deleted = 0";
+const string createNewSci = "INSERT INTO Scientist(surname,name,gender,byear,dyear) VALUES ('";
 const string updateSci = "UPDATE Scientist";
 const string updateComp = "UPDATE  Computer";
 const string orderBySurname = "ORDER BY s.surname";

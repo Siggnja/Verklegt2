@@ -19,6 +19,8 @@ int main()
     int i = 1905;
     char g = 'm';
     string name = "a";
+    Individual i1("Siggi", "Njalli",'m',1994,0);
+    s.addNewIndi(i1);
     /*
     People p1 = s.searchIndiBySurname("");
     for(int i = 0; i < p1.getSize(); i++)
@@ -29,7 +31,6 @@ int main()
     }
     */
     //string name = "engine";
-     s.deleteComp(2);
     //cout << p1.getSize();
     /*
     for(int i = 0; i < p1.getSize(); i++)

@@ -107,6 +107,12 @@ void  SQLiteData::deleteIndi(const int id)
     string Query = updateSci + " " + setDel + " " + findId + int_to_string(id);
     executeQuery(Query);
 }
+void SQLiteData::addNewIndi(const Individual i1)
+{
+    string Query = createNewSci + i1.getSurname() + "','" + i1.getName() + "','" + i1.getGender() + "'," + int_to_string(i1.getBirth()) + "," + int_to_string(i1.getDeath()) + ")";
+    executeQuery(Query);
+
+}
 
 Machines  SQLiteData::sortCompAlphaBack()
 {
