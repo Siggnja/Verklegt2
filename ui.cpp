@@ -288,12 +288,12 @@ void UI::sortSciMenu()
                     break;
         case 'b':
         case 'B':   cout << endl << "--- Printing by year of Birth --- " << endl;
-                    core.sortByBirthYear();
+                    //core.sortByBirthYear();
                     printScientists();
                     break;
         case 'd':
         case 'D':   cout << endl << "--- Printing by year of Death --- " << endl;
-                    core.sortByDeathYear();
+                    //core.sortByDeathYear();
                     printScientists();
                     break;
         case 'M':
