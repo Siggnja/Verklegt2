@@ -50,6 +50,7 @@ const string setDel0 = "SET deleted = 0";
 const string findId = "WHERE id = ";
 const string findSciId = "WHERE scientist_id = ";
 const string findCompId = "WHERE computer_id = ";
+const string findNotDel = "WHERE deleted = 0";
 
 const string selectAllDelSci = "SELECT * FROM Scientist as s WHERE s.deleted = 1";
 const string selectAllDelComp = "SELECT * FROM Computer as s WHERE s.deleted = 1";

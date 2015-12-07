@@ -1116,9 +1116,11 @@ void UI::removeCom()
     bool removed = false;
     cin.ignore();
     cout << endl;
-    cout << "Type the id of the computer:";
+
+    cout << "Type the id of the computer: ";
     cin >> id;
     core.removeComputer(id, removed);
+
     if (removed)
     {
         cout << "The computer has been removed." << endl;
@@ -1133,15 +1135,17 @@ void UI::removeCom()
 void UI::removeSci()
 {
     int id;
-    string str;
     bool removed = false;
     cin.ignore();
     cout << endl;
-    cout << "Type the id of the individual:";
+
+    cout << "Type the id of the individual: ";
     cin >> id;
-    core.removeIndividual(id,removed);
+    core.removeIndividual(id, removed);
+
     if (removed)
     {
+        core.removeIndividual(id, removed); //
         cout << "The individual has been removed." << endl;
     }
     else if (!removed)
@@ -1250,7 +1254,6 @@ void UI::printComputersConnection(Machines &comps)
 
 void UI::printIndiIndent(Individual &id) const
 {
-    cout << endl;
     cout << "\t" << id.getId() << "\t" << id.getName() << " " << id.getSurname() << "\t";
 
     if(id.getGender() == 'f' || id.getGender() == 'F')
@@ -1278,7 +1281,6 @@ void UI::printIndiIndent(Individual &id) const
 
 void UI::printCompIndent(Computer &id) const
 {
-    cout << endl;
     cout << "\t" << id.getId()<< "\t" << id.getName() << "\t" << id.getType() << "\t";
 
     if(id.getYear() == 0)
@@ -1386,71 +1388,127 @@ void UI::printComp(Computer& temp) const
     }
 }
 void UI::searchSciLink()
-{   bool found=false;
+
+{   cout<<endl;
+    bool found = false;
     int id;
     cout << "Enter scientist ID: " ;
     cin >>id;
-    Machines mac = core.getConnectedComp(id);
-    Individual i1 = core.getData().getSingleIndi(id);
-    string s = i1.getName()+" "+i1.getSurname();
-    cout<<"You picked the scientist "<<s<<" is that correct(y/n)?";
-    char input;
-    cin>>input;
-    if(input=='n')
+    if(!cin.fail())
     {
-      searchSciLink();
-    }
+         People p = core.getData().sortIndiAlphaFront();
+         for(int i = 0 ; i <p.getSize(); i++)
+         {
+             if(id == p.getIndi(i).getId())
+             {
+                 found=true;
+             }
+         }
+         if(found==true)
 
-    if(mac.getSize()!=0)
-    {
-        found = true;
-    }
-    if (found ==true)
-    {
-        cout<<"The following computers are connected to the scientist "<<s<<":"<<endl;
-        printComplist(mac);
+         {
+             Machines mac=core.getConnectedComp(id);
+             Individual i1 = core.getData().getSingleIndi(id);
+             string s = i1.getName()+" "+i1.getSurname();
+             cout<<"You picked the scientist "<<s<<" is that correct(y/n)?";
+             char input;
+             cin>>input;
+             if(input=='n')
+             {
+             searchSciLink();
+             }
+             else
+             {
+                 if(mac.getSize()==0)
+                 {
+                     cout<<"No computers connected to this scientist"<<endl;
+                 }
 
+                 else
+                {
+                     cout<<endl;
+                     cout<<"The following computers are connected to the scientist "<<s<<":"<<endl;
+                     printComplist(mac);
+                }
+             }
+
+         }
+         else
+         {
+             cout << "No scientist has this id!" << endl;
+             cin.clear();
+             cin.ignore();
+             searchSciLink();
+         }
     }
     else
     {
-        cout<<"No computers connected to this scientist"<<endl;
+        errorInput();
+        cin.clear();
+        cin.ignore();
+        searchSciLink();
     }
-
 
 }
 
 void UI::searchComLink()
-{
-    bool found=false;
+{   cout<<endl;
+    bool found = false;
     int id;
     cout << "Enter computer ID: ";
+
     cin >>id;
-    People p = core.getConnectedSci(id);
-    Computer c1 = core.getData().getSingleComp(id);
-    string s = c1.getName();
-    cout<<"You picked the computer "<<s<<" is that correct(y/n)?";
-    char input;
-    cin>>input;
-    while(input=='n')
+    if(!cin.fail())
     {
-      searchComLink();
-    }
+        Machines mac = core.getData().sortCompAlphaFront();
+        for(int i = 0 ; i <mac.getSize(); i++)
+        {
+            if(id == mac.getComputer(i).getId())
+            {
+               found=true;
 
-
-    if(p.getSize() != 0)
-    {
-        found = true;
-    }
-    if(found == true)
-    {
-         cout << "The following scientists are connected to computer " << s << ": " << endl;
-         printList(p);
+            }
+        }
+         if(found==true)
+         {   People p=core.getConnectedSci(id);
+             Computer c1 = core.getData().getSingleComp(id);
+             string s = c1.getName();
+             cout<<"You picked the computer "<<s<<" is that correct(y/n)?";
+             char input;
+             cin>>input;
+             if(input=='n')
+             {
+                 searchComLink();
+             }
+             else
+             {
+                 if(p.getSize() == 0)
+                 {
+                     cout << "No scientists connected to this computer" << endl;
+                 }
+                 else
+                 {
+                     cout<<endl;
+                     cout << "The following scientists are connected to computer " << s << ": " << endl;
+                     printList(p);
+                 }
+             }
+         }
+         else
+         {
+             cout << "No computer has this id!" << endl;
+             cin.clear();
+             cin.ignore();
+             searchComLink();
+         }
     }
     else
     {
-         cout << "No scientists connected to this computer" << endl;
+         errorInput();
+         cin.clear();
+         cin.ignore();
+         searchComLink();
     }
-
 }
 
 void UI::sortSciLink()

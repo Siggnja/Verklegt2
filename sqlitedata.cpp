@@ -487,7 +487,7 @@ Computer SQLiteData::getSingleComp(const int i)
 
 int SQLiteData::getDatabaseSize(const string temp)
 {
-    string que = selectCount + " " + temp;
+    string que = selectCount + " " + temp + " " + findNotDel;
 
     db.open();
     QString Q = QString::fromStdString(que);
