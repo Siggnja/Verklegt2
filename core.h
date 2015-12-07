@@ -23,9 +23,9 @@ public:
     Core(const People& p1);
     void createList(const string filename);
 
-    void sortAlpabetFront();
+    People sortSciAlpabetFront();
 
-    void sortAlpabetBack();
+    People sortSciAlpabetBack();
     void sortByBirthYear();
     void sortByDeathYear();
     void sortByGender(People& male, People& female);

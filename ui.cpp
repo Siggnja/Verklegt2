@@ -278,12 +278,12 @@ void UI::sortSciMenu()
                     break;
         case 'a':
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
-                    core.sortAlpabetFront();
+                    //core.sortAlpabetFront();
                     printScientists();
                     break;
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
-                    core.sortAlpabetBack();
+                    //core.sortAlpabetBack();
                     printScientists();
                     break;
         case 'b':
@@ -649,7 +649,7 @@ void UI::searchGender()
     {
         entriesMatched();
         Core c1(core.searchGend(ansGender));
-        c1.sortAlpabetFront();
+        //c1.sortAlpabetFront();
         if(c1.getList().getSize()!=0)
         {
             People p1 = c1.getList();
