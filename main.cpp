@@ -14,7 +14,8 @@ using namespace std;
 
 int main()
 {
-    //SQLiteData s;
+    SQLiteData s;
+    cout << s.getSingleComp(1).getName() << "<<<-----" << endl;
     //Core c1;
     /*
     int i = 1905;
