@@ -284,7 +284,7 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
 Machines SQLiteData::doQueryCompOrOther(const string que1, const string que2)
 {
     //QSqlDatabase db;
-    //db = QSqlDatabase::addDatabase("QSQLITE");
+    //db = QSqlDatabase::Database("QSQLITE");
     //QString dbName = "ScientistsComputers.sqlite";
     //db.setDatabaseName(dbName);
     db.open();

@@ -164,8 +164,11 @@ string Core::makeLower(string& temp)
 
 People Core::searchNam(bool& found, string searchStr, People& result)
 {
+    result = newdata.searchIndiByName(searchStr);
+    /*
     string tempStr;
     searchStr = makeLower(searchStr);
+
     for(int i = 0; i < list.getSize(); i++)
     {
         tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
@@ -175,7 +178,7 @@ People Core::searchNam(bool& found, string searchStr, People& result)
             result.addIndi(list.getIndi(i));
             found = true;
         }
-    }
+    }*/
     return result;
 }
 
