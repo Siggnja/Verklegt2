@@ -42,19 +42,19 @@ People SQLiteData::sortIndiByDYear()
     return p1;
 }
 
-People SQLiteData::searchIndiByByear(const int year)
+People SQLiteData::searchIndiByByear(const int year, bool& found)
 {
     string Query1 = selectAllSci + " " + searchbYear + int_to_string(year);
     string Query2 = selectAllSci + " " + searchbYearFrom + int_to_string(year-6) + " " + searchbYearTo + int_to_string(year+6);
-    People p1 = doQuerySciOrOther(Query1, Query2);
+    People p1 = doQuerySciOrOther(Query1, Query2, found);
     return p1;
 }
 
-People SQLiteData::searchIndiByDyear(const int year)
+People SQLiteData::searchIndiByDyear(const int year, bool& found)
 {
     string Query1 = selectAllSci + " " + searchdYear + int_to_string(year);
     string Query2 = selectAllSci + " " + searchdYearFrom + int_to_string(year-6) + " " + searchdYearTo + int_to_string(year+6);
-    People p1 = doQuerySciOrOther(Query1, Query2);
+    People p1 = doQuerySciOrOther(Query1, Query2, found);
     return p1;
 }
 
@@ -283,7 +283,7 @@ People SQLiteData::doQuerySci(const string que)
     return p1;
 }
 
-People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
+People SQLiteData::doQuerySciOrOther(const string que1, const string que2, bool& found)
 {
     //QSqlDatabase db;
     //db = QSqlDatabase::addDatabase("QSQLITE");
@@ -305,7 +305,11 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2)
         Individual i1(id,surname,name,gender,byear,dyear);
         p1.addIndi(i1);
     }
-    if(p1.getSize()==0)
+    if(p1.getSize() != 0)
+    {
+        found = true;
+    }
+    if(p1.getSize() == 0)
     {
         Q =  QString::fromStdString(que2);
         queryname.exec(Q);
@@ -474,14 +478,19 @@ Computer SQLiteData::getSingleComp(const int i)
     string Query = selectAllComp + " WHERE s.id = " + int_to_string(i) + " AND s.deleted = 0";
     QString Q = QString::fromStdString(Query);
     QSqlQuery queryname(db);
-    queryname.exec(Q);
+    bool found = queryname.exec(Q);
     queryname.next();
+    Computer temp;
+    if(found)
+    {
+        int id  = queryname.value("id").toUInt();
+        string name = queryname.value("name").toString().toStdString();
+        string type = queryname.value("type").toString().toStdString();
+        int byear  = queryname.value("byear").toUInt();
+        Computer temp2(id,byear,name,type);
+        temp = temp2;
+    }
 
-    int id  = queryname.value("id").toUInt();
-    string name = queryname.value("name").toString().toStdString();
-    string type = queryname.value("type").toString().toStdString();
-    int byear  = queryname.value("byear").toUInt();
-    Computer temp(id,byear,name,type);
 
     db.close();
     return temp;

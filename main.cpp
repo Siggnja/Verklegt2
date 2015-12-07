@@ -16,7 +16,8 @@ int main()
 {
     SQLiteData s;
     Computer i1(1994,"Siggi","monsi");
-    s.addNewComp(i1);
+   // s.addNewComp(i1);
+    //SQLiteData s;
     //Core c1;
     /*
 
@@ -24,7 +25,7 @@ int main()
     char g;
     string name = "a";
     //SQLiteData s;
-    // /*
+    //
     //int i = 1905;
     //char g = 'm';
     //string name = "a";

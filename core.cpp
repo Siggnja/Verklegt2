@@ -152,7 +152,7 @@ People Core::sortSciByBirthYear()
 People Core::sortSciByDeathYear()
 {
    // People dead, alive;
-/*    for(int i = 1 ; i < list.getSize(); i++)
+    /*    for(int i = 1 ; i < list.getSize(); i++)
     {
         for(int j = 0; j < list.getSize(); j++)
         {
@@ -161,7 +161,7 @@ People Core::sortSciByDeathYear()
                list.swap(i,j);
             }
         }
-    }*/
+    }
     People origin = newdata.sortIndiByDYear();
     People dead, alive;
 
@@ -182,7 +182,8 @@ People Core::sortSciByDeathYear()
         dead.addIndi(alive.getIndi(i));
     }
 
-    return dead;
+    return dead;*/
+    return newdata.sortIndiByDYear();
 }
 
 Machines Core::sortCompAlpabetFront()
@@ -205,7 +206,7 @@ Machines Core::sortCompType()
     return newdata.sortCompByType();
 }
 
-string Core::makeLower(string& temp)
+/*string Core::makeLower(string& temp)
 {
     for (unsigned int i = 0; i < temp.length(); i++)
     {
@@ -215,7 +216,7 @@ string Core::makeLower(string& temp)
         }
     }
     return temp;
-}
+}*/
 
 Machines Core::getConnectedComp(int id)
 {
@@ -223,9 +224,10 @@ Machines Core::getConnectedComp(int id)
     vector<int> connections= newdata.getRelationsToSci(id);
     for(unsigned int i = 0; i < connections.size(); i++)
     {
+        cout << "getting comp" << endl;
         int ident = connections[i];
         Computer tempComp = newdata.getSingleComp(ident);
-        tempMach.addMach(tempComp);
+        cout << "-" << tempComp.getName() << "-" << endl;
     }
     return tempMach;
 }
@@ -242,23 +244,22 @@ Machines Core::getComputers() const
 
 Machines Core::searchComName(string searchStr, Machines& result)
 {
-    return result;
+    return newdata.searchCompByName(searchStr);
 }
 
 Machines Core::searchComType(string searchStr, Machines& result)
 {
-    return result;
+    return newdata.searchCompByType(searchStr);
 }
 
 Machines Core::searchComYear(bool& found, int ansYear, Machines& result1, Machines& result2)
 {
-    Machines result;
-    return result;
+    return newdata.searchCompByByear(ansYear);
 }
 
 People Core::searchNam(bool& found, string searchStr, People& result)
 {
-    string tempStr;
+    /*string tempStr;
     searchStr = makeLower(searchStr);
 
     for(int i = 0; i < list.getSize(); i++)
@@ -271,12 +272,13 @@ People Core::searchNam(bool& found, string searchStr, People& result)
             found = true;
         }
     }
-    return result;
+    return result;*/
+    return newdata.searchIndiByName(searchStr);
 }
 
 People Core::searchGend(const char ansGender)
 {
-    char findGender;
+    /*char findGender;
     People result;
     for(int i = 0 ; i < 10 ; i++)
     {
@@ -286,12 +288,13 @@ People Core::searchGend(const char ansGender)
             result.addIndi(list.getIndi(i));
         }
     }
-    return result;
+    return result;*/
+    return newdata.searchIndiByGender(ansGender);
 }
 
 People Core::searchBir(bool& found, int ansYear, People& result1, People& result2)
 {
-    int findYear;
+    /*int findYear;
     for (int i = 0; i < list.getSize(); i++)
     {
         findYear = list.getIndi(i).getBirth();
@@ -312,12 +315,13 @@ People Core::searchBir(bool& found, int ansYear, People& result1, People& result
     else
     {
         return result2;
-    }
+    }*/
+    return newdata.searchIndiByByear(ansYear, found);
 }
 
 People Core::searchDea(bool& found, int ansYear, People& result1, People& result2)
 {
-    int findYear;
+    /*int findYear;
     for (int i = 0; i < list.getSize(); i++)
     {
         findYear = list.getIndi(i).getDeath();
@@ -338,7 +342,8 @@ People Core::searchDea(bool& found, int ansYear, People& result1, People& result
     else
     {
         return result2;
-    }
+    }*/
+    return newdata.searchIndiByDyear(ansYear, found);
 }
 
 string Core::getSurname(int i) const

@@ -474,7 +474,7 @@ void UI::searchGender()
     }
 }
 
-void UI::searchBirth() // ......................
+void UI::searchBirth()
 {
     People result1, result2;
     bool found = false;
@@ -493,7 +493,7 @@ void UI::searchBirth() // ......................
         {
             cout << endl;
             noMatch();
-            if(result2.getSize() != 0)
+            if(result.getSize() != 0)
             {
                 cout << "However these individuals were found within"
                         " a 10 year range of given year: " << endl;
@@ -510,7 +510,7 @@ void UI::searchBirth() // ......................
     }
 }
 
-void UI::searchDeath() // ......................
+void UI::searchDeath()
 {
     People result1, result2;
     bool found = false;
@@ -529,7 +529,7 @@ void UI::searchDeath() // ......................
         {
             cout << endl;
             noMatch();
-            if(result2.getSize() != 0)
+            if(result.getSize() != 0)
             {
                 cout << "However these individuals were found within"
                         " a 10 year range of given year: " << endl;
@@ -693,7 +693,8 @@ void UI::printScientists(People& sci)
     for(int i = 0; i < sci.getSize(); i++)
     {
         Individual temp = sci.getIndi(i);
-        printIndi(temp);
+        //printIndi(temp);
+        printIndiAndConnect(temp);
 
         /*cout << "Name: " << core.getSurname(i) + ", " + core.getName(i) << endl;
         cout << "Gender: ";
@@ -775,7 +776,7 @@ void UI::printIndiIndent(Individual &id) const
 void UI::printCompIndent(Computer &id) const
 {
     cout << endl;
-    cout << "/t" << id.getName() << "/t" << id.getType() << "/t";
+    cout << "\t" << id.getName() << "\t" << id.getType() << "\t";
 
     if(id.getYear() == 0)
     {
