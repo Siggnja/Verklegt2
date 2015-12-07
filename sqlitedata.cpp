@@ -453,7 +453,7 @@ Individual SQLiteData::getSingleIndi(const int i)
     //db.setDatabaseName(dbName);
     db.open();
 
-    string Query = selectAllSci + " WHERE s.id = " + int_to_string(i);
+    string Query = "SELECT * FROM Scientist as s WHERE s.deleted = 0 AND s.id =" + int_to_string(i);
     QString Q = QString::fromStdString(Query);
     QSqlQuery queryname(db);
     queryname.exec(Q);
@@ -479,7 +479,7 @@ Computer SQLiteData::getSingleComp(const int i)
     //db.setDatabaseName(dbName);
     db.open();
 
-    string Query = selectAllComp + " WHERE s.id = " + int_to_string(i) + " AND s.deleted = 0";
+    string Query = "SELECT * FROM Computer as s WHERE s.deleted = 0 AND s.id = " + int_to_string(i);
     QString Q = QString::fromStdString(Query);
     QSqlQuery queryname(db);
     bool found = queryname.exec(Q);

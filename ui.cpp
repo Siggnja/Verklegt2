@@ -46,7 +46,7 @@ void UI::choiceSwitch(char ans)
         case 'C':   comMenu();
                     break;
         case 'l':
-        case 'L':   // linking databases
+        case 'L':   linkMenu();
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -141,6 +141,41 @@ void UI::comMenu()
                     break;
     }
     comMenu();
+}
+
+void UI::linkMenu()
+{   cout<<endl;
+    cout << "Do you want to: " << endl;
+    cout << "(A) Add a connection? " << endl;
+    cout << "(P) Print connections? " << endl;
+    cout << "(R) Remove a connection? " << endl;
+    cout << "(M) Return to main menu? " << endl;
+    cout << "(Q) Quit program. " << endl;
+    cout << "Select a letter: ";
+    char ans;
+    cin >> ans;
+    switch(ans)
+    {
+        case 'a':
+        case 'A':
+                    break;
+        case 'p':
+        case 'P':
+                    break;
+        case 'r':
+        case 'R':
+                    break;
+        case 'm':
+        case 'M':   return;
+                    break;
+        case 'q':
+        case 'Q':   cout << endl;
+                    exit(1);
+                    break;
+        default:    errorInput();
+                    break;
+    }
+    linkMenu();
 }
 
 void UI::searchComMenu()
