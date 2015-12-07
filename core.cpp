@@ -167,6 +167,32 @@ string Core::makeLower(string& temp)
     return temp;
 }
 
+People Core::getList() const
+{
+    return list;
+}
+
+Machines Core::getComputers() const
+{
+    return complist;
+}
+
+Machines Core::searchComName(string searchStr, Machines& result)
+{
+    return result;
+}
+
+Machines Core::searchComType(string searchStr, Machines& result)
+{
+    return result;
+}
+
+Machines Core::searchComYear(bool& found, int ansYear, Machines& result1, Machines& result2)
+{
+    Machines result;
+    return result;
+}
+
 People Core::searchNam(bool& found, string searchStr, People& result)
 {
     string tempStr;
@@ -183,16 +209,6 @@ People Core::searchNam(bool& found, string searchStr, People& result)
         }
     }
     return result;
-}
-
-People Core::getList() const
-{
-    return list;
-}
-
-Machines Core::getComputers() const
-{
-    return complist;
 }
 
 People Core::searchGend(const char ansGender)
