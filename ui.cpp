@@ -151,8 +151,8 @@ void UI::searchComMenu()
     cout << "(N) Name" << endl
          << "(T) Type" << endl
          << "(C) Year of Creation" << endl
-         << "(Q) Quit program" <<endl
-         << "(M) Return to Menu"<<endl;
+         << "(M) Return to Menu" << endl
+         << "(Q) Quit program" << endl;
     cout << "Select a letter: ";
     cin >> choice;
     switch(choice)
@@ -164,7 +164,7 @@ void UI::searchComMenu()
         case 'T':   searchComType();
                     break;
         case 'c':
-        case 'C':   searchComType();
+        case 'C':   searchComYear();
                     break;
         case 'm':
         case 'M':   return;
