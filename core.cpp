@@ -25,15 +25,15 @@ void Core::createList(const string filename)
     list = data.readData(filename);
 }
 
-int Core::getSizeOfList() const
+int Core::getSizeOfList() //const
 {
-    return list.getSize();
+    return newdata.sortIndiAlphaFront().getSize();
     //  query.exec("SELECT count(*)"); -- nota þetta til að fá stærð
 }
 
-int Core::getSizeOfComplist() const
+int Core::getSizeOfComplist() //const
 {
-    return complist.getSize();
+    return newdata.sortCompAlphaFront().getSize();
     //  query.exec("SELECT count(*)"); -- nota þetta til að fá stærð
 }
 
