@@ -24,11 +24,11 @@ public:
     void createList(const string filename);
 
     People sortSciAlpabetFront();
-
     People sortSciAlpabetBack();
     People sortSciByBirthYear();
     People sortSciByDeathYear();
     //void sortByGender(People& male, People& female);
+
     int getSizeOfList()const;
     void addIndividual(const Individual& ind, bool& notfound);
     void addComputer(const Computer& com, bool& notfound);
@@ -62,6 +62,11 @@ public:
     Machines searchComName(string searchStr, Machines& result);
     Machines searchComType(string searchStr, Machines& result);
     Machines searchComYear(bool& found, int ansYear, Machines& result1, Machines& result2);
+
+    //Machines sortCompAlpabetFront();
+    //Machines sortCompAlpabetBack();
+    //Machines sortCompBuildYear();
+    //Machines sortCompType();
 
     People getList() const;
     Machines getComputers() const;

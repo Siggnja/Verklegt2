@@ -43,7 +43,7 @@ void UI::choiceSwitch(char ans)
         case 'S':   sciMenu();
                     break;
         case 'c':
-        case 'C':   //comMenu();
+        case 'C':   comMenu();
                     break;
         case 'l':
         case 'L':   // linking databases
