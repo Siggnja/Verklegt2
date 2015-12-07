@@ -8,10 +8,10 @@ UI::UI()
 
 }
 
-UI::UI(const string filename)
+/*UI::UI(const string filename)
 {
     core.createList(filename);
-}
+}*/
 
 void UI::run()
 {

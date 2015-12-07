@@ -10,7 +10,7 @@ class UI
 {
 public:
     UI();
-    UI(const string filename);
+    //UI(const string filename);
     void run();
     void ask();
     void menu();

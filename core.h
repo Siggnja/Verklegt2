@@ -14,7 +14,7 @@ class Core
 private:
     People list;
     Machines complist;
-    Dataread data;
+    //Dataread data;
     SQLiteData newdata;
     void swap(const int i, const int j);
     bool checkIfIndiIsNew(const Individual i1);

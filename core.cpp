@@ -22,7 +22,7 @@ void Core::setComplist(const Machines c1)
 
 void Core::createList(const string filename)
 {
-    list = data.readData(filename);
+    //list = // data.readData(filename);
 }
 
 int Core::getSizeOfList() //const
@@ -43,7 +43,7 @@ void Core::addIndividual(const Individual& ind, bool& notfound)
     if(notfound)
     {
         list.addIndi(ind);
-        data.addToFile(ind);
+        // data.addToFile(ind);
     }
 }
 
@@ -66,7 +66,7 @@ void Core::removeIndividual(const string str, bool& removed)
 
     for(int i = 0; i < list.getSize(); i++)
     {
-        data.removeFromFile(list, temp);
+       // data.removeFromFile(list, temp);
     }
 }
 
