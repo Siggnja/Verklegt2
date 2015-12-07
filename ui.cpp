@@ -708,8 +708,8 @@ void UI::printScientists(People& sci)
     for(int i = 0; i < sci.getSize(); i++)
     {
         Individual temp = sci.getIndi(i);
-        //printIndi(temp);
-        printIndiAndConnect(temp);
+        printIndi(temp);
+        //printIndiAndConnect(temp);
 
         /*cout << "Name: " << core.getSurname(i) + ", " + core.getName(i) << endl;
         cout << "Gender: ";
