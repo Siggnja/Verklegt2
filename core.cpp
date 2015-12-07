@@ -27,12 +27,14 @@ void Core::createList(const string filename)
 
 void Core::addIndividual(const Individual& ind, bool& notfound)
 {
-    notfound = checkIfIndiIsNew(ind);
-    if(notfound)
+    //notfound = checkIfIndiIsNew(ind);
+    /*if(notfound)
     {
         list.addIndi(ind);
         // data.addToFile(ind);
-    }
+    }*/
+
+    newdata.addNewIndi(ind);
 }
 
 void Core::removeIndividual(const string str, bool& removed)
@@ -66,6 +68,8 @@ void Core::addComputer(const Computer& com, bool& notfound)
         list.addIndi(ind);
         data.addToFile(ind);
     }*/
+
+    newdata.addNewComp(com);
 }
 
 void Core::removeComputer(const string str, bool& removed)
@@ -321,7 +325,7 @@ void Core::updateIndiSurname(const string name, const int id)
 }
 void Core::updateIndiBYear(const int year, const int id)
 {
-    newdata.updateCompBYear(year,id);
+    newdata.updateIndiBYear(year,id);
 }
 void Core::updateIndiDYear(const int year, const int id)
 {
@@ -331,6 +335,7 @@ void Core::updateIndiGender(const char gender, const int id)
 {
     newdata.updateIndiGender(gender,id);
 }
+//tilgangslaust
 void Core::updateIndiAll(const string name, const string surname,const char gender,const int byear,const int dyear,const int id)
 {
     newdata.updateIndiName(name,id);
@@ -355,10 +360,15 @@ void Core::updateCompBYear(const int year, const int id)
 {
     newdata.updateCompBYear(year,id);
 }
-
+//tilgangslaust
 void Core::updateCompAll(const int year,const string name,const string type,const int id)
 {
     newdata.updateCompName(name,id);
     newdata.updateCompType(type,id);
     newdata.updateCompBYear(year,id);
 }
+SQLiteData Core::getData() const
+{
+
+    return newdata;
+ }

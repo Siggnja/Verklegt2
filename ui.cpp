@@ -93,7 +93,7 @@ void UI::sciMenu()
                          << core.getPeopleSizeInNewdata() << endl;
                     break;
         case 'c':
-        case 'C':   //eitthvad Breytifall()
+        case 'C':   updateSciMenu();
                     break;
         case 'r':
         case 'R':   removeSci();
@@ -418,7 +418,167 @@ void UI::sortSciMenu()
     }
     sortSciMenu();
 }
+void UI::updateSciMenu()
+{
+    int id,count;
+    bool found=false;
+    cout << "Please enter the id of the Scientist you want to change: ";
+    cin >> id;
+    if(!cin.fail())
+    {
+        People p1 = core.getData().sortIndiAlphaFront();
+        for(int i = 0 ; i <p1.getSize(); i++)
+        {
+            if(id == p1.getIndi(i).getId())
+            {
+                found = true;
+            }
+        }
+        if(found)
+        {
+            do
+            {
+                char choice;
+                count = 0;
+                cout << "What do you want to change?" << endl;
+                cout << "(N)Name" << endl;
+                cout << "(S)Surname" << endl;
+                cout << "(B)Year of birth" << endl;
+                cout << "(D)Year of death" << endl;
+                cout << "(G)Gender" << endl;
+                cout << "(M)Return to main menu" << endl;
+                cout << "Select a letter: ";
+                cin >> choice;
+                switch(choice)
+                {
+                    case 'n':
+                    case 'N':   updateIndiName(id);
+                                break;
+                    case 's':
+                    case 'S':   updateIndiSurname(id);
+                                break;
+                    case 'b':
+                    case 'B':   updateIndiBYear(id);
+                                break;
+                    case 'd':
+                    case 'D':   updateIndiDYear(id);
+                                break;
+                    case 'g':
+                    case 'G':   updateIndiGender(id);
+                                break;
+                    case 'm':
+                    case 'M':
+                                return;
+                                break;
 
+
+                    default:    count = -1;
+                                errorInput();
+                                updateSciMenu();
+                                break;
+
+                }
+             }while(count==-1);
+        }
+        else
+        {
+            cout << "No scientist has this id!" << endl;
+            cin.clear();
+            cin.ignore();
+            updateSciMenu();
+
+        }
+   }
+   else
+   {
+        errorInput();
+        cin.clear();
+        cin.ignore();
+        updateSciMenu();
+   }
+
+}
+void UI::updateIndiName(const int id)
+{
+    string name;
+    cout << "Please insert a new name: ";
+    cin.ignore();
+    getline(cin, name);
+    core.updateIndiName(name,id);
+    cout << "The scientist is now registered as:" << endl;
+    Individual i1 = core.getData().getSingleIndi(id);
+    printIndi(i1);
+}
+
+void UI::updateIndiSurname(const int id)
+{
+    string surname;
+    cout << "Please insert a new surname: ";
+    cin.ignore();
+    getline(cin, surname);
+    core.updateIndiSurname(surname,id);
+    cout << "The scientist is now registered as:" << endl;
+    Individual i1 = core.getData().getSingleIndi(id);
+    printIndi(i1);
+}
+void UI::updateIndiGender(const int id)
+{
+    Individual i1 =core.getData().getSingleIndi(id);
+    if(i1.getGender()=='m')
+    {
+        core.updateIndiGender('f',id);
+        cout << "--- Changing the scientist from male to female ---" << endl;
+    }
+    else
+    {
+        core.updateIndiGender('m',id);
+        cout << "--- Changing the scientist from female to male ---" << endl;
+    }
+    i1=core.getData().getSingleIndi(id);
+    cout << "The scientist is now registered as:" << endl;
+    printIndi(i1);
+}
+
+void UI::updateIndiBYear(const int id)
+{
+    int year;
+    Individual i1 = core.getData().getSingleIndi(id);
+    cout << "Insert a new birth year: ";
+    cin >> year;
+    if(!cin.fail())
+    {
+        core.updateIndiBYear(year,id);
+    }
+    i1 = core.getData().getSingleIndi(id);
+    cout << "The scientist is now registered as:" << endl;
+    printIndi(i1);
+}
+
+void UI::updateIndiDYear(const int id)
+{
+    int year;
+    Individual i1 = core.getData().getSingleIndi(id);
+    cout << "Insert a new death year: ";
+    cin >> year;
+    if(!cin.fail() && i1.getBirth()<=year)
+    {
+        core.updateIndiDYear(year,id);
+    }
+    i1 = core.getData().getSingleIndi(id);
+    cout << "The scientist is now registered as:" << endl;
+    printIndi(i1);
+}
+/*
+void UI::updateIndiEverything(const int id)
+{
+    updateIndiName(id);
+    updateIndiSurname(id);
+    updateIndiGender(id);
+    updateIndiBYear(id);
+    updateIndiDYear(id);
+
+}
+*/
 void UI::welcomeMessage()
 {
     cout << "--- Welcome to the databases of famous computer scientists and of computers ---" << endl;
@@ -826,7 +986,7 @@ void UI::printComputers(Machines &comps)
 void UI::printIndiIndent(Individual &id) const
 {
     cout << endl;
-    cout << "/t" << id.getName() << " " << id.getSurname() << "/t";
+    cout << "\t" << id.getId() << "\t" << id.getName() << " " << id.getSurname() << "\t";
 
     if(id.getGender() == 'f' || id.getGender() == 'F')
     {
@@ -837,7 +997,7 @@ void UI::printIndiIndent(Individual &id) const
         cout << "Male";
     }
 
-    cout << "/t" << id.getBirth() << " - ";
+    cout << "\t" << id.getBirth() << " - ";
 
     if(id.getDeath() == 0)
     {
@@ -854,7 +1014,7 @@ void UI::printIndiIndent(Individual &id) const
 void UI::printCompIndent(Computer &id) const
 {
     cout << endl;
-    cout << "\t" << id.getName() << "\t" << id.getType() << "\t";
+    cout << "\t" << id.getId()<< "\t" << id.getName() << "\t" << id.getType() << "\t";
 
     if(id.getYear() == 0)
     {
@@ -889,6 +1049,7 @@ void UI::printList(People& list) const
 void UI::printIndi(Individual& temp) const
 {
     cout << endl;
+    cout << "Id: " << temp.getId() << endl;
     cout << "Name: " << temp.getName() << " " << temp.getSurname() << endl;
     cout << "Gender: ";
     if(temp.getGender() == 'f' || temp.getGender() == 'F')
@@ -930,6 +1091,7 @@ void UI::printComplist(Machines& complist) const
 void UI::printComp(Computer& temp) const
 {
     cout << endl;
+    cout << "Id: " << temp.getId() << endl;
     cout << "Name: " << temp.getName() << endl;
     cout << "Type: " << temp.getType() << endl;
     if (temp.getYear() != 0)
@@ -947,13 +1109,23 @@ void UI::searchSciLink()
     cout << "Enter scientist ID: " ;
     cin >>id;
     Machines mac = core.getConnectedComp(id);
+    Individual i1 = core.getData().getSingleIndi(id);
+    string s = i1.getName()+" "+i1.getSurname();
+    cout<<"You picked the scientist "<<s<<" is that correct(y/n)?";
+    char input;
+    cin>>input;
+    if(input=='n')
+    {
+      searchSciLink();
+    }
+
     if(mac.getSize()!=0)
     {
         found = true;
     }
     if (found ==true)
     {
-        cout<<"The following computers are connected to scientist "<<id<<":"<<endl;
+        cout<<"The following computers are connected to the scientist "<<s<<":"<<endl;
         printComplist(mac);
 
     }
@@ -972,13 +1144,24 @@ void UI::searchComLink()
     cout << "Enter computer ID: ";
     cin >>id;
     People p = core.getConnectedSci(id);
+    Computer c1 = core.getData().getSingleComp(id);
+    string s = c1.getName();
+    cout<<"You picked the computer "<<s<<" is that correct(y/n)?";
+    char input;
+    cin>>input;
+    while(input=='n')
+    {
+      searchComLink();
+    }
+
+
     if(p.getSize() != 0)
     {
         found = true;
     }
     if(found == true)
     {
-         cout << "The following scientists are connected to computer " << id << ": " << endl;
+         cout << "The following scientists are connected to computer " << s << ": " << endl;
          printList(p);
     }
     else

@@ -21,6 +21,8 @@ private:
 public:
     Core();
     Core(const People& p1);
+    SQLiteData getData() const;
+
     void createList(const string filename);
 
     People sortSciAlpabetFront();

@@ -15,12 +15,6 @@ using namespace std;
 int main()
 {
 
-
-    /*SQLiteData s;
-    Individual c1 = s.getSingleIndi(3);
-    cout << c1.getName();
-    */
-
    // SQLiteData s;
    // Individual c1 = s.getSingleIndi(3);
    // cout << c1.getName();
@@ -38,7 +32,7 @@ int main()
     int i = 1905;
     char g;
     string name = "a";
-    //SQLiteData s;
+    SQLiteData s;
     //
     //int i = 1905;
     //char g = 'm';

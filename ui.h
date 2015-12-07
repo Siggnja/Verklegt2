@@ -39,8 +39,14 @@ public:
     void searchSciLink();
     void searchComLink();
     //
-
+    void updateSciMenu();
     //choose what shall be searched for
+    void updateIndiName(const int id);
+    void updateIndiSurname(const int id);
+    void updateIndiGender(const int id);
+    void updateIndiBYear(const int id);
+    void updateIndiDYear(const int id);
+    void updateIndiEverything(const int id);
 
     void sortComMenu();
     void sortSciMenu();
