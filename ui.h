@@ -59,7 +59,7 @@ public:
 
 
     void printComputers();
-    void printScientists();
+    void printScientists(People&);
 
     void printSize();
 

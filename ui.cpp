@@ -274,27 +274,27 @@ void UI::sortSciMenu()
 
     switch(choice) {
         case 'u':
-        case 'U':   printScientists();
+        case 'U':   //printScientists();
                     break;
         case 'a':
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
                     //core.sortAlpabetFront();
-                    printScientists();
+                    //printScientists();
                     break;
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
                     //core.sortAlpabetBack();
-                    printScientists();
+                    //printScientists();
                     break;
         case 'b':
         case 'B':   cout << endl << "--- Printing by year of Birth --- " << endl;
                     //core.sortByBirthYear();
-                    printScientists();
+                    //printScientists();
                     break;
         case 'd':
         case 'D':   cout << endl << "--- Printing by year of Death --- " << endl;
                     //core.sortByDeathYear();
-                    printScientists();
+                    //printScientists();
                     break;
         case 'M':
         case 'm':   return;
@@ -739,32 +739,17 @@ void UI::searchDeath()
     }
 }
 
-void UI::printScientists()
+void UI::printScientists(People& sci)
 {
     cout << endl;
-    for(int i = 0; i < core.getList().getSize(); i++)
+
+    for(int i = 0; i < sci.getSize(); i++)
     {
-        cout << "Name: " << core.getSurname(i) + ", " + core.getName(i) << endl;
-        cout << "Gender: ";
-        if(core.getGender(i) == 'm' || core.getGender(i) == 'M')
-        {
-            cout << "Male" << endl;
-        }
-        else
-        {
-            cout << "Female" << endl;
-        }
-        cout << core.getBirth(i) << " - ";
-        if(core.getDeath(i) == 0)
-        {
-            cout << "Today" << endl;
-        }
-        else
-        {
-            cout << core.getDeath(i)<<endl;
-        }
-        cout << endl;
+        Individual temp = sci.getIndi(i);
+        printIndi(temp);
     }
+
+    cout << endl;
 }
 
 void UI::printComputers()
