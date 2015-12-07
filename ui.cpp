@@ -888,20 +888,20 @@ void UI::addComputer()
 
 void UI::removeCom()
 {
-    string str;
+    int id;
     bool removed = false;
     cin.ignore();
     cout << endl;
-    cout << "Type exactly the name of the computer:" << endl;
-    getline(cin, str);
-    core.removeComputer(str, removed);
+    cout << "Type the id of the computer:";
+    cin >> id;
+    core.removeComputer(id, removed);
     if (removed)
     {
-        cout << str << " has been removed." << endl;
+        cout << "The computer has been removed." << endl;
     }
     else if (!removed)
     {
-        cout << str << " was not found in list and therefore not removed." << endl;
+        cout << "The computer was not found in list and therefore not removed." << endl;
     }
 }
 
@@ -912,7 +912,7 @@ void UI::removeSci()
     bool removed = false;
     cin.ignore();
     cout << endl;
-    cout << "Type the id of the individual:" << endl;
+    cout << "Type the id of the individual:";
     cin >> id;
     core.removeIndividual(id,removed);
     if (removed)
