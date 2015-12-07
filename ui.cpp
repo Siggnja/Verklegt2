@@ -1235,7 +1235,7 @@ void UI::printComp(Computer& temp) const
     }
 }
 void UI::searchSciLink()
-{   bool found=false;
+{   cout<<endl;
     int id;
     cout << "Enter scientist ID: " ;
     cin >>id;
@@ -1249,28 +1249,21 @@ void UI::searchSciLink()
     {
       searchSciLink();
     }
-
-    if(mac.getSize()!=0)
-    {
-        found = true;
-    }
-    if (found ==true)
-    {
-        cout<<"The following computers are connected to the scientist "<<s<<":"<<endl;
-        printComplist(mac);
-
-    }
     else
-    {
-        cout<<"No computers connected to this scientist"<<endl;
-    }
-
+         if(mac.getSize()==0)
+         {
+              cout<<"No computers connected to this scientist"<<endl;
+         }
+         else
+         {    cout<<endl;
+              cout<<"The following computers are connected to the scientist "<<s<<":"<<endl;
+              printComplist(mac);
+         }
 
 }
 
 void UI::searchComLink()
-{
-    bool found=false;
+{   cout<<endl;
     int id;
     cout << "Enter computer ID: ";
     cin >>id;
@@ -1280,25 +1273,24 @@ void UI::searchComLink()
     cout<<"You picked the computer "<<s<<" is that correct(y/n)?";
     char input;
     cin>>input;
-    while(input=='n')
+    if(input=='n')
     {
       searchComLink();
     }
 
-
-    if(p.getSize() != 0)
-    {
-        found = true;
-    }
-    if(found == true)
-    {
-         cout << "The following scientists are connected to computer " << s << ": " << endl;
-         printList(p);
-    }
     else
     {
-         cout << "No scientists connected to this computer" << endl;
+          if(p.getSize() == 0)
+          {
+             cout << "No scientists connected to this computer" << endl;
+          }
+          else
+          {  cout<<endl;
+             cout << "The following scientists are connected to computer " << s << ": " << endl;
+             printList(p);
+          }
     }
+
 
 }
 
