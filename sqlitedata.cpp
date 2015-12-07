@@ -417,9 +417,18 @@ vector<int> SQLiteData::getRelationsToSci(const int i)
 }
 void SQLiteData::createConnection(const int idSci, const int idComp)
 {
+    string Query1 = createNewRelation + int_to_string(idSci) + ", " + int_to_string(idComp) + ")";
+    string Query2 = updateRel + " " + setDel0 + " " + findSciId + int_to_string(idSci) + " AND computer_id = " + int_to_string(idComp);
+    vector <int> Sci = getRelationsToComp(idSci);
+    int count = Sci.size();
+    executeQuery(Query1);
+    Sci = getRelationsToComp(idSci);
+    int size = Sci.size();
+    if(count == size)
+    {
+        executeQuery(Query2);
+    }
 
-    string Query = createNewRelation + int_to_string(idSci) + ", " + int_to_string(idComp) + ")";
-    executeQuery(Query);
 
 }
 void SQLiteData::deleteConnectionWithIndi(const int idSci)

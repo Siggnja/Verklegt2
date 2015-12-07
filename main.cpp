@@ -14,9 +14,8 @@ using namespace std;
 
 int main()
 {
-    SQLiteData s;
-    Computer i1(1994,"Siggi","monsi");
-   // s.addNewComp(i1);
+   SQLiteData s;
+   s.createConnection(1,1);
     //SQLiteData s;
     //Core c1;
     /*
