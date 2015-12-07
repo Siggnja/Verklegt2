@@ -15,15 +15,11 @@ using namespace std;
 int main()
 {
 
-<<<<<<< HEAD
     SQLiteData s;
-    Computer c1 = s.getSingleComp(3);
+    Individual c1 = s.getSingleIndi(3);
     cout << c1.getName();
     //Computer i1(1994,"Siggi","monsi");
    // s.addNewComp(i1);
-=======
-
->>>>>>> a3801c7ad5d57f3f55a8aab3ffe0a8e92d499a7e
     //SQLiteData s;
     //cout << s.getSingleComp(1).getName() << "<<<-----" << endl;
     //SQLiteData s;
