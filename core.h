@@ -69,6 +69,7 @@ public:
     Machines sortCompType();
 
     Machines getConnectedComp(int id);
+    People getConnectedSci(int id);
 
     People getList() const;
     Machines getComputers() const;
