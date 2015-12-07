@@ -804,6 +804,15 @@ void UI::printCompIndent(Computer &id) const
 
 }
 
+void UI::printConnectedComp(Machines& comps) const
+{
+    for(int i = 0; i < comps.getSize(); i++)
+    {
+        Computer temp = comps.getComputer(i);
+        printCompIndent(temp);
+    }
+}
+
 void UI::printList(People& list) const
 {
     for (int i = 0; i < list.getSize(); i++)
@@ -837,9 +846,12 @@ void UI::printIndi(Individual& temp) const
     }
 }
 
-void UI::printIndiAndConnect(Individual & temp) const
+void UI::printIndiAndConnect(Individual & sci) const
 {
+    printIndi(sci);
 
+    //Machines temp;
+    //printConnectedComp(temp);
 }
 
 void UI::printComplist(Machines& complist) const
