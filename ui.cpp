@@ -291,7 +291,6 @@ void UI::sortSciMenu()
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
                     {
                     People temp = core.sortSciAlpabetFront();
-                    cout << temp.getSize() << endl;
                     printScientists(temp);
                     }
                     break;
@@ -299,16 +298,28 @@ void UI::sortSciMenu()
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
                     //core.sortAlpabetBack();
                     //printScientists();
+                    {
+                    People temp = core.sortSciAlpabetBack();
+                    printScientists(temp);
+                    }
                     break;
         case 'b':
         case 'B':   cout << endl << "--- Printing by year of Birth --- " << endl;
                     //core.sortByBirthYear();
                     //printScientists();
+                    {
+                    People temp = core.sortSciByBirthYear();
+                    printScientists(temp);
+                    }
                     break;
         case 'd':
         case 'D':   cout << endl << "--- Printing by year of Death --- " << endl;
                     //core.sortByDeathYear();
                     //printScientists();
+                    {
+                    People temp = core.sortSciByDeathYear();
+                    printScientists(temp);
+                    }
                     break;
         case 'M':
         case 'm':   return;
