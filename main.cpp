@@ -39,8 +39,8 @@ int main()
        cout << p1.getComputer(i).getType() << endl;
     }
     */
-   // UI ui("people.txt");
-  //  ui.run();
+    UI ui;
+    ui.run();
 
 }
 void test()
