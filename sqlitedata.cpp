@@ -106,12 +106,12 @@ void  SQLiteData::deleteIndi(const int id)
     string Query = updateSci + " " + setDel + " " + findId + int_to_string(id);
     executeQuery(Query);
 }
-void SQLiteData::addNewIndi(const Individual i1)
+void SQLiteData::addNewIndi(const Individual i1,bool& found)
 {
     string Query1 = createNewSci + i1.getSurname() + "','" + i1.getName() + "','" + i1.getGender() + "'," + int_to_string(i1.getBirth()) + "," + int_to_string(i1.getDeath()) + ")";
-    string Query2 = selectAllDelSci;
+    string Query2 = selectAllSci;
     People p1 = doQuerySci(Query2);
-    bool found = false;
+    found = false;
     int count = 0;
     for(int i = 0; i<p1.getSize();i++)
     {
@@ -134,12 +134,12 @@ void SQLiteData::addNewIndi(const Individual i1)
     }
 
 }
-void SQLiteData::addNewComp(const Computer c1)
+void SQLiteData::addNewComp(const Computer c1, bool& found)
 {
     string Query1 = createNewComp + c1.getName() + "'," + int_to_string(c1.getYear()) + ",'" + c1.getType() + "')";
-    string Query2 = selectAllDelComp;
+    string Query2 = selectAllComp;
     Machines p1 = doQueryComp(Query2);
-    bool found = false;
+    found = false;
     int count = 0;
     for(int i = 0; i<p1.getSize();i++)
     {

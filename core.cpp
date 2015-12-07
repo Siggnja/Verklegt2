@@ -30,7 +30,7 @@ void Core::addIndividual(const Individual& ind, bool& notfound)
         // data.addToFile(ind);
     }*/
 
-    newdata.addNewIndi(ind);
+    newdata.addNewIndi(ind,notfound);
 }
 
 void Core::addComputer(const Computer& com, bool& notfound)
@@ -42,14 +42,14 @@ void Core::addComputer(const Computer& com, bool& notfound)
         data.addToFile(ind);
     }*/
 
-    newdata.addNewComp(com);
+    newdata.addNewComp(com,notfound);
 }
 
 void Core::removeIndividual(const int id, bool& removed)
 {
     newdata.deleteIndi(id);
 
-    for(int j = 0; j < list.getSize(); j++)
+    for(int j = 0; j < getPeopleSizeInNewdata(); j++)
     {
         if(list.getIndi(j).getId() == id)
         {
@@ -63,7 +63,7 @@ void Core::removeComputer(const int id, bool& removed)
 {
     newdata.deleteComp(id);
 
-    for(int j = 0; j < complist.getSize(); j++)
+    for(int j = 0; j < getMachineSizeInNewdata(); j++)
     {
         if(complist.getComputer(j).getId() == id)
         {

@@ -135,7 +135,7 @@ void UI::comMenu()
         case 'R':   removeCom();
                     break;
         case 'c':
-        case 'C':   //eitthvad Breytifall()
+        case 'C':   updateCompMenu();
                     break;
         case 'm':
         case 'M':   return;
@@ -186,6 +186,42 @@ void UI::searchLinkMenu()
     }
 }
 
+void UI::printLinkMenu()
+{
+    cout<<endl;
+    cout << "Do you want to: " << endl;
+    cout << "(S) Print scientists and computers connected to them?" << endl;
+    cout << "(C) Print computers and scientists connected to them? " << endl;
+    cout << "(M) Return to menu? " << endl;
+    cout << "(Q) Quit program. " << endl;
+    cout << "Select a letter: ";
+    char ans;
+    cin >>ans;
+    switch(ans)
+    {
+          case 's':
+          case 'S':
+                    sortSciLink();
+                    break;
+          case 'c':
+          case 'C':
+                    sortComLink();
+                    break;
+          case 'm':
+          case 'M':
+                    return;
+                    break;
+          case 'q':
+          case 'Q':
+                    cout << endl;
+                    exit(1);
+                    break;
+          default:
+                    errorInput();
+                    break;
+    }
+
+}
 
 
 void UI::linkMenu()
@@ -206,13 +242,13 @@ void UI::linkMenu()
         case 'S':   searchLinkMenu();
                     break;
         case 'a':
-        case 'A':
+        case 'A':   //addConnection(); óútfært
                     break;
         case 'p':
-        case 'P':
+        case 'P':   printLinkMenu();
                     break;
         case 'r':
-        case 'R':
+        case 'R':   //removeConnection(); óútfært
                     break;
         case 'm':
         case 'M':   return;
@@ -542,12 +578,26 @@ void UI::updateIndiGender(const int id)
 void UI::updateIndiBYear(const int id)
 {
     int year;
+    do
+    {
+        cin.clear();
+        cin.ignore();
+        cout << "Insert a new birth year: ";
+        cin >> year;
+        if(cin.fail())
+        {
+            errorInput();
+        }
+    }while(cin.fail());
     Individual i1 = core.getData().getSingleIndi(id);
-    cout << "Insert a new birth year: ";
-    cin >> year;
-    if(!cin.fail())
+    if(i1.getDeath()>year)
     {
         core.updateIndiBYear(year,id);
+    }
+    else
+    {
+        errorInput();
+        updateIndiBYear(id);
     }
     i1 = core.getData().getSingleIndi(id);
     cout << "The scientist is now registered as:" << endl;
@@ -557,28 +607,144 @@ void UI::updateIndiBYear(const int id)
 void UI::updateIndiDYear(const int id)
 {
     int year;
-    Individual i1 = core.getData().getSingleIndi(id);
-    cout << "Insert a new death year: ";
-    cin >> year;
-    if(!cin.fail() && i1.getBirth()<=year)
+    do
     {
-        core.updateIndiDYear(year,id);
+        cin.clear();
+        cin.ignore();
+        cout << "Insert a new daeth year: ";
+        cin >> year;
+        if(cin.fail())
+        {
+            errorInput();
+        }
+    }while(cin.fail());
+    Individual i1 = core.getData().getSingleIndi(id);
+    if(i1.getBirth()>year)
+    {
+        core.updateIndiBYear(year,id);
+    }
+    else
+    {
+        errorInput();
+        updateIndiBYear(id);
     }
     i1 = core.getData().getSingleIndi(id);
     cout << "The scientist is now registered as:" << endl;
     printIndi(i1);
 }
-/*
-void UI::updateIndiEverything(const int id)
+void UI::updateCompMenu()
 {
-    updateIndiName(id);
-    updateIndiSurname(id);
-    updateIndiGender(id);
-    updateIndiBYear(id);
-    updateIndiDYear(id);
+        int id,count;
+        bool found=false;
+        cout << "Please enter the id of the Computer you want to change: ";
+        cin >> id;
+        if(!cin.fail())
+        {
+            Machines c1 = core.getData().sortCompAlphaFront();
+            for(int i = 0 ; i <c1.getSize(); i++)
+            {
+                if(id == c1.getComputer(i).getId())
+                {
+                    found = true;
+                }
+            }
+            if(found)
+            {
+                do
+                {
+                    char choice;
+                    count = 0;
+                    cout << "What do you want to change?" << endl;
+                    cout << "(N)Name" << endl;
+                    cout << "(T)Type" << endl;
+                    cout << "(B)Year of birth" << endl;
+                    cout << "(M)Return to main menu" << endl;
+                    cout << "Select a letter: ";
+                    cin >> choice;
+                    switch(choice)
+                    {
+                        case 'n':
+                        case 'N':   updateCompName(id);
+                                    break;
+                        case 't':
+                        case 'T':   updateCompType(id);
+                                    break;
+                        case 'b':
+                        case 'B':   updateCompBYear(id);
+                                    break;
+                        case 'm':
+                        case 'M':
+                                    return;
+                                    break;
+                        default:    count = -1;
+                                    errorInput();
+                                    updateCompMenu();
+                                    break;
 
+                    }
+                 }while(count==-1);
+            }
+            else
+            {
+                cout << "No Computer has this id!" << endl;
+                cin.clear();
+                cin.ignore();
+                updateSciMenu();
+
+            }
+       }
+       else
+       {
+            errorInput();
+            cin.clear();
+            cin.ignore();
+            updateCompMenu();
+       }
 }
-*/
+void UI::updateCompName(const int id)
+{
+    string name;
+    cout << "Please insert a new name: ";
+    cin.ignore();
+    getline(cin, name);
+    core.updateCompName(name,id);
+    cout << "The Computer is now registered as:" << endl;
+    Computer i1 = core.getData().getSingleComp(id);
+    printComp(i1);
+}
+
+void UI::updateCompBYear(const int id)
+{
+    int year;
+    do
+    {
+        cin.clear();
+        cin.ignore();
+        cout << "Insert a new year of creation: ";
+        cin >> year;
+            if(cin.fail())
+            {
+                errorInput();
+            }
+    }while(cin.fail());
+    core.updateIndiBYear(year,id);
+    Computer i1 = core.getData().getSingleComp(id);
+    cout << "The Computer is now registered as:" << endl;
+    printComp(i1);
+}
+
+void UI::updateCompType(const int id)
+{
+    string type;
+    cout << "Please insert a new type: ";
+    cin.ignore();
+    getline(cin, type);
+    core.updateCompName(type,id);
+    cout << "The Computer is now registered as:" << endl;
+    Computer i1 = core.getData().getSingleComp(id);
+    printComp(i1);
+}
+
 void UI::welcomeMessage()
 {
     cout << "--- Welcome to the databases of famous computer scientists and of computers ---" << endl;
@@ -844,7 +1010,7 @@ void UI::addIndividual()
     }
     Individual temp(surname, name, gender, birth, death);
     core.addIndividual(temp, notfound);
-    if(!notfound)
+    if(notfound)
     {
         cout << endl;
         cout << "This Individual is already in the database! " << endl;
@@ -879,7 +1045,7 @@ void UI::addComputer()
 
     Computer temp(year, name, type);
     core.addComputer(temp, notfound);
-    if(!notfound)
+    if(notfound)
     {
         cout << endl;
         cout << "This Computer is already in the database! " << endl;
@@ -889,28 +1055,16 @@ void UI::addComputer()
 void UI::removeCom()
 {
     int id;
-    string str; //type name, leitar að tölvu með þetta id og sendir inn
     bool removed = false;
     cin.ignore();
     cout << endl;
 
-    cout << "Type the exact name of the computer: ";
-    cin >> str;
-    for(int i = 0; i < core.getComputers().getSize(); i++)
-    {
-        if(core.getComputers().getComputer(i).getName() == str)
-        {
-            id = core.getComputers().getComputer(i).getId();
-            removed = true;
-            break;
-        }
-    }
-    //cout << "Type the id of the computer: ";
-    //cin >> id;
-    //core.removeComputer(id, removed);
+    cout << "Type the id of the computer: ";
+    cin >> id;
+    core.removeComputer(id, removed);
+
     if (removed)
     {
-        core.removeComputer(id, removed);
         cout << "The computer has been removed." << endl;
     }
     else if (!removed)
@@ -922,18 +1076,17 @@ void UI::removeCom()
 void UI::removeSci()
 {
     int id;
-
-    string str;
-    //type name, leitar að gaur með þetta id og sendir inn
-
     bool removed = false;
     cin.ignore();
     cout << endl;
+
     cout << "Type the id of the individual: ";
     cin >> id;
     core.removeIndividual(id, removed);
+
     if (removed)
     {
+        core.removeIndividual(id, removed); //
         cout << "The individual has been removed." << endl;
     }
     else if (!removed)
@@ -949,28 +1102,20 @@ void UI::printScientists(People& sci)
     for(int i = 0; i < sci.getSize(); i++)
     {
         Individual temp = sci.getIndi(i);
-        //printIndi(temp);
-        printIndiAndConnect(temp);
+        printIndi(temp);
+    }
 
-        /*cout << "Name: " << core.getSurname(i) + ", " + core.getName(i) << endl;
-        cout << "Gender: ";
-        if(core.getGender(i) == 'm' || core.getGender(i) == 'M')
-        {
-            cout << "Male" << endl;
-        }
-        else
-        {
-            cout << "Female" << endl;
-        }
-        cout << core.getBirth(i) << " - ";
-        if(core.getDeath(i) == 0)
-        {
-            cout << "Today" << endl;
-        }
-        else
-        {
-            cout << core.getDeath(i) << endl;
-        }*/
+    cout << endl;
+}
+
+void UI::printScientistsConnections(People& sci)
+{
+    cout << endl;
+
+    for(int i = 0; i < sci.getSize(); i++)
+    {
+        Individual temp = sci.getIndi(i);
+        printIndiAndConnect(temp);
     }
 
     cout << endl;
@@ -984,21 +1129,16 @@ void UI::printComputers(Machines &comps)
         Computer temp = comps.getComputer(i);
         printComp(temp);
     }
+}
 
-
-/*    for(int i = 0; i < core.getList().getSize(); i++)
+void UI::printComputersConnection(Machines &comps)
+{
+    cout << endl;
+    for(int i = 0; i < comps.getSize(); i++)
     {
-        cout << "Name: " << core.getCompname(i) << endl;
-        cout << "Type: " << core.getComptype(i) << endl;
-        if(core.getYear(i) != 0)
-        {
-            cout << "Year of creation: " << core.getYear(i) << endl;
-        }
-        else
-        {
-            cout << "The computer was not built." << endl;
-        }
-    }*/
+        Computer temp = comps.getComputer(i);
+        printCompAndConnect(temp);
+    }
 }
 
 void UI::printIndiIndent(Individual &id) const
@@ -1055,6 +1195,15 @@ void UI::printConnectedComp(Machines& comps) const
     }
 }
 
+void UI::printConnectedSci(People& sci) const
+{
+    for(int i = 0; i < sci.getSize(); i++)
+    {
+        Individual temp = sci.getIndi(i);
+        printIndiIndent(temp);
+    }
+}
+
 void UI::printList(People& list) const
 {
     for (int i = 0; i < list.getSize(); i++)
@@ -1097,6 +1246,14 @@ void UI::printIndiAndConnect(Individual & sci)
     printConnectedComp(temp);
 }
 
+void UI::printCompAndConnect(Computer& comp)
+{
+    printComp(comp);
+    int id = comp.getId();
+    People temp = core.getConnectedSci(id);
+    printConnectedSci(temp);
+}
+
 void UI::printComplist(Machines& complist) const
 {
     for (int i = 0; i < complist.getSize(); i++)
@@ -1122,27 +1279,33 @@ void UI::printComp(Computer& temp) const
     }
 }
 void UI::searchSciLink()
-{   bool found=false;
+{   bool found = false;
     int id;
     cout << "Enter scientist ID: " ;
-    cin >>id;
+    cin >> id;
     Machines mac = core.getConnectedComp(id);
-    if(mac.getSize()!=0)
+    Individual i1 = core.getData().getSingleIndi(id);
+    string s = i1.getName()+" "+i1.getSurname();
+    cout << "You picked the scientist " << s << " is that correct(y/n)?";
+    char input;
+    cin >> input;
+    if(input == 'n')
+    {
+        searchSciLink();
+    }
+    if(mac.getSize() != 0)
     {
         found = true;
     }
-    if (found ==true)
+    if (found == true)
     {
-        cout<<"The following computers are connected to scientist "<<id<<":"<<endl;
+        cout << "The following computers are connected to the scientist " << s << ": " << endl;
         printComplist(mac);
-
     }
     else
     {
-        cout<<"No computers connected to this scientist"<<endl;
+        cout << "No computers connected to this scientist." << endl;
     }
-
-
 }
 
 void UI::searchComLink()
@@ -1150,22 +1313,43 @@ void UI::searchComLink()
     bool found=false;
     int id;
     cout << "Enter computer ID: ";
-    cin >>id;
+    cin >> id;
     People p = core.getConnectedSci(id);
+    Computer c1 = core.getData().getSingleComp(id);
+    string s = c1.getName();
+    cout << "You picked the computer " << s << " is that correct(y/n)? ";
+    char input;
+    cin >> input;
+    while(input == 'n')
+    {
+        searchComLink();
+    }
+
     if(p.getSize() != 0)
     {
         found = true;
     }
     if(found == true)
     {
-         cout << "The following scientists are connected to computer " << id << ": " << endl;
+         cout << "The following scientists are connected to computer " << s << ": " << endl;
          printList(p);
     }
     else
     {
          cout << "No scientists connected to this computer" << endl;
     }
+}
 
+void UI::sortSciLink()
+{
+    People temp = core.sortSciAlpabetFront();
+    printScientistsConnections(temp);
+}
+
+void UI::sortComLink()
+{
+    Machines temp = core.sortCompAlpabetBack();
+    printComputersConnection(temp);
 }
 
 void UI::errorFile()
