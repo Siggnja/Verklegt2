@@ -265,7 +265,7 @@ void UI::sortComMenu()
                     sortSciMenu();
                     break;
     }
-    sortSciMenu();
+    sortComMenu();
 }
 
 void UI::sortSciMenu()
