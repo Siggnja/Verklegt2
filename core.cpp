@@ -486,3 +486,25 @@ void Core::updateIndiAll(const string name, const string surname,const char gend
     newdata.updateIndiGender(gender,id);
 
 }
+void Core::updateCompName(const string name, const int id)
+{
+
+    newdata.updateCompName(name,id);
+}
+
+void Core::updateCompType(const string type, const int id)
+{
+    newdata.updateCompType(type,id);
+}
+
+void Core::updateCompBYear(const int year, const int id)
+{
+    newdata.updateCompBYear(year,id);
+}
+
+void Core::updateCompAll(const int year,const string name,const string type,const int id)
+{
+    newdata.updateCompName(name,id);
+    newdata.updateCompType(type,id);
+    newdata.updateCompBYear(year,id);
+}

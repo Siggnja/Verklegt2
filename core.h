@@ -75,6 +75,10 @@ public:
     void updateIndiGender(const char gender, const int id);
     void updateIndiAll(const string name, const string surname,const char gender,const int byear,const int dyear, const int id);
 
+    void updateCompName(const string name, const int id);
+    void updateCompType(const string type, const int id);
+    void updateCompBYear(const int year, const int id);
+    void updateCompAll(const int year,const string name,const string type,const int id);
     Machines getConnectedComp(int id);
     People getConnectedSci(int id);
 
