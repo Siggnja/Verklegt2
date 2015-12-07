@@ -66,6 +66,7 @@ void UI::ask()
     cout << "(P) Print list? " << endl;
     cout << "(L) Print list size?" << endl;
     cout << "(R) Remove from list? " << endl;
+    cout << "(C) Change information?"<<endl;
     cout << "(M) Return to main menu? " << endl;
     cout << "(Q) Quit program. " << endl;
     cout << "Select a letter: ";
@@ -90,6 +91,9 @@ void UI::sciMenu()
         case 'l':
         case 'L':   cout << "The current size of the scientist list is: "
                          << core.getSizeOfList() << endl;
+                    break;
+        case 'c':
+        case 'C':   //eitthvad Breytifall()
                     break;
         case 'r':
         case 'R':   removeSci();
@@ -129,6 +133,9 @@ void UI::comMenu()
                     break;
         case 'r':
         case 'R':   removeCom();
+                    break;
+        case 'c':
+        case 'C':   //eitthvad Breytifall()
                     break;
         case 'm':
         case 'M':   return;
