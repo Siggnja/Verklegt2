@@ -186,6 +186,42 @@ void UI::searchLinkMenu()
     }
 }
 
+void UI::printLinkMenu()
+{
+    cout<<endl;
+    cout << "Do you want to: " << endl;
+    cout << "(S) Print scientists and computers connected to them?" << endl;
+    cout << "(C) Print computers and scientists connected to them? " << endl;
+    cout << "(M) Return to menu? " << endl;
+    cout << "(Q) Quit program. " << endl;
+    cout << "Select a letter: ";
+    char ans;
+    cin >>ans;
+    switch(ans)
+    {
+          case 's':
+          case 'S':
+                    sortSciLink();
+                    break;
+          case 'c':
+          case 'C':
+                    sortComLink();
+                    break;
+          case 'm':
+          case 'M':
+                    return;
+                    break;
+          case 'q':
+          case 'Q':
+                    cout << endl;
+                    exit(1);
+                    break;
+          default:
+                    errorInput();
+                    break;
+    }
+
+}
 
 
 void UI::linkMenu()
@@ -209,7 +245,7 @@ void UI::linkMenu()
         case 'A':   //addConnection(); óútfært
                     break;
         case 'p':
-        case 'P':   //printConnection(); óútfært
+        case 'P':   printLinkMenu();
                     break;
         case 'r':
         case 'R':   //removeConnection(); óútfært
@@ -1062,28 +1098,20 @@ void UI::printScientists(People& sci)
     for(int i = 0; i < sci.getSize(); i++)
     {
         Individual temp = sci.getIndi(i);
-        //printIndi(temp);
-        printIndiAndConnect(temp);
+        printIndi(temp);
+    }
 
-        /*cout << "Name: " << core.getSurname(i) + ", " + core.getName(i) << endl;
-        cout << "Gender: ";
-        if(core.getGender(i) == 'm' || core.getGender(i) == 'M')
-        {
-            cout << "Male" << endl;
-        }
-        else
-        {
-            cout << "Female" << endl;
-        }
-        cout << core.getBirth(i) << " - ";
-        if(core.getDeath(i) == 0)
-        {
-            cout << "Today" << endl;
-        }
-        else
-        {
-            cout << core.getDeath(i) << endl;
-        }*/
+    cout << endl;
+}
+
+void UI::printScientistsConnections(People& sci)
+{
+    cout << endl;
+
+    for(int i = 0; i < sci.getSize(); i++)
+    {
+        Individual temp = sci.getIndi(i);
+        printIndiAndConnect(temp);
     }
 
     cout << endl;
@@ -1097,21 +1125,16 @@ void UI::printComputers(Machines &comps)
         Computer temp = comps.getComputer(i);
         printComp(temp);
     }
+}
 
-
-/*    for(int i = 0; i < core.getList().getSize(); i++)
+void UI::printComputersConnection(Machines &comps)
+{
+    cout << endl;
+    for(int i = 0; i < comps.getSize(); i++)
     {
-        cout << "Name: " << core.getCompname(i) << endl;
-        cout << "Type: " << core.getComptype(i) << endl;
-        if(core.getYear(i) != 0)
-        {
-            cout << "Year of creation: " << core.getYear(i) << endl;
-        }
-        else
-        {
-            cout << "The computer was not built." << endl;
-        }
-    }*/
+        Computer temp = comps.getComputer(i);
+        printCompAndConnect(temp);
+    }
 }
 
 void UI::printIndiIndent(Individual &id) const
@@ -1168,6 +1191,15 @@ void UI::printConnectedComp(Machines& comps) const
     }
 }
 
+void UI::printConnectedSci(People& sci) const
+{
+    for(int i = 0; i < sci.getSize(); i++)
+    {
+        Individual temp = sci.getIndi(i);
+        printIndiIndent(temp);
+    }
+}
+
 void UI::printList(People& list) const
 {
     for (int i = 0; i < list.getSize(); i++)
@@ -1208,6 +1240,14 @@ void UI::printIndiAndConnect(Individual & sci)
     int id = sci.getId();
     Machines temp = core.getConnectedComp(id);
     printConnectedComp(temp);
+}
+
+void UI::printCompAndConnect(Computer& comp)
+{
+    printComp(comp);
+    int id = comp.getId();
+    People temp = core.getConnectedSci(id);
+    printConnectedSci(temp);
 }
 
 void UI::printComplist(Machines& complist) const
@@ -1292,6 +1332,18 @@ void UI::searchComLink()
     }
 
 
+}
+
+void UI::sortSciLink()
+{
+    People temp = core.sortSciAlpabetFront();
+    printScientistsConnections(temp);
+}
+
+void UI::sortComLink()
+{
+    Machines temp = core.sortCompAlpabetBack();
+    printComputersConnection(temp);
 }
 
 void UI::errorFile()
