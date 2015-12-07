@@ -457,3 +457,13 @@ void Core::deleteConnectionWithComp(const Computer& c1,bool& found)
     newdata.deleteConnectionWithIndi(c1.getId());
     }
 }
+
+int Core::getMachineSizeInNewdata()
+{
+    return newdata.getDatabaseSize("computer");
+}
+
+int Core::getPeopleSizeInNewdata()
+{
+    return newdata.getDatabaseSize("scientist");
+}

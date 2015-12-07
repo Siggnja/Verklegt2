@@ -82,6 +82,9 @@ public:
 
     string makeLower(string& temp);
     //converts the string variable temp to all lower letters */
+
+    int getMachineSizeInNewdata();
+    int getPeopleSizeInNewdata();
 };
 
 #endif // CORE_H

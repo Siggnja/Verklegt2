@@ -15,9 +15,10 @@ using namespace std;
 int main()
 {
 
-    SQLiteData s;
+    /*SQLiteData s;
     Individual c1 = s.getSingleIndi(3);
     cout << c1.getName();
+    */
     //Computer i1(1994,"Siggi","monsi");
    // s.addNewComp(i1);
     //SQLiteData s;
@@ -58,8 +59,8 @@ int main()
        cout << p1.getComputer(i).getType() << endl;
     }
     */
-   // UI ui;
-   // ui.run();
+   UI ui;
+   ui.run();
 
 }
 void test()

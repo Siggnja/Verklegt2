@@ -474,3 +474,19 @@ Computer SQLiteData::getSingleComp(const int i)
     db.close();
     return temp;
 }
+
+int SQLiteData::getDatabaseSize(const string temp)
+{
+    string que = selectCount + " " + temp;
+
+    db.open();
+    QString Q = QString::fromStdString(que);
+    QSqlQuery queryname(db);
+    queryname.exec(Q);
+
+    queryname.next();
+    int size = queryname.value("COUNT").toUInt();
+
+    db.close();
+    return size;
+}

@@ -374,8 +374,8 @@ void UI::welcomeMessage()
 {
     cout << "--- Welcome to the databases of famous computer scientists and of computers ---" << endl;
     cout << "\t" << "    In these databases you can add, remove, sort and search" << endl;
-    cout << "\t \t" << " At this moment we have "<< core.getList().getSize() << " computer scientists" << endl;
-    cout << "\t \t \t " << "      and "<< core.getComputers().getSize() << " computers" << endl;
+    cout << "\t \t" << " At this moment we have "<< core.getPeopleSizeInNewdata() << " computer scientists" << endl;
+    cout << "\t \t \t " << "      and "<< core.getMachineSizeInNewdata() << " computers" << endl;
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
 }
 
