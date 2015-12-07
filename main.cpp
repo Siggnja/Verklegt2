@@ -14,7 +14,8 @@ using namespace std;
 
 int main()
 {
-    SQLiteData s;
+    //SQLiteData s;
+    //Core c1;
     /*
     int i = 1905;
     char g;

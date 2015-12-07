@@ -90,8 +90,3 @@ int Individual::getDeath() const
     return death;
 }
 
-int Individual::getId() const
-{
-    return id;
-}
-

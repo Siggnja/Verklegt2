@@ -398,7 +398,42 @@ bool Core::checkIfIndiIsNew(const Individual i1)
     }
     return check;
 }
-void Core::createConnection(const Individual& i1, const Computer& c1)
+void Core::createConnection(const Individual& i1, const Computer& c1, bool& found)
 {
+    vector <int> relComp = newdata.getRelationsToComp(c1.getId());
+    for(unsigned int i =0 ; i < relComp.size();i++)
+    {
+        if(relComp[i]==i1.getId())
+        {
+            found = true;
+        }
+    }
+    if(!found)
+    {
     newdata.createConnection(i1.getId(),c1.getId());
+    }
+}
+void Core::deleteConnectionWithIndi(const Individual& i1, bool& found)
+{
+    vector <int> relIndi = newdata.getRelationsToSci(i1.getId());
+    if(relIndi.size()!=0)
+    {
+        found = false;
+    }
+    if(found)
+    {
+    newdata.deleteConnectionWithIndi(i1.getId());
+    }
+}
+void Core::deleteConnectionWithComp(const Computer& c1,bool& found)
+{
+    vector <int> relComp = newdata.getRelationsToComp(c1.getId());
+    if(relComp.size()!=0)
+    {
+        found = true;
+    }
+    if(found)
+    {
+    newdata.deleteConnectionWithIndi(c1.getId());
+    }
 }
