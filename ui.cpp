@@ -418,7 +418,167 @@ void UI::sortSciMenu()
     }
     sortSciMenu();
 }
+void UI::updateSciMenu()
+{
+    int id,count;
+    bool found=false;
+    cout << "Please enter the id of the Scientist you want to change";
+    cin >> id;
+    if(!cin.fail())
+    {
+        Individual i1 = newdata.getSingleIndi(id);
+        People p1 = newdata.sortIndiAlphaFront();
+        for(int i = 0 ; i <p1.getSize(); i++)
+        {
+            if(i1 == p1.getIndi(i))
+            {
+                found = true;
+            }
+        }
+        if(found)
+        {
+            do
+            {
+                char choice;
+                count = 0;
+                cout << "What do you want to change" << endl;
+                cout << "(N)Name" << endl;
+                cout << "(S)Surname" << endl;
+                cout << "(B)Year of birth" << endl;
+                cout << "(D)Year of death" << endl;
+                cout << "(G)Gender" << endl;
+                cout << "(E)Everything" << endl;
+                cout << "(M)Return to main menu";
+                cin >> choice;
+                switch(choice)
+                {
+                    case 'n':
+                    case 'N':   updateIndiName(id);
+                                break;
+                    case 's':
+                    case 'S':   updateIndiSurname(id);
+                                break;
+                    case 'b':
+                    case 'B':   updateIndiBYear(id);
+                                break;
+                    case 'd':
+                    case 'D':   updateIndiDYear(id);
+                                break;
+                    case 'g':
+                    case 'G':   updateIndiGender(id);
+                                break;
+                    case 'e':
+                    case 'E':   updateIndiEverything(id);
+                                break;
+                    case 'm':
+                    case 'M':
+                                return;
+                                break;
 
+
+                    default:    count = -1;
+                                errorInput();
+                                searchComMenu();
+                                break;
+
+                }
+             }while(count==-1);
+        }
+        else
+        {
+            cout << "No scientist has this id" << endl;
+            cin.clear();
+            cin.ignore();
+            updateSciMenu();
+
+        }
+   }
+   else
+   {
+        errorInput();
+        cin.clear();
+        cin.ignore();
+        updateSciMenu();
+   }
+
+}
+void UI::updateIndiName(const int id)
+{
+    string name;
+    cout << "Please insert a new name: ";
+    getline(cin, name);
+    core.updateIndiName(name,id);
+    cout << "The scientist is now registered as:" << endl;
+    Individual i1 = newdata.getSingleIndi(id);
+    printIndiIndent(i1);
+}
+
+void UI::updateIndiSurname(const int id)
+{
+    string surname;
+    cout << "Please insert a new surname: ";
+    getline(cin, surname);
+    core.updateIndiSurname(surname,id);
+    cout << "The scientist is now registered as:" << endl;
+    Individual i1 = newdata.getSingleIndi(id);
+    printIndiIndent(i1);
+}
+void UI::updateIndiGender(const int id)
+{
+    Individual i1 = newdata.getSingleIndi(id);
+    if(i1.getGender()=='m')
+    {
+        core.updateIndiGender('f',id);
+        cout << "--- Changing the scientist from male to female ---" << endl;
+    }
+    else
+    {
+        core.updateIndiGender('m',id);
+        cout << "--- Changing the scientist from female to male ---" << endl;
+    }
+    i1=newdata.getSingleIndi(id);
+    cout << "The scientist is now registered as:" << endl;
+    printIndiIndent(i1);
+}
+
+void UI::updateIndiBYear(const int id)
+{
+    int year;
+    Individual i1 = newdata.getSingleIndi(id);
+    cout << "Insert a new birth year: ";
+    cin >> year;
+    if(!cin.fail() && i1.getDeath()>year)
+    {
+        core.updateIndiBYear(year,id);
+    }
+    i1 = newdata.getSingleIndi(id);
+    cout << "The scientist is now registered as:" << endl;
+    printIndiIndent(i1);
+}
+
+void UI::updateIndiDYear(const int id)
+{
+    int year;
+    Individual i1 = newdata.getSingleIndi(id);
+    cout << "Insert a new death year: ";
+    cin >> year;
+    if(!cin.fail() && i1.getBirth()<=year)
+    {
+        core.updateIndiDYear(year,id);
+    }
+    i1 = newdata.getSingleIndi(id);
+    cout << "The scientist is now registered as:" << endl;
+    printIndiIndent(i1);
+}
+void UI::updateIndiEverything(const int id)
+{
+    updateIndiName(id);
+    updateIndiSurname(id);
+    updateIndiGender(id);
+    updateIndiBYear(id);
+    updateIndiDYear(id);
+
+}
 void UI::welcomeMessage()
 {
     cout << "--- Welcome to the databases of famous computer scientists and of computers ---" << endl;
