@@ -1,11 +1,6 @@
 #include <QCoreApplication>
 #include <iostream>
-//#include "people.h"
 #include "ui.h"
-//#include "dataread.h"
-//#include "individual.h"
-//#include "core.h"
-//#include "sqlitedata.h"
 #include <QtSql>
 //#include <string>
 
@@ -15,8 +10,9 @@ using namespace std;
 int main()
 {
 
-   // SQLiteData s;
-   // Individual c1 = s.getSingleIndi(3);
+   //SQLiteData s;
+   //Individual c1 = s.getSingleIndi(11);
+   //s.addNewIndi(c1);
    // cout << c1.getName();
     //Computer i1(1994,"Siggi","monsi");
    // s.addNewComp(i1);

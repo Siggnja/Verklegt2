@@ -1,7 +1,6 @@
 #ifndef UI_H
 #define UI_H
 
-//#include "dataread.h"
 #include "core.h"
 #include <iostream>
 using namespace std;
@@ -46,7 +45,13 @@ public:
     void updateIndiGender(const int id);
     void updateIndiBYear(const int id);
     void updateIndiDYear(const int id);
-    void updateIndiEverything(const int id);
+
+    void updateCompMenu();
+    void updateCompName(const int id);
+    void updateCompBYear(const int id);
+    void updateCompType(const int id);
+
+   // void updateIndiEverything(const int id);
 
     void sortComMenu();
     void sortSciMenu();
@@ -88,7 +93,6 @@ public:
 
 private:
     Core core;
-    Dataread data;
 };
 
 #endif // UI_H

@@ -4,8 +4,6 @@
 #include <QtSql>
 #include "people.h"
 #include "machines.h"
-//#include "individual.h"
-//#include "computer.h"
 #include <iostream>
 #include "globalconstants.h"
 using namespace std;
@@ -19,7 +17,7 @@ public:
     // Machines getCompFromBase();
     // People getRelationToComp(const int i); <- skilar people sem tengjast tölvu með id i
     // Machines getRelationToIndi(const int i); <- skilar machines sem tengjast tölvunarfræðing með id i
-    void addNewIndi(const Individual i1);
+    void addNewIndi(const Individual i1,bool& found);
     People sortIndiAlphaFront();
     People sortIndiAlphaBack();
     People sortIndiBYear();
@@ -38,7 +36,7 @@ public:
     void deleteIndi(const int id);
     Individual getSingleIndi(const int id);
     // Gets a single Scientist based on hid id
-    void addNewComp(const Computer c1);
+    void addNewComp(const Computer c1,bool& notfound);
     Machines sortCompAlphaFront();
     Machines sortCompAlphaBack();
     Machines sortCompBYear();
