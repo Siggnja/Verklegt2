@@ -157,12 +157,11 @@ void UI::searchLinkMenu()
     {
           case 's':
           case 'S':
+                    searchSciLink();
                     break;
           case 'c':
           case 'C':
-                    break;
-          case 'r':
-          case 'R':
+                    searchComLink();
                     break;
           case 'm':
           case 'M':
@@ -179,6 +178,8 @@ void UI::searchLinkMenu()
 
     }
 }
+
+
 
 void UI::linkMenu()
 {   cout<<endl;
@@ -937,7 +938,52 @@ void UI::printComp(Computer& temp) const
         cout << "This computer was not built." << endl;
     }
 }
+void UI::searchSciLink()
+{   bool found=false;
+    int id;
+    cout << "Enter scientist ID: " ;
+    cin >>id;
+    Machines mac = core.getConnectedComp(id);
+    if(mac.getSize()!=0)
+    {
+        found = true;
+    }
+    if (found ==true)
+    {
+        cout<<"The following computers are connected to scientist "<<id<<":"<<endl;
+        printComplist(mac);
 
+    }
+    else
+    {
+        cout<<"No computers connected to this scientist"<<endl;
+    }
+
+
+}
+
+void UI::searchComLink()
+{
+    bool found=false;
+    int id;
+    cout << "Enter computer ID: " ;
+    cin >>id;
+    People p = core.getConnectedSci(id);
+    if(p.getSize()!=0)
+    {
+        found = true ;
+    }
+    if(found==true)
+    {
+         cout<<"The following scientists are connected to computer "<<id<<":"<<endl;
+         printList(p);
+    }
+    else
+    {
+         cout<<"No scientists connected to this computer"<<endl;
+    }
+
+}
 void UI::printSize()
 {
     cout << core.getSizeOfList();

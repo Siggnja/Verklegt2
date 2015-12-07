@@ -36,6 +36,8 @@ public:
     void searchGender();
     void searchBirth();
     void searchDeath();
+    void searchSciLink();
+    void searchComLink();
     //
 
     //choose what shall be searched for
