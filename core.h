@@ -26,9 +26,9 @@ public:
     People sortSciAlpabetFront();
 
     People sortSciAlpabetBack();
-    void sortByBirthYear();
-    void sortByDeathYear();
-    void sortByGender(People& male, People& female);
+    People sortSciByBirthYear();
+    People sortSciByDeathYear();
+    //void sortByGender(People& male, People& female);
     int getSizeOfList()const;
     void addIndividual(const Individual& ind, bool& notfound);
     void removeIndividual(const string str, bool& removed);

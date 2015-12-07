@@ -124,9 +124,9 @@ People Core::sortSciAlpabetBack()
     return newdata.sortIndiAlphaBack();
 }
 
-void Core::sortByBirthYear()
+People Core::sortSciByBirthYear()
 {
-    for(int i = 1 ; i < list.getSize(); i++)
+/*    for(int i = 1 ; i < list.getSize(); i++)
     {
         for(int j = 0; j < list.getSize(); j++)
         {
@@ -135,13 +135,14 @@ void Core::sortByBirthYear()
                list.swap(i,j);
             }
         }
-    }
+    }*/
+    return newdata.sortIndiBYear();
 }
 
-void Core::sortByDeathYear()
+People Core::sortSciByDeathYear()
 {
    // People dead, alive;
-    for(int i = 1 ; i < list.getSize(); i++)
+/*    for(int i = 1 ; i < list.getSize(); i++)
     {
         for(int j = 0; j < list.getSize(); j++)
         {
@@ -150,7 +151,8 @@ void Core::sortByDeathYear()
                list.swap(i,j);
             }
         }
-    }
+    }*/
+    return newdata.sortIndiByDYear();
 }
 
 string Core::makeLower(string& temp)
