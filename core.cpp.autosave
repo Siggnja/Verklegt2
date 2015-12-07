@@ -25,15 +25,15 @@ void Core::createList(const string filename)
     list = data.readData(filename);
 }
 
-int Core::getSizeOfList() //const
+int Core::getSizeOfList() const
 {
-    return newdata.sortIndiAlphaFront().getSize();
+    return list.getSize();
     //  query.exec("SELECT count(*)"); -- nota þetta til að fá stærð
 }
 
-int Core::getSizeOfComplist() //const
+int Core::getSizeOfComplist() const
 {
-    return newdata.sortCompAlphaFront().getSize();
+    return complist.getSize();
     //  query.exec("SELECT count(*)"); -- nota þetta til að fá stærð
 }
 
@@ -455,20 +455,10 @@ void Core::deleteConnectionWithComp(const Computer& c1,bool& found)
     newdata.deleteConnectionWithIndi(c1.getId());
     }
 }
-
-int Core::getMachineSizeInNewdata()
-{
-    return newdata.getDatabaseSize("computer");
-}
-
-int Core::getPeopleSizeInNewdata()
-{
-    return newdata.getDatabaseSize("scientist");
-}
-
 void Core::updateIndiName(const string name, const int id)
 {
     newdata.updateIndiName(name,id);
+
 }
 
 void Core::updateIndiSurname(const string name, const int id)
@@ -487,34 +477,8 @@ void Core::updateIndiGender(const char gender, const int id)
 {
     newdata.updateIndiGender(gender,id);
 }
-void Core::updateIndiAll(const string name, const string surname,const char gender,const int byear,const int dyear,const int id)
+void Core::updateIndiAll(const string name, const string surname,const char gender,const int byear,const intdyear)
 {
     newdata.updateIndiName(name,id);
-    newdata.updateIndiSurname(surname,id);
-    newdata.updateCompBYear(byear,id);
-    newdata.updateIndiDYear(dyear,id);
-    newdata.updateIndiGender(gender,id);
-
-}
-void Core::updateCompName(const string name, const int id)
-{
-
-    newdata.updateCompName(name,id);
-}
-
-void Core::updateCompType(const string type, const int id)
-{
-    newdata.updateCompType(type,id);
-}
-
-void Core::updateCompBYear(const int year, const int id)
-{
-    newdata.updateCompBYear(year,id);
-}
-
-void Core::updateCompAll(const int year,const string name,const string type,const int id)
-{
-    newdata.updateCompName(name,id);
-    newdata.updateCompType(type,id);
-    newdata.updateCompBYear(year,id);
+    
 }

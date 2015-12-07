@@ -29,7 +29,7 @@ public:
     People sortSciByDeathYear();
     //void sortByGender(People& male, People& female);
 
-    int getSizeOfList()const;
+    int getSizeOfList();//const;
     void addIndividual(const Individual& ind, bool& notfound);
     void addComputer(const Computer& com, bool& notfound);
     void removeIndividual(const string str, bool& removed);
@@ -47,7 +47,7 @@ public:
     int getYear(int i) const;
     int id(int i) const;
 
-    int getSizeOfComplist() const;
+    int getSizeOfComplist();// const;
 
     //functions used to search for individuals in vector with specific traits:
     //void searchName();
@@ -68,6 +68,17 @@ public:
     Machines sortCompBuildYear();
     Machines sortCompType();
 
+    void updateIndiName(const string name, const int id);
+    void updateIndiSurname(const string name, const int id);
+    void updateIndiBYear(const int year, const int id);
+    void updateIndiDYear(const int year, const int id);
+    void updateIndiGender(const char gender, const int id);
+    void updateIndiAll(const string name, const string surname,const char gender,const int byear,const int dyear, const int id);
+
+    void updateCompName(const string name, const int id);
+    void updateCompType(const string type, const int id);
+    void updateCompBYear(const int year, const int id);
+    void updateCompAll(const int year,const string name,const string type,const int id);
     Machines getConnectedComp(int id);
     People getConnectedSci(int id);
 
