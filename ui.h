@@ -20,11 +20,15 @@ public:
     void linkMenu();
     //asks what should be done with the list
     void searchLinkMenu();
+    void printLinkMenu();
 
     void menu(char ans, People& list);
     //call for changes to the list
     void searchComMenu();
     void searchSciMenu();
+
+    void sortSciLink();
+    void sortComLink();
 
     //void printIndividual();
     void searchComType();
@@ -69,19 +73,25 @@ public:
     void printComp(Computer& id) const;
 
     void printCompIndent(Computer &id) const;
+    void printCompAndConnect(Computer& temp);
     void printConnectedComp(Machines& comps) const;
+    void printConnectedSci(People& sci) const;
 
     //void printComplist() const;
     void printComplist(Machines& list) const;
 
     void printComputers(Machines& comps);
+    void printComputersConnection(Machines &comps);
     void printScientists(People& sci);
+    void printScientistsConnections(People& sci);
 
     void addIndividual();
     void addComputer();
+    void addConnection();
 
     void removeSci();
     void removeCom();
+    void removeConnection();
 
     // cout sentences:
     void errorFile();

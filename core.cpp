@@ -275,30 +275,6 @@ void Core::createConnection(const Individual& i1, const Computer& c1, bool& foun
     newdata.createConnection(i1.getId(),c1.getId());
     }
 }
-void Core::deleteConnectionWithIndi(const Individual& i1, bool& found)
-{
-    vector <int> relIndi = newdata.getRelationsToSci(i1.getId());
-    if(relIndi.size()!=0)
-    {
-        found = false;
-    }
-    if(found)
-    {
-    newdata.deleteConnectionWithIndi(i1.getId());
-    }
-}
-void Core::deleteConnectionWithComp(const Computer& c1,bool& found)
-{
-    vector <int> relComp = newdata.getRelationsToComp(c1.getId());
-    if(relComp.size()!=0)
-    {
-        found = true;
-    }
-    if(found)
-    {
-    newdata.deleteConnectionWithIndi(c1.getId());
-    }
-}
 
 int Core::getMachineSizeInNewdata()
 {
@@ -362,6 +338,14 @@ void Core::updateCompAll(const int year,const string name,const string type,cons
     newdata.updateCompName(name,id);
     newdata.updateCompType(type,id);
     newdata.updateCompBYear(year,id);
+}
+void Core::addConnection(const int idSci,const int idComp)
+{
+    newdata.createConnection(idSci,idComp);
+}
+void Core::removeConnection(const int idSci,const int idComp)
+{
+    newdata.deleteConnectionWithIndiAndComp(idSci,idComp);
 }
 SQLiteData Core::getData() const
 {

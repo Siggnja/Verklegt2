@@ -31,8 +31,10 @@ public:
 
     void addIndividual(const Individual& ind, bool& notfound);
     void addComputer(const Computer& com, bool& notfound);
+    void addConnection(const int idSci,const int idComp);
     void removeIndividual(const int i, bool& removed);
     void removeComputer(const int id, bool& removed);
+    void removeConnection(const int idSci,const int idComp);
 
     string getSurname(int i) const;
     string getName(int i) const;
@@ -84,8 +86,6 @@ public:
     void setComplist(const Machines c1);
 
     void createConnection(const Individual& i1, const Computer& c1,bool& found);
-    void deleteConnectionWithIndi(const Individual& i1,bool& found);
-    void deleteConnectionWithComp(const Computer& i1,bool& found);
 
     string makeLower(string& temp);
     //converts the string variable temp to all lower letters */

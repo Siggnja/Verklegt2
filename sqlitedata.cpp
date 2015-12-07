@@ -103,16 +103,16 @@ void  SQLiteData::updateIndiGender(const char gender, const int id)
 }
 void  SQLiteData::deleteIndi(const int id)
 {
-
     string Query = updateSci + " " + setDel + " " + findId + int_to_string(id);
     executeQuery(Query);
+    deleteConnectionWithIndi(id);
 }
 void SQLiteData::addNewIndi(const Individual i1,bool& found)
 {
     string Query1 = createNewSci + i1.getSurname() + "','" + i1.getName() + "','" + i1.getGender() + "'," + int_to_string(i1.getBirth()) + "," + int_to_string(i1.getDeath()) + ")";
     string Query2 = selectAllSci;
     People p1 = doQuerySci(Query2);
-    found = false;
+        found = false;
     int count = 0;
     for(int i = 0; i<p1.getSize();i++)
     {
@@ -133,6 +133,7 @@ void SQLiteData::addNewIndi(const Individual i1,bool& found)
     {
         executeQuery(Query1);
     }
+    db.close();
 
 }
 void SQLiteData::addNewComp(const Computer c1, bool& found)
@@ -161,6 +162,7 @@ void SQLiteData::addNewComp(const Computer c1, bool& found)
     {
         executeQuery(Query1);
     }
+    db.close();
 
 }
 
@@ -231,6 +233,7 @@ void SQLiteData::deleteComp(const int id)
 {
     string Query = updateComp + " " + setDel + " " + findId + int_to_string(id);
     executeQuery(Query);
+    deleteConnectionWithComp(id);
 }
 
 Machines SQLiteData::doQueryComp(const string que)
@@ -432,6 +435,7 @@ void SQLiteData::createConnection(const int idSci, const int idComp)
     {
         executeQuery(Query2);
     }
+    db.close();
 
 
 }
@@ -445,6 +449,12 @@ void SQLiteData::deleteConnectionWithComp(const int idComp)
 {
 
     string Query = updateRel + " " + setDel + " " + findCompId + int_to_string(idComp);
+    executeQuery(Query);
+
+}
+void SQLiteData::deleteConnectionWithIndiAndComp(const int idSci,const int idComp)
+{
+    string Query = updateRel + " " + setDel + " " + findCompId + int_to_string(idComp) + "AND scientist_id = " +int_to_string(idSci);
     executeQuery(Query);
 
 }
