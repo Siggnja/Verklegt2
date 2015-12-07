@@ -15,8 +15,12 @@ using namespace std;
 int main()
 {
     //SQLiteData s;
+    //Computer i1(1994,"Siggi","monsi");
+   // s.addNewComp(i1);
+    //SQLiteData s;
     //Core c1;
     /*
+
     int i = 1905;
     char g;
     string name = "a";
