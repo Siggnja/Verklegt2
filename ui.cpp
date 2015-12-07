@@ -1276,62 +1276,123 @@ void UI::printComp(Computer& temp) const
 }
 void UI::searchSciLink()
 {   cout<<endl;
+    bool found = false;
     int id;
     cout << "Enter scientist ID: " ;
     cin >>id;
-    Machines mac = core.getConnectedComp(id);
-    Individual i1 = core.getData().getSingleIndi(id);
-    string s = i1.getName()+" "+i1.getSurname();
-    cout<<"You picked the scientist "<<s<<" is that correct(y/n)?";
-    char input;
-    cin>>input;
-    if(input=='n')
+    if(!cin.fail())
     {
-      searchSciLink();
-    }
-    else
-         if(mac.getSize()==0)
+         People p = core.getData().sortIndiAlphaFront();
+         for(int i = 0 ; i <p.getSize(); i++)
          {
-              cout<<"No computers connected to this scientist"<<endl;
+             if(id == p.getIndi(i).getId())
+             {
+                 found=true;
+             }
+         }
+         if(found==true)
+         {
+             Machines mac=core.getConnectedComp(id);
+             Individual i1 = core.getData().getSingleIndi(id);
+             string s = i1.getName()+" "+i1.getSurname();
+             cout<<"You picked the scientist "<<s<<" is that correct(y/n)?";
+             char input;
+             cin>>input;
+             if(input=='n')
+             {
+             searchSciLink();
+             }
+             else
+             {
+                 if(mac.getSize()==0)
+                 {
+                     cout<<"No computers connected to this scientist"<<endl;
+                 }
+
+                 else
+                {
+                     cout<<endl;
+                     cout<<"The following computers are connected to the scientist "<<s<<":"<<endl;
+                     printComplist(mac);
+                }
+             }
+
          }
          else
-         {    cout<<endl;
-              cout<<"The following computers are connected to the scientist "<<s<<":"<<endl;
-              printComplist(mac);
+         {
+             cout << "No scientist has this id!" << endl;
+             cin.clear();
+             cin.ignore();
+             searchSciLink();
          }
+    }
+    else
+    {
+        errorInput();
+        cin.clear();
+        cin.ignore();
+        searchSciLink();
+    }
 
 }
 
 void UI::searchComLink()
 {   cout<<endl;
+    bool found = false;
     int id;
     cout << "Enter computer ID: ";
     cin >>id;
-    People p = core.getConnectedSci(id);
-    Computer c1 = core.getData().getSingleComp(id);
-    string s = c1.getName();
-    cout<<"You picked the computer "<<s<<" is that correct(y/n)?";
-    char input;
-    cin>>input;
-    if(input=='n')
+    if(!cin.fail())
     {
-      searchComLink();
-    }
+        Machines mac = core.getData().sortCompAlphaFront();
+        for(int i = 0 ; i <mac.getSize(); i++)
+        {
+            if(id == mac.getComputer(i).getId())
+            {
+               found=true;
 
+            }
+        }
+         if(found==true)
+         {   People p=core.getConnectedSci(id);
+             Computer c1 = core.getData().getSingleComp(id);
+             string s = c1.getName();
+             cout<<"You picked the computer "<<s<<" is that correct(y/n)?";
+             char input;
+             cin>>input;
+             if(input=='n')
+             {
+                 searchComLink();
+             }
+             else
+             {
+                 if(p.getSize() == 0)
+                 {
+                     cout << "No scientists connected to this computer" << endl;
+                 }
+                 else
+                 {
+                     cout<<endl;
+                     cout << "The following scientists are connected to computer " << s << ": " << endl;
+                     printList(p);
+                 }
+             }
+         }
+         else
+         {
+             cout << "No computer has this id!" << endl;
+             cin.clear();
+             cin.ignore();
+             searchComLink();
+         }
+    }
     else
     {
-          if(p.getSize() == 0)
-          {
-             cout << "No scientists connected to this computer" << endl;
-          }
-          else
-          {  cout<<endl;
-             cout << "The following scientists are connected to computer " << s << ": " << endl;
-             printList(p);
-          }
+         errorInput();
+         cin.clear();
+         cin.ignore();
+         searchComLink();
     }
-
-
 }
 
 void UI::sortSciLink()
