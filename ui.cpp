@@ -383,7 +383,6 @@ void UI::searchComYear()
 void UI::searchComName()
 {
     Machines result;
-    bool found = false;
     string searchStr;
     cin.ignore();
     cout << "Enter a name to search for: " ;
@@ -391,12 +390,12 @@ void UI::searchComName()
 
     result = core.searchComName(searchStr, result);
 
-    if (found)
+    if (result.getSize() != 0)
     {
         entriesMatched();
         printComplist(result);
     }
-    if (!found)
+    else
     {
         noMatch();
     }
@@ -405,7 +404,6 @@ void UI::searchComName()
 void UI::searchComType()
 {
     Machines result;
-    bool found = false;
     string searchStr;
     cin.ignore();
     cout << "Enter a type to search for: " ;
@@ -413,12 +411,12 @@ void UI::searchComType()
 
     result = core.searchComType(searchStr, result);
 
-    if (found)
+    if (result.getSize() != 0)
     {
         entriesMatched();
         printComplist(result);
     }
-    if (!found)
+    else
     {
         noMatch();
     }
