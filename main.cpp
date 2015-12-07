@@ -14,14 +14,14 @@ using namespace std;
 
 int main()
 {
-    SQLiteData s;
+    //SQLiteData s;
     //Core c1;
     /*
     int i = 1905;
     char g;
     string name = "a";
     //SQLiteData s;
-    // /*
+    //
     //int i = 1905;
     //char g = 'm';
     //string name = "a";
