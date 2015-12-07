@@ -458,7 +458,7 @@ Individual SQLiteData::getSingleIndi(const int i)
     //db.setDatabaseName(dbName);
     db.open();
 
-    string Query = selectAllSci + " WHERE s.id = " + int_to_string(i);
+    string Query = "SELECT * FROM Scientist as s WHERE s.deleted = 0 AND s.id =" + int_to_string(i);
     QString Q = QString::fromStdString(Query);
     QSqlQuery queryname(db);
     queryname.exec(Q);
@@ -478,28 +478,12 @@ Individual SQLiteData::getSingleIndi(const int i)
 
 Computer SQLiteData::getSingleComp(const int i)
 {
-    //QSqlDatabase db;
-    //db = QSqlDatabase::addDatabase("QSQLITE");
-    //QString dbName = "ScientistsComputers.sqlite";
-    //db.setDatabaseName(dbName);
+
     db.open();
 
-    string Query = selectAllComp + " WHERE s.id = " + int_to_string(i) + " AND s.deleted = 0";
-    QString Q = QString::fromStdString(Query);
-    QSqlQuery queryname(db);
-    bool found = queryname.exec(Q);
-    queryname.next();
-    Computer temp;
-    if(found)
-    {
-        int id  = queryname.value("id").toUInt();
-        string name = queryname.value("name").toString().toStdString();
-        string type = queryname.value("type").toString().toStdString();
-        int byear  = queryname.value("byear").toUInt();
-        Computer temp2(id,byear,name,type);
-        temp = temp2;
-    }
-
+    string Query = selectAllComp + " " + searchId + int_to_string(i);
+    Machines c1 = doQueryComp(Query);
+    Computer temp = c1.getComputer(0);
 
     db.close();
     return temp;

@@ -14,9 +14,12 @@ using namespace std;
 
 int main()
 {
-   SQLiteData s;
-   s.createConnection(1,1);
-    //SQLiteData s;
+
+    SQLiteData s;
+    Computer c1 = s.getSingleComp(3);
+    cout << c1.getName();
+    //Computer i1(1994,"Siggi","monsi");
+   // s.addNewComp(i1);
     //Core c1;
     /*
 
@@ -49,8 +52,8 @@ int main()
        cout << p1.getComputer(i).getType() << endl;
     }
     */
-    //UI ui;
-    //ui.run();
+   // UI ui;
+   // ui.run();
 
 }
 void test()

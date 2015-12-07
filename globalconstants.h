@@ -35,6 +35,7 @@ const string searchGender = " AND s.gender ='";
 const string searchName = "AND s.name LIKE '%";
 const string searchSurname = "OR s.surname LIKE '%";
 const string searchType = "AND s.type LIKE '%";
+const string searchId = "AND s.id = ";
 
 const string setBYear = "SET byear = ";
 const string setDYear = "SET dyear = ";
