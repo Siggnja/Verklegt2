@@ -8,6 +8,7 @@ using namespace std;
 
 const string selectAllSci = "SELECT * FROM Scientist as s WHERE s.deleted = 0";
 const string selectAllComp = "SELECT * FROM Computer as s WHERE s.deleted = 0";
+const string selectCount = "SELECT COUNT(*) AS COUNT FROM ";
 
 const string createNewSci = "INSERT INTO Scientist(surname,name,gender,byear,dyear) VALUES ('";
 const string createNewComp = "INSERT INTO Computer(name,byear,type) VALUES ('";

@@ -32,7 +32,7 @@ int main()
     int i = 1905;
     char g;
     string name = "a";
-    //SQLiteData s;
+    SQLiteData s;
     //
     //int i = 1905;
     //char g = 'm';
@@ -58,6 +58,7 @@ int main()
        cout << p1.getComputer(i).getType() << endl;
     }
     */
+
     UI ui;
     ui.run();
 

@@ -8,10 +8,10 @@ UI::UI()
 
 }
 
-UI::UI(const string filename)
+/*UI::UI(const string filename)
 {
     core.createList(filename);
-}
+}*/
 
 void UI::run()
 {
@@ -90,10 +90,10 @@ void UI::sciMenu()
                     break;
         case 'l':
         case 'L':   cout << "The current size of the scientist list is: "
-                         << core.getSizeOfList() << endl;
+                         << core.getPeopleSizeInNewdata() << endl;
                     break;
         case 'c':
-        case 'C':   //eitthvad Breytifall()
+        case 'C':   updateSciMenu();
                     break;
         case 'r':
         case 'R':   removeSci();
@@ -129,7 +129,7 @@ void UI::comMenu()
                     break;
         case 'l':
         case 'L':   cout << "The current size of the computer list is: "
-                         << core.getSizeOfComplist() << endl;
+                         << core.getMachineSizeInNewdata() << endl;
                     break;
         case 'r':
         case 'R':   removeCom();
@@ -422,15 +422,14 @@ void UI::updateSciMenu()
 {
     int id,count;
     bool found=false;
-    cout << "Please enter the id of the Scientist you want to change";
+    cout << "Please enter the id of the Scientist you want to change: ";
     cin >> id;
     if(!cin.fail())
     {
-        Individual i1 = newdata.getSingleIndi(id);
-        People p1 = newdata.sortIndiAlphaFront();
+        People p1 = core.getData().sortIndiAlphaFront();
         for(int i = 0 ; i <p1.getSize(); i++)
         {
-            if(i1 == p1.getIndi(i))
+            if(id == p1.getIndi(i).getId())
             {
                 found = true;
             }
@@ -441,14 +440,14 @@ void UI::updateSciMenu()
             {
                 char choice;
                 count = 0;
-                cout << "What do you want to change" << endl;
+                cout << "What do you want to change?" << endl;
                 cout << "(N)Name" << endl;
                 cout << "(S)Surname" << endl;
                 cout << "(B)Year of birth" << endl;
                 cout << "(D)Year of death" << endl;
                 cout << "(G)Gender" << endl;
                 cout << "(E)Everything" << endl;
-                cout << "(M)Return to main menu";
+                cout << "(M)Return to main menu" << endl;
                 cin >> choice;
                 switch(choice)
                 {
@@ -478,7 +477,7 @@ void UI::updateSciMenu()
 
                     default:    count = -1;
                                 errorInput();
-                                searchComMenu();
+                                updateSciMenu();
                                 break;
 
                 }
@@ -486,7 +485,7 @@ void UI::updateSciMenu()
         }
         else
         {
-            cout << "No scientist has this id" << endl;
+            cout << "No scientist has this id!" << endl;
             cin.clear();
             cin.ignore();
             updateSciMenu();
@@ -506,10 +505,11 @@ void UI::updateIndiName(const int id)
 {
     string name;
     cout << "Please insert a new name: ";
+    cin.ignore();
     getline(cin, name);
     core.updateIndiName(name,id);
     cout << "The scientist is now registered as:" << endl;
-    Individual i1 = newdata.getSingleIndi(id);
+    Individual i1 = core.getData().getSingleIndi(id);
     printIndiIndent(i1);
 }
 
@@ -517,15 +517,16 @@ void UI::updateIndiSurname(const int id)
 {
     string surname;
     cout << "Please insert a new surname: ";
+    cin.ignore();
     getline(cin, surname);
     core.updateIndiSurname(surname,id);
     cout << "The scientist is now registered as:" << endl;
-    Individual i1 = newdata.getSingleIndi(id);
+    Individual i1 = core.getData().getSingleIndi(id);
     printIndiIndent(i1);
 }
 void UI::updateIndiGender(const int id)
 {
-    Individual i1 = newdata.getSingleIndi(id);
+    Individual i1 =core.getData().getSingleIndi(id);
     if(i1.getGender()=='m')
     {
         core.updateIndiGender('f',id);
@@ -536,7 +537,7 @@ void UI::updateIndiGender(const int id)
         core.updateIndiGender('m',id);
         cout << "--- Changing the scientist from female to male ---" << endl;
     }
-    i1=newdata.getSingleIndi(id);
+    i1=core.getData().getSingleIndi(id);
     cout << "The scientist is now registered as:" << endl;
     printIndiIndent(i1);
 }
@@ -544,14 +545,14 @@ void UI::updateIndiGender(const int id)
 void UI::updateIndiBYear(const int id)
 {
     int year;
-    Individual i1 = newdata.getSingleIndi(id);
+    Individual i1 = core.getData().getSingleIndi(id);
     cout << "Insert a new birth year: ";
     cin >> year;
-    if(!cin.fail() && i1.getDeath()>year)
+    if(!cin.fail())
     {
         core.updateIndiBYear(year,id);
     }
-    i1 = newdata.getSingleIndi(id);
+    i1 = core.getData().getSingleIndi(id);
     cout << "The scientist is now registered as:" << endl;
     printIndiIndent(i1);
 }
@@ -559,14 +560,14 @@ void UI::updateIndiBYear(const int id)
 void UI::updateIndiDYear(const int id)
 {
     int year;
-    Individual i1 = newdata.getSingleIndi(id);
+    Individual i1 = core.getData().getSingleIndi(id);
     cout << "Insert a new death year: ";
     cin >> year;
     if(!cin.fail() && i1.getBirth()<=year)
     {
         core.updateIndiDYear(year,id);
     }
-    i1 = newdata.getSingleIndi(id);
+    i1 = core.getData().getSingleIndi(id);
     cout << "The scientist is now registered as:" << endl;
     printIndiIndent(i1);
 }
@@ -583,21 +584,20 @@ void UI::welcomeMessage()
 {
     cout << "--- Welcome to the databases of famous computer scientists and of computers ---" << endl;
     cout << "\t" << "    In these databases you can add, remove, sort and search" << endl;
-    cout << "\t \t" << " At this moment we have "<< core.getList().getSize() << " computer scientists" << endl;
-    cout << "\t \t \t " << "      and "<< core.getComputers().getSize() << " computers" << endl;
+    cout << "\t \t" << " At this moment we have "<< core.getPeopleSizeInNewdata() << " computer scientists" << endl;
+    cout << "\t \t \t " << "      and "<< core.getMachineSizeInNewdata() << " computers" << endl;
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
 }
 
 void UI::searchComYear()
 {
-    Machines result1, result2;
     bool found = false;
     int ansYear;
     cout << "Enter year of creation: ";
     cin >> ansYear;
     if(!cin.fail())
     {
-        Machines result = core.searchComYear(found, ansYear, result1, result2);
+        Machines result = core.searchComYear(found, ansYear);
         if(found)
         {
             entriesMatched();
@@ -632,7 +632,7 @@ void UI::searchComName()
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
 
-    result = core.searchComName(searchStr, result);
+    result = core.searchComName(searchStr);
 
     if (result.getSize() != 0)
     {
@@ -653,7 +653,7 @@ void UI::searchComType()
     cout << "Enter a type to search for: " ;
     getline(cin, searchStr);
 
-    result = core.searchComType(searchStr, result);
+    result = core.searchComType(searchStr);
 
     if (result.getSize() != 0)
     {
@@ -669,13 +669,12 @@ void UI::searchComType()
 void UI::searchSciName()
 {
     People result;
-    bool found = false;
     string searchStr;
     cin.ignore();
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
 
-    result = core.searchNam(found, searchStr, result);
+    result = core.searchNam(searchStr);
 
     if (result.getSize() != 0) //þá taka út bool found
     {
@@ -718,14 +717,13 @@ void UI::searchGender()
 
 void UI::searchBirth()
 {
-    People result1, result2;
     bool found = false;
     int ansYear;
     cout << "Enter a birth year: ";
     cin >> ansYear;
     if(!cin.fail())
     {
-        People result = core.searchBir(found, ansYear, result1, result2);
+        People result = core.searchBir(found, ansYear);
         if(found)
         {
             entriesMatched();
@@ -754,14 +752,13 @@ void UI::searchBirth()
 
 void UI::searchDeath()
 {
-    People result1, result2;
     bool found = false;
     int ansYear;
     cout << "Enter a death year: ";
     cin >> ansYear;
     if(!cin.fail())
     {
-        People result = core.searchDea(found, ansYear, result1, result2);
+        People result = core.searchDea(found, ansYear);
         if(found)
         {
             entriesMatched();
@@ -990,7 +987,7 @@ void UI::printComputers(Machines &comps)
 void UI::printIndiIndent(Individual &id) const
 {
     cout << endl;
-    cout << "/t" << id.getName() << " " << id.getSurname() << "/t";
+    cout << "\t" << id.getName() << " " << id.getSurname() << "\t";
 
     if(id.getGender() == 'f' || id.getGender() == 'F')
     {
@@ -1001,7 +998,7 @@ void UI::printIndiIndent(Individual &id) const
         cout << "Male";
     }
 
-    cout << "/t" << id.getBirth() << " - ";
+    cout << "\t" << id.getBirth() << " - ";
 
     if(id.getDeath() == 0)
     {
@@ -1133,27 +1130,23 @@ void UI::searchComLink()
 {
     bool found=false;
     int id;
-    cout << "Enter computer ID: " ;
+    cout << "Enter computer ID: ";
     cin >>id;
     People p = core.getConnectedSci(id);
-    if(p.getSize()!=0)
+    if(p.getSize() != 0)
     {
-        found = true ;
+        found = true;
     }
-    if(found==true)
+    if(found == true)
     {
-         cout<<"The following scientists are connected to computer "<<id<<":"<<endl;
+         cout << "The following scientists are connected to computer " << id << ": " << endl;
          printList(p);
     }
     else
     {
-         cout<<"No scientists connected to this computer"<<endl;
+         cout << "No scientists connected to this computer" << endl;
     }
 
-}
-void UI::printSize()
-{
-    cout << core.getSizeOfList();
 }
 
 void UI::errorFile()
