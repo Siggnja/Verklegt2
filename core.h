@@ -29,7 +29,6 @@ public:
     People sortSciByDeathYear();
     //void sortByGender(People& male, People& female);
 
-    int getSizeOfList();//const;
     void addIndividual(const Individual& ind, bool& notfound);
     void addComputer(const Computer& com, bool& notfound);
     void removeIndividual(const string str, bool& removed);
@@ -41,13 +40,10 @@ public:
     int getDeath(int i) const;
     char getGender(int i) const;
 
-
     string getCompname(int i) const;
     string getComptype(int i) const;
     int getYear(int i) const;
     int id(int i) const;
-
-    int getSizeOfComplist();// const;
 
     //functions used to search for individuals in vector with specific traits:
     //void searchName();

@@ -90,7 +90,7 @@ void UI::sciMenu()
                     break;
         case 'l':
         case 'L':   cout << "The current size of the scientist list is: "
-                         << core.getSizeOfList() << endl;
+                         << core.getPeopleSizeInNewdata() << endl;
                     break;
         case 'c':
         case 'C':   //eitthvad Breytifall()
@@ -129,7 +129,7 @@ void UI::comMenu()
                     break;
         case 'l':
         case 'L':   cout << "The current size of the computer list is: "
-                         << core.getSizeOfComplist() << endl;
+                         << core.getMachineSizeInNewdata() << endl;
                     break;
         case 'r':
         case 'R':   removeCom();
@@ -969,27 +969,23 @@ void UI::searchComLink()
 {
     bool found=false;
     int id;
-    cout << "Enter computer ID: " ;
+    cout << "Enter computer ID: ";
     cin >>id;
     People p = core.getConnectedSci(id);
-    if(p.getSize()!=0)
+    if(p.getSize() != 0)
     {
-        found = true ;
+        found = true;
     }
-    if(found==true)
+    if(found == true)
     {
-         cout<<"The following scientists are connected to computer "<<id<<":"<<endl;
+         cout << "The following scientists are connected to computer " << id << ": " << endl;
          printList(p);
     }
     else
     {
-         cout<<"No scientists connected to this computer"<<endl;
+         cout << "No scientists connected to this computer" << endl;
     }
 
-}
-void UI::printSize()
-{
-    cout << core.getSizeOfList();
 }
 
 void UI::errorFile()
