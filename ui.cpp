@@ -324,30 +324,30 @@ void UI::welcomeMessage()
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
 }
 
-void UI::searchComYear() // ...............
+void UI::searchComYear()
 {
-    Computer result1, result2;
+    Machines result1, result2;
     bool found = false;
     int ansYear;
     cout << "Enter year of creation: ";
     cin >> ansYear;
     if(!cin.fail())
     {
-        // People result = core.searchBir(found, ansYear, result1, result2);
+        Machines result = core.searchComYear(found, ansYear, result1, result2);
         if(found)
         {
             entriesMatched();
-            //printComputers(result);
+            printComplist(result);
         }
         else if (!found)
         {
             cout << endl;
             noMatch();
-            //if(result.getSize() != 0)
+            if(result.getSize() != 0)
             {
                 cout << "However these computers were found within"
                         " a 10 year range of given year: " << endl;
-                //printComputers(result);
+                printComplist(result);
             }
         }
     }
@@ -360,20 +360,21 @@ void UI::searchComYear() // ...............
     }
 }
 
-void UI::searchComName() // ...............
+void UI::searchComName()
 {
-    Computer result;
+    Machines result;
     bool found = false;
     string searchStr;
     cin.ignore();
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
-    //result = core.searchComName(found, searchStr, result);
+
+    result = core.searchComName(searchStr, result);
 
     if (found)
     {
         entriesMatched();
-       //printComplist(result);
+        printComplist(result);
     }
     if (!found)
     {
@@ -381,7 +382,7 @@ void UI::searchComName() // ...............
     }
 }
 
-void UI::searchComType() // ...............
+void UI::searchComType()
 {
     Machines result;
     bool found = false;
@@ -390,11 +391,7 @@ void UI::searchComType() // ...............
     cout << "Enter a type to search for: " ;
     getline(cin, searchStr);
 
-    /*result = core.searchType(found, searchStr, result);
-    for (int i = 0; i < core.complist.getSize(); i++)
-    {
-
-    }*/
+    result = core.searchComType(searchStr, result);
 
     if (found)
     {
