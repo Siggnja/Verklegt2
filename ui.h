@@ -47,7 +47,7 @@ public:
     //void printIndi(int i) const;
     void printIndi(Individual& id) const;
     void printIndiIndent(Individual &id) const;
-    void printIndiAndConnect(Individual & temp) const;
+    void printIndiAndConnect(Individual & temp);
     //void printList() const;
     void printList(People& list) const;
 

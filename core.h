@@ -68,6 +68,8 @@ public:
     Machines sortCompBuildYear();
     Machines sortCompType();
 
+    Machines getConnectedComp(int id);
+
     People getList() const;
     Machines getComputers() const;
     void setList(const People p1);
