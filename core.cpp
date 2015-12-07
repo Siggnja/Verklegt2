@@ -477,3 +477,12 @@ void Core::updateIndiGender(const char gender, const int id)
 {
     newdata.updateIndiGender(gender,id);
 }
+void Core::updateIndiAll(const string name, const string surname,const char gender,const int byear,const int dyear,const int id)
+{
+    newdata.updateIndiName(name,id);
+    newdata.updateIndiSurname(surname,id);
+    newdata.updateCompBYear(byear,id);
+    newdata.updateIndiDYear(dyear,id);
+    newdata.updateIndiGender(gender,id);
+
+}

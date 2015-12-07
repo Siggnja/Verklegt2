@@ -73,6 +73,7 @@ public:
     void updateIndiBYear(const int year, const int id);
     void updateIndiDYear(const int year, const int id);
     void updateIndiGender(const char gender, const int id);
+    void updateIndiAll(const string name, const string surname,const char gender,const int byear,const int dyear, const int id);
 
     Machines getConnectedComp(int id);
     People getConnectedSci(int id);
