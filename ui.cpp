@@ -43,7 +43,7 @@ void UI::choiceSwitch(char ans)
         case 'S':   sciMenu();
                     break;
         case 'c':
-        case 'C':   //comMenu();
+        case 'C':   comMenu();
                     break;
         case 'l':
         case 'L':   // linking databases
@@ -336,10 +336,10 @@ void UI::sortSciMenu()
 
 void UI::welcomeMessage()
 {
-    cout << "------------ Welcome to the databases of famous computer scientists and of computers -------------" << endl;
+    cout << "--- Welcome to the databases of famous computer scientists and of computers ---" << endl;
     cout << "\t" << "    In these databases you can add, remove, sort and search" << endl;
     cout << "\t \t" << " At this moment we have "<< core.getList().getSize() << " computer scientists" << endl;
-    cout << "\t \t \t" << " and "<< core.getComputers().getSize() << " computers" << endl;
+    cout << "\t \t \t " << "      and "<< core.getComputers().getSize() << " computers" << endl;
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
 }
 
