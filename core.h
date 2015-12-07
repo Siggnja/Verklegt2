@@ -64,9 +64,9 @@ public:
     Machines searchComYear(bool& found, int ansYear, Machines& result1, Machines& result2);
 
     Machines sortCompAlpabetFront();
-    //Machines sortCompAlpabetBack();
-    //Machines sortCompBuildYear();
-    //Machines sortCompType();
+    Machines sortCompAlpabetBack();
+    Machines sortCompBuildYear();
+    Machines sortCompType();
 
     People getList() const;
     Machines getComputers() const;

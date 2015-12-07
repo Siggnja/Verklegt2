@@ -190,6 +190,21 @@ Machines Core::sortCompAlpabetFront()
     return newdata.sortCompAlphaFront();
 }
 
+Machines Core::sortCompAlpabetBack()
+{
+    return newdata.sortCompAlphaBack();
+}
+
+Machines Core::sortCompBuildYear()
+{
+    return newdata.sortCompBYear();
+}
+
+Machines Core::sortCompType()
+{
+    return newdata.sortCompByType();
+}
+
 string Core::makeLower(string& temp)
 {
     for (unsigned int i = 0; i < temp.length(); i++)
