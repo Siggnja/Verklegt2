@@ -238,8 +238,8 @@ People Core::getConnectedSci(int id)
     for(unsigned int i = 0; i < connections.size(); i++)
     {
         int ident = connections[i];
-        Individual tempComp = newdata.getSingleIndi(ident);
-        tempSci.addIndi(tempComp);
+        Individual tempIndi = newdata.getSingleIndi(ident);
+        tempSci.addIndi(tempIndi);
     }
     return tempSci;
 
