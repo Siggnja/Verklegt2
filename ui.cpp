@@ -826,7 +826,7 @@ void UI::printComputers(Machines &comps)
 void UI::printIndiIndent(Individual &id) const
 {
     cout << endl;
-    cout << "/t" << id.getName() << " " << id.getSurname() << "/t";
+    cout << "\t" << id.getName() << " " << id.getSurname() << "\t";
 
     if(id.getGender() == 'f' || id.getGender() == 'F')
     {
@@ -837,7 +837,7 @@ void UI::printIndiIndent(Individual &id) const
         cout << "Male";
     }
 
-    cout << "/t" << id.getBirth() << " - ";
+    cout << "\t" << id.getBirth() << " - ";
 
     if(id.getDeath() == 0)
     {
