@@ -52,16 +52,16 @@ public:
     //functions used to search for individuals in vector with specific traits:
     //void searchName();
     People searchGend(char ansGender);
-    People searchNam(bool& found, string searchStr, People& result);
+    People searchNam(string searchStr);
     People searchGend(bool& found, char ansGender, People& result);
-    People searchBir(bool& found, int ansYear, People& result1, People& result2);
-    People searchDea(bool& found, int ansYear, People& result1, People& result2);
+    People searchBir(bool& found, int ansYear);
+    People searchDea(bool& found, int ansYear);
      //<--
     //sort vector by the specified order:
 
-    Machines searchComName(string searchStr, Machines& result);
-    Machines searchComType(string searchStr, Machines& result);
-    Machines searchComYear(bool& found, int ansYear, Machines& result1, Machines& result2);
+    Machines searchComName(string searchStr);
+    Machines searchComType(string searchStr);
+    Machines searchComYear(bool& found, int ansYear);
 
     Machines sortCompAlpabetFront();
     Machines sortCompAlpabetBack();

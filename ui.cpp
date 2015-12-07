@@ -430,14 +430,13 @@ void UI::welcomeMessage()
 
 void UI::searchComYear()
 {
-    Machines result1, result2;
     bool found = false;
     int ansYear;
     cout << "Enter year of creation: ";
     cin >> ansYear;
     if(!cin.fail())
     {
-        Machines result = core.searchComYear(found, ansYear, result1, result2);
+        Machines result = core.searchComYear(found, ansYear);
         if(found)
         {
             entriesMatched();
@@ -472,7 +471,7 @@ void UI::searchComName()
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
 
-    result = core.searchComName(searchStr, result);
+    result = core.searchComName(searchStr);
 
     if (result.getSize() != 0)
     {
@@ -493,7 +492,7 @@ void UI::searchComType()
     cout << "Enter a type to search for: " ;
     getline(cin, searchStr);
 
-    result = core.searchComType(searchStr, result);
+    result = core.searchComType(searchStr);
 
     if (result.getSize() != 0)
     {
@@ -509,13 +508,12 @@ void UI::searchComType()
 void UI::searchSciName()
 {
     People result;
-    bool found = false;
     string searchStr;
     cin.ignore();
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
 
-    result = core.searchNam(found, searchStr, result);
+    result = core.searchNam(searchStr);
 
     if (result.getSize() != 0) //þá taka út bool found
     {
@@ -558,14 +556,13 @@ void UI::searchGender()
 
 void UI::searchBirth()
 {
-    People result1, result2;
     bool found = false;
     int ansYear;
     cout << "Enter a birth year: ";
     cin >> ansYear;
     if(!cin.fail())
     {
-        People result = core.searchBir(found, ansYear, result1, result2);
+        People result = core.searchBir(found, ansYear);
         if(found)
         {
             entriesMatched();
@@ -594,14 +591,13 @@ void UI::searchBirth()
 
 void UI::searchDeath()
 {
-    People result1, result2;
     bool found = false;
     int ansYear;
     cout << "Enter a death year: ";
     cin >> ansYear;
     if(!cin.fail())
     {
-        People result = core.searchDea(found, ansYear, result1, result2);
+        People result = core.searchDea(found, ansYear);
         if(found)
         {
             entriesMatched();
