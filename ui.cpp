@@ -273,8 +273,7 @@ void UI::sortSciMenu()
     char choice;
     cout << endl;
     cout << "Print by: " << endl;
-    cout << "(U) Unordered" << endl
-         << "(A) Alphabetic order" << endl
+    cout << "(A) Alphabetic order" << endl
          << "(R) Reverse alphabetic order" << endl
          << "(B) Year of Birth" << endl
          << "(D) Year of Death" << endl
@@ -292,6 +291,7 @@ void UI::sortSciMenu()
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
                     {
                     People temp = core.sortSciAlpabetBack();
+                    cout << temp.getSize() << endl;
                     printScientists(temp);
                     }
                     break;
