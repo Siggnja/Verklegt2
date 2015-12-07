@@ -20,10 +20,10 @@ void Core::setComplist(const Machines c1)
     complist = c1;
 }
 
-void Core::createList(const string filename)
+/*void Core::createList(const string filename)
 {
     //list = // data.readData(filename);
-}
+}*/
 
 void Core::addIndividual(const Individual& ind, bool& notfound)
 {
@@ -37,13 +37,12 @@ void Core::addIndividual(const Individual& ind, bool& notfound)
     newdata.addNewIndi(ind);
 }
 
-void Core::removeIndividual(const string str, bool& removed)
+void Core::removeIndividual(const int i, bool& removed)
 {
-    Individual temp;
-    string tempstr;
-    list.removeIndi(str);
+    removed = true;
+    newdata.deleteIndi(i);
 
-    for(int i = 0; i < list.getSize(); i++)
+    /*for(int i = 0; i < list.getSize(); i++)
     {
         tempstr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
         if(tempstr == str)
@@ -52,7 +51,7 @@ void Core::removeIndividual(const string str, bool& removed)
             removed = true;
             break;
         }
-    }
+    }*/
 
     for(int i = 0; i < list.getSize(); i++)
     {

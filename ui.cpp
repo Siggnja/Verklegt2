@@ -907,20 +907,21 @@ void UI::removeCom()
 
 void UI::removeSci()
 {
+    int id;
     string str;
     bool removed = false;
     cin.ignore();
     cout << endl;
-    cout << "Type exactly the name of the individual:" << endl;
-    getline(cin, str);
-    core.removeIndividual(str, removed);
+    cout << "Type the id of the individual:" << endl;
+    cin >> id;
+    core.removeIndividual(id,removed);
     if (removed)
     {
-        cout << str << " has been removed." << endl;
+        cout << "The individual has been removed." << endl;
     }
     else if (!removed)
     {
-        cout << str << " was not found in list and therefore not removed." << endl;
+        cout << "The individual was not found in list and therefore not removed." << endl;
     }
 }
 
