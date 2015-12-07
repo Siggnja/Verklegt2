@@ -25,18 +25,6 @@ void Core::createList(const string filename)
     list = data.readData(filename);
 }
 
-int Core::getSizeOfList() //const
-{
-    return newdata.sortIndiAlphaFront().getSize();
-    //  query.exec("SELECT count(*)"); -- nota þetta til að fá stærð
-}
-
-int Core::getSizeOfComplist() //const
-{
-    return newdata.sortCompAlphaFront().getSize();
-    //  query.exec("SELECT count(*)"); -- nota þetta til að fá stærð
-}
-
 void Core::addIndividual(const Individual& ind, bool& notfound)
 {
     notfound = checkIfIndiIsNew(ind);
@@ -105,84 +93,21 @@ void Core::removeComputer(const string str, bool& removed)
 
 People Core::sortSciAlpabetFront()
 {
-
-/*    for(int i = 1 ; i < list.getSize(); i++)
-    {
-        for(int j = 0; j < list.getSize(); j++)
-        {
-            if(list.checkIndiOrder(list.getIndi(i), list.getIndi(j)))
-            {
-                list.swap(i,j);
-            }
-        }
-    }*/
     return newdata.sortIndiAlphaFront();
 }
 
 People Core::sortSciAlpabetBack()
 {
-/*    for(int i = 1 ; i < list.getSize(); i++)
-    {
-        for(int j = 0; j < list.getSize(); j++)
-        {
-            if(list.checkIndiOrder(list.getIndi(j), list.getIndi(i)))
-            {
-                    list.swap(i,j);
-            }
-        }
-    }*/
     return newdata.sortIndiAlphaBack();
 }
 
 People Core::sortSciByBirthYear()
 {
-/*    for(int i = 1 ; i < list.getSize(); i++)
-    {
-        for(int j = 0; j < list.getSize(); j++)
-        {
-            if(list.checkBirthYearOrder(list.getIndi(j), list.getIndi(i)))
-            {
-               list.swap(i,j);
-            }
-        }
-    }*/
     return newdata.sortIndiBYear();
 }
 
 People Core::sortSciByDeathYear()
 {
-   // People dead, alive;
-    /*    for(int i = 1 ; i < list.getSize(); i++)
-    {
-        for(int j = 0; j < list.getSize(); j++)
-        {
-            if((list.checkDeathYearOrder(list.getIndi(j), list.getIndi(i)) && (list.getIndi(i).getDeath() != 0)))
-            {
-               list.swap(i,j);
-            }
-        }
-    }
-    People origin = newdata.sortIndiByDYear();
-    People dead, alive;
-
-    for(int i = 0; i < origin.getSize(); i++)
-    {
-        if(origin.getIndi(i).getDeath() == 0)
-        {
-           alive.addIndi(origin.getIndi(i));
-        }
-        else
-        {
-            dead.addIndi(origin.getIndi(i));
-        }
-    }
-
-    for(int i = 0; i < alive.getSize(); i++)
-    {
-        dead.addIndi(alive.getIndi(i));
-    }
-
-    return dead;*/
     return newdata.sortIndiByDYear();
 }
 
