@@ -206,13 +206,13 @@ void UI::linkMenu()
         case 'S':   searchLinkMenu();
                     break;
         case 'a':
-        case 'A':
+        case 'A':   //addConnection(); óútfært
                     break;
         case 'p':
-        case 'P':
+        case 'P':   //printConnection(); óútfært
                     break;
         case 'r':
-        case 'R':
+        case 'R':   //removeConnection(); óútfært
                     break;
         case 'm':
         case 'M':   return;
