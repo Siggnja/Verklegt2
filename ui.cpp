@@ -986,7 +986,7 @@ void UI::printComputers(Machines &comps)
 void UI::printIndiIndent(Individual &id) const
 {
     cout << endl;
-    cout << "\t" << id.getName() << " " << id.getSurname() << "\t";
+    cout << "\t" << id.getId() << "\t" << id.getName() << " " << id.getSurname() << "\t";
 
     if(id.getGender() == 'f' || id.getGender() == 'F')
     {
@@ -1014,7 +1014,7 @@ void UI::printIndiIndent(Individual &id) const
 void UI::printCompIndent(Computer &id) const
 {
     cout << endl;
-    cout << "\t" << id.getName() << "\t" << id.getType() << "\t";
+    cout << "\t" << id.getId()<< "\t" << id.getName() << "\t" << id.getType() << "\t";
 
     if(id.getYear() == 0)
     {
@@ -1049,6 +1049,7 @@ void UI::printList(People& list) const
 void UI::printIndi(Individual& temp) const
 {
     cout << endl;
+    cout << "Id: " << temp.getId() << endl;
     cout << "Name: " << temp.getName() << " " << temp.getSurname() << endl;
     cout << "Gender: ";
     if(temp.getGender() == 'f' || temp.getGender() == 'F')
@@ -1090,6 +1091,7 @@ void UI::printComplist(Machines& complist) const
 void UI::printComp(Computer& temp) const
 {
     cout << endl;
+    cout << "Id: " << temp.getId() << endl;
     cout << "Name: " << temp.getName() << endl;
     cout << "Type: " << temp.getType() << endl;
     if (temp.getYear() != 0)
