@@ -248,15 +248,27 @@ void UI::sortComMenu()
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
                     // sort reverse alpha
                     //printComputers();
+                    {
+                    Machines temp = core.sortCompAlpabetBack();
+                    printComputers(temp);
+                    }
                     break;
-        case 'b':
-        case 'B':   cout << endl << "--- Printing by year of Creation --- " << endl;
+        case 'c':
+        case 'C':   cout << endl << "--- Printing by year of Creation --- " << endl;
                     // sort creation year eftir ad utfæra
                     //printComputers();
+                    {
+                    Machines temp = core.sortCompBuildYear();
+                    printComputers(temp);
+                    }
                     break;
         case 't':
         case 'T':   cout << endl << "--- Printing by alphebetical type order ---" << endl;
                     //printComputers();
+                    {
+                    Machines temp = core.sortCompType();
+                    printComputers(temp);
+                    }
                     break;
         case 'm':
         case 'M':   return;
