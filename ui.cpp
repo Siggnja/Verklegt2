@@ -446,8 +446,8 @@ void UI::updateSciMenu()
                 cout << "(B)Year of birth" << endl;
                 cout << "(D)Year of death" << endl;
                 cout << "(G)Gender" << endl;
-                cout << "(E)Everything" << endl;
                 cout << "(M)Return to main menu" << endl;
+                cout << "Select a letter: ";
                 cin >> choice;
                 switch(choice)
                 {
@@ -465,9 +465,6 @@ void UI::updateSciMenu()
                                 break;
                     case 'g':
                     case 'G':   updateIndiGender(id);
-                                break;
-                    case 'e':
-                    case 'E':   updateIndiEverything(id);
                                 break;
                     case 'm':
                     case 'M':
@@ -510,7 +507,7 @@ void UI::updateIndiName(const int id)
     core.updateIndiName(name,id);
     cout << "The scientist is now registered as:" << endl;
     Individual i1 = core.getData().getSingleIndi(id);
-    printIndiIndent(i1);
+    printIndi(i1);
 }
 
 void UI::updateIndiSurname(const int id)
@@ -522,7 +519,7 @@ void UI::updateIndiSurname(const int id)
     core.updateIndiSurname(surname,id);
     cout << "The scientist is now registered as:" << endl;
     Individual i1 = core.getData().getSingleIndi(id);
-    printIndiIndent(i1);
+    printIndi(i1);
 }
 void UI::updateIndiGender(const int id)
 {
@@ -539,7 +536,7 @@ void UI::updateIndiGender(const int id)
     }
     i1=core.getData().getSingleIndi(id);
     cout << "The scientist is now registered as:" << endl;
-    printIndiIndent(i1);
+    printIndi(i1);
 }
 
 void UI::updateIndiBYear(const int id)
@@ -554,7 +551,7 @@ void UI::updateIndiBYear(const int id)
     }
     i1 = core.getData().getSingleIndi(id);
     cout << "The scientist is now registered as:" << endl;
-    printIndiIndent(i1);
+    printIndi(i1);
 }
 
 void UI::updateIndiDYear(const int id)
@@ -569,8 +566,9 @@ void UI::updateIndiDYear(const int id)
     }
     i1 = core.getData().getSingleIndi(id);
     cout << "The scientist is now registered as:" << endl;
-    printIndiIndent(i1);
+    printIndi(i1);
 }
+/*
 void UI::updateIndiEverything(const int id)
 {
     updateIndiName(id);
@@ -580,6 +578,7 @@ void UI::updateIndiEverything(const int id)
     updateIndiDYear(id);
 
 }
+*/
 void UI::welcomeMessage()
 {
     cout << "--- Welcome to the databases of famous computer scientists and of computers ---" << endl;
