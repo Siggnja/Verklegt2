@@ -46,7 +46,13 @@ public:
     void updateIndiGender(const int id);
     void updateIndiBYear(const int id);
     void updateIndiDYear(const int id);
-    void updateIndiEverything(const int id);
+
+    void updateCompMenu();
+    void updateCompName(const int id);
+    void updateCompBYear(const int id);
+    void updateCompType(const int id);
+
+   // void updateIndiEverything(const int id);
 
     void sortComMenu();
     void sortSciMenu();
