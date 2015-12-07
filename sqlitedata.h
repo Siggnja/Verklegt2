@@ -26,8 +26,8 @@ public:
     People sortIndiByDYear();
 
     People searchIndiByName(const string name);
-    People searchIndiByByear(const int year);
-    People searchIndiByDyear(const int year);
+    People searchIndiByByear(const int year, bool& found);
+    People searchIndiByDyear(const int year, bool& found);
     People searchIndiByGender(const char gender);
 
     void updateIndiName(const string name, const int id);
@@ -68,7 +68,7 @@ public:
 private:
     Machines doQueryComp(const string que);
     Machines doQueryCompOrOther(const string que1, const string que2);
-    People doQuerySciOrOther(const string que1, const string qui2);
+    People doQuerySciOrOther(const string que1, const string qui2, bool& found);
     People doQuerySci(const string que);
     void executeQuery(const string query);
     string int_to_string(int i);

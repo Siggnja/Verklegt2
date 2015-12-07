@@ -315,6 +315,7 @@ People Core::searchBir(bool& found, int ansYear, People& result1, People& result
     {
         return result2;
     }*/
+    return newdata.searchIndiByByear(ansYear, found);
 }
 
 People Core::searchDea(bool& found, int ansYear, People& result1, People& result2)
@@ -341,6 +342,7 @@ People Core::searchDea(bool& found, int ansYear, People& result1, People& result
     {
         return result2;
     }*/
+    return newdata.searchIndiByDyear(ansYear, found);
 }
 
 string Core::getSurname(int i) const
