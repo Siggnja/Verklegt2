@@ -47,7 +47,7 @@ public:
     //and have a switch sentence which return the exact string of the type you are looking for
 
     Machines searchCompByName(const string name);
-    Machines searchCompByByear(const int year);
+    Machines searchCompByByear(const int year, bool& found);
     Machines searchCompByType(const string type);
 
     void updateCompName(const string name, const int id);
@@ -67,7 +67,7 @@ public:
     //spurning med thessa nafnagift -- vera samraemi her
 private:
     Machines doQueryComp(const string que);
-    Machines doQueryCompOrOther(const string que1, const string que2);
+    Machines doQueryCompOrOther(const string que1, const string que2, bool& found);
     People doQuerySciOrOther(const string que1, const string qui2, bool& found);
     People doQuerySci(const string que);
     void executeQuery(const string query);

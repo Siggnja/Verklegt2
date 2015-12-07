@@ -269,7 +269,7 @@ Machines Core::searchComType(string searchStr, Machines& result)
 
 Machines Core::searchComYear(bool& found, int ansYear, Machines& result1, Machines& result2)
 {
-    return newdata.searchCompByByear(ansYear);
+    return newdata.searchCompByByear(ansYear, found);
 }
 
 People Core::searchNam(bool& found, string searchStr, People& result)
