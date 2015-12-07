@@ -430,14 +430,19 @@ Computer SQLiteData::getSingleComp(const int i)
     string Query = selectAllComp + " WHERE s.id = " + int_to_string(i) + " AND s.deleted = 0";
     QString Q = QString::fromStdString(Query);
     QSqlQuery queryname(db);
-    queryname.exec(Q);
+    bool found = queryname.exec(Q);
     queryname.next();
-
-    int id  = queryname.value("id").toUInt();
-    string name = queryname.value("name").toString().toStdString();
-    string type = queryname.value("type").toString().toStdString();
-    int byear  = queryname.value("byear").toUInt();
-    Computer temp(id,byear,name,type);
+    Computer temp;
+    if(found)
+    {
+        int id  = queryname.value("id").toUInt();
+        string name = queryname.value("name").toString().toStdString();
+        string type = queryname.value("type").toString().toStdString();
+        int byear  = queryname.value("byear").toUInt();
+        Computer temp2(id,byear,name,type);
+        temp = temp2;
+    }
+    else
 
     db.close();
     return temp;
