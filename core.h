@@ -31,7 +31,7 @@ public:
 
     void addIndividual(const Individual& ind, bool& notfound);
     void addComputer(const Computer& com, bool& notfound);
-    void removeIndividual(const int i, bool& removed);
+    void removeIndividual(const int id, bool& removed);
     void removeComputer(const int id, bool& removed);
 
     string getSurname(int i) const;

@@ -1058,9 +1058,11 @@ void UI::removeCom()
     bool removed = false;
     cin.ignore();
     cout << endl;
-    cout << "Type the id of the computer:";
+
+    cout << "Type the id of the computer: ";
     cin >> id;
     core.removeComputer(id, removed);
+
     if (removed)
     {
         cout << "The computer has been removed." << endl;
@@ -1074,15 +1076,17 @@ void UI::removeCom()
 void UI::removeSci()
 {
     int id;
-    string str;
     bool removed = false;
     cin.ignore();
     cout << endl;
-    cout << "Type the id of the individual:";
+
+    cout << "Type the id of the individual: ";
     cin >> id;
-    core.removeIndividual(id,removed);
+    core.removeIndividual(id, removed);
+
     if (removed)
     {
+        core.removeIndividual(id, removed); //
         cout << "The individual has been removed." << endl;
     }
     else if (!removed)
@@ -1275,6 +1279,7 @@ void UI::printComp(Computer& temp) const
     }
 }
 void UI::searchSciLink()
+
 {   cout<<endl;
     bool found = false;
     int id;
@@ -1291,6 +1296,7 @@ void UI::searchSciLink()
              }
          }
          if(found==true)
+
          {
              Machines mac=core.getConnectedComp(id);
              Individual i1 = core.getData().getSingleIndi(id);
@@ -1341,6 +1347,7 @@ void UI::searchComLink()
     bool found = false;
     int id;
     cout << "Enter computer ID: ";
+
     cin >>id;
     if(!cin.fail())
     {

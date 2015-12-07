@@ -103,7 +103,6 @@ void  SQLiteData::updateIndiGender(const char gender, const int id)
 }
 void  SQLiteData::deleteIndi(const int id)
 {
-
     string Query = updateSci + " " + setDel + " " + findId + int_to_string(id);
     executeQuery(Query);
 }
@@ -477,7 +476,7 @@ Computer SQLiteData::getSingleComp(const int i)
 
 int SQLiteData::getDatabaseSize(const string temp)
 {
-    string que = selectCount + " " + temp;
+    string que = selectCount + " " + temp + " " + findNotDel;
 
     db.open();
     QString Q = QString::fromStdString(que);
