@@ -3,7 +3,6 @@
 
 #include "people.h"
 #include "machines.h"
-#include "dataread.h"
 #include "sqlitedata.h"
 #include <string>
 
@@ -14,7 +13,6 @@ class Core
 private:
     People list;
     Machines complist;
-    //Dataread data;
     SQLiteData newdata;
     void swap(const int i, const int j);
     bool checkIfIndiIsNew(const Individual i1);
@@ -23,7 +21,7 @@ public:
     Core(const People& p1);
     SQLiteData getData() const;
 
-    void createList(const string filename);
+    //void createList(const string filename);
 
     People sortSciAlpabetFront();
     People sortSciAlpabetBack();
@@ -33,7 +31,7 @@ public:
 
     void addIndividual(const Individual& ind, bool& notfound);
     void addComputer(const Computer& com, bool& notfound);
-    void removeIndividual(const string str, bool& removed);
+    void removeIndividual(const int i, bool& removed);
     void removeComputer(const string str, bool& removed);
 
     string getSurname(int i) const;

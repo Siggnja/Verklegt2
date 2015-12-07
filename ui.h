@@ -1,7 +1,6 @@
 #ifndef UI_H
 #define UI_H
 
-//#include "dataread.h"
 #include "core.h"
 #include <iostream>
 using namespace std;
@@ -94,7 +93,6 @@ public:
 
 private:
     Core core;
-    Dataread data;
 };
 
 #endif // UI_H

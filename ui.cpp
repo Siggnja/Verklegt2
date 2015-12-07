@@ -974,7 +974,7 @@ void UI::addIndividual()
     }
     Individual temp(surname, name, gender, birth, death);
     core.addIndividual(temp, notfound);
-    if(!notfound)
+    if(notfound)
     {
         cout << endl;
         cout << "This Individual is already in the database! " << endl;
@@ -1009,7 +1009,7 @@ void UI::addComputer()
 
     Computer temp(year, name, type);
     core.addComputer(temp, notfound);
-    if(!notfound)
+    if(notfound)
     {
         cout << endl;
         cout << "This Computer is already in the database! " << endl;
@@ -1037,20 +1037,21 @@ void UI::removeCom()
 
 void UI::removeSci()
 {
+    int id;
     string str;
     bool removed = false;
     cin.ignore();
     cout << endl;
-    cout << "Type exactly the name of the individual:" << endl;
-    getline(cin, str);
-    core.removeIndividual(str, removed);
+    cout << "Type the id of the individual:" << endl;
+    cin >> id;
+    core.removeIndividual(id,removed);
     if (removed)
     {
-        cout << str << " has been removed." << endl;
+        cout << "The individual has been removed." << endl;
     }
     else if (!removed)
     {
-        cout << str << " was not found in list and therefore not removed." << endl;
+        cout << "The individual was not found in list and therefore not removed." << endl;
     }
 }
 
@@ -1116,7 +1117,7 @@ void UI::printComputers(Machines &comps)
 void UI::printIndiIndent(Individual &id) const
 {
     cout << endl;
-    cout << "\t" << id.getName() << " " << id.getSurname() << "\t";
+    cout << "\t" << id.getId() << "\t" << id.getName() << " " << id.getSurname() << "\t";
 
     if(id.getGender() == 'f' || id.getGender() == 'F')
     {
@@ -1144,7 +1145,7 @@ void UI::printIndiIndent(Individual &id) const
 void UI::printCompIndent(Computer &id) const
 {
     cout << endl;
-    cout << "\t" << id.getName() << "\t" << id.getType() << "\t";
+    cout << "\t" << id.getId()<< "\t" << id.getName() << "\t" << id.getType() << "\t";
 
     if(id.getYear() == 0)
     {
@@ -1179,6 +1180,7 @@ void UI::printList(People& list) const
 void UI::printIndi(Individual& temp) const
 {
     cout << endl;
+    cout << "Id: " << temp.getId() << endl;
     cout << "Name: " << temp.getName() << " " << temp.getSurname() << endl;
     cout << "Gender: ";
     if(temp.getGender() == 'f' || temp.getGender() == 'F')
@@ -1220,6 +1222,7 @@ void UI::printComplist(Machines& complist) const
 void UI::printComp(Computer& temp) const
 {
     cout << endl;
+    cout << "Id: " << temp.getId() << endl;
     cout << "Name: " << temp.getName() << endl;
     cout << "Type: " << temp.getType() << endl;
     if (temp.getYear() != 0)
