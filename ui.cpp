@@ -238,21 +238,21 @@ void UI::sortComMenu()
         case 'a':
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
                     // sort alpha front
-                    printComputers();
+                    //printComputers();
                     break;
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
                     // sort reverse alpha
-                    printComputers();
+                    //printComputers();
                     break;
         case 'b':
         case 'B':   cout << endl << "--- Printing by year of Creation --- " << endl;
                     // sort creation year eftir ad utfæra
-                    printComputers();
+                    //printComputers();
                     break;
         case 't':
         case 'T':   cout << endl << "--- Printing by alphebetical type order ---" << endl;
-                    printComputers();
+                    //printComputers();
                     break;
         case 'm':
         case 'M':   return;
@@ -718,10 +718,17 @@ void UI::printScientists(People& sci)
     cout << endl;
 }
 
-void UI::printComputers()
+void UI::printComputers(Machines &comps)
 {
     cout << endl;
-    for(int i = 0; i < core.getList().getSize(); i++)
+    for(int i = 0; i < comps.getSize(); i++)
+    {
+        Computer temp = comps.getComputer(i);
+        printComp(temp);
+    }
+
+
+/*    for(int i = 0; i < core.getList().getSize(); i++)
     {
         cout << "Name: " << core.getCompname(i) << endl;
         cout << "Type: " << core.getComptype(i) << endl;
@@ -733,7 +740,7 @@ void UI::printComputers()
         {
             cout << "The computer was not built." << endl;
         }
-    }
+    }*/
 }
 
 void UI::printIndiIndent(Individual &id) const

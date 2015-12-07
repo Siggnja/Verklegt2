@@ -55,7 +55,7 @@ public:
     //void printComplist() const;
     void printComplist(Machines& list) const;
 
-    void printComputers();
+    void printComputers(Machines& comps);
     void printScientists(People& sci);
 
     void printSize();
