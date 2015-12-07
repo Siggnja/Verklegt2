@@ -76,7 +76,10 @@ char Individual::getGender() const
 {
     return gender;
 }
-
+int Individual::getId() const
+{
+    return id;
+}
 int Individual::getBirth() const
 {
     return birth;

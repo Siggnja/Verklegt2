@@ -75,6 +75,7 @@ public:
     void setList(const People p1);
     void setComplist(const Machines c1);
 
+    void createConnection(const Individual& i1, const Computer& c1);
     string makeLower(string& temp);
     //converts the string variable temp to all lower letters */
 };

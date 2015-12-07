@@ -398,3 +398,7 @@ bool Core::checkIfIndiIsNew(const Individual i1)
     }
     return check;
 }
+void Core::createConnection(const Individual& i1, const Computer& c1)
+{
+    newdata.createConnection(i1.getId(),c1.getId());
+}

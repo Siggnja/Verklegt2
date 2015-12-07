@@ -14,11 +14,17 @@ using namespace std;
 
 int main()
 {
+    SQLiteData s;
+    /*
+    int i = 1905;
+    char g;
+    string name = "a";
     //SQLiteData s;
     // /*
     //int i = 1905;
     //char g = 'm';
     //string name = "a";
+    */
     /*
     People p1 = s.searchIndiBySurname("");
     for(int i = 0; i < p1.getSize(); i++)
