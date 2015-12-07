@@ -18,6 +18,7 @@ public:
     void comMenu();
     void choiceMenu();
     void choiceSwitch(char ans);
+    void linkMenu();
     //asks what should be done with the list
 
     void menu(char ans, People& list);
