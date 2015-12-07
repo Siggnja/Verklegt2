@@ -162,7 +162,27 @@ People Core::sortSciByDeathYear()
             }
         }
     }*/
-    return newdata.sortIndiByDYear();
+    People origin = newdata.sortIndiByDYear();
+    People dead, alive;
+
+    for(int i = 0; i < origin.getSize(); i++)
+    {
+        if(origin.getIndi(i).getDeath() == 0)
+        {
+           alive.addIndi(origin.getIndi(i));
+        }
+        else
+        {
+            dead.addIndi(origin.getIndi(i));
+        }
+    }
+
+    for(int i = 0; i < alive.getSize(); i++)
+    {
+        dead.addIndi(alive.getIndi(i));
+    }
+
+    return dead;
 }
 
 string Core::makeLower(string& temp)
