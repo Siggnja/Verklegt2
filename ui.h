@@ -20,6 +20,7 @@ public:
     void choiceSwitch(char ans);
     void linkMenu();
     //asks what should be done with the list
+    void searchLinkMenu();
 
     void menu(char ans, People& list);
     //call for changes to the list

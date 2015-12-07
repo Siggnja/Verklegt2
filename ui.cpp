@@ -126,7 +126,7 @@ void UI::comMenu()
         case 'l':
         case 'L':   cout << "The current size of the computer list is: "
                          << core.getSizeOfComplist() << endl;
-                    break;     
+                    break;
         case 'r':
         case 'R':   removeCom();
                     break;
@@ -142,10 +142,48 @@ void UI::comMenu()
     }
     comMenu();
 }
+void UI::searchLinkMenu()
+{
+    cout<<endl;
+    cout << "Do you want to: " << endl;
+    cout << "(S) Search for a scientist and return computers he is connected to?" << endl;
+    cout << "(C) Search for a computer and return scientists he is connected to? " << endl;
+    cout << "(M) Return to menu? " << endl;
+    cout << "(Q) Quit program. " << endl;
+    cout << "Select a letter: ";
+    char ans;
+    cin >>ans;
+    switch(ans)
+    {
+          case 's':
+          case 'S':
+                    break;
+          case 'c':
+          case 'C':
+                    break;
+          case 'r':
+          case 'R':
+                    break;
+          case 'm':
+          case 'M':
+                    return;
+                    break;
+          case 'q':
+          case 'Q':
+                    cout << endl;
+                    exit(1);
+                    break;
+          default:
+                    errorInput();
+                    break;
+
+    }
+}
 
 void UI::linkMenu()
 {   cout<<endl;
     cout << "Do you want to: " << endl;
+    cout << "(S) Search connections?"<<endl;
     cout << "(A) Add a connection? " << endl;
     cout << "(P) Print connections? " << endl;
     cout << "(R) Remove a connection? " << endl;
@@ -156,6 +194,9 @@ void UI::linkMenu()
     cin >> ans;
     switch(ans)
     {
+        case 's':
+        case 'S':   searchLinkMenu();
+                    break;
         case 'a':
         case 'A':
                     break;
@@ -186,8 +227,8 @@ void UI::searchComMenu()
     cout << "(N) Name" << endl
          << "(T) Type" << endl
          << "(C) Year of Creation" << endl
-         << "(M) Return to Menu" << endl
-         << "(Q) Quit program" << endl;
+         << "(Q) Quit program" <<endl
+         << "(M) Return to Menu"<<endl;
     cout << "Select a letter: ";
     cin >> choice;
     switch(choice)
@@ -199,7 +240,7 @@ void UI::searchComMenu()
         case 'T':   searchComType();
                     break;
         case 'c':
-        case 'C':   searchComYear();
+        case 'C':   searchComType();
                     break;
         case 'm':
         case 'M':   return;
