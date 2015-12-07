@@ -14,11 +14,11 @@ using namespace std;
 
 int main()
 {
-    SQLiteData s;
-    ///*
-    int i = 1905;
-    char g = 'm';
-    string name = "a";
+    //SQLiteData s;
+    // /*
+    //int i = 1905;
+    //char g = 'm';
+    //string name = "a";
     /*
     People p1 = s.searchIndiBySurname("");
     for(int i = 0; i < p1.getSize(); i++)
@@ -45,10 +45,10 @@ int main()
 }
 void test()
  {
-    QSqlDatabase db;
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "Vika2";
-    db.setDatabaseName(dbName);
-    db.open();
+    //QSqlDatabase db;
+    //db = QSqlDatabase::addDatabase("QSQLITE");
+    //QString dbName = "Vika2";
+    //db.setDatabaseName(dbName);
+    //db.open();
 }
 
