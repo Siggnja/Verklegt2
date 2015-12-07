@@ -290,8 +290,10 @@ void UI::sortSciMenu()
                     break;
         case 'a':
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
-                    //core.sortAlpabetFront();
-                    //printScientists();
+                    {
+                    People temp = core.sortSciAlpabetBack();
+                    printScientists(temp);
+                    }
                     break;
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
