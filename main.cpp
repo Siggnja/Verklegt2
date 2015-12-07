@@ -15,14 +15,16 @@ using namespace std;
 int main()
 {
     SQLiteData s;
-    ///*
+    /*
     int i = 1905;
     char g;
     string name = "a";
-    cout << "Press name";
-    cin >>g;
-    if(g == 's')
-    system("CLS");
+    //SQLiteData s;
+    // /*
+    //int i = 1905;
+    //char g = 'm';
+    //string name = "a";
+    */
     /*
     People p1 = s.searchIndiBySurname("");
     for(int i = 0; i < p1.getSize(); i++)
@@ -33,6 +35,7 @@ int main()
     }
     */
     //string name = "engine";
+    // s.updateCompType("Electronic",2);
     //cout << p1.getSize();
     /*
     for(int i = 0; i < p1.getSize(); i++)
@@ -42,16 +45,16 @@ int main()
        cout << p1.getComputer(i).getType() << endl;
     }
     */
-   // UI ui("people.txt");
-  //  ui.run();
+    UI ui;
+    ui.run();
 
 }
 void test()
  {
-    QSqlDatabase db;
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "Vika2";
-    db.setDatabaseName(dbName);
-    db.open();
+    //QSqlDatabase db;
+    //db = QSqlDatabase::addDatabase("QSQLITE");
+    //QString dbName = "Vika2";
+    //db.setDatabaseName(dbName);
+    //db.open();
 }
 

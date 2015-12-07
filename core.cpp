@@ -7,7 +7,7 @@ Core::Core()
 
 Core::Core(const People& p1)
 {
-    list =p1;
+    list = p1;
 }
 
 void Core::setList(const People p1)
@@ -70,6 +70,16 @@ void Core::removeIndividual(const string str, bool& removed)
     }
 }
 
+void Core::addComputer(const Computer& com, bool& notfound)
+{
+    /*notfound = checkIfComIsNew(ind);
+    if(notfound)
+    {
+        list.addIndi(ind);
+        data.addToFile(ind);
+    }*/
+}
+
 void Core::removeComputer(const string str, bool& removed)
 {
     Computer temp;
@@ -93,9 +103,10 @@ void Core::removeComputer(const string str, bool& removed)
     }
 }
 
-void Core::sortAlpabetFront()
+People Core::sortSciAlpabetFront()
 {
-    for(int i = 1 ; i < list.getSize(); i++)
+
+/*    for(int i = 1 ; i < list.getSize(); i++)
     {
         for(int j = 0; j < list.getSize(); j++)
         {
@@ -104,12 +115,13 @@ void Core::sortAlpabetFront()
                 list.swap(i,j);
             }
         }
-    }
+    }*/
+    return newdata.sortIndiAlphaFront();
 }
 
-void Core::sortAlpabetBack()
+People Core::sortSciAlpabetBack()
 {
-    for(int i = 1 ; i < list.getSize(); i++)
+/*    for(int i = 1 ; i < list.getSize(); i++)
     {
         for(int j = 0; j < list.getSize(); j++)
         {
@@ -118,12 +130,13 @@ void Core::sortAlpabetBack()
                     list.swap(i,j);
             }
         }
-    }
+    }*/
+    return newdata.sortIndiAlphaBack();
 }
 
-void Core::sortByBirthYear()
+People Core::sortSciByBirthYear()
 {
-    for(int i = 1 ; i < list.getSize(); i++)
+/*    for(int i = 1 ; i < list.getSize(); i++)
     {
         for(int j = 0; j < list.getSize(); j++)
         {
@@ -132,13 +145,14 @@ void Core::sortByBirthYear()
                list.swap(i,j);
             }
         }
-    }
+    }*/
+    return newdata.sortIndiBYear();
 }
 
-void Core::sortByDeathYear()
+People Core::sortSciByDeathYear()
 {
    // People dead, alive;
-    for(int i = 1 ; i < list.getSize(); i++)
+/*    for(int i = 1 ; i < list.getSize(); i++)
     {
         for(int j = 0; j < list.getSize(); j++)
         {
@@ -147,7 +161,48 @@ void Core::sortByDeathYear()
                list.swap(i,j);
             }
         }
+    }*/
+    People origin = newdata.sortIndiByDYear();
+    People dead, alive;
+
+    for(int i = 0; i < origin.getSize(); i++)
+    {
+        if(origin.getIndi(i).getDeath() == 0)
+        {
+           alive.addIndi(origin.getIndi(i));
+        }
+        else
+        {
+            dead.addIndi(origin.getIndi(i));
+        }
     }
+
+    for(int i = 0; i < alive.getSize(); i++)
+    {
+        dead.addIndi(alive.getIndi(i));
+    }
+
+    return dead;
+}
+
+Machines Core::sortCompAlpabetFront()
+{
+    return newdata.sortCompAlphaFront();
+}
+
+Machines Core::sortCompAlpabetBack()
+{
+    return newdata.sortCompAlphaBack();
+}
+
+Machines Core::sortCompBuildYear()
+{
+    return newdata.sortCompBYear();
+}
+
+Machines Core::sortCompType()
+{
+    return newdata.sortCompByType();
 }
 
 string Core::makeLower(string& temp)
@@ -162,10 +217,37 @@ string Core::makeLower(string& temp)
     return temp;
 }
 
+People Core::getList() const
+{
+    return list;
+}
+
+Machines Core::getComputers() const
+{
+    return complist;
+}
+
+Machines Core::searchComName(string searchStr, Machines& result)
+{
+    return result;
+}
+
+Machines Core::searchComType(string searchStr, Machines& result)
+{
+    return result;
+}
+
+Machines Core::searchComYear(bool& found, int ansYear, Machines& result1, Machines& result2)
+{
+    Machines result;
+    return result;
+}
+
 People Core::searchNam(bool& found, string searchStr, People& result)
 {
     string tempStr;
     searchStr = makeLower(searchStr);
+
     for(int i = 0; i < list.getSize(); i++)
     {
         tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
@@ -177,16 +259,6 @@ People Core::searchNam(bool& found, string searchStr, People& result)
         }
     }
     return result;
-}
-
-People Core::getList() const
-{
-    return list;
-}
-
-Machines Core::getComputers() const
-{
-    return complist;
 }
 
 People Core::searchGend(const char ansGender)
@@ -312,4 +384,8 @@ bool Core::checkIfIndiIsNew(const Individual i1)
         }
     }
     return check;
+}
+void Core::createConnection(const Individual& i1, const Computer& c1)
+{
+    newdata.createConnection(i1.getId(),c1.getId());
 }

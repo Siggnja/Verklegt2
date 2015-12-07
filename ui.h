@@ -25,11 +25,11 @@ public:
     void searchComMenu();
     void searchSciMenu();
 
-    void addIndividual();
     //void printIndividual();
     void searchComType();
     void searchComYear();
     void searchComName();
+
     void searchSciName();
     void searchGender();
     void searchBirth();
@@ -43,25 +43,29 @@ public:
     //choose in what order the list shall be printed
     void welcomeMessage();
 
-    // of mörg print föll? erum með printComputers() og printScientists()
-    void printIndi(int i) const;
+    // of mörg print föll, erum með printComputers() og printScientists()
+    //void printIndi(int i) const;
     void printIndi(Individual& id) const;
-
     void printIndiIndent(Individual &id) const;
-
-    void printList() const;
+    void printIndiAndConnect(Individual & temp) const;
+    //void printList() const;
     void printList(People& list) const;
 
-    void printComp(int i) const;
+    //void printComp(int i) const;
     void printComp(Computer& id) const;
-    void printComplist() const;
+
+    void printCompIndent(Computer &id) const;
+
+    //void printComplist() const;
     void printComplist(Machines& list) const;
 
-
-    void printComputers();
-    void printScientists();
+    void printComputers(Machines& comps);
+    void printScientists(People& sci);
 
     void printSize();
+
+    void addIndividual();
+    void addComputer();
 
     void removeSci();
     void removeCom();
@@ -73,7 +77,6 @@ public:
     void noMatch();
     void inDatabase();
     void readingString(string gender);
-    void addComputer();
 
 private:
     Core core;

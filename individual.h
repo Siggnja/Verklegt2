@@ -38,6 +38,7 @@ public:
     char getGender() const;
     int getBirth() const;
     int getDeath() const;
+    int getId() const;
     // These are the get functions, they are used to get the values of the private variables
 
     //int getId() const;

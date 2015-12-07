@@ -204,10 +204,10 @@ release/main.o: ../main.cpp C:/Qt/5.5/mingw492_32/include/QtCore/QCoreApplicatio
 		C:/Qt/5.5/mingw492_32/include/QtCore/qisenum.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../people.h \
-		../individual.h \
 		../ui.h \
 		../core.h \
+		../people.h \
+		../individual.h \
 		../machines.h \
 		../computer.h \
 		../dataread.h \

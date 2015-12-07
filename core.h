@@ -23,14 +23,15 @@ public:
     Core(const People& p1);
     void createList(const string filename);
 
-    void sortAlpabetFront();
+    People sortSciAlpabetFront();
+    People sortSciAlpabetBack();
+    People sortSciByBirthYear();
+    People sortSciByDeathYear();
+    //void sortByGender(People& male, People& female);
 
-    void sortAlpabetBack();
-    void sortByBirthYear();
-    void sortByDeathYear();
-    void sortByGender(People& male, People& female);
     int getSizeOfList()const;
     void addIndividual(const Individual& ind, bool& notfound);
+    void addComputer(const Computer& com, bool& notfound);
     void removeIndividual(const string str, bool& removed);
     void removeComputer(const string str, bool& removed);
 
@@ -52,17 +53,27 @@ public:
     //void searchName();
     People searchGend(char ansGender);
     People searchNam(bool& found, string searchStr, People& result);
-    void searchGend(bool& found, char ansGender, People& result);
+    People searchGend(bool& found, char ansGender, People& result);
     People searchBir(bool& found, int ansYear, People& result1, People& result2);
     People searchDea(bool& found, int ansYear, People& result1, People& result2);
      //<--
     //sort vector by the specified order:
+
+    Machines searchComName(string searchStr, Machines& result);
+    Machines searchComType(string searchStr, Machines& result);
+    Machines searchComYear(bool& found, int ansYear, Machines& result1, Machines& result2);
+
+    Machines sortCompAlpabetFront();
+    Machines sortCompAlpabetBack();
+    Machines sortCompBuildYear();
+    Machines sortCompType();
 
     People getList() const;
     Machines getComputers() const;
     void setList(const People p1);
     void setComplist(const Machines c1);
 
+    void createConnection(const Individual& i1, const Computer& c1);
     string makeLower(string& temp);
     //converts the string variable temp to all lower letters */
 };
