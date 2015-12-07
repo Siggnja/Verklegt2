@@ -206,18 +206,6 @@ Machines Core::sortCompType()
     return newdata.sortCompByType();
 }
 
-/*string Core::makeLower(string& temp)
-{
-    for (unsigned int i = 0; i < temp.length(); i++)
-    {
-        if(isupper(temp[i]))
-        {
-            temp[i] = tolower(temp[i]);
-        }
-    }
-    return temp;
-}*/
-
 Machines Core::getConnectedComp(int id)
 {
     Machines tempMach;
@@ -255,107 +243,38 @@ Machines Core::getComputers() const
     return complist;
 }
 
-Machines Core::searchComName(string searchStr, Machines& result)
+Machines Core::searchComName(string searchStr)
 {
     return newdata.searchCompByName(searchStr);
 }
 
-Machines Core::searchComType(string searchStr, Machines& result)
+Machines Core::searchComType(string searchStr)
 {
     return newdata.searchCompByType(searchStr);
 }
 
-Machines Core::searchComYear(bool& found, int ansYear, Machines& result1, Machines& result2)
+Machines Core::searchComYear(bool& found, int ansYear)
 {
     return newdata.searchCompByByear(ansYear, found);
 }
 
-People Core::searchNam(bool& found, string searchStr, People& result)
+People Core::searchNam(string searchStr)
 {
-    /*string tempStr;
-    searchStr = makeLower(searchStr);
-
-    for(int i = 0; i < list.getSize(); i++)
-    {
-        tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
-        tempStr = makeLower(tempStr);
-        if(tempStr.find(searchStr) != string::npos)
-        {
-            result.addIndi(list.getIndi(i));
-            found = true;
-        }
-    }
-    return result;*/
     return newdata.searchIndiByName(searchStr);
 }
 
 People Core::searchGend(const char ansGender)
 {
-    /*char findGender;
-    People result;
-    for(int i = 0 ; i < 10 ; i++)
-    {
-        findGender = list.getIndi(i).getGender();
-        if (tolower(ansGender) == tolower(findGender))
-        {
-            result.addIndi(list.getIndi(i));
-        }
-    }
-    return result;*/
     return newdata.searchIndiByGender(ansGender);
 }
 
-People Core::searchBir(bool& found, int ansYear, People& result1, People& result2)
+People Core::searchBir(bool& found, int ansYear)
 {
-    /*int findYear;
-    for (int i = 0; i < list.getSize(); i++)
-    {
-        findYear = list.getIndi(i).getBirth();
-        if (ansYear == findYear)
-        {
-            result1.addIndi(list.getIndi(i));
-            found = true;
-        }
-        if (ansYear - 5 <= findYear && ansYear+5 >= findYear)
-        {
-            result2.addIndi(list.getIndi(i));
-        }
-    }
-    if (found)
-    {
-        return result1;
-    }
-    else
-    {
-        return result2;
-    }*/
     return newdata.searchIndiByByear(ansYear, found);
 }
 
-People Core::searchDea(bool& found, int ansYear, People& result1, People& result2)
+People Core::searchDea(bool& found, int ansYear)
 {
-    /*int findYear;
-    for (int i = 0; i < list.getSize(); i++)
-    {
-        findYear = list.getIndi(i).getDeath();
-        if (ansYear == findYear)
-        {
-            result1.addIndi(list.getIndi(i));
-            found = true;
-        }
-        if ((ansYear - 5 <= findYear && ansYear + 5 >= findYear)&&(list.getIndi(i).getDeath() != 0))
-        {
-            result2.addIndi(list.getIndi(i));
-        }
-    }
-    if (found)
-    {
-        return result1;
-    }
-    else
-    {
-        return result2;
-    }*/
     return newdata.searchIndiByDyear(ansYear, found);
 }
 
