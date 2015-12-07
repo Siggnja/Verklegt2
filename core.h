@@ -31,6 +31,7 @@ public:
     //void sortByGender(People& male, People& female);
     int getSizeOfList()const;
     void addIndividual(const Individual& ind, bool& notfound);
+    void addComputer(const Computer& com, bool& notfound);
     void removeIndividual(const string str, bool& removed);
     void removeComputer(const string str, bool& removed);
 

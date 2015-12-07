@@ -17,7 +17,6 @@ Computer::Computer(int yearr, string namee, string typee)
     year = yearr;
     name = namee;
     type = typee;
-
 }
 
 void Computer::setId(int i)
