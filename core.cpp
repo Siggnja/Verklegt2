@@ -224,9 +224,10 @@ Machines Core::getConnectedComp(int id)
     vector<int> connections= newdata.getRelationsToSci(id);
     for(unsigned int i = 0; i < connections.size(); i++)
     {
+        cout << "getting comp" << endl;
         int ident = connections[i];
         Computer tempComp = newdata.getSingleComp(ident);
-        tempMach.addMach(tempComp);
+        cout << "-" << tempComp.getName() << "-" << endl;
     }
     return tempMach;
 }

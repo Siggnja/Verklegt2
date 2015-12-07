@@ -693,8 +693,8 @@ void UI::printScientists(People& sci)
     for(int i = 0; i < sci.getSize(); i++)
     {
         Individual temp = sci.getIndi(i);
-        printIndi(temp);
-        //printIndiAndConnect(temp);
+        //printIndi(temp);
+        printIndiAndConnect(temp);
 
         /*cout << "Name: " << core.getSurname(i) + ", " + core.getName(i) << endl;
         cout << "Gender: ";
@@ -776,7 +776,7 @@ void UI::printIndiIndent(Individual &id) const
 void UI::printCompIndent(Computer &id) const
 {
     cout << endl;
-    cout << "/t" << id.getName() << "/t" << id.getType() << "/t";
+    cout << "\t" << id.getName() << "\t" << id.getType() << "\t";
 
     if(id.getYear() == 0)
     {

@@ -442,7 +442,7 @@ Computer SQLiteData::getSingleComp(const int i)
         Computer temp2(id,byear,name,type);
         temp = temp2;
     }
-    else
+
 
     db.close();
     return temp;
