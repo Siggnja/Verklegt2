@@ -7,7 +7,7 @@ Core::Core()
 
 Core::Core(const People& p1)
 {
-    list =p1;
+    list = p1;
 }
 
 void Core::setList(const People p1)

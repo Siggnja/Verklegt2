@@ -88,7 +88,8 @@ void UI::sciMenu()
         case 'P':   sortSciMenu();
                     break;
         case 'l':
-        case 'L':   cout << "The current size of the scientist list is: " << core.getSizeOfList() << endl;
+        case 'L':   cout << "The current size of the scientist list is: "
+                         << core.getSizeOfList() << endl;
                     break;
         case 'r':
         case 'R':   removeSci();
@@ -103,6 +104,7 @@ void UI::sciMenu()
         default:    errorInput();
                     break;
     }
+    sciMenu();
 }
 
 void UI::comMenu()
@@ -122,7 +124,8 @@ void UI::comMenu()
         case 'P':   sortComMenu();
                     break;
         case 'l':
-        case 'L':   cout << "The current size of the computer list is: " << core.getSizeOfComplist() << endl;
+        case 'L':   cout << "The current size of the computer list is: "
+                         << core.getSizeOfComplist() << endl;
                     break;     
         case 'r':
         case 'R':   removeCom();
@@ -137,6 +140,7 @@ void UI::comMenu()
         default:    errorInput();
                     break;
     }
+    comMenu();
 }
 
 void UI::searchComMenu()
@@ -154,19 +158,20 @@ void UI::searchComMenu()
     switch(choice)
     {
         case 'n':
-        case 'N':   // searchComName();
+        case 'N':   searchComName();
                     break;
         case 't':
-        case 'T':   // searchType();
+        case 'T':   searchComType();
                     break;
         case 'c':
-        case 'C':   // searchCreation();
+        case 'C':   searchComType();
                     break;
         case 'm':
         case 'M':   return;
                     break;
         case 'q':
-        case 'Q':   // quit program
+        case 'Q':   cout << endl;
+                    exit(1);
                     break;
         default:    errorInput();
                     searchComMenu();
@@ -203,7 +208,7 @@ void UI::searchSciMenu()
         case 'D':   searchDeath();
                     break;
         case 'M':
-        case 'm':   return; //this->menu();
+        case 'm':   return;
                     break;
         case 'q':
         case 'Q':   exit(1);
@@ -253,7 +258,8 @@ void UI::sortComMenu()
         case 'M':   return;
                     break;
         case 'q':
-        case 'Q':   exit(1);
+        case 'Q':   cout << endl;
+                    exit(1);
                     break;
         default:    errorInput();
                     sortSciMenu();
