@@ -55,6 +55,7 @@ public:
     void printComp(Computer& id) const;
 
     void printCompIndent(Computer &id) const;
+    void printConnectedComp(Machines& comps) const;
 
     //void printComplist() const;
     void printComplist(Machines& list) const;
