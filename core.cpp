@@ -217,6 +217,19 @@ string Core::makeLower(string& temp)
     return temp;
 }
 
+Machines Core::getConnectedComp(int id)
+{
+    Machines tempMach;
+    vector<int> connections= newdata.getRelationsToSci(id);
+    for(unsigned int i = 0; i < connections.size(); i++)
+    {
+        int ident = connections[i];
+        Computer tempComp = newdata.getSingleComp(ident);
+        tempMach.addMach(tempComp);
+    }
+    return tempMach;
+}
+
 People Core::getList() const
 {
     return list;

@@ -846,12 +846,12 @@ void UI::printIndi(Individual& temp) const
     }
 }
 
-void UI::printIndiAndConnect(Individual & sci) const
+void UI::printIndiAndConnect(Individual & sci)
 {
     printIndi(sci);
-
-    //Machines temp;
-    //printConnectedComp(temp);
+    int id = sci.getId();
+    Machines temp = core.getConnectedComp(id);
+    printConnectedComp(temp);
 }
 
 void UI::printComplist(Machines& complist) const
