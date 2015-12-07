@@ -20,10 +20,6 @@ void Core::setComplist(const Machines c1)
     complist = c1;
 }
 
-/*void Core::createList(const string filename)
-{
-    //list = // data.readData(filename);
-}*/
 
 void Core::addIndividual(const Individual& ind, bool& notfound)
 {
@@ -71,12 +67,13 @@ void Core::addComputer(const Computer& com, bool& notfound)
     newdata.addNewComp(com,notfound);
 }
 
-void Core::removeComputer(const string str, bool& removed)
+void Core::removeComputer(const int id, bool& removed)
 {
     Computer temp;
     string tempstr;
-    complist.removeComputer(str);
-
+    newdata.deleteComp(id);
+    removed = true;
+    /*
     for(int i = 0; i < complist.getSize(); i++)
     {
         tempstr = complist.getComputer(i).getName();
@@ -91,7 +88,7 @@ void Core::removeComputer(const string str, bool& removed)
     for(int i = 0; i < complist.getSize(); i++)
     {
         //data.removeFromFile(complist, temp);
-    }
+    }*/
 }
 
 People Core::sortSciAlpabetFront()
