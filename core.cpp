@@ -185,6 +185,11 @@ People Core::sortSciByDeathYear()
     return dead;
 }
 
+Machines Core::sortCompAlpabetFront()
+{
+    return newdata.sortCompAlphaFront();
+}
+
 string Core::makeLower(string& temp)
 {
     for (unsigned int i = 0; i < temp.length(); i++)

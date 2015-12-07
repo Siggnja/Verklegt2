@@ -239,6 +239,10 @@ void UI::sortComMenu()
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
                     // sort alpha front
                     //printComputers();
+                    {
+                    Machines temp = core.sortCompAlpabetFront();
+                    printComputers(temp);
+                    }
                     break;
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;

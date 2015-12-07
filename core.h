@@ -63,7 +63,7 @@ public:
     Machines searchComType(string searchStr, Machines& result);
     Machines searchComYear(bool& found, int ansYear, Machines& result1, Machines& result2);
 
-    //Machines sortCompAlpabetFront();
+    Machines sortCompAlpabetFront();
     //Machines sortCompAlpabetBack();
     //Machines sortCompBuildYear();
     //Machines sortCompType();
