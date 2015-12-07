@@ -29,6 +29,7 @@ int main()
     }
     */
     //string name = "engine";
+    // s.updateCompType("Electronic",2);
     //cout << p1.getSize();
     /*
     for(int i = 0; i < p1.getSize(); i++)

@@ -93,9 +93,10 @@ void Core::removeComputer(const string str, bool& removed)
     }
 }
 
-void Core::sortAlpabetFront()
+People Core::sortSciAlpabetFront()
 {
-    for(int i = 1 ; i < list.getSize(); i++)
+
+/*    for(int i = 1 ; i < list.getSize(); i++)
     {
         for(int j = 0; j < list.getSize(); j++)
         {
@@ -104,12 +105,13 @@ void Core::sortAlpabetFront()
                 list.swap(i,j);
             }
         }
-    }
+    }*/
+    return newdata.sortIndiAlphaFront();
 }
 
-void Core::sortAlpabetBack()
+People Core::sortSciAlpabetBack()
 {
-    for(int i = 1 ; i < list.getSize(); i++)
+/*    for(int i = 1 ; i < list.getSize(); i++)
     {
         for(int j = 0; j < list.getSize(); j++)
         {
@@ -118,7 +120,8 @@ void Core::sortAlpabetBack()
                     list.swap(i,j);
             }
         }
-    }
+    }*/
+    return newdata.sortIndiAlphaBack();
 }
 
 void Core::sortByBirthYear()
@@ -164,8 +167,6 @@ string Core::makeLower(string& temp)
 
 People Core::searchNam(bool& found, string searchStr, People& result)
 {
-    result = newdata.searchIndiByName(searchStr);
-    /*
     string tempStr;
     searchStr = makeLower(searchStr);
 
@@ -178,7 +179,7 @@ People Core::searchNam(bool& found, string searchStr, People& result)
             result.addIndi(list.getIndi(i));
             found = true;
         }
-    }*/
+    }
     return result;
 }
 

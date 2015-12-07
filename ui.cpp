@@ -284,12 +284,12 @@ void UI::sortSciMenu()
                     break;
         case 'a':
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
-                    core.sortAlpabetFront();
+                    //core.sortAlpabetFront();
                     printScientists();
                     break;
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
-                    core.sortAlpabetBack();
+                    //core.sortAlpabetBack();
                     printScientists();
                     break;
         case 'b':
@@ -457,7 +457,7 @@ void UI::searchGender()
     }
 }
 
-void UI::searchBirth()
+void UI::searchBirth() // ......................
 {
     People result1, result2;
     bool found = false;
@@ -493,7 +493,7 @@ void UI::searchBirth()
     }
 }
 
-void UI::searchDeath()
+void UI::searchDeath() // ......................
 {
     People result1, result2;
     bool found = false;
