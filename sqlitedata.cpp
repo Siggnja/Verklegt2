@@ -192,11 +192,11 @@ Machines SQLiteData::searchCompByName(const string name)
     return p1;
 }
 
-Machines SQLiteData::searchCompByByear(const int year)
+Machines SQLiteData::searchCompByByear(const int year, bool& found)
 {
     string Query1 = selectAllComp + " " + searchbYear + int_to_string(year);
     string Query2 = selectAllComp + " " + searchbYearFrom + int_to_string(year-6) + " " + searchbYearTo + int_to_string(year+6);
-    Machines p1 = doQueryCompOrOther(Query1, Query2);
+    Machines p1 = doQueryCompOrOther(Query1, Query2, found);
     return p1;
 }
 
@@ -329,7 +329,7 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2, bool&
     return p1;
 }
 
-Machines SQLiteData::doQueryCompOrOther(const string que1, const string que2)
+Machines SQLiteData::doQueryCompOrOther(const string que1, const string que2, bool& found)
 {
     //QSqlDatabase db;
     //db = QSqlDatabase::Database("QSQLITE");
@@ -349,7 +349,11 @@ Machines SQLiteData::doQueryCompOrOther(const string que1, const string que2)
         Computer c1(id,byear,name,type);
         p1.addMach(c1);
     }
-    if(p1.getSize()==0)
+    if(p1.getSize() != 0)
+    {
+        found = true;
+    }
+    if(p1.getSize() == 0)
     {
         Q =  QString::fromStdString(que2);
         queryname.exec(Q);
