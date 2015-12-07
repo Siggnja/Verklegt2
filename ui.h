@@ -29,6 +29,7 @@ public:
     void searchComType();
     void searchComYear();
     void searchComName();
+
     void searchSciName();
     void searchGender();
     void searchBirth();
