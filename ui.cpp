@@ -40,7 +40,7 @@ void UI::choiceSwitch(char ans)
     switch(ans)
     {
         case 's':
-        case 'S':   //sciMenu();
+        case 'S':   sciMenu();
                     break;
         case 'c':
         case 'C':   //comMenu();
