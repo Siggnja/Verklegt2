@@ -457,3 +457,25 @@ void Core::deleteConnectionWithComp(const Computer& c1,bool& found)
     newdata.deleteConnectionWithIndi(c1.getId());
     }
 }
+void Core::updateIndiName(const string name, const int id)
+{
+    newdata.updateIndiName(name,id);
+
+}
+
+void Core::updateIndiSurname(const string name, const int id)
+{
+    newdata.updateIndiSurname(name,id);
+}
+void Core::updateIndiBYear(const int year, const int id)
+{
+    newdata.updateCompBYear(year,id);
+}
+void Core::updateIndiDYear(const int year, const int id)
+{
+    newdata.updateIndiDYear(year,id);
+}
+void Core::updateIndiGender(const char gender, const int id)
+{
+    newdata.updateIndiGender(gender,id);
+}

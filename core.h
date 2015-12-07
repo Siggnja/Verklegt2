@@ -68,6 +68,12 @@ public:
     Machines sortCompBuildYear();
     Machines sortCompType();
 
+    void updateIndiName(const string name, const int id);
+    void updateIndiSurname(const string name, const int id);
+    void updateIndiBYear(const int year, const int id);
+    void updateIndiDYear(const int year, const int id);
+    void updateIndiGender(const char gender, const int id);
+
     Machines getConnectedComp(int id);
     People getConnectedSci(int id);
 
