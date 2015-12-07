@@ -14,6 +14,9 @@ int main()
     //Computer i1(1994,"Siggi","monsi");
    // s.addNewComp(i1);
     //SQLiteData s;
+    //People p1 = s.searchIndiByName("Alan Turing");
+  // cout << p1.getSize();
+    //cout << p1.getIndi(0).getName();
     //cout << s.getSingleComp(1).getName() << "<<<-----" << endl;
     //SQLiteData s;
     //Computer i1(1994,"Siggi","monsi");

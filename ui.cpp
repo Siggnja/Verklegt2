@@ -284,7 +284,7 @@ void UI::searchComMenu()
         case 'T':   searchComType();
                     break;
         case 'c':
-        case 'C':   searchComType();
+        case 'C':   searchComYear();
                     break;
         case 'm':
         case 'M':   return;
