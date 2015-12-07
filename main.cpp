@@ -14,10 +14,15 @@ using namespace std;
 
 int main()
 {
+<<<<<<< HEAD
+    SQLiteData s;
+    cout << s.getSingleComp(1).getName() << "<<<-----" << endl;
+=======
     //SQLiteData s;
     //Computer i1(1994,"Siggi","monsi");
    // s.addNewComp(i1);
     //SQLiteData s;
+>>>>>>> f28a173c035faf5932e5d1ba21a9996b4f2fd997
     //Core c1;
     /*
 
