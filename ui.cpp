@@ -1143,7 +1143,6 @@ void UI::printComputersConnection(Machines &comps)
 
 void UI::printIndiIndent(Individual &id) const
 {
-    cout << endl;
     cout << "\t" << id.getId() << "\t" << id.getName() << " " << id.getSurname() << "\t";
 
     if(id.getGender() == 'f' || id.getGender() == 'F')
@@ -1171,7 +1170,6 @@ void UI::printIndiIndent(Individual &id) const
 
 void UI::printCompIndent(Computer &id) const
 {
-    cout << endl;
     cout << "\t" << id.getId()<< "\t" << id.getName() << "\t" << id.getType() << "\t";
 
     if(id.getYear() == 0)
