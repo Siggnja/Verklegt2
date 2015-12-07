@@ -10,7 +10,7 @@ class UI
 {
 public:
     UI();
-    UI(const string filename);
+    //UI(const string filename);
     void run();
     void ask();
     void menu();
@@ -47,7 +47,6 @@ public:
     //choose in what order the list shall be printed
     void welcomeMessage();
 
-    // of mörg print föll, erum með printComputers() og printScientists()
     //void printIndi(int i) const;
     void printIndi(Individual& id) const;
     void printIndiIndent(Individual &id) const;
@@ -66,8 +65,6 @@ public:
 
     void printComputers(Machines& comps);
     void printScientists(People& sci);
-
-    void printSize();
 
     void addIndividual();
     void addComputer();

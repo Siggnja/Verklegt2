@@ -65,6 +65,8 @@ public:
     //kollum a thessi foll thegar thad er verid a delete-a annadhvort tolvu eda indi
     // tha removar hann einnig oll tengst vid annahvort tolvuna eda scientistinn
     //spurning med thessa nafnagift -- vera samraemi her
+
+    int getDatabaseSize(const string temp);
 private:
     Machines doQueryComp(const string que);
     Machines doQueryCompOrOther(const string que1, const string que2, bool& found);

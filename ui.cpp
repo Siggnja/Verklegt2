@@ -8,10 +8,10 @@ UI::UI()
 
 }
 
-UI::UI(const string filename)
+/*UI::UI(const string filename)
 {
     core.createList(filename);
-}
+}*/
 
 void UI::run()
 {
@@ -90,7 +90,7 @@ void UI::sciMenu()
                     break;
         case 'l':
         case 'L':   cout << "The current size of the scientist list is: "
-                         << core.getSizeOfList() << endl;
+                         << core.getPeopleSizeInNewdata() << endl;
                     break;
         case 'c':
         case 'C':   //eitthvad Breytifall()
@@ -129,7 +129,7 @@ void UI::comMenu()
                     break;
         case 'l':
         case 'L':   cout << "The current size of the computer list is: "
-                         << core.getSizeOfComplist() << endl;
+                         << core.getMachineSizeInNewdata() << endl;
                     break;
         case 'r':
         case 'R':   removeCom();
@@ -423,21 +423,20 @@ void UI::welcomeMessage()
 {
     cout << "--- Welcome to the databases of famous computer scientists and of computers ---" << endl;
     cout << "\t" << "    In these databases you can add, remove, sort and search" << endl;
-    cout << "\t \t" << " At this moment we have "<< core.getSizeOfList() << " computer scientists" << endl;
-    cout << "\t \t \t " << "      and "<< core.getSizeOfComplist() << " computers" << endl;
+    cout << "\t \t" << " At this moment we have "<< core.getPeopleSizeInNewdata() << " computer scientists" << endl;
+    cout << "\t \t \t " << "      and "<< core.getMachineSizeInNewdata() << " computers" << endl;
     cout << "------------------------------------Enjoy!------------------------------------" << endl;
 }
 
 void UI::searchComYear()
 {
-    Machines result1, result2;
     bool found = false;
     int ansYear;
     cout << "Enter year of creation: ";
     cin >> ansYear;
     if(!cin.fail())
     {
-        Machines result = core.searchComYear(found, ansYear, result1, result2);
+        Machines result = core.searchComYear(found, ansYear);
         if(found)
         {
             entriesMatched();
@@ -472,7 +471,7 @@ void UI::searchComName()
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
 
-    result = core.searchComName(searchStr, result);
+    result = core.searchComName(searchStr);
 
     if (result.getSize() != 0)
     {
@@ -493,7 +492,7 @@ void UI::searchComType()
     cout << "Enter a type to search for: " ;
     getline(cin, searchStr);
 
-    result = core.searchComType(searchStr, result);
+    result = core.searchComType(searchStr);
 
     if (result.getSize() != 0)
     {
@@ -509,13 +508,12 @@ void UI::searchComType()
 void UI::searchSciName()
 {
     People result;
-    bool found = false;
     string searchStr;
     cin.ignore();
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
 
-    result = core.searchNam(found, searchStr, result);
+    result = core.searchNam(searchStr);
 
     if (result.getSize() != 0) //þá taka út bool found
     {
@@ -558,14 +556,13 @@ void UI::searchGender()
 
 void UI::searchBirth()
 {
-    People result1, result2;
     bool found = false;
     int ansYear;
     cout << "Enter a birth year: ";
     cin >> ansYear;
     if(!cin.fail())
     {
-        People result = core.searchBir(found, ansYear, result1, result2);
+        People result = core.searchBir(found, ansYear);
         if(found)
         {
             entriesMatched();
@@ -594,14 +591,13 @@ void UI::searchBirth()
 
 void UI::searchDeath()
 {
-    People result1, result2;
     bool found = false;
     int ansYear;
     cout << "Enter a death year: ";
     cin >> ansYear;
     if(!cin.fail())
     {
-        People result = core.searchDea(found, ansYear, result1, result2);
+        People result = core.searchDea(found, ansYear);
         if(found)
         {
             entriesMatched();
@@ -973,27 +969,23 @@ void UI::searchComLink()
 {
     bool found=false;
     int id;
-    cout << "Enter computer ID: " ;
+    cout << "Enter computer ID: ";
     cin >>id;
     People p = core.getConnectedSci(id);
-    if(p.getSize()!=0)
+    if(p.getSize() != 0)
     {
-        found = true ;
+        found = true;
     }
-    if(found==true)
+    if(found == true)
     {
-         cout<<"The following scientists are connected to computer "<<id<<":"<<endl;
+         cout << "The following scientists are connected to computer " << id << ": " << endl;
          printList(p);
     }
     else
     {
-         cout<<"No scientists connected to this computer"<<endl;
+         cout << "No scientists connected to this computer" << endl;
     }
 
-}
-void UI::printSize()
-{
-    cout << core.getSizeOfList();
 }
 
 void UI::errorFile()
