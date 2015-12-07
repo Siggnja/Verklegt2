@@ -171,6 +171,7 @@ People Core::searchNam(bool& found, string searchStr, People& result)
 {
     string tempStr;
     searchStr = makeLower(searchStr);
+
     for(int i = 0; i < list.getSize(); i++)
     {
         tempStr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
