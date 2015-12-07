@@ -4,8 +4,6 @@
 #include <QtSql>
 #include "people.h"
 #include "machines.h"
-//#include "individual.h"
-//#include "computer.h"
 #include <iostream>
 #include "globalconstants.h"
 using namespace std;
