@@ -237,8 +237,6 @@ void UI::sortComMenu()
     {
         case 'a':
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
-                    // sort alpha front
-                    //printComputers();
                     {
                     Machines temp = core.sortCompAlpabetFront();
                     printComputers(temp);
@@ -246,8 +244,6 @@ void UI::sortComMenu()
                     break;
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
-                    // sort reverse alpha
-                    //printComputers();
                     {
                     Machines temp = core.sortCompAlpabetBack();
                     printComputers(temp);
@@ -255,8 +251,6 @@ void UI::sortComMenu()
                     break;
         case 'c':
         case 'C':   cout << endl << "--- Printing by year of Creation --- " << endl;
-                    // sort creation year eftir ad utfæra
-                    //printComputers();
                     {
                     Machines temp = core.sortCompBuildYear();
                     printComputers(temp);
@@ -264,7 +258,6 @@ void UI::sortComMenu()
                     break;
         case 't':
         case 'T':   cout << endl << "--- Printing by alphebetical type order ---" << endl;
-                    //printComputers();
                     {
                     Machines temp = core.sortCompType();
                     printComputers(temp);
@@ -300,9 +293,6 @@ void UI::sortSciMenu()
 
     switch(choice)
     {
-        case 'u':
-        case 'U':   //printScientists();
-                    break;
         case 'a':
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
                     {
@@ -312,8 +302,7 @@ void UI::sortSciMenu()
                     break;
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
-                    //core.sortAlpabetBack();
-                    //printScientists();
+
                     {
                     People temp = core.sortSciAlpabetBack();
                     printScientists(temp);
@@ -321,8 +310,6 @@ void UI::sortSciMenu()
                     break;
         case 'b':
         case 'B':   cout << endl << "--- Printing by year of Birth --- " << endl;
-                    //core.sortByBirthYear();
-                    //printScientists();
                     {
                     People temp = core.sortSciByBirthYear();
                     printScientists(temp);
@@ -330,8 +317,6 @@ void UI::sortSciMenu()
                     break;
         case 'd':
         case 'D':   cout << endl << "--- Printing by year of Death --- " << endl;
-                    //core.sortByDeathYear();
-                    //printScientists();
                     {
                     People temp = core.sortSciByDeathYear();
                     printScientists(temp);
