@@ -787,6 +787,23 @@ void UI::printIndiIndent(Individual &id) const
 
 }
 
+void UI::printCompIndent(Computer &id) const
+{
+    cout << endl;
+    cout << "/t" << id.getName() << "/t" << id.getType() << "/t";
+
+    if(id.getYear() == 0)
+    {
+        cout << "Unbuilt";
+    }
+    else
+    {
+        cout << id.getYear();
+    }
+    cout << endl;
+
+}
+
 void UI::printList(People& list) const
 {
     for (int i = 0; i < list.getSize(); i++)
@@ -818,6 +835,11 @@ void UI::printIndi(Individual& temp) const
     {
         cout << temp.getDeath() << endl;
     }
+}
+
+void UI::printIndiAndConnect(Individual & temp) const
+{
+
 }
 
 void UI::printComplist(Machines& complist) const

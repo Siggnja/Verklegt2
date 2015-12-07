@@ -47,11 +47,15 @@ public:
     //void printIndi(int i) const;
     void printIndi(Individual& id) const;
     void printIndiIndent(Individual &id) const;
+    void printIndiAndConnect(Individual & temp) const;
     //void printList() const;
     void printList(People& list) const;
 
     //void printComp(int i) const;
     void printComp(Computer& id) const;
+
+    void printCompIndent(Computer &id) const;
+
     //void printComplist() const;
     void printComplist(Machines& list) const;
 
