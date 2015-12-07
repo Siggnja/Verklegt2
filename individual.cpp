@@ -89,4 +89,3 @@ int Individual::getDeath() const
 {
     return death;
 }
-

@@ -103,7 +103,6 @@ void  SQLiteData::updateIndiGender(const char gender, const int id)
 }
 void  SQLiteData::deleteIndi(const int id)
 {
-
     string Query = updateSci + " " + setDel + " " + findId + int_to_string(id);
     executeQuery(Query);
 }

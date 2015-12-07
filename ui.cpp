@@ -889,14 +889,28 @@ void UI::addComputer()
 void UI::removeCom()
 {
     int id;
+    string str; //type name, leitar að tölvu með þetta id og sendir inn
     bool removed = false;
     cin.ignore();
     cout << endl;
-    cout << "Type the id of the computer:";
-    cin >> id;
-    core.removeComputer(id, removed);
+
+    cout << "Type the exact name of the computer: ";
+    cin >> str;
+    for(int i = 0; i < core.getComputers().getSize(); i++)
+    {
+        if(core.getComputers().getComputer(i).getName() == str)
+        {
+            id = core.getComputers().getComputer(i).getId();
+            removed = true;
+            break;
+        }
+    }
+    //cout << "Type the id of the computer: ";
+    //cin >> id;
+    //core.removeComputer(id, removed);
     if (removed)
     {
+        core.removeComputer(id, removed);
         cout << "The computer has been removed." << endl;
     }
     else if (!removed)
@@ -908,13 +922,16 @@ void UI::removeCom()
 void UI::removeSci()
 {
     int id;
+
     string str;
+    //type name, leitar að gaur með þetta id og sendir inn
+
     bool removed = false;
     cin.ignore();
     cout << endl;
-    cout << "Type the id of the individual:";
+    cout << "Type the id of the individual: ";
     cin >> id;
-    core.removeIndividual(id,removed);
+    core.removeIndividual(id, removed);
     if (removed)
     {
         cout << "The individual has been removed." << endl;

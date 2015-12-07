@@ -33,28 +33,6 @@ void Core::addIndividual(const Individual& ind, bool& notfound)
     newdata.addNewIndi(ind);
 }
 
-void Core::removeIndividual(const int i, bool& removed)
-{
-    removed = true;
-    newdata.deleteIndi(i);
-
-    /*for(int i = 0; i < list.getSize(); i++)
-    {
-        tempstr = list.getIndi(i).getName() + " " + list.getIndi(i).getSurname();
-        if(tempstr == str)
-        {
-            temp = list.getIndi(i);
-            removed = true;
-            break;
-        }
-    }*/
-
-    for(int i = 0; i < list.getSize(); i++)
-    {
-       // data.removeFromFile(list, temp);
-    }
-}
-
 void Core::addComputer(const Computer& com, bool& notfound)
 {
     /*notfound = checkIfComIsNew(ind);
@@ -67,28 +45,32 @@ void Core::addComputer(const Computer& com, bool& notfound)
     newdata.addNewComp(com);
 }
 
-void Core::removeComputer(const int id, bool& removed)
+void Core::removeIndividual(const int id, bool& removed)
 {
-    Computer temp;
-    string tempstr;
-    newdata.deleteComp(id);
-    removed = true;
-    /*
-    for(int i = 0; i < complist.getSize(); i++)
+    newdata.deleteIndi(id);
+
+    for(int j = 0; j < list.getSize(); j++)
     {
-        tempstr = complist.getComputer(i).getName();
-        if(tempstr == str)
+        if(list.getIndi(j).getId() == id)
         {
-            temp = complist.getComputer(i);
             removed = true;
-            break;
+            return;
         }
     }
+}
 
-    for(int i = 0; i < complist.getSize(); i++)
+void Core::removeComputer(const int id, bool& removed)
+{
+    newdata.deleteComp(id);
+
+    for(int j = 0; j < complist.getSize(); j++)
     {
-        //data.removeFromFile(complist, temp);
-    }*/
+        if(complist.getComputer(j).getId() == id)
+        {
+            removed = true;
+            return;
+        }
+    }
 }
 
 People Core::sortSciAlpabetFront()
