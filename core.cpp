@@ -30,7 +30,7 @@ void Core::addIndividual(const Individual& ind, bool& notfound)
         // data.addToFile(ind);
     }*/
 
-    newdata.addNewIndi(ind);
+    newdata.addNewIndi(ind,notfound);
 }
 
 void Core::removeIndividual(const int i, bool& removed)
@@ -64,7 +64,7 @@ void Core::addComputer(const Computer& com, bool& notfound)
         data.addToFile(ind);
     }*/
 
-    newdata.addNewComp(com);
+    newdata.addNewComp(com,notfound);
 }
 
 void Core::removeComputer(const int id, bool& removed)
