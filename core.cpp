@@ -70,6 +70,16 @@ void Core::removeIndividual(const string str, bool& removed)
     }
 }
 
+void Core::addComputer(const Computer& com, bool& notfound)
+{
+    /*notfound = checkIfComIsNew(ind);
+    if(notfound)
+    {
+        list.addIndi(ind);
+        data.addToFile(ind);
+    }*/
+}
+
 void Core::removeComputer(const string str, bool& removed)
 {
     Computer temp;

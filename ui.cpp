@@ -578,7 +578,7 @@ void UI::addIndividual()
             }
             if(birth > death)
             {
-                cout << "Illegal deathyear! Input again: " << endl << endl;   //errorInput(); ?
+                cout << "Illegal deathyear! Input again: " << endl << endl;
             }
         } while(cin.fail() || birth > death);
     }
@@ -586,8 +586,8 @@ void UI::addIndividual()
     {
         death = 0;
     }
-    Individual temp(surname, name, gender, birth, death); //fer inn i add
-    core.addIndividual(temp,notfound);
+    Individual temp(surname, name, gender, birth, death);
+    core.addIndividual(temp, notfound);
     if(!notfound)
     {
         cout << endl;
@@ -600,6 +600,7 @@ void UI::addComputer()
     string name, type;
     int year;
     char ans;
+    bool notfound = false;
     cin.ignore();
     cout << endl;
     cout << "Name: ";
@@ -618,6 +619,14 @@ void UI::addComputer()
     else
     {
         year = 0;
+    }
+
+    Computer temp(year, name, type);
+    core.addComputer(temp, notfound);
+    if(!notfound)
+    {
+        cout << endl;
+        cout << "This Computer is already in the database! " << endl;
     }
 }
 
