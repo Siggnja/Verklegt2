@@ -109,14 +109,58 @@ void  SQLiteData::deleteIndi(const int id)
 }
 void SQLiteData::addNewIndi(const Individual i1)
 {
-    string Query = createNewSci + i1.getSurname() + "','" + i1.getName() + "','" + i1.getGender() + "'," + int_to_string(i1.getBirth()) + "," + int_to_string(i1.getDeath()) + ")";
-    executeQuery(Query);
+    string Query1 = createNewSci + i1.getSurname() + "','" + i1.getName() + "','" + i1.getGender() + "'," + int_to_string(i1.getBirth()) + "," + int_to_string(i1.getDeath()) + ")";
+    string Query2 = selectAllDelSci;
+    People p1 = doQuerySci(Query2);
+    bool found = false;
+    int count = 0;
+    for(int i = 0; i<p1.getSize();i++)
+    {
+        if(i1==p1.getIndi(i))
+        {
+            found = true;
+            count = i;
+            break;
+        }
+
+    }
+    if(found)
+    {
+        string Query3 = updateSci + " " + setDel0 + " " + findId + int_to_string(p1.getIndi(count).getId());
+        executeQuery(Query3);
+    }
+    else
+    {
+        executeQuery(Query1);
+    }
 
 }
 void SQLiteData::addNewComp(const Computer c1)
 {
-    string Query = createNewComp + c1.getName() + "'," + int_to_string(c1.getYear()) + ",'" + c1.getType() + "')";
-    executeQuery(Query);
+    string Query1 = createNewComp + c1.getName() + "'," + int_to_string(c1.getYear()) + ",'" + c1.getType() + "')";
+    string Query2 = selectAllDelComp;
+    Machines p1 = doQueryComp(Query2);
+    bool found = false;
+    int count = 0;
+    for(int i = 0; i<p1.getSize();i++)
+    {
+        if(c1==p1.getComputer(i))
+        {
+            found = true;
+            count = i;
+            break;
+        }
+
+    }
+    if(found)
+    {
+        string Query3 = updateComp + " " + setDel0 + " " + findId + int_to_string(p1.getComputer(count).getId());
+        executeQuery(Query3);
+    }
+    else
+    {
+        executeQuery(Query1);
+    }
 
 }
 

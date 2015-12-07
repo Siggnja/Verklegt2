@@ -12,6 +12,7 @@ public:
     Computer();
     Computer(int idd, int yearr, string namee, string typee);
     Computer(int yearr, string namee, string typee);
+    friend bool operator == (const Computer& c1,const Computer& c2);
 
     void setId(int i);
     void setYear(int i);

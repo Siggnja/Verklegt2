@@ -15,8 +15,11 @@ using namespace std;
 int main()
 {
     SQLiteData s;
+    Computer i1(1994,"Siggi","monsi");
+    s.addNewComp(i1);
     //Core c1;
     /*
+
     int i = 1905;
     char g;
     string name = "a";
@@ -46,8 +49,8 @@ int main()
        cout << p1.getComputer(i).getType() << endl;
     }
     */
-    UI ui;
-    ui.run();
+    //UI ui;
+    //ui.run();
 
 }
 void test()
