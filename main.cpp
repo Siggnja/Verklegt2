@@ -17,8 +17,12 @@ int main()
     SQLiteData s;
     ///*
     int i = 1905;
-    char g = 'm';
+    char g;
     string name = "a";
+    cout << "Press name";
+    cin >>g;
+    if(g == 's')
+    system("CLS");
     /*
     People p1 = s.searchIndiBySurname("");
     for(int i = 0; i < p1.getSize(); i++)
