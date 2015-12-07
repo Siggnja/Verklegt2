@@ -11,7 +11,6 @@ TEMPLATE = app
 SOURCES += main.cpp \
     individual.cpp \
     people.cpp \
-    dataread.cpp \
     ui.cpp \
     core.cpp \
     sqlitedata.cpp \
@@ -22,7 +21,6 @@ SOURCES += main.cpp \
 HEADERS += \
     individual.h \
     people.h \
-    dataread.h \
     ui.h \
     core.h \
     sqlitedata.h \
