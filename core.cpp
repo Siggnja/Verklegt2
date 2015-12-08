@@ -331,6 +331,7 @@ void Core::addConnection(const int idSci,const int idComp)
 void Core::removeConnection(const int idSci,const int idComp)
 {
     newdata.deleteConnectionWithIndiAndComp(idSci,idComp);
+
 }
 
 SQLiteData Core::getData() const
