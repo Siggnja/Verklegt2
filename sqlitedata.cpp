@@ -13,6 +13,7 @@ People SQLiteData::sortIndiAlphaFront()
     People p1 = doQuerySci(Query);
     return p1;
 }
+
 People SQLiteData::sortIndiAlphaBack()
 {
     string Query = selectAllSci + " " + orderBySurnameDe;
@@ -59,7 +60,7 @@ People SQLiteData::searchIndiByGender(const char gender)
 
 People SQLiteData::searchIndiByName(const string name)
 {
-    string Query = selectAllSci + " " + searchName + name + "%'" + " " + searchSurname +name + "%'" ;
+    string Query = selectAllSci + " " + searchName + name + "%'" + " " + searchSurname + name + "%'" ;
     People p1 = doQuerySci(Query);
     if(p1.getSize() == 0)
     {
@@ -76,7 +77,7 @@ People SQLiteData::searchIndiByName(const string name)
         if(!newname.empty())
         {
             People p2 = sortIndiAlphaFront();
-            for(int i = 0; i<p2.getSize();i++)
+            for(int i = 0; i < p2.getSize(); i++)
             {
                 string substr = p2.getIndi(i).getName() + " " + p2.getIndi(i).getSurname();
                 if(newname == substr)
@@ -88,12 +89,11 @@ People SQLiteData::searchIndiByName(const string name)
     }
     return p1;
 }
+
 void SQLiteData::updateIndiName(const string name, const int id)
 {
-
     string Query = updateSci + " " + setName + name + "'" + " " + findId + intToString(id);
     executeQuery(Query);
-
 }
 
 void  SQLiteData::updateIndiSurname(const string name, const int id)
@@ -105,7 +105,6 @@ void  SQLiteData::updateIndiBYear(const int year, const int id)
 {
     string Query = updateSci + " " + setBYear + intToString(year) + " " + findId + intToString(id);
     executeQuery(Query);
-
 }
 
 void  SQLiteData::updateIndiDYear(const int year, const int id)
@@ -113,17 +112,20 @@ void  SQLiteData::updateIndiDYear(const int year, const int id)
     string Query = updateSci + " " + setDYear + intToString(year) + " " + findId + intToString(id);
     executeQuery(Query);
 }
+
 void  SQLiteData::updateIndiGender(const char gender, const int id)
 {
     string Query = updateSci + " " + setGender + gender + " '" + " " + findId + intToString(id);
     executeQuery(Query);
 }
+
 Machines SQLiteData::sortCompAlphaFront()
 {
     string Query = selectAllComp + " " + orderByName;
     Machines p1 = doQueryComp(Query);
     return p1;
 }
+
 Machines  SQLiteData::sortCompAlphaBack()
 {
     string Query = selectAllComp + " " + orderByNameDe;
@@ -166,6 +168,7 @@ Machines SQLiteData::searchCompByType(const string type)
     Machines p1 = doQueryComp(Query);
     return p1;
 }
+
 void SQLiteData::updateCompName(const string name, const int id)
 {
     string Query = updateComp + " " + setName + name + "'" + " " + findId + intToString(id);
@@ -177,14 +180,12 @@ void SQLiteData::updateCompType(const string type, const int id)
 {
     string Query = updateComp + " " + setType + type + "'" + " " + findId + intToString(id);
     executeQuery(Query);
-
 }
 
 void SQLiteData::updateCompBYear(const int year, const int id)
 {
     string Query = updateComp + " " + setBYear + intToString(year) + " " + findId + intToString(id);
     executeQuery(Query);
-
 }
 
 void SQLiteData::deleteComp(const int id)
@@ -193,28 +194,29 @@ void SQLiteData::deleteComp(const int id)
     executeQuery(Query);
     deleteConnectionWithComp(id);
 }
+
 void  SQLiteData::deleteIndi(const int id)
 {
     string Query = updateSci + " " + setDel + " " + findId + intToString(id);
     executeQuery(Query);
     deleteConnectionWithIndi(id);
 }
-void SQLiteData::addNewIndi(const Individual i1,bool& found)
+
+void SQLiteData::addNewIndi(const Individual i1, bool& found)
 {
     string Query1 = createNewSci + i1.getSurname() + "','" + i1.getName() + "','" + i1.getGender() + "'," + intToString(i1.getBirth()) + "," + intToString(i1.getDeath()) + ")";
     string Query2 = selectAllSci;
     People p1 = doQuerySci(Query2);
         found = false;
     int count = 0;
-    for(int i = 0; i<p1.getSize();i++)
+    for(int i = 0; i < p1.getSize(); i++)
     {
-        if(i1==p1.getIndi(i))
+        if(i1 == p1.getIndi(i))
         {
             found = true;
             count = i;
             break;
         }
-
     }
     if(found)
     {
@@ -226,8 +228,8 @@ void SQLiteData::addNewIndi(const Individual i1,bool& found)
         executeQuery(Query1);
     }
     db.close();
-
 }
+
 void SQLiteData::addNewComp(const Computer c1, bool& found)
 {
     string Query1 = createNewComp + c1.getName() + "'," + intToString(c1.getYear()) + ",'" + c1.getType() + "')";
@@ -235,7 +237,7 @@ void SQLiteData::addNewComp(const Computer c1, bool& found)
     Machines p1 = doQueryComp(Query2);
     found = false;
     int count = 0;
-    for(int i = 0; i<p1.getSize();i++)
+    for(int i = 0; i < p1.getSize(); i++)
     {
         if(c1 == p1.getComputer(i))
         {
@@ -243,7 +245,6 @@ void SQLiteData::addNewComp(const Computer c1, bool& found)
             count = i;
             break;
         }
-
     }
     if(found)
     {
@@ -256,6 +257,7 @@ void SQLiteData::addNewComp(const Computer c1, bool& found)
     }
     db.close();
 }
+
 Machines SQLiteData::doQueryComp(const string que)
 {
     db.open();
@@ -269,7 +271,7 @@ Machines SQLiteData::doQueryComp(const string que)
         string name = queryname.value("name").toString().toStdString();
         string type = queryname.value("type").toString().toStdString();
         int byear  = queryname.value("byear").toUInt();
-        Computer c1(id,byear,name,type);
+        Computer c1(id, byear, name, type);
         p1.addMach(c1);
     }
     db.close();
@@ -291,7 +293,7 @@ People SQLiteData::doQuerySci(const string que)
         string gender = queryname.value("gender").toString().toStdString();
         int byear  = queryname.value("byear").toUInt();
         int dyear  = queryname.value("dyear").toUInt();
-        Individual i1(id,surname,name,gender,byear,dyear);
+        Individual i1(id, surname, name, gender, byear, dyear);
         p1.addIndi(i1);
     }
     db.close();
@@ -313,7 +315,7 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2, bool&
         string gender = queryname.value("gender").toString().toStdString();
         int byear  = queryname.value("byear").toUInt();
         int dyear  = queryname.value("dyear").toUInt();
-        Individual i1(id,surname,name,gender,byear,dyear);
+        Individual i1(id, surname, name, gender, byear, dyear);
         p1.addIndi(i1);
     }
     if(p1.getSize() != 0)
@@ -332,7 +334,7 @@ People SQLiteData::doQuerySciOrOther(const string que1, const string que2, bool&
             string gender = queryname.value("gender").toString().toStdString();
             int byear  = queryname.value("byear").toUInt();
             int dyear  = queryname.value("dyear").toUInt();
-            Individual i1(id,surname,name,gender,byear,dyear);
+            Individual i1(id, surname, name, gender, byear, dyear);
             p1.addIndi(i1);
         }
     }
@@ -353,7 +355,7 @@ Machines SQLiteData::doQueryCompOrOther(const string que1, const string que2, bo
         string name = queryname.value("name").toString().toStdString();
         string type = queryname.value("type").toString().toStdString();
         int byear  = queryname.value("byear").toUInt();
-        Computer c1(id,byear,name,type);
+        Computer c1(id, byear, name, type);
         p1.addMach(c1);
     }
     if(p1.getSize() != 0)
@@ -370,13 +372,14 @@ Machines SQLiteData::doQueryCompOrOther(const string que1, const string que2, bo
             string name = queryname.value("name").toString().toStdString();
             string type = queryname.value("type").toString().toStdString();
             int byear  = queryname.value("byear").toUInt();
-            Computer c1(id,byear,name,type);
+            Computer c1(id, byear, name, type);
             p1.addMach(c1);
         }
     }
     db.close();
     return p1;
 }
+
 void SQLiteData::executeQuery(const string query)
 {
     db.open();
@@ -391,8 +394,6 @@ vector<int> SQLiteData::getRelationsToComp(const int i)
     querystring = querystring + intToString(i) + " AND s.deleted = 0";
     vector<int> temp;
 
-    //QSqlDatabase db;
-    //getDatabase();
     db.open();
     QSqlQuery queryname(db);
     queryname.exec(QString::fromStdString(querystring));
@@ -412,8 +413,6 @@ vector<int> SQLiteData::getRelationsToSci(const int i)
     querystring = querystring + intToString(i) + " AND s.deleted = 0";
     vector<int> temp;
 
-    //QSqlDatabase db;
-    //getDatabase();
     db.open();
     QSqlQuery queryname(db);
     queryname.exec(QString::fromStdString(querystring));
@@ -426,23 +425,25 @@ vector<int> SQLiteData::getRelationsToSci(const int i)
     db.close();
     return temp;
 }
+
 void SQLiteData::createConnection(const int idSci, const int idComp)
 {
     string Query1 = createNewRelation + intToString(idSci) + ", " + intToString(idComp) + ")";
     string Query2 = updateRel + " " + setDel0 + " " + findSciId + intToString(idSci) + " AND computer_id = " + intToString(idComp);
     vector <int> Sci = getRelationsToComp(idSci);
+
     int count = Sci.size();
     executeQuery(Query1);
     Sci = getRelationsToComp(idSci);
     int size = Sci.size();
+
     if(count == size)
     {
         executeQuery(Query2);
     }
     db.close();
-
-
 }
+
 void SQLiteData::deleteConnectionWithIndi(const int idSci)
 {
     string Query = updateRel + " " + setDel + " " + findSciId + intToString(idSci);
@@ -451,16 +452,14 @@ void SQLiteData::deleteConnectionWithIndi(const int idSci)
 
 void SQLiteData::deleteConnectionWithComp(const int idComp)
 {
-
     string Query = updateRel + " " + setDel + " " + findCompId + intToString(idComp);
     executeQuery(Query);
-
 }
+
 void SQLiteData::deleteConnectionWithIndiAndComp(const int idSci,const int idComp)
 {
     string Query = updateRel + " " + setDel + " " + findCompId + intToString(idComp) + "AND scientist_id = " +intToString(idSci);
     executeQuery(Query);
-
 }
 
 string SQLiteData::intToString(int i)
@@ -470,7 +469,6 @@ string SQLiteData::intToString(int i)
 
 Individual SQLiteData::getSingleIndi(const int i)
 {
-
     string Query = selectAllSci + " " + searchId + intToString(i);
     People p1 = doQuerySci(Query);
     Individual temp = p1.getIndi(0);
@@ -504,6 +502,7 @@ int SQLiteData::getDatabaseSize(const string temp)
     db.close();
     return size;
 }
+
 bool SQLiteData::searchForId(const int id, const string tablename)
 {
     string que = "SELECT * FROM " + tablename + " AS s " + findId + intToString(id);
