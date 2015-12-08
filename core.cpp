@@ -23,53 +23,29 @@ void Core::setComplist(const Machines c1)
 
 void Core::addIndividual(const Individual& ind, bool& notfound)
 {
-    //notfound = checkIfIndiIsNew(ind);
-    /*if(notfound)
-    {
-        list.addIndi(ind);
-        // data.addToFile(ind);
-    }*/
-
     newdata.addNewIndi(ind,notfound);
 }
 
 void Core::addComputer(const Computer& com, bool& notfound)
 {
-    /*notfound = checkIfComIsNew(ind);
-    if(notfound)
-    {
-        list.addIndi(ind);
-        data.addToFile(ind);
-    }*/
-
     newdata.addNewComp(com,notfound);
 }
 
 void Core::removeIndividual(const int id, bool& removed)
-{
-    newdata.deleteIndi(id);
-
-    for(int j = 0; j < getPeopleSizeInNewdata(); j++)
+{   
+    removed = newdata.searchForId(id, "scientist");
+    if(removed == true)
     {
-        if(list.getIndi(j).getId() == id)
-        {
-            removed = true;
-            return;
-        }
+        newdata.deleteIndi(id);
     }
 }
 
 void Core::removeComputer(const int id, bool& removed)
 {
-    newdata.deleteComp(id);
-
-    for(int j = 0; j < getMachineSizeInNewdata(); j++)
+    removed = newdata.searchForId(id, "computer");
+    if(removed == true)
     {
-        if(complist.getComputer(j).getId() == id)
-        {
-            removed = true;
-            return;
-        }
+        newdata.deleteComp(id);
     }
 }
 

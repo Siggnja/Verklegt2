@@ -1138,7 +1138,6 @@ void UI::removeCom()
     if (removed)
     {
         cout << "The computer has been removed." << endl;
-
     }
     else if (!removed)
     {
@@ -1159,7 +1158,6 @@ void UI::removeSci()
 
     if (removed)
     {
-        core.removeIndividual(id, removed); //
         cout << "The individual has been removed." << endl;
     }
     else if (!removed)
@@ -1258,11 +1256,15 @@ void UI::printScientistsConnections(People& sci)
 void UI::printComputers(Machines &comps)
 {
     cout << endl;
+    cout << "Id\t\t" << "Name\t\t" << "Type \t\t" << "Year" << endl;
+    cout<<"--------------------------------------------------------------------------------"<<endl;
     for(int i = 0; i < comps.getSize(); i++)
     {
         Computer temp = comps.getComputer(i);
         printComp(temp);
+        cout<<endl;
     }
+
 }
 
 void UI::printComputersConnection(Machines &comps)
@@ -1319,7 +1321,7 @@ void UI::printCompIndent(Computer &id) const
 }
 
 void UI::printConnectedComp(Machines& comps) const
-{
+{   cout<<endl;
     for(int i = 0; i < comps.getSize(); i++)
     {
         cout<<"Connection "<<(i+1)<<": ";
@@ -1329,7 +1331,7 @@ void UI::printConnectedComp(Machines& comps) const
 }
 
 void UI::printConnectedSci(People& sci) const
-{
+{   cout<<endl;
 
     for(int i = 0; i < sci.getSize(); i++)
     {
@@ -1337,6 +1339,8 @@ void UI::printConnectedSci(People& sci) const
         Individual temp = sci.getIndi(i);
         printIndiIndent(temp);
     }
+    cout<<endl;
+
 }
 
 void UI::printList(People& list) const
@@ -1408,19 +1412,25 @@ void UI::printComplist(Machines& complist) const
 
 void UI::printComp(Computer& temp) const
 {
-    cout << endl;
+  /*  cout << endl;
     cout << "Id: " << temp.getId() << endl;
     cout << "Name: " << temp.getName() << endl;
     cout << "Type: " << temp.getType() << endl;
+    */
+    cout << temp.getId() << "\t\t" << temp.getName() <<"\t\t"<<temp.getType()<<"\t";
     if (temp.getYear() != 0)
     {
-        cout << "Year of creation: " << temp.getYear() << endl;
+        cout << temp.getYear() << endl;
     }
     else
     {
-        cout << "This computer was not built." << endl;
+        cout << "Not built." << endl;
     }
+
+
+
 }
+
 void UI::searchSciLink()
 
 {   cout<<endl;

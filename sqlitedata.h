@@ -65,6 +65,7 @@ public:
     // tha removar hann einnig oll tengst vid annahvort tolvuna eda scientistinn
     //spurning med thessa nafnagift -- vera samraemi her
 
+    bool searchForId(const int id, const string tablename);
     int getDatabaseSize(const string temp);
 private:
     Machines doQueryComp(const string que);

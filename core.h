@@ -31,10 +31,10 @@ public:
 
     void addIndividual(const Individual& ind, bool& notfound);
     void addComputer(const Computer& com, bool& notfound);
-    void addConnection(const int idSci,const int idComp);
+    void addConnection(const int idSci, const int idComp);
     void removeIndividual(const int i, bool& removed);
     void removeComputer(const int id, bool& removed);
-    void removeConnection(const int idSci,const int idComp);
+    void removeConnection(const int idSci, const int idComp);
 
     string getSurname(int i) const;
     string getName(int i) const;
