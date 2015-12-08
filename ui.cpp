@@ -1256,15 +1256,22 @@ void UI::printScientistsConnections(People& sci)
 void UI::printComputers(Machines &comps)
 {
     cout << endl;
-    cout << "Id\t\t" << "Name\t\t" << "Type \t\t" << "Year" << endl;
-    cout<<"--------------------------------------------------------------------------------"<<endl;
+    cout << right << setw(3) << "Id" << "\t" << left << setw(25) << "Name" << setw(15)
+        << "Type" << "\tYear" << endl;
+
+    for(int i = 0; i < 74; i++)
+    {
+        cout << "-";
+    }
+
+    cout << endl << endl;
+
     for(int i = 0; i < comps.getSize(); i++)
     {
         Computer temp = comps.getComputer(i);
         printComp(temp);
         cout<<endl;
     }
-
 }
 
 void UI::printComputersConnection(Machines &comps)
@@ -1412,12 +1419,9 @@ void UI::printComplist(Machines& complist) const
 
 void UI::printComp(Computer& temp) const
 {
-  /*  cout << endl;
-    cout << "Id: " << temp.getId() << endl;
-    cout << "Name: " << temp.getName() << endl;
-    cout << "Type: " << temp.getType() << endl;
-    */
-    cout << temp.getId() << "\t\t" << temp.getName() <<"\t\t"<<temp.getType()<<"\t";
+    cout << right << setw(3) << temp.getId() << "\t" << left << setw(25) << temp.getName() << setw(15)
+        << temp.getType() << "\t";
+
     if (temp.getYear() != 0)
     {
         cout << temp.getYear() << endl;
