@@ -539,14 +539,14 @@ void UI::updateIndiName(const int id)
     cin >> ans;
     while(cin.fail() || (ans!='y' && ans!='n'))
     {
-        cin.clear();
-        cin.ignore();
-        cout << "Select letter(y/n): ";
-        cin >> ans;
         if(cin.fail() || (ans!='y' && ans!='n'))
         {
             errorInput();
         }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
     }
     if(ans == 'n')
     {
@@ -582,14 +582,14 @@ void UI::updateIndiSurname(const int id)
     cin >> ans;
     while(cin.fail() || (ans!='y' && ans!='n'))
     {
-        cin.clear();
-        cin.ignore();
-        cout << "Select letter(y/n): ";
-        cin >> ans;
         if(cin.fail() || (ans!='y' && ans!='n'))
         {
             errorInput();
         }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
     }
     if(ans == 'n')
     {
@@ -655,14 +655,14 @@ void UI::updateIndiBYear(const int id)
         cin >> ans;
         while(cin.fail() || (ans!='y' && ans!='n'))
         {
-            cin.clear();
-            cin.ignore();
-            cout << "Select letter(y/n): ";
-            cin >> ans;
             if(cin.fail() || (ans!='y' && ans!='n'))
             {
                 errorInput();
             }
+            cin.clear();
+            cin.ignore();
+            cout << "Select letter(y/n): ";
+            cin >> ans;
         }
         if(ans == 'n')
         {
@@ -715,14 +715,14 @@ void UI::updateIndiDYear(const int id)
         cin >> ans;
         while(cin.fail() || (ans!='y' && ans!='n'))
         {
-            cin.clear();
-            cin.ignore();
-            cout << "Select letter(y/n): ";
-            cin >> ans;
             if(cin.fail() || (ans!='y' && ans!='n'))
             {
                 errorInput();
             }
+            cin.clear();
+            cin.ignore();
+            cout << "Select letter(y/n): ";
+            cin >> ans;
         }
         if(ans == 'n')
         {
@@ -834,14 +834,14 @@ void UI::updateCompName(const int id)
     cin >> ans;
     while(cin.fail() || (ans!='y' && ans!='n'))
     {
-        cin.clear();
-        cin.ignore();
-        cout << "Select letter(y/n): ";
-        cin >> ans;
         if(cin.fail() || (ans!='y' && ans!='n'))
         {
             errorInput();
         }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
     }
     if(ans == 'n')
     {
@@ -886,14 +886,14 @@ void UI::updateCompBYear(const int id)
     cin >> ans;
     while(cin.fail() || (ans!='y' && ans!='n'))
     {
-        cin.clear();
-        cin.ignore();
-        cout << "Select letter(y/n): ";
-        cin >> ans;
         if(cin.fail() || (ans!='y' && ans!='n'))
         {
             errorInput();
         }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
     }
     if(ans == 'n')
     {
@@ -930,14 +930,14 @@ void UI::updateCompType(const int id)
     cin >> ans;
     while(cin.fail() || (ans!='y' && ans!='n'))
     {
-        cin.clear();
-        cin.ignore();
-        cout << "Select letter(y/n): ";
-        cin >> ans;
         if(cin.fail() || (ans!='y' && ans!='n'))
         {
             errorInput();
         }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
     }
     if(ans == 'n')
     {
@@ -1222,11 +1222,38 @@ void UI::addIndividual()
         death = 0;
     }
     Individual temp(surname, name, gender, birth, death);
-    core.addIndividual(temp, notfound);
-    if(notfound)
+    cout << "Are you sure you want to add this Scientist to the database? " << endl;
+    cout << "Select letter(y/n): ";
+    cin>>ans;
+    while(cin.fail() || (ans!='y' && ans!='n'))
     {
-        cout << endl;
-        cout << "This Individual is already in the database! " << endl;
+        if(cin.fail() || (ans!='y' && ans!='n'))
+        {
+            errorInput();
+        }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
+
+    }
+    if(ans == 'n')
+    {
+        cout << "The scientist was not added!" << endl;
+    }
+    else if(ans == 'y')
+    {
+         core.addIndividual(temp, notfound);
+         if(!notfound)
+         {
+             cout << endl;
+             cout << "The scientist has been added to the database!" << endl;
+         }
+         else
+         {
+             cout << endl;
+             cout << "This Individual is already in the database! " << endl;
+         }
     }
 }
 

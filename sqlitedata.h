@@ -60,8 +60,6 @@ public:
     void createConnection(const int idSci, const int idComp);
     // Creates a connection between a scientist and a computer
 
-    void deleteConnectionWithIndi(const int idSci);
-    void deleteConnectionWithComp(const int idComp);
     void deleteConnectionWithIndiAndComp(const int idSci, const int idComp);
     // Deletes a connection between a scientist and a computer
 
@@ -92,6 +90,10 @@ private:
     People doQuerySci(const string que);
     void executeQuery(const string query);
     // Execute a specified query
+    void deleteConnectionWithIndi(const int idSci);
+    void deleteConnectionWithComp(const int idComp);
+    //This is called only when an individual or a computer is delete via core class,
+    //If it is deleted then it deletes all relation to set comp og indi
 };
 
 #endif // SQLITEDATA_H
