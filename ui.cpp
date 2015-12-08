@@ -569,7 +569,7 @@ void UI::updateIndiSurname(const int id)
     cin.ignore();
     getline(cin, surname);
     Individual i1 = core.getData().getSingleIndi(id);
-    string oldname = i1.getName();
+    string oldname = i1.getSurname();
     cout << "Do you want to change Scientist" << endl;
     cout << "From:" << endl;
     printIndi(i1);
@@ -609,6 +609,7 @@ void UI::updateIndiGender(const int id)
     Individual i1 = core.getData().getSingleIndi(id);
     if(i1.getGender() == 'm')
     {
+
         core.updateIndiGender('f', id);
         cout << "--- Changing the scientist from male to female ---" << endl;
     }
@@ -748,6 +749,7 @@ void UI::updateCompMenu()
         bool found=false;
         cout << "Please enter the id of the Computer you want to change: ";
         cin >> id;
+        cout << endl;
         if(!cin.fail())
         {
             Machines c1 = core.getData().sortCompAlphaFront();
@@ -814,18 +816,50 @@ void UI::updateCompMenu()
 void UI::updateCompName(const int id)
 {
     string name;
+    char ans;
     cout << "Please insert a new name: ";
     cin.ignore();
     getline(cin, name);
-    core.updateCompName(name,id);
-    cout << "The Computer is now registered as:" << endl;
     Computer i1 = core.getData().getSingleComp(id);
+    string oldname = i1.getName();
+    cout << "Do you want to change Computer" << endl;
+    cout << "From:" << endl;
     printComp(i1);
+    core.updateCompName(name,id);
+    cout << endl;
+    cout << "To:" << endl;
+    i1 = core.getData().getSingleComp(id);
+    printComp(i1);
+    cout << "Select letter(y/n): ";
+    cin >> ans;
+    while(cin.fail() || (ans!='y' && ans!='n'))
+    {
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
+        if(cin.fail() || (ans!='y' && ans!='n'))
+        {
+            errorInput();
+        }
+    }
+    if(ans == 'n')
+    {
+        core.updateCompName(oldname,id);
+        cout << endl;
+        cout << "No changes were made!" << endl;
+    }
+    else if(ans == 'y')
+    {
+        cout << endl;
+         cout << "Update succecfull!" << endl;
+    }
 }
 
 void UI::updateCompBYear(const int id)
 {
     int year;
+    char ans;
     do
     {
         cin.clear();
@@ -837,22 +871,85 @@ void UI::updateCompBYear(const int id)
             errorInput();
         }
     } while(cin.fail());
-    core.updateIndiBYear(year,id);
+
     Computer i1 = core.getData().getSingleComp(id);
-    cout << "The Computer is now registered as:" << endl;
+    int old = i1.getYear();
+    cout << "Do you want to change Computer" << endl;
+    cout << "From:" << endl;
     printComp(i1);
+    core.updateCompBYear(year,id);
+    cout << endl;
+    cout << "To:" << endl;
+    i1 = core.getData().getSingleComp(id);
+    printComp(i1);
+    cout << "Select letter(y/n): ";
+    cin >> ans;
+    while(cin.fail() || (ans!='y' && ans!='n'))
+    {
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
+        if(cin.fail() || (ans!='y' && ans!='n'))
+        {
+            errorInput();
+        }
+    }
+    if(ans == 'n')
+    {
+        core.updateCompBYear(old,id);
+        cout << endl;
+        cout << "No changes were made!" << endl;
+    }
+    else if(ans == 'y')
+    {
+        cout << endl;
+         cout << "Update succecfull!" << endl;
+    }
+
 }
 
 void UI::updateCompType(const int id)
 {
     string type;
+    char ans;
     cout << "Please insert a new type: ";
     cin.ignore();
     getline(cin, type);
-    core.updateCompName(type,id);
-    cout << "The Computer is now registered as:" << endl;
     Computer i1 = core.getData().getSingleComp(id);
+    string oldtype = i1.getType();
+    cout << "Do you want to change Computer" << endl;
+    cout << "From:" << endl;
     printComp(i1);
+    core.updateCompType(type,id);
+    cout << endl;
+    cout << "To:" << endl;
+    i1 = core.getData().getSingleComp(id);
+    printComp(i1);
+    cout << "Select letter(y/n): ";
+    cin >> ans;
+    while(cin.fail() || (ans!='y' && ans!='n'))
+    {
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
+        if(cin.fail() || (ans!='y' && ans!='n'))
+        {
+            errorInput();
+        }
+    }
+    if(ans == 'n')
+    {
+        core.updateCompType(oldtype,id);
+        cout << endl;
+        cout << "No changes were made!" << endl;
+    }
+    else if(ans == 'y')
+    {
+        cout << endl;
+         cout << "Update succecfull!" << endl;
+    }
 }
 
 void UI::welcomeMessage()
