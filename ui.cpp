@@ -32,13 +32,16 @@ void UI::choiceSwitch(char ans)
     switch(ans)
     {
         case 's':
-        case 'S':   sciMenu();
+        case 'S':   clearScreen();
+                    sciMenu();
                     break;
         case 'c':
-        case 'C':   comMenu();
+        case 'C':   clearScreen();
+                    comMenu();
                     break;
         case 'l':
-        case 'L':   linkMenu();
+        case 'L':   clearScreen();
+                    linkMenu();
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -72,23 +75,29 @@ void UI::sciMenu()
     switch(ans)
     {
         case 'a':
-        case 'A':   addIndividual();
+        case 'A':   clearScreen();
+                    addIndividual();
                     break;
         case 's':
-        case 'S':   searchSciMenu();
+        case 'S':   clearScreen();
+                    searchSciMenu();
                     break;
         case 'p':
-        case 'P':   sortSciMenu();
+        case 'P':   clearScreen();
+                    sortSciMenu();
                     break;
         case 'l':
-        case 'L':   cout << "The current size of the scientist list is: "
+        case 'L':   clearScreen();
+                    cout << "The current size of the scientist list is: "
                          << core.getPeopleSizeInNewdata() << endl;
                     break;
         case 'c':
-        case 'C':   updateSciMenu();
+        case 'C':   clearScreen();
+                    updateSciMenu();
                     break;
         case 'r':
-        case 'R':   removeSci();
+        case 'R':   clearScreen();
+                    removeSci();
                     break;
         case 'm':
         case 'M':   return;
@@ -112,26 +121,38 @@ void UI::comMenu()
     switch(ans)
     {
         case 'a':
-        case 'A':   addComputer();
+        case 'A':   clearScreen();
+                    addComputer();
                     break;
         case 's':
-        case 'S':   searchComMenu();
+        case 'S':   clearScreen();
+                    searchComMenu();
                     break;
         case 'p':
-        case 'P':   sortComMenu();
+        case 'P':   clearScreen();
+                    sortComMenu();
                     break;
         case 'l':
-        case 'L':   cout << "The current size of the computer list is: "
+        case 'L':   clearScreen();
+                    cout << "The current size of the computer list is: "
                          << core.getMachineSizeInNewdata() << endl;
                     break;
         case 'r':
-        case 'R':   removeCom();
+        case 'R':   clearScreen();
+                    removeCom();
                     break;
         case 'c':
-        case 'C':   updateCompMenu();
+        case 'C':   clearScreen();
+                    updateCompMenu();
                     break;
         case 'm':
+<<<<<<< HEAD
         case 'M':   return;
+=======
+        case 'M':   clearScreen();
+                    clearScreen();
+                    return;
+>>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -142,6 +163,7 @@ void UI::comMenu()
     }
     comMenu();
 }
+<<<<<<< HEAD
 void UI::searchLinkMenu()
 {
     clearScreen();
@@ -205,6 +227,8 @@ void UI::printLinkMenu()
                     break;
     }
 }
+=======
+>>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
 
 void UI::linkMenu()
 {
@@ -223,16 +247,20 @@ void UI::linkMenu()
     switch(ans)
     {
         case 's':
-        case 'S':   searchLinkMenu();
+        case 'S':   clearScreen();
+                    searchLinkMenu();
                     break;
         case 'a':
-        case 'A':   addConnection();
+        case 'A':   clearScreen();
+                    addConnection();
                     break;
         case 'p':
-        case 'P':   printLinkMenu();
+        case 'P':   clearScreen();
+                    printLinkMenu();
                     break;
         case 'r':
-        case 'R':   removeConnection();
+        case 'R':   clearScreen();
+                    removeConnection();
                     break;
         case 'm':
         case 'M':   return;
@@ -247,46 +275,8 @@ void UI::linkMenu()
     linkMenu();
 }
 
-void UI::searchComMenu()
-{
-    clearScreen();
-    cout << endl;
-    char choice;
-    cout << "Search by: " << endl;
-    cout << "(N) Name." << endl
-         << "(T) Type." << endl
-         << "(C) Year of Creation." << endl
-         << "(Q) Quit program." <<endl
-         << "(M) Return to Menu."<<endl;
-    cout << "Select a letter: ";
-    cin >> choice;
-
-    switch(choice)
-    {
-        case 'n':
-        case 'N':   searchComName();
-                    break;
-        case 't':
-        case 'T':   searchComType();
-                    break;
-        case 'c':
-        case 'C':   searchComYear();
-                    break;
-        case 'm':
-        case 'M':   return;
-                    break;
-        case 'q':
-        case 'Q':   cout << endl;
-                    exit(1);
-                    break;
-        default:    errorInput();
-                    searchComMenu();
-    }
-}
-
 void UI::searchSciMenu()
 {
-    clearScreen();
     cout << endl;
     char choice;
     cout << "Search by: " << endl;
@@ -302,19 +292,24 @@ void UI::searchSciMenu()
     switch(choice)
     {
         case 'n':
-        case 'N':   searchSciName();
+        case 'N':   clearScreen();
+                    searchSciName();
                     break;
         case 'g':
-        case 'G':   searchGender();
+        case 'G':   clearScreen();
+                    searchGender();
                     break;
         case 'b':
-        case 'B':   searchBirth();
+        case 'B':   clearScreen();
+                    searchBirth();
                     break;
         case 'd':
-        case 'D':   searchDeath();
+        case 'D':   clearScreen();
+                    searchDeath();
                     break;
         case 'm':
-        case 'M':   return;
+        case 'M':   clearScreen();
+                    return;
                     break;
         case 'q':
         case 'Q':   exit(1);
@@ -324,12 +319,156 @@ void UI::searchSciMenu()
     }
 }
 
+void UI::searchComMenu()
+{
+    cout << endl;
+    char choice;
+    cout << "Search by: " << endl;
+    cout << "(N) Name." << endl
+         << "(T) Type." << endl
+         << "(C) Year of Creation." << endl
+         << "(Q) Quit program." <<endl
+         << "(M) Return to Menu."<<endl;
+    cout << "Select a letter: ";
+    cin >> choice;
+
+    switch(choice)
+    {
+        case 'n':
+        case 'N':   clearScreen();
+                    searchComName();
+                    break;
+        case 't':
+        case 'T':   clearScreen();
+                    searchComType();
+                    break;
+        case 'c':
+        case 'C':   clearScreen();
+                    searchComYear();
+                    break;
+        case 'm':
+<<<<<<< HEAD
+        case 'M':   return;
+=======
+        case 'M':   clearScreen();
+                    clearScreen();
+                    return;
+>>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
+                    break;
+        case 'q':
+        case 'Q':   cout << endl;
+                    exit(1);
+                    break;
+        default:    errorInput();
+                    searchComMenu();
+    }
+}
+
+void UI::searchLinkMenu()
+{
+    cout << endl;
+    cout << "What do you want to do?" << endl;
+    cout << "(S) Search for a scientist and return computers he is connected to." << endl;
+    cout << "(C) Search for a computer and return scientists he is connected to." << endl;
+    cout << "(M) Return to menu." << endl;
+    cout << "(Q) Quit program. " << endl;
+    cout << "Select a letter: ";
+    char ans;
+    cin >>ans;
+
+    switch(ans)
+    {
+          case 's':
+          case 'S': clearScreen();
+                    searchSciLink();
+                    break;
+          case 'c':
+          case 'C': clearScreen();
+                    searchComLink();
+                    break;
+          case 'm':
+          case 'M': clearScreen();
+                    clearScreen();
+                    return;
+                    break;
+          case 'q':
+          case 'Q': cout << endl;
+                    exit(1);
+                    break;
+          default:  errorInput();
+                    break;
+    }
+}
+
+void UI::sortSciMenu()
+{
+    char choice;
+    cout << endl << "Print by: " << endl;
+    cout << "(A) Alphabetic order." << endl
+         << "(R) Reverse alphabetic order." << endl
+         << "(B) Year of Birth." << endl
+         << "(D) Year of Death." << endl
+         << "(M) Return to Menu." << endl
+         << "(Q) Quit program." << endl;
+    cout << "Select a letter: ";
+    cin >> choice;
+
+    switch(choice)
+    {
+        case 'a':
+        case 'A':   clearScreen();
+                    cout << endl << "--- Printing by alphabetical order --- " << endl;
+                    {
+                        People temp = core.sortSciAlpabetFront();
+                        printScientists(temp);
+                    }
+                    break;
+        case 'r':
+        case 'R':   clearScreen();
+                    cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
+                    {
+                        People temp = core.sortSciAlpabetBack();
+                        printScientists(temp);
+                    }
+                    break;
+        case 'b':
+        case 'B':   clearScreen();
+                    cout << endl << "--- Printing by year of Birth --- " << endl;
+                    {
+                        People temp = core.sortSciByBirthYear();
+                        printScientists(temp);
+                    }
+                    break;
+        case 'd':
+        case 'D':   clearScreen();
+                    cout << endl << "--- Printing by year of Death --- " << endl;
+                    {
+                        People temp = core.sortSciByDeathYear();
+                        printScientists(temp);
+                    }
+                    break;
+<<<<<<< HEAD
+        case 'm':
+        case 'M':   return;
+=======
+        case 'M':
+        case 'm':   clearScreen();
+                    return;
+>>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
+                    break;
+        case 'q':
+        case 'Q':   exit(1);
+                    break;
+        default:    errorInput();
+                    sortSciMenu();
+                    break;
+    }
+}
 
 void UI::sortComMenu()
 {
-    clearScreen();
     char choice;
-    cout << "Print by: " << endl;
+    cout << endl << "Print by: " << endl;
     cout << "(A) Alphabetic order." << endl
          << "(R) Reverse alphabetic order." << endl
          << "(T) Type alphabetic order." << endl
@@ -342,28 +481,32 @@ void UI::sortComMenu()
     switch(choice)
     {
         case 'a':
-        case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
+        case 'A':   clearScreen();
+                    cout << endl << "--- Printing by alphabetical order --- " << endl;
                     {
                         Machines temp = core.sortCompAlpabetFront();
                         printComputers(temp);
                     }
                     break;
         case 'r':
-        case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
+        case 'R':   clearScreen();
+                    cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
                     {
                         Machines temp = core.sortCompAlpabetBack();
                         printComputers(temp);
                     }
                     break;
         case 'c':
-        case 'C':   cout << endl << "--- Printing by year of Creation --- " << endl;
+        case 'C':   clearScreen();
+                    cout << endl << "--- Printing by year of Creation --- " << endl;
                     {
                         Machines temp = core.sortCompBuildYear();
                         printComputers(temp);
                     }
                     break;
         case 't':
-        case 'T':   cout << endl << "--- Printing by alphebetical type order ---" << endl;
+        case 'T':   clearScreen();
+                    cout << endl << "--- Printing by alphebetical type order ---" << endl;
                     {
                         Machines temp = core.sortCompType();
                         printComputers(temp);
@@ -377,37 +520,382 @@ void UI::sortComMenu()
                     exit(1);
                     break;
         default:    errorInput();
-                    sortSciMenu();
+                    sortComMenu();
                     break;
     }
 }
 
-void UI::sortSciMenu()
+void UI::printLinkMenu()
 {
-    clearScreen();
-    char choice;
-    cout << "Print by: " << endl;
-    cout << "(A) Alphabetic order." << endl
-         << "(R) Reverse alphabetic order." << endl
-         << "(B) Year of Birth." << endl
-         << "(D) Year of Death." << endl
-         << "(M) Return to Menu." << endl
-         << "(Q) Quit program." << endl;
+    cout << endl;
+    cout << "What do you want to do?" << endl;
+    cout << "(S) Print scientists and computers connected to them?" << endl;
+    cout << "(C) Print computers and scientists connected to them? " << endl;
+    cout << "(M) Return to menu? " << endl;
+    cout << "(Q) Quit program. " << endl;
     cout << "Select a letter: ";
-    cin >> choice;
+    char ans;
+    cin >> ans;
 
-    switch(choice)
+    switch(ans)
     {
-        case 'a':
-        case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
-                    {
-                        People temp = core.sortSciAlpabetFront();
-                        printScientists(temp);
-                    }
+          case 's':
+          case 'S': clearScreen();
+                    sortSciLink();
                     break;
-        case 'r':
-        case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
+          case 'c':
+          case 'C': clearScreen();
+                    sortComLink();
+                    break;
+          case 'm':
+          case 'M': clearScreen();
+                    return;
+                    break;
+          case 'q':
+          case 'Q': cout << endl;
+                    exit(1);
+                    break;
+          default:  errorInput();
+                    break;
+    }
+}
 
+void UI::searchSciName()
+{
+    People result;
+    string searchStr;
+    cin.ignore();
+    cout << endl << "Enter a name to search for: " ;
+    getline(cin, searchStr);
+    result = core.searchNam(searchStr);
+    if(result.getSize() != 0)
+    {
+        entriesMatched();
+        printList(result);
+    }
+    else
+    {
+        noMatch();
+    }
+}
+
+void UI::searchGender()
+{
+    People result;
+    char ansGender;
+    cout << endl;
+    cout << "Enter which gender you want to search for (m/f): ";
+    cin >> ansGender;
+    cout << endl;
+    if(ansGender == 'm' || ansGender == 'M' || ansGender == 'f' || ansGender == 'F')
+    {
+        result = core.searchGend(ansGender);
+        if(result.getSize() != 0)
+        {
+            entriesMatched();
+            printList(result);
+        }
+        else
+        {
+            noMatch();
+        }
+    }
+    else
+    {
+        errorInput();
+        searchGender();
+    }
+}
+
+void UI::searchBirth()
+{
+    bool found = false;
+    int ansYear;
+    cout << endl << "Enter a birth year: ";
+    cin >> ansYear;
+    if(!cin.fail())
+    {
+        People result = core.searchBir(found, ansYear);
+        if(found)
+        {
+            entriesMatched();
+            printList(result);
+        }
+        else if(!found)
+        {
+            cout << endl;
+            noMatch();
+            if(result.getSize() != 0)
+            {
+                cout << "However these individuals were found within"
+                        " a 10 year range of given year: " << endl;
+                printList(result);
+            }
+        }
+    }
+    else
+    {
+        errorInput();
+        cin.clear();
+        cin.ignore();
+        searchBirth();
+    }
+}
+
+void UI::searchDeath()
+{
+    bool found = false;
+    int ansYear;
+    cout << endl << "Enter a death year: ";
+    cin >> ansYear;
+    if(!cin.fail())
+    {
+        People result = core.searchDea(found, ansYear);
+        if(found)
+        {
+            entriesMatched();
+            printList(result);
+        }
+        else if(!found)
+        {
+            cout << endl;
+            noMatch();
+            if(result.getSize() != 0)
+            {
+                cout << "However these individuals were found within"
+                        " a 10 year range of given year: " << endl;
+                printList(result);
+            }
+        }
+    }
+    else
+    {
+        errorInput();
+        cin.clear();
+        cin.ignore();
+        searchDeath();
+    }
+}
+
+void UI::searchComName()
+{
+    Machines result;
+    string searchStr;
+    cin.ignore();
+    cout << endl << "Enter a name to search for: " ;
+    getline(cin, searchStr);
+    result = core.searchComName(searchStr);
+    if(result.getSize() != 0)
+    {
+        entriesMatched();
+        printComputers(result);
+    }
+    else
+    {
+        noMatch();
+    }
+}
+
+void UI::searchComType()
+{
+    Machines result;
+    string searchStr;
+    cin.ignore();
+    cout << endl << "Enter a type to search for: " ;
+    getline(cin, searchStr);
+    result = core.searchComType(searchStr);
+    if(result.getSize() != 0)
+    {
+        entriesMatched();
+        printComputers(result);
+    }
+    else
+    {
+        noMatch();
+    }
+}
+
+void UI::searchComYear()
+{
+    bool found = false;
+    int ansYear;
+    cout << endl << "Enter year of creation: ";
+    cin >> ansYear;
+    if(!cin.fail())
+    {
+        Machines result = core.searchComYear(found, ansYear);
+        if(found)
+        {
+            entriesMatched();
+            printComputers(result);
+        }
+        else if(!found)
+        {
+            cout << endl;
+            noMatch();
+            if(result.getSize() != 0)
+            {
+                cout << "However these computers were found within"
+                        " a 10 year range of given year: " << endl;
+                printComputers(result);
+            }
+        }
+    }
+    else
+    {
+        errorInput();
+        cin.clear();
+        cin.ignore();
+        searchComYear();
+    }
+}
+
+void UI::searchSciLink()
+{
+    cout << endl;
+    bool found = false;
+    int id;
+    cout << "Enter scientist ID: " ;
+    cin >> id;
+    if(!cin.fail())
+    {
+         People p = core.getData().sortIndiAlphaFront();
+         for(int i = 0; i < p.getSize(); i++)
+         {
+             if(id == p.getIndi(i).getId())
+             {
+                 found = true;
+             }
+         }
+         if(found == true)
+
+         {
+             Machines mac = core.getConnectedComp(id);
+             Individual i1 = core.getData().getSingleIndi(id);
+             string s = i1.getName() + " " + i1.getSurname();
+             cout << "You picked the scientist " << s << " is that correct(y/n)? ";
+             char input;
+             cin >> input;
+             while((input != 'y' && input != 'Y' && input != 'n'&& input != 'N') || cin.fail())
+             {
+                if((input != 'y' || input != 'Y' || input != 'n' || input != 'N') || cin.fail())
+                {
+                    errorInput();
+                    cin >> input;
+                }
+             }
+             if(input == 'n' || input == 'N')
+             {
+             searchSciLink();
+             }
+             else if(input == 'y' || input == 'Y' )
+             {
+                 if(mac.getSize() == 0)
+                 {
+                     cout << "No computers connected to this scientist" << endl;
+                 }
+
+                 else
+                {
+                     cout << endl;
+                     cout << "The following computers are connected to the scientist " << s << ": " << endl;
+                     printComputers(mac);
+                }
+             }
+         }
+         else
+         {
+             cout << "No scientist has this id!" << endl;
+             cin.clear();
+             cin.ignore();
+             searchSciLink();
+         }
+    }
+    else
+    {
+        errorInput();
+        cin.clear();
+        cin.ignore();
+        searchSciLink();
+    }
+}
+
+void UI::searchComLink()
+{
+    cout << endl;
+    bool found = false;
+    int id;
+    cout << "Enter computer ID: ";
+
+    cin >> id;
+    if(!cin.fail())
+    {
+        Machines mac = core.getData().sortCompAlphaFront();
+        for(int i = 0; i < mac.getSize(); i++)
+        {
+            if(id == mac.getComputer(i).getId())
+            {
+               found = true;
+
+            }
+        }
+         if(found == true)
+         {   People p = core.getConnectedSci(id);
+             Computer c1 = core.getData().getSingleComp(id);
+             string s = c1.getName();
+             cout << "You picked the computer "<< s <<" is that correct(y/n)? ";
+             char input;
+             cin >> input;
+             while((input != 'y' && input != 'Y' && input != 'n' && input != 'N' ) || cin.fail())
+             {
+                if((input != 'y' || input != 'Y' || input != 'n' || input != 'N' ) || cin.fail())
+                {
+                    errorInput();
+                    cin >> input;
+                }
+             }
+             if(input == 'n' || input == 'N')
+             {
+                 searchComLink();
+             }
+             else if(input == 'y' || input == 'Y')
+             {
+                  if(p.getSize() == 0)
+                  {
+                      cout << "No scientists connected to this computer" << endl;
+                  }
+                  else
+                  {
+                      cout << endl;
+                      cout << "The following scientists are connected to computer " << s << ": " << endl;
+                      printList(p);
+                  }
+              }
+         }
+         else
+         {
+             cout << "No computer has this id!" << endl;
+             cin.clear();
+             cin.ignore();
+             searchComLink();
+         }
+    }
+    else
+    {
+         errorInput();
+         cin.clear();
+         cin.ignore();
+         searchComLink();
+    }
+}
+
+void UI::sortSciLink()
+{
+    People temp = core.sortSciAlpabetFront();
+    printScientistsConnections(temp);
+}
+
+<<<<<<< HEAD
                     {
                         People temp = core.sortSciAlpabetBack();
                         printScientists(temp);
@@ -437,10 +925,17 @@ void UI::sortSciMenu()
                     sortSciMenu();
                     break;
     }
+=======
+void UI::sortComLink()
+{
+    Machines temp = core.sortCompAlpabetBack();
+    printComputersConnection(temp);
+>>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
 }
 
 void UI::updateSciMenu()
 {
+    cout << endl;
     int id, count;
     bool found = false;
     cout << "Please enter the id of the Scientist you want to change: ";
@@ -747,7 +1242,7 @@ void UI::updateCompMenu()
 {
         int id, count;
         bool found=false;
-        cout << "Please enter the id of the Computer you want to change: ";
+        cout << endl << "Please enter the id of the Computer you want to change: ";
         cin >> id;
         cout << endl;
         if(!cin.fail())
@@ -778,13 +1273,16 @@ void UI::updateCompMenu()
                     switch(choice)
                     {
                         case 'n':
-                        case 'N':   updateCompName(id);
+                        case 'N':   clearScreen();
+                                    updateCompName(id);
                                     break;
                         case 't':
-                        case 'T':   updateCompType(id);
+                        case 'T':   clearScreen();
+                                    updateCompType(id);
                                     break;
                         case 'b':
-                        case 'B':   updateCompBYear(id);
+                        case 'B':   clearScreen();
+                                    updateCompBYear(id);
                                     break;
                         case 'm':
                         case 'M':   return;
@@ -817,7 +1315,7 @@ void UI::updateCompName(const int id)
 {
     string name;
     char ans;
-    cout << "Please insert a new name: ";
+    cout << endl <<"Please insert a new name: ";
     cin.ignore();
     getline(cin, name);
     Computer i1 = core.getData().getSingleComp(id);
@@ -952,212 +1450,17 @@ void UI::updateCompType(const int id)
     }
 }
 
-void UI::welcomeMessage()
-{
-    cout << "--- Welcome to the databases of famous computer scientists and of computers ---" << endl;
-    cout << "\t" << "    In these databases you can add, remove, sort and search" << endl;
-    cout << "\t \t" << " At this moment we have "<< core.getPeopleSizeInNewdata() << " computer scientists" << endl;
-    cout << "\t \t \t " << "      and "<< core.getMachineSizeInNewdata() << " computers" << endl;
-    cout << "------------------------------------Enjoy!------------------------------------" << endl;
-}
-
-void UI::searchComYear()
-{
-    bool found = false;
-    int ansYear;
-    cout << "Enter year of creation: ";
-    cin >> ansYear;
-    if(!cin.fail())
-    {
-        Machines result = core.searchComYear(found, ansYear);
-        if(found)
-        {
-            entriesMatched();
-            printComputers(result);
-        }
-        else if(!found)
-        {
-            cout << endl;
-            noMatch();
-            if(result.getSize() != 0)
-            {
-                cout << "However these computers were found within"
-                        " a 10 year range of given year: " << endl;
-                printComputers(result);
-            }
-        }
-    }
-    else
-    {
-        errorInput();
-        cin.clear();
-        cin.ignore();
-        searchComYear();
-    }
-}
-
-void UI::searchComName()
-{
-    Machines result;
-    string searchStr;
-    cin.ignore();
-    cout << "Enter a name to search for: " ;
-    getline(cin, searchStr);
-    result = core.searchComName(searchStr);
-    if(result.getSize() != 0)
-    {
-        entriesMatched();
-        printComputers(result);
-    }
-    else
-    {
-        noMatch();
-    }
-}
-
-void UI::searchComType()
-{
-    Machines result;
-    string searchStr;
-    cin.ignore();
-    cout << "Enter a type to search for: " ;
-    getline(cin, searchStr);
-    result = core.searchComType(searchStr);
-    if(result.getSize() != 0)
-    {
-        entriesMatched();
-        printComputers(result);
-    }
-    else
-    {
-        noMatch();
-    }
-}
-
-void UI::searchSciName()
-{
-    People result;
-    string searchStr;
-    cin.ignore();
-    cout << "Enter a name to search for: " ;
-    getline(cin, searchStr);
-    result = core.searchNam(searchStr);
-    if(result.getSize() != 0)
-    {
-        entriesMatched();
-        printList(result);
-    }
-    else
-    {
-        noMatch();
-    }
-}
-
-void UI::searchGender()
-{
-    People result;
-    char ansGender;
-    cout << endl;
-    cout << "Enter which gender you want to search for (m/f): ";
-    cin >> ansGender;
-    cout << endl;
-    if(ansGender == 'm' || ansGender == 'M' || ansGender == 'f' || ansGender == 'F')
-    {
-        result = core.searchGend(ansGender);
-        if(result.getSize() != 0)
-        {
-            entriesMatched();
-            printList(result);
-        }
-        else
-        {
-            noMatch();
-        }
-    }
-    else
-    {
-        errorInput();
-        searchGender();
-    }
-}
-
-void UI::searchBirth()
-{
-    bool found = false;
-    int ansYear;
-    cout << "Enter a birth year: ";
-    cin >> ansYear;
-    if(!cin.fail())
-    {
-        People result = core.searchBir(found, ansYear);
-        if(found)
-        {
-            entriesMatched();
-            printList(result);
-        }
-        else if(!found)
-        {
-            cout << endl;
-            noMatch();
-            if(result.getSize() != 0)
-            {
-                cout << "However these individuals were found within"
-                        " a 10 year range of given year: " << endl;
-                printList(result);
-            }
-        }
-    }
-    else
-    {
-        errorInput();
-        cin.clear();
-        cin.ignore();
-        searchBirth();
-    }
-}
-
-void UI::searchDeath()
-{
-    bool found = false;
-    int ansYear;
-    cout << "Enter a death year: ";
-    cin >> ansYear;
-    if(!cin.fail())
-    {
-        People result = core.searchDea(found, ansYear);
-        if(found)
-        {
-            entriesMatched();
-            printList(result);
-        }
-        else if(!found)
-        {
-            cout << endl;
-            noMatch();
-            if(result.getSize() != 0)
-            {
-                cout << "However these individuals were found within"
-                        " a 10 year range of given year: " << endl;
-                printList(result);
-            }
-        }
-    }
-    else
-    {
-        errorInput();
-        cin.clear();
-        cin.ignore();
-        searchDeath();
-    }
-}
-
 void UI::addIndividual()
 {
     string surname, name;
     int birth, death;
     char gender;
     bool notfound = false;
+<<<<<<< HEAD
 
+=======
+    cout << endl << "Enter the following information:" << endl;
+>>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
     cin.ignore();
     cout << endl;
     char ans;
@@ -1259,6 +1562,10 @@ void UI::addIndividual()
 
 void UI::addComputer()
 {
+<<<<<<< HEAD
+=======
+    cout << endl << "Enter the following information:" << endl;
+>>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
     string name, type;
     int year;
     char ans;
@@ -1357,6 +1664,26 @@ void UI::addConnection()
    }
 }
 
+void UI::removeSci()
+{
+    int id;
+    bool removed = false;
+    cin.ignore();
+    cout << endl;
+    cout << "Type the id of the individual: ";
+    cin >> id;
+    core.removeIndividual(id, removed);
+
+    if(removed)
+    {
+        cout << "The individual has been removed." << endl;
+    }
+    else if(!removed)
+    {
+        cout << "The individual was not found in list and therefore not removed." << endl;
+    }
+}
+
 void UI::removeCom()
 {
     int id;
@@ -1376,26 +1703,6 @@ void UI::removeCom()
     else if(!removed)
     {
         cout << "The computer was not found in list and therefore not removed." << endl;
-    }
-}
-
-void UI::removeSci()
-{
-    int id;
-    bool removed = false;
-    cin.ignore();
-    cout << endl;
-    cout << "Type the id of the individual: ";
-    cin >> id;
-    core.removeIndividual(id, removed);
-
-    if(removed)
-    {
-        cout << "The individual has been removed." << endl;
-    }
-    else if(!removed)
-    {
-        cout << "The individual was not found in list and therefore not removed." << endl;
     }
 }
 
@@ -1475,6 +1782,25 @@ void UI::printScientists(People& sci)
     cout << endl;
 }
 
+void UI::printComputers(Machines &comps)
+{
+    cout << endl;
+    cout << right << setw(3) << "Id" << "\t" << left << setw(25) << "Name" << setw(15)
+         << "Type" << "\tYear" << endl;
+    for(int i = 0; i < 74; i++)
+    {
+        cout << "-";
+    }
+
+    cout << endl << endl;
+    for(int i = 0; i < comps.getSize(); i++)
+    {
+        Computer temp = comps.getComputer(i);
+        printComp(temp);
+        cout << endl;
+    }
+}
+
 void UI::printScientistsConnections(People& sci)
 {
     cout << endl;
@@ -1493,25 +1819,6 @@ void UI::printScientistsConnections(People& sci)
     }
 
     cout << endl;
-}
-
-void UI::printComputers(Machines &comps)
-{
-    cout << endl;
-    cout << right << setw(3) << "Id" << "\t" << left << setw(25) << "Name" << setw(15)
-         << "Type" << "\tYear" << endl;
-    for(int i = 0; i < 74; i++)
-    {
-        cout << "-";
-    }
-
-    cout << endl << endl;
-    for(int i = 0; i < comps.getSize(); i++)
-    {
-        Computer temp = comps.getComputer(i);
-        printComp(temp);
-        cout << endl;
-    }
 }
 
 void UI::printComputersConnection(Machines &comps)
@@ -1570,24 +1877,11 @@ void UI::printCompIndent(Computer &id) const
     cout << endl;
 }
 
-void UI::printConnectedComp(Machines& comps) const
-{
-    if(comps.getSize() > 0)
-    {
-        cout << "\t" << "Id" << "\t" << "Name" << endl;
-        cout << "\t-----------------------" << endl;
-        for(int i = 0; i < comps.getSize(); i++)
-        {
-            Computer temp = comps.getComputer(i);
-            printCompIndent(temp);
-        }
-    }
-}
-
 void UI::printConnectedSci(People& sci) const
 {
     if(sci.getSize() > 0)
     {
+        cout << endl;
         cout << "\t" << "Id" << "\t" << "Name" << endl;
         cout << "\t-----------------------" << endl;
 
@@ -1600,6 +1894,21 @@ void UI::printConnectedSci(People& sci) const
     cout << endl;
 }
 
+void UI::printConnectedComp(Machines& comps) const
+{
+    if(comps.getSize() > 0)
+    {
+        cout << endl;
+        cout << "\t" << "Id" << "\t" << "Name" << endl;
+        cout << "\t-----------------------" << endl;
+        for(int i = 0; i < comps.getSize(); i++)
+        {
+            Computer temp = comps.getComputer(i);
+            printCompIndent(temp);
+        }
+    }
+}
+
 void UI::printList(People& list) const
 {
     for (int i = 0; i < list.getSize(); i++)
@@ -1608,6 +1917,28 @@ void UI::printList(People& list) const
         printIndi(id);
     }
 }
+
+void UI::printComp(Computer& temp) const
+{
+    cout << right << setw(3) << temp.getId() << "\t" << left << setw(25) << temp.getName() << setw(15)
+         << temp.getType() << "\t";
+
+    if(temp.getYear() != 0)
+    {
+        cout << temp.getYear() << endl;
+    }
+    else
+    {
+        cout << "Not built." << endl;
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------
+// --------------- komin hingað
+// ---------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------
+
 
 void UI::printIndi(Individual& temp) const
 {
@@ -1662,6 +1993,7 @@ void UI::printComplist(Machines& complist) const
     }
 }*/
 
+<<<<<<< HEAD
 void UI::printComp(Computer& temp) const
 {
     cout << right << setw(3) << temp.getId() << "\t" << left << setw(25) << temp.getName() << setw(15)
@@ -1823,9 +2155,15 @@ void UI::sortSciLink()
 }
 
 void UI::sortComLink()
+=======
+void UI::welcomeMessage()
+>>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
 {
-    Machines temp = core.sortCompAlpabetBack();
-    printComputersConnection(temp);
+    cout << "--- Welcome to the databases of famous computer scientists and of computers ---" << endl;
+    cout << "\t" << "    In these databases you can add, remove, sort and search" << endl;
+    cout << "\t \t" << " At this moment we have "<< core.getPeopleSizeInNewdata() << " computer scientists" << endl;
+    cout << "\t \t \t " << "      and "<< core.getMachineSizeInNewdata() << " computers" << endl;
+    cout << "------------------------------------Enjoy!------------------------------------" << endl;
 }
 
 void UI::errorInput()
