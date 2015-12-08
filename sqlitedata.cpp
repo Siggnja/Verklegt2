@@ -69,6 +69,31 @@ People SQLiteData::searchIndiByName(const string name)
 {
     string Query = selectAllSci + " " + searchName + name + "%'" + " " + searchSurname +name + "%'" ;
     People p1 = doQuerySci(Query);
+    if(p1.getSize()==0)
+    {
+        Query = "SELECT (name ||' '||surname)AS expr1 FROM Scientist WHERE expr1 LIKE '%" + name +"%'";
+        db.open();
+        QString Q = QString::fromStdString(Query);
+        QSqlQuery queryname(db);
+        queryname.exec(Q);
+
+        queryname.next();
+        string newname = queryname.value("expr1").toString().toStdString();
+        cout << newname;
+        db.close();
+        if(!newname.empty())
+        {
+            People p2 = sortIndiAlphaFront();
+            for(int i = 0; i<p2.getSize();i++)
+            {
+                string substr = p2.getIndi(i).getName() + " " + p2.getIndi(i).getSurname();
+                if(newname == substr)
+                {
+                    p1.addIndi(p2.getIndi(i));
+                }
+            }
+        }
+    }
     return p1;
 }
 void SQLiteData::updateIndiName(const string name, const int id)

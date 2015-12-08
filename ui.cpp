@@ -149,7 +149,6 @@ void UI::comMenu()
     }
     comMenu();
 }
-
 void UI::searchLinkMenu()
 {
     cout<<endl;
@@ -455,7 +454,6 @@ void UI::sortSciMenu()
     }
     sortSciMenu();
 }
-
 void UI::updateSciMenu()
 {
     int id,count;
@@ -536,7 +534,6 @@ void UI::updateSciMenu()
    }
 
 }
-
 void UI::updateIndiName(const int id)
 {
     string name;
@@ -635,7 +632,6 @@ void UI::updateIndiDYear(const int id)
     cout << "The scientist is now registered as:" << endl;
     printIndi(i1);
 }
-
 void UI::updateCompMenu()
 {
         int id,count;
@@ -705,7 +701,6 @@ void UI::updateCompMenu()
             updateCompMenu();
        }
 }
-
 void UI::updateCompName(const int id)
 {
     string name;
@@ -992,14 +987,6 @@ void UI::addIndividual()
 
     cout << "Is the individual alive?(y/n) ";
     cin >> ans;
-    while((ans !='y'&&ans !='Y'&&ans !='n'&& ans !='N')||cin.fail())
-    {
-       if((ans !='y'||ans !='Y'||ans !='n'|| ans !='N')||cin.fail())
-       {
-           errorInput();
-           cin>>ans;
-       }
-    }
     if (ans == 'n' || ans == 'N')
     {
         do {
@@ -1017,7 +1004,7 @@ void UI::addIndividual()
             }
         } while(cin.fail() || birth > death);
     }
-    else if(ans =='y'||ans =='Y')
+    else
     {
         death = 0;
     }
@@ -1045,21 +1032,13 @@ void UI::addComputer()
 
     cout << "Was the computer created(y/n)?";
     cin >> ans;
-    while((ans !='y'&&ans !='Y'&&ans !='n'&& ans !='N')||cin.fail())
-    {
-       if((ans !='y'||ans !='Y'||ans !='n'|| ans !='N')||cin.fail())
-       {
-           errorInput();
-           cin>>ans;
-       }
-    }
 
     if(ans == 'y'|| ans =='Y')
     {
         cout << "Creation year: ";
         cin >> year;
     }
-    else if(ans =='n'|| ans =='N')
+    else
     {
         year = 0;
     }
@@ -1174,7 +1153,6 @@ void UI::removeSci()
         cout << "The individual was not found in list and therefore not removed." << endl;
     }
 }
-
 void UI::removeConnection()
 {
     int s,c;
@@ -1215,7 +1193,7 @@ void UI::removeConnection()
    else
    {
        errorInput();
-       addConnection();
+       removeConnection();
    }
    if(strue && ctrue)
    {
@@ -1435,19 +1413,11 @@ void UI::searchSciLink()
              cout<<"You picked the scientist "<<s<<" is that correct(y/n)?";
              char input;
              cin>>input;
-             while((input !='y'&&input !='Y'&&input !='n'&& input !='N')||cin.fail())
-             {
-                if((input !='y'||input !='Y'||input !='n'|| input !='N')||cin.fail())
-                {
-                    errorInput();
-                    cin>>input;
-                }
-             }
-             if(input=='n'||input =='N')
+             if(input=='n')
              {
              searchSciLink();
              }
-             else if(input =='y'||input =='Y')
+             else
              {
                  if(mac.getSize()==0)
                  {
@@ -1506,33 +1476,23 @@ void UI::searchComLink()
              cout<<"You picked the computer "<<s<<" is that correct(y/n)?";
              char input;
              cin>>input;
-             while((input !='y'&&input !='Y'&&input !='n'&& input !='N')||cin.fail())
-             {
-                if((input !='y'||input !='Y'||input !='n'|| input !='N')||cin.fail())
-                {
-                    errorInput();
-                    cin>>input;
-                }
-             }
-             if(input=='n'||input =='N')
+             if(input=='n')
              {
                  searchComLink();
              }
-             else if(input =='y'||input =='Y')
+             else
              {
-                  if(p.getSize() == 0)
-                  {
-                      cout << "No scientists connected to this computer" << endl;
-                  }
-                  else
-                  {
-                      cout<<endl;
-                      cout << "The following scientists are connected to computer " << s << ": " << endl;
-                      printList(p);
-                  }
-              }
-
-
+                 if(p.getSize() == 0)
+                 {
+                     cout << "No scientists connected to this computer" << endl;
+                 }
+                 else
+                 {
+                     cout<<endl;
+                     cout << "The following scientists are connected to computer " << s << ": " << endl;
+                     printList(p);
+                 }
+             }
          }
          else
          {
