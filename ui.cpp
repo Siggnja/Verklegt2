@@ -160,6 +160,7 @@ void UI::comMenu()
     }
     comMenu();
 }
+
 void UI::searchLinkMenu()
 {
     cout << endl;
