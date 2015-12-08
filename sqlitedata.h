@@ -64,9 +64,8 @@ public:
     void deleteConnectionWithIndi(const int idSci);
     void deleteConnectionWithComp(const int idComp);
     void deleteConnectionWithIndiAndComp(const int idSci,const int idComp);
-    //kollum a thessi foll thegar thad er verid a delete-a annadhvort tolvu eda indi
-    // tha removar hann einnig oll tengst vid annahvort tolvuna eda scientistinn
-    //spurning med thessa nafnagift -- vera samraemi her
+    // Kollum a thessi foll thegar thad er verid a delete-a annadhvort tolvu eda indi
+    // Tha removar hann einnig oll tengst vid annahvort tolvuna eda scientistinn
 
 private:
     Machines doQueryComp(const string que);
