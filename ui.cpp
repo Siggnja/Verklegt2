@@ -1626,6 +1626,7 @@ void UI::printConnectedComp(Machines& comps) const
 {
     if(comps.getSize() > 0)
     {
+        cout << endl;
         cout << "\t" << "Id" << "\t" << "Name" << endl;
         cout << "\t-----------------------" << endl;
         for(int i = 0; i < comps.getSize(); i++)
@@ -1640,6 +1641,7 @@ void UI::printConnectedSci(People& sci) const
 {
     if(sci.getSize() > 0)
     {
+        cout << endl;
         cout << "\t" << "Id" << "\t" << "Name" << endl;
         cout << "\t-----------------------" << endl;
 
