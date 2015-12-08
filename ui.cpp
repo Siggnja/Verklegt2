@@ -1,17 +1,10 @@
 #include "ui.h"
 
-// á að gera if/for/while/switch/return(...)      ->án bils
-// eða if (...)     ->með bili
 
 UI::UI()
 {
 
 }
-
-/*UI::UI(const string filename)
-{
-    core.createList(filename);
-}*/
 
 void UI::run()
 {
@@ -149,6 +142,7 @@ void UI::comMenu()
     }
     comMenu();
 }
+
 void UI::searchLinkMenu()
 {
     cout<<endl;
@@ -454,6 +448,7 @@ void UI::sortSciMenu()
     }
     sortSciMenu();
 }
+
 void UI::updateSciMenu()
 {
     int id,count;
@@ -534,6 +529,7 @@ void UI::updateSciMenu()
    }
 
 }
+
 void UI::updateIndiName(const int id)
 {
     string name;
@@ -632,6 +628,7 @@ void UI::updateIndiDYear(const int id)
     cout << "The scientist is now registered as:" << endl;
     printIndi(i1);
 }
+
 void UI::updateCompMenu()
 {
         int id,count;
@@ -701,6 +698,7 @@ void UI::updateCompMenu()
             updateCompMenu();
        }
 }
+
 void UI::updateCompName(const int id)
 {
     string name;
@@ -987,6 +985,14 @@ void UI::addIndividual()
 
     cout << "Is the individual alive?(y/n) ";
     cin >> ans;
+    while((ans !='y'&&ans !='Y'&&ans !='n'&& ans !='N')||cin.fail())
+    {
+       if((ans !='y'||ans !='Y'||ans !='n'|| ans !='N')||cin.fail())
+       {
+           errorInput();
+           cin>>ans;
+       }
+    }
     if (ans == 'n' || ans == 'N')
     {
         do {
@@ -1004,7 +1010,7 @@ void UI::addIndividual()
             }
         } while(cin.fail() || birth > death);
     }
-    else
+    else if(ans =='y'||ans =='Y')
     {
         death = 0;
     }
@@ -1032,13 +1038,21 @@ void UI::addComputer()
 
     cout << "Was the computer created(y/n)?";
     cin >> ans;
+    while((ans !='y'&&ans !='Y'&&ans !='n'&& ans !='N')||cin.fail())
+    {
+       if((ans !='y'||ans !='Y'||ans !='n'|| ans !='N')||cin.fail())
+       {
+           errorInput();
+           cin>>ans;
+       }
+    }
 
     if(ans == 'y'|| ans =='Y')
     {
         cout << "Creation year: ";
         cin >> year;
     }
-    else
+    else if(ans =='n'|| ans =='N')
     {
         year = 0;
     }
@@ -1208,6 +1222,7 @@ void UI::removeConnection()
 void UI::printScientists(People& sci)
 {
     cout << endl;
+    cout << "Id\t" << "Name\t\t" << "Gender \t" << "Life" << endl;
 
     for(int i = 0; i < sci.getSize(); i++)
     {
@@ -1297,7 +1312,8 @@ void UI::printCompIndent(Computer &id) const
 void UI::printConnectedComp(Machines& comps) const
 {
     for(int i = 0; i < comps.getSize(); i++)
-    {
+    {   cout<<endl;
+        cout<<"Connection "<<(i+1)<<": ";
         Computer temp = comps.getComputer(i);
         printCompIndent(temp);
     }
@@ -1305,8 +1321,10 @@ void UI::printConnectedComp(Machines& comps) const
 
 void UI::printConnectedSci(People& sci) const
 {
+
     for(int i = 0; i < sci.getSize(); i++)
-    {
+    {   cout<<endl;
+        cout<<"Connection "<<(i+1)<<": ";
         Individual temp = sci.getIndi(i);
         printIndiIndent(temp);
     }
@@ -1324,7 +1342,7 @@ void UI::printList(People& list) const
 void UI::printIndi(Individual& temp) const
 {
     cout << endl;
-    cout << "Id: " << temp.getId() << endl;
+    /*cout << "Id: " << temp.getId() << endl;
     cout << "Name: " << temp.getName() << " " << temp.getSurname() << endl;
     cout << "Gender: ";
     if(temp.getGender() == 'f' || temp.getGender() == 'F')
@@ -1343,7 +1361,34 @@ void UI::printIndi(Individual& temp) const
     else
     {
         cout << temp.getDeath() << endl;
+    }*/
+
+    cout << temp.getId() << "\t" << temp.getSurname() << ", " << temp.getName() << "\t";
+
+    if(temp.getGender() == 'f' || temp.getGender() == 'F')
+    {
+        cout << "Female";
     }
+    else
+    {
+        cout << "Male";
+    }
+
+    cout << "\t";
+
+    cout << temp.getBirth() << " - ";
+    if(temp.getDeath() == 0)
+    {
+        cout << "Today";
+    }
+    else
+    {
+        cout << temp.getDeath();
+    }
+
+
+    cout << endl;
+
 }
 
 void UI::printIndiAndConnect(Individual & sci)
@@ -1412,11 +1457,19 @@ void UI::searchSciLink()
              cout<<"You picked the scientist "<<s<<" is that correct(y/n)?";
              char input;
              cin>>input;
-             if(input=='n')
+             while((input !='y'&&input !='Y'&&input !='n'&& input !='N')||cin.fail())
+             {
+                if((input !='y'||input !='Y'||input !='n'|| input !='N')||cin.fail())
+                {
+                    errorInput();
+                    cin>>input;
+                }
+             }
+             if(input=='n'||input =='N')
              {
              searchSciLink();
              }
-             else
+             else if(input =='y'||input =='Y')
              {
                  if(mac.getSize()==0)
                  {
@@ -1475,23 +1528,33 @@ void UI::searchComLink()
              cout<<"You picked the computer "<<s<<" is that correct(y/n)?";
              char input;
              cin>>input;
-             if(input=='n')
+             while((input !='y'&&input !='Y'&&input !='n'&& input !='N')||cin.fail())
+             {
+                if((input !='y'||input !='Y'||input !='n'|| input !='N')||cin.fail())
+                {
+                    errorInput();
+                    cin>>input;
+                }
+             }
+             if(input=='n'||input =='N')
              {
                  searchComLink();
              }
-             else
+             else if(input =='y'||input =='Y')
              {
-                 if(p.getSize() == 0)
-                 {
-                     cout << "No scientists connected to this computer" << endl;
-                 }
-                 else
-                 {
-                     cout<<endl;
-                     cout << "The following scientists are connected to computer " << s << ": " << endl;
-                     printList(p);
-                 }
-             }
+                  if(p.getSize() == 0)
+                  {
+                      cout << "No scientists connected to this computer" << endl;
+                  }
+                  else
+                  {
+                      cout<<endl;
+                      cout << "The following scientists are connected to computer " << s << ": " << endl;
+                      printList(p);
+                  }
+              }
+
+
          }
          else
          {
