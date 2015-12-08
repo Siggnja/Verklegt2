@@ -1482,7 +1482,7 @@ void UI::addComputer()
     {
 
     }
-    cout << "Are you sure you want to add this Scientist to the database? " << endl;
+    cout << "Are you sure you want to add this Computer to the database? " << endl;
     cout << "Select letter(y/n): ";
     cin>>ans;
     while(cin.fail() || (ans!='y' && ans!='n'))
