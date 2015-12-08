@@ -34,8 +34,6 @@ private:
     int year;
     string name;
     string type;
-    // User typse in the types
-
 };
 
 #endif // COMPUTER_H
