@@ -13,9 +13,6 @@ public:
     Computer(int yearr, string namee, string typee);
     // The constructors, with and without id
 
-    friend bool operator == (const Computer& c1, const Computer& c2);
-    // Overloaded == operator, checks if two computers are the same
-
     void setYear(int i);
     void setName(string str);
     void setType(string str);
@@ -26,6 +23,9 @@ public:
     string getName() const;
     string getType() const;
     // These are the getline functions, they are used to get the values of the private variables
+
+    friend bool operator == (const Computer& c1, const Computer& c2);
+    // Overloaded == operator, checks if two computers are the same
 
 private:
     int id;

@@ -5,11 +5,6 @@ Core::Core()
 
 }
 
-Core::Core(const People& p1)
-{
-    list = p1;
-}
-
 void Core::setList(const People p1)
 {
     list = p1;
@@ -228,18 +223,6 @@ int Core::id(int i) const
     return getComputers().getComputer(i).getId();
 }
 
-bool Core::checkIfIndiIsNew(const Individual i1)
-{
-    bool check = true;
-    for(int i = 0; i < list.getSize(); i++)
-    {
-        if(list.getIndi(i) == i1)
-        {
-            check = false;
-        }
-    }
-    return check;
-}
 void Core::createConnection(const Individual& i1, const Computer& c1, bool& found)
 {
     vector <int> relComp = newdata.getRelationsToComp(c1.getId());
