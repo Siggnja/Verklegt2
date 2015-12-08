@@ -32,13 +32,16 @@ void UI::choiceSwitch(char ans)
     switch(ans)
     {
         case 's':
-        case 'S':   sciMenu();
+        case 'S':   clearScreen();
+                    sciMenu();
                     break;
         case 'c':
-        case 'C':   comMenu();
+        case 'C':   clearScreen();
+                    comMenu();
                     break;
         case 'l':
-        case 'L':   linkMenu();
+        case 'L':   clearScreen();
+                    linkMenu();
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -51,7 +54,6 @@ void UI::choiceSwitch(char ans)
 
 void UI::ask()
 {
-    clearScreen();
     cout << endl;
     cout << "What do you want to do?" << endl;
     cout << "(A) Add to list." << endl;
@@ -73,23 +75,29 @@ void UI::sciMenu()
     switch(ans)
     {
         case 'a':
-        case 'A':   addIndividual();
+        case 'A':   clearScreen();
+                    addIndividual();
                     break;
         case 's':
-        case 'S':   searchSciMenu();
+        case 'S':   clearScreen();
+                    searchSciMenu();
                     break;
         case 'p':
-        case 'P':   sortSciMenu();
+        case 'P':   clearScreen();
+                    sortSciMenu();
                     break;
         case 'l':
-        case 'L':   cout << "The current size of the scientist list is: "
+        case 'L':   clearScreen();
+                    cout << "The current size of the scientist list is: "
                          << core.getPeopleSizeInNewdata() << endl;
                     break;
         case 'c':
-        case 'C':   updateSciMenu();
+        case 'C':   clearScreen();
+                    updateSciMenu();
                     break;
         case 'r':
-        case 'R':   removeSci();
+        case 'R':   clearScreen();
+                    removeSci();
                     break;
         case 'm':
         case 'M':   clearScreen();
@@ -114,26 +122,33 @@ void UI::comMenu()
     switch(ans)
     {
         case 'a':
-        case 'A':   addComputer();
+        case 'A':   clearScreen();
+                    addComputer();
                     break;
         case 's':
-        case 'S':   searchComMenu();
+        case 'S':   clearScreen();
+                    searchComMenu();
                     break;
         case 'p':
-        case 'P':   sortComMenu();
+        case 'P':   clearScreen();
+                    sortComMenu();
                     break;
         case 'l':
-        case 'L':   cout << "The current size of the computer list is: "
+        case 'L':   clearScreen();
+                    cout << "The current size of the computer list is: "
                          << core.getMachineSizeInNewdata() << endl;
                     break;
         case 'r':
-        case 'R':   removeCom();
+        case 'R':   clearScreen();
+                    removeCom();
                     break;
         case 'c':
-        case 'C':   updateCompMenu();
+        case 'C':   clearScreen();
+                    updateCompMenu();
                     break;
         case 'm':
         case 'M':   clearScreen();
+                    clearScreen();
                     return;
                     break;
         case 'q':
@@ -147,7 +162,7 @@ void UI::comMenu()
 }
 void UI::searchLinkMenu()
 {
-    clearScreen();
+    cout << endl;
     cout << "What do you want to do?" << endl;
     cout << "(S) Search for a scientist and return computers he is connected to." << endl;
     cout << "(C) Search for a computer and return scientists he is connected to." << endl;
@@ -160,13 +175,16 @@ void UI::searchLinkMenu()
     switch(ans)
     {
           case 's':
-          case 'S': searchSciLink();
+          case 'S': clearScreen();
+                    searchSciLink();
                     break;
           case 'c':
-          case 'C': searchComLink();
+          case 'C': clearScreen();
+                    searchComLink();
                     break;
           case 'm':
           case 'M': clearScreen();
+                    clearScreen();
                     return;
                     break;
           case 'q':
@@ -180,7 +198,7 @@ void UI::searchLinkMenu()
 
 void UI::printLinkMenu()
 {
-    clearScreen();
+    cout << endl;
     cout << "What do you want to do?" << endl;
     cout << "(S) Print scientists and computers connected to them?" << endl;
     cout << "(C) Print computers and scientists connected to them? " << endl;
@@ -193,10 +211,12 @@ void UI::printLinkMenu()
     switch(ans)
     {
           case 's':
-          case 'S': sortSciLink();
+          case 'S': clearScreen();
+                    sortSciLink();
                     break;
           case 'c':
-          case 'C': sortComLink();
+          case 'C': clearScreen();
+                    sortComLink();
                     break;
           case 'm':
           case 'M': clearScreen();
@@ -213,7 +233,6 @@ void UI::printLinkMenu()
 
 void UI::linkMenu()
 {
-    clearScreen();
     cout << endl;
     cout << "What do you want to do?" << endl;
     cout << "(S) Search connections."<<endl;
@@ -229,16 +248,20 @@ void UI::linkMenu()
     switch(ans)
     {
         case 's':
-        case 'S':   searchLinkMenu();
+        case 'S':   clearScreen();
+                    searchLinkMenu();
                     break;
         case 'a':
-        case 'A':   addConnection();
+        case 'A':   clearScreen();
+                    addConnection();
                     break;
         case 'p':
-        case 'P':   printLinkMenu();
+        case 'P':   clearScreen();
+                    printLinkMenu();
                     break;
         case 'r':
-        case 'R':   removeConnection();
+        case 'R':   clearScreen();
+                    removeConnection();
                     break;
         case 'm':
         case 'M':   clearScreen();
@@ -256,7 +279,6 @@ void UI::linkMenu()
 
 void UI::searchComMenu()
 {
-    clearScreen();
     cout << endl;
     char choice;
     cout << "Search by: " << endl;
@@ -271,16 +293,20 @@ void UI::searchComMenu()
     switch(choice)
     {
         case 'n':
-        case 'N':   searchComName();
+        case 'N':   clearScreen();
+                    searchComName();
                     break;
         case 't':
-        case 'T':   searchComType();
+        case 'T':   clearScreen();
+                    searchComType();
                     break;
         case 'c':
-        case 'C':   searchComYear();
+        case 'C':   clearScreen();
+                    searchComYear();
                     break;
         case 'm':
         case 'M':   clearScreen();
+                    clearScreen();
                     return;
                     break;
         case 'q':
@@ -294,7 +320,6 @@ void UI::searchComMenu()
 
 void UI::searchSciMenu()
 {
-    clearScreen();
     cout << endl;
     char choice;
     cout << "Search by: " << endl;
@@ -310,16 +335,20 @@ void UI::searchSciMenu()
     switch(choice)
     {
         case 'n':
-        case 'N':   searchSciName();
+        case 'N':   clearScreen();
+                    searchSciName();
                     break;
         case 'g':
-        case 'G':   searchGender();
+        case 'G':   clearScreen();
+                    searchGender();
                     break;
         case 'b':
-        case 'B':   searchBirth();
+        case 'B':   clearScreen();
+                    searchBirth();
                     break;
         case 'd':
-        case 'D':   searchDeath();
+        case 'D':   clearScreen();
+                    searchDeath();
                     break;
         case 'm':
         case 'M':   clearScreen();
@@ -336,7 +365,6 @@ void UI::searchSciMenu()
 
 void UI::sortComMenu()
 {
-    clearScreen();
     char choice;
     cout << "Print by: " << endl;
     cout << "(A) Alphabetic order." << endl
@@ -351,28 +379,32 @@ void UI::sortComMenu()
     switch(choice)
     {
         case 'a':
-        case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
+        case 'A':   clearScreen();
+                    cout << endl << "--- Printing by alphabetical order --- " << endl;
                     {
                         Machines temp = core.sortCompAlpabetFront();
                         printComputers(temp);
                     }
                     break;
         case 'r':
-        case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
+        case 'R':   clearScreen();
+                    cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
                     {
                         Machines temp = core.sortCompAlpabetBack();
                         printComputers(temp);
                     }
                     break;
         case 'c':
-        case 'C':   cout << endl << "--- Printing by year of Creation --- " << endl;
+        case 'C':   clearScreen();
+                    cout << endl << "--- Printing by year of Creation --- " << endl;
                     {
                         Machines temp = core.sortCompBuildYear();
                         printComputers(temp);
                     }
                     break;
         case 't':
-        case 'T':   cout << endl << "--- Printing by alphebetical type order ---" << endl;
+        case 'T':   clearScreen();
+                    cout << endl << "--- Printing by alphebetical type order ---" << endl;
                     {
                         Machines temp = core.sortCompType();
                         printComputers(temp);
@@ -387,14 +419,13 @@ void UI::sortComMenu()
                     exit(1);
                     break;
         default:    errorInput();
-                    sortSciMenu();
+                    sortComMenu();
                     break;
     }
 }
 
 void UI::sortSciMenu()
 {
-    clearScreen();
     char choice;
     cout << "Print by: " << endl;
     cout << "(A) Alphabetic order." << endl
@@ -409,29 +440,32 @@ void UI::sortSciMenu()
     switch(choice)
     {
         case 'a':
-        case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
+        case 'A':   clearScreen();
+                    cout << endl << "--- Printing by alphabetical order --- " << endl;
                     {
                         People temp = core.sortSciAlpabetFront();
                         printScientists(temp);
                     }
                     break;
         case 'r':
-        case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
-
+        case 'R':   clearScreen();
+                    cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
                     {
                         People temp = core.sortSciAlpabetBack();
                         printScientists(temp);
                     }
                     break;
         case 'b':
-        case 'B':   cout << endl << "--- Printing by year of Birth --- " << endl;
+        case 'B':   clearScreen();
+                    cout << endl << "--- Printing by year of Birth --- " << endl;
                     {
                         People temp = core.sortSciByBirthYear();
                         printScientists(temp);
                     }
                     break;
         case 'd':
-        case 'D':   cout << endl << "--- Printing by year of Death --- " << endl;
+        case 'D':   clearScreen();
+                    cout << endl << "--- Printing by year of Death --- " << endl;
                     {
                         People temp = core.sortSciByDeathYear();
                         printScientists(temp);
@@ -790,13 +824,16 @@ void UI::updateCompMenu()
                     switch(choice)
                     {
                         case 'n':
-                        case 'N':   updateCompName(id);
+                        case 'N':   clearScreen();
+                                    updateCompName(id);
                                     break;
                         case 't':
-                        case 'T':   updateCompType(id);
+                        case 'T':   clearScreen();
+                                    updateCompType(id);
                                     break;
                         case 'b':
-                        case 'B':   updateCompBYear(id);
+                        case 'B':   clearScreen();
+                                    updateCompBYear(id);
                                     break;
                         case 'm':
                         case 'M':   clearScreen();
@@ -1166,12 +1203,11 @@ void UI::searchDeath()
 
 void UI::addIndividual()
 {
-    clearScreen();
     string surname, name;
     int birth, death;
     char gender;
     bool notfound = false;
-    cout << "Enter the following information:" << endl;
+    cout << endl << "Enter the following information:" << endl;
     cin.ignore();
     cout << endl;
     char ans;
@@ -1246,8 +1282,7 @@ void UI::addIndividual()
 
 void UI::addComputer()
 {
-    clearScreen();
-    cout << "Enter the following information:" << endl;
+    cout << endl << "Enter the following information:" << endl;
     string name, type;
     int year;
     char ans;
