@@ -19,41 +19,29 @@ class People
 public:
     People();
     vector <Individual> getPerson() const;
-    //returns the vector person
-    void addIndi(const Individual& i1);
-    //adds and individual to vector
+    // Returns the vector person
+
     Individual getIndi(const int i) const;
     //returns an individual at person[i]
     int getSize() const;
-    //returns the size of the vector
-    bool checkBirthYearOrder(const Individual& i1, const Individual& i2);
-    bool checkDeathYearOrder(const Individual& i1, const Individual& i2);
-    //adds and individual to vector
+    // Returns the size of the vector
+
+    void addIndi(const Individual& i1);
+    // Adds an individual to vector Person
     void removeIndi(string name);
-    //removes an individual from the database, returns a new variable People
-    //with a vector containing every individual except the removed one
+    //removes an individual from the vector Person
+
     void swap(const int i, const int j);
-
-
-    /*
-    People(const string filename);
-    People(const People& p1);
-    //copy constructor
-
-    People(const string filename);
-    //returns the size of the vector
-
-    friend ostream& operator << (ostream& outs, People& p1);
-    Individual getIndi(const int i) const;
-    //takes in two indexis of the person vector and swaps two individuals
-    //who belong to these indexes in the vector */
+    // Swaps the indexes of two individuals in vector
 
     bool checkIndiOrder(const Individual& i1, const Individual& i2);
+    bool checkBirthYearOrder(const Individual& i1, const Individual& i2);
+    bool checkDeathYearOrder(const Individual& i1, const Individual& i2);
+    // Functions to check the order of two individuals
+
 private:
     bool checkIndiOrder(const int i, const int j);
     vector <Individual> person;
     //saves individuals in vector to file
-
-
 };
 #endif // PEOPLE_H
