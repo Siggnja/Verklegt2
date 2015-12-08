@@ -51,7 +51,6 @@ void UI::choiceSwitch(char ans)
 
 void UI::ask()
 {
-    clearScreen();
     cout << endl;
     cout << "What do you want to do?" << endl;
     cout << "(A) Add to list." << endl;
@@ -92,8 +91,7 @@ void UI::sciMenu()
         case 'R':   removeSci();
                     break;
         case 'm':
-        case 'M':   clearScreen();
-                    return;
+        case 'M':   return;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -133,8 +131,7 @@ void UI::comMenu()
         case 'C':   updateCompMenu();
                     break;
         case 'm':
-        case 'M':   clearScreen();
-                    return;
+        case 'M':   return;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -166,8 +163,7 @@ void UI::searchLinkMenu()
           case 'C': searchComLink();
                     break;
           case 'm':
-          case 'M': clearScreen();
-                    return;
+          case 'M': return;
                     break;
           case 'q':
           case 'Q': cout << endl;
@@ -199,8 +195,7 @@ void UI::printLinkMenu()
           case 'C': sortComLink();
                     break;
           case 'm':
-          case 'M': clearScreen();
-                    return;
+          case 'M': return;
                     break;
           case 'q':
           case 'Q': cout << endl;
@@ -213,7 +208,6 @@ void UI::printLinkMenu()
 
 void UI::linkMenu()
 {
-    clearScreen();
     cout << endl;
     cout << "What do you want to do?" << endl;
     cout << "(S) Search connections."<<endl;
@@ -241,8 +235,7 @@ void UI::linkMenu()
         case 'R':   removeConnection();
                     break;
         case 'm':
-        case 'M':   clearScreen();
-                    return;
+        case 'M':   return;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -280,8 +273,7 @@ void UI::searchComMenu()
         case 'C':   searchComYear();
                     break;
         case 'm':
-        case 'M':   clearScreen();
-                    return;
+        case 'M':   return;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -322,8 +314,7 @@ void UI::searchSciMenu()
         case 'D':   searchDeath();
                     break;
         case 'm':
-        case 'M':   clearScreen();
-                    return;
+        case 'M':   return;
                     break;
         case 'q':
         case 'Q':   exit(1);
@@ -379,8 +370,7 @@ void UI::sortComMenu()
                     }
                     break;
         case 'm':
-        case 'M':   clearScreen();
-                    return;
+        case 'M':   return;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -438,8 +428,7 @@ void UI::sortSciMenu()
                     }
                     break;
         case 'M':
-        case 'm':   clearScreen();
-                    return;
+        case 'm':   return;
                     break;
         case 'q':
         case 'Q':   exit(1);
@@ -501,8 +490,7 @@ void UI::updateSciMenu()
                     case 'G':   updateIndiGender(id);
                                 break;
                     case 'm':
-                    case 'M':   clearScreen();
-                                return;
+                    case 'M':   return;
                                 break;
 
                     default:    count = -1;
@@ -648,7 +636,7 @@ void UI::updateIndiBYear(const int id)
         if(cin.fail())
         {
             errorInput();
-        }    
+        }
     } while(cin.fail());
 
     Individual i1 = core.getData().getSingleIndi(id);
@@ -799,8 +787,7 @@ void UI::updateCompMenu()
                         case 'B':   updateCompBYear(id);
                                     break;
                         case 'm':
-                        case 'M':   clearScreen();
-                                    return;
+                        case 'M':   return;
                                     break;
                         default:    count = -1;
                                     errorInput();
@@ -1166,12 +1153,11 @@ void UI::searchDeath()
 
 void UI::addIndividual()
 {
-    clearScreen();
     string surname, name;
     int birth, death;
     char gender;
     bool notfound = false;
-    cout << "Enter the following information:" << endl;
+
     cin.ignore();
     cout << endl;
     char ans;
@@ -1273,8 +1259,6 @@ void UI::addIndividual()
 
 void UI::addComputer()
 {
-    clearScreen();
-    cout << "Enter the following information:" << endl;
     string name, type;
     int year;
     char ans;
@@ -1668,6 +1652,15 @@ void UI::printCompAndConnect(Computer& comp)
     People temp = core.getConnectedSci(id);
     printConnectedSci(temp);
 }
+/*
+void UI::printComplist(Machines& complist) const
+{
+    for (int i = 0; i < complist.getSize(); i++)
+    {
+        Computer com = complist.getComputer(i);
+        printComp(com);
+    }
+}*/
 
 void UI::printComp(Computer& temp) const
 {
@@ -1804,7 +1797,7 @@ void UI::searchComLink()
                       cout << "The following scientists are connected to computer " << s << ": " << endl;
                       printList(p);
                   }
-              }                 
+              }
          }
          else
          {
