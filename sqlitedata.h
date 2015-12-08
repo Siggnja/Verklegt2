@@ -2,10 +2,11 @@
 #define SQLITEDATA_H
 
 #include <QtSql>
+#include <iostream>
 #include "people.h"
 #include "machines.h"
-#include <iostream>
 #include "globalconstants.h"
+
 using namespace std;
 
 class SQLiteData
