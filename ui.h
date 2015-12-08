@@ -90,10 +90,9 @@ public:
     void printConnectedComp(Machines& comps) const;
     // Calls on print (Comp/Indi) indent
 
-    void printList(People& list) const;
     void printComp(Computer& id) const;
-
     void printIndi(Individual& id) const;
+    // Prints an individual or a computer
 
     void printIndiAndConnect(Individual & temp);
     void printCompAndConnect(Computer& temp);

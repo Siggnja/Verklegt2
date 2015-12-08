@@ -491,7 +491,7 @@ void UI::searchSciName()
     if(result.getSize() != 0)
     {
         entriesMatched();
-        printList(result);
+        printScientists(result);
     }
     else
     {
@@ -513,7 +513,7 @@ void UI::searchGender()
         if(result.getSize() != 0)
         {
             entriesMatched();
-            printList(result);
+            printScientists(result);
         }
         else
         {
@@ -539,7 +539,7 @@ void UI::searchBirth()
         if(found)
         {
             entriesMatched();
-            printList(result);
+            printScientists(result);
         }
         else if(!found)
         {
@@ -549,7 +549,7 @@ void UI::searchBirth()
             {
                 cout << "However these individuals were found within"
                         " a 10 year range of given year: " << endl;
-                printList(result);
+                printScientists(result);
             }
         }
     }
@@ -574,7 +574,7 @@ void UI::searchDeath()
         if(found)
         {
             entriesMatched();
-            printList(result);
+            printScientists(result);
         }
         else if(!found)
         {
@@ -584,7 +584,7 @@ void UI::searchDeath()
             {
                 cout << "However these individuals were found within"
                         " a 10 year range of given year: " << endl;
-                printList(result);
+                printScientists(result);
             }
         }
     }
@@ -788,7 +788,7 @@ void UI::searchComLink()
                   {
                       cout << endl;
                       cout << "The following scientists are connected to computer " << s << ": " << endl;
-                      printList(p);
+                      printScientists(p);
                   }
               }
          }
@@ -1819,15 +1819,6 @@ void UI::printConnectedComp(Machines& comps) const
     }
 }
 
-void UI::printList(People& list) const
-{
-    for (int i = 0; i < list.getSize(); i++)
-    {
-        Individual id = list.getIndi(i);
-        printIndi(id);
-    }
-}
-
 void UI::printComp(Computer& temp) const
 {
     cout << right << setw(3) << temp.getId() << "\t" << left << setw(25) << temp.getName() << setw(15)
@@ -1842,13 +1833,6 @@ void UI::printComp(Computer& temp) const
         cout << "Not built." << endl;
     }
 }
-
-// ---------------------------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------------------------
-// --------------- komin hingað
-// ---------------------------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------------------------
-
 
 void UI::printIndi(Individual& temp) const
 {
