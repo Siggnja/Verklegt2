@@ -1,6 +1,5 @@
 #include "ui.h"
 
-
 UI::UI()
 {
 
@@ -439,6 +438,7 @@ void UI::sortSciMenu()
                     break;
     }
 }
+
 void UI::updateSciMenu()
 {
     int id, count;
@@ -491,13 +491,12 @@ void UI::updateSciMenu()
                     case 'M':   return;
                                 break;
 
-
                     default:    count = -1;
                                 errorInput();
                                 updateSciMenu();
                                 break;
                 }
-             }while(count == -1);
+             } while(count == -1);
         }
         else
         {
@@ -516,13 +515,14 @@ void UI::updateSciMenu()
    }
 
 }
+
 void UI::updateIndiName(const int id)
 {
     string name;
     cout << "Please insert a new name: ";
     cin.ignore();
     getline(cin, name);
-    core.updateIndiName(name,id);
+    core.updateIndiName(name, id);
     cout << "The scientist is now registered as:" << endl;
     Individual i1 = core.getData().getSingleIndi(id);
     printIndi(i1);
@@ -534,7 +534,7 @@ void UI::updateIndiSurname(const int id)
     cout << "Please insert a new surname: ";
     cin.ignore();
     getline(cin, surname);
-    core.updateIndiSurname(surname,id);
+    core.updateIndiSurname(surname, id);
     cout << "The scientist is now registered as:" << endl;
     Individual i1 = core.getData().getSingleIndi(id);
     printIndi(i1);
@@ -571,12 +571,12 @@ void UI::updateIndiBYear(const int id)
         {
             errorInput();
         }    
-    }while(cin.fail());
+    } while(cin.fail());
 
     Individual i1 = core.getData().getSingleIndi(id);
-    if(i1.getDeath()>year)
+    if(i1.getDeath() > year)
     {
-        core.updateIndiBYear(year,id);
+        core.updateIndiBYear(year, id);
     }
     else
     {
@@ -602,7 +602,7 @@ void UI::updateIndiDYear(const int id)
         {
             errorInput();
         }
-    }while(cin.fail());
+    } while(cin.fail());
 
     Individual i1 = core.getData().getSingleIndi(id);
     if(i1.getBirth() > year)
@@ -619,6 +619,7 @@ void UI::updateIndiDYear(const int id)
     cout << "The scientist is now registered as:" << endl;
     printIndi(i1);
 }
+
 void UI::updateCompMenu()
 {
         int id, count;
@@ -669,7 +670,7 @@ void UI::updateCompMenu()
                                     updateCompMenu();
                                     break;
                     }
-                 }while(count==-1);
+                 } while(count == -1);
             }
             else
             {
@@ -687,6 +688,7 @@ void UI::updateCompMenu()
             updateCompMenu();
        }
 }
+
 void UI::updateCompName(const int id)
 {
     string name;
@@ -708,11 +710,11 @@ void UI::updateCompBYear(const int id)
         cin.ignore();
         cout << "Insert a new year of creation: ";
         cin >> year;
-            if(cin.fail())
-            {
-                errorInput();
-            }
-    }while(cin.fail());
+        if(cin.fail())
+        {
+            errorInput();
+        }
+    } while(cin.fail());
     core.updateIndiBYear(year,id);
     Computer i1 = core.getData().getSingleComp(id);
     cout << "The Computer is now registered as:" << endl;
@@ -821,7 +823,7 @@ void UI::searchSciName()
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
     result = core.searchNam(searchStr);
-    if (result.getSize() != 0) //þá taka út bool found
+    if (result.getSize() != 0)
     {
         entriesMatched();
         printList(result);
@@ -979,14 +981,14 @@ void UI::addIndividual()
     if (ans == 'n' || ans == 'N')
     {
         do {
-                cin.clear();
-                cin.ignore();
-                cout << "Year of death: ";
-                cin >> death;
-                if(cin.fail())
-                {
-                    errorInput();
-                }
+            cin.clear();
+            cin.ignore();
+            cout << "Year of death: ";
+            cin >> death;
+            if(cin.fail())
+            {
+                errorInput();
+            }
             if(birth > death)
             {
                 cout << "Illegal deathyear! Input again: " << endl << endl;
@@ -1046,24 +1048,23 @@ void UI::addComputer()
         cout << endl;
         cout << "This Computer is already in the database! " << endl;
     }
-
 }
 
 void UI::addConnection()
 {
     int s, c;
-    bool strue=false,ctrue=false;
+    bool strue = false, ctrue = false;
     do
     {
         cin.clear();
         cin.ignore();
         cout << "Please enter the id of the Scientist: ";
         cin >> s;
-    }while(cin.fail());
+    } while(cin.fail());
    People p1 = core.getData().sortIndiAlphaFront();
-   for(int i = 0; i<p1.getSize();i++)
+   for(int i = 0; i < p1.getSize(); i++)
    {
-       if(p1.getIndi(i).getId()==s)
+       if(p1.getIndi(i).getId() == s)
        {
            strue = true;
        }
@@ -1076,7 +1077,7 @@ void UI::addConnection()
            cin.ignore();
            cout << "Please enter the id of the Computer : ";
            cin >> c;
-       }while(cin.fail());
+       } while(cin.fail());
        Machines c1 = core.getData().sortCompAlphaFront();
        for(int i = 0; i < c1.getSize(); i++)
        {
@@ -1098,7 +1099,7 @@ void UI::addConnection()
        Individual i = core.getData().getSingleIndi(s);
        Computer j = core.getData().getSingleComp(c);
        cout << "Linking successfull!" << endl;
-       cout << "Scientist: " << i.getSurname() << " is now linked with computer: " << j.getName() <<endl;
+       cout << "Scientist: " << i.getSurname() << " is now linked with computer: " << j.getName() << endl;
    }
    else
    {
@@ -1148,21 +1149,22 @@ void UI::removeSci()
         cout << "The individual was not found in list and therefore not removed." << endl;
     }
 }
+
 void UI::removeConnection()
 {
     int s,c;
-    bool strue=false,ctrue=false;
+    bool strue = false, ctrue = false;
     do
     {
         cin.clear();
         cin.ignore();
         cout << "Please enter the id of the Scientist: ";
         cin >> s;
-    }while(cin.fail());
+    } while(cin.fail());
    People p1 = core.getData().sortIndiAlphaFront();
-   for(int i = 0; i<p1.getSize();i++)
+   for(int i = 0; i < p1.getSize(); i++)
    {
-       if(p1.getIndi(i).getId()==s)
+       if(p1.getIndi(i).getId() == s)
        {
            strue = true;
        }
@@ -1176,12 +1178,12 @@ void UI::removeConnection()
            cin.ignore();
            cout << "Please enter the id of the computer : ";
            cin >> c;
-       }while(cin.fail());
+       } while(cin.fail());
 
        Machines c1 = core.getData().sortCompAlphaFront();
-       for(int i = 0; i<c1.getSize();i++)
+       for(int i = 0; i < c1.getSize(); i++)
        {
-           if(c1.getComputer(i).getId()==c)
+           if(c1.getComputer(i).getId() == c)
            {
                ctrue = true;
                cout << "her";
@@ -1259,7 +1261,7 @@ void UI::printComputers(Machines &comps)
     {
         Computer temp = comps.getComputer(i);
         printComp(temp);
-        cout<<endl;
+        cout << endl;
     }
 }
 
@@ -1268,6 +1270,7 @@ void UI::printComputersConnection(Machines &comps)
     cout << endl;
     cout << right << setw(3) << "Id" << "\t" << left << setw(25) << "Name" << setw(15)
         << "Type" << "\tYear" << endl;
+
     for(int i = 0; i < 74; i++)
     {
         cout << "-";
@@ -1292,7 +1295,6 @@ void UI::printIndiIndent(Individual &id) const
     {
         cout << "Male";
     }
-
     cout << "\t" << id.getBirth() << " - ";
     if(id.getDeath() == 0)
     {
@@ -1302,7 +1304,6 @@ void UI::printIndiIndent(Individual &id) const
     {
         cout << id.getDeath();
     }
-
     cout << endl;
 }
 
@@ -1322,14 +1323,13 @@ void UI::printCompIndent(Computer &id) const
 
 void UI::printConnectedComp(Machines& comps) const
 {
-
     if(comps.getSize() > 0)
     {
         cout << "\t" << "Id" << "\t" << "Name" << endl;
         cout << "\t-----------------------" << endl;
         for(int i = 0; i < comps.getSize(); i++)
         {
-                Computer temp = comps.getComputer(i);
+            Computer temp = comps.getComputer(i);
             printCompIndent(temp);
         }
     }
@@ -1348,8 +1348,7 @@ void UI::printConnectedSci(People& sci) const
             printIndiIndent(temp);
         }
     }
-    cout<<endl;
-
+    cout << endl;
 }
 
 void UI::printList(People& list) const
@@ -1377,6 +1376,7 @@ void UI::printIndi(Individual& temp) const
 
     cout << "\t";
     cout << temp.getBirth() << " - ";
+
     if(temp.getDeath() == 0)
     {
         cout << "Today";
@@ -1385,11 +1385,10 @@ void UI::printIndi(Individual& temp) const
     {
         cout << temp.getDeath();
     }
-
     cout << endl;
 }
 
-void UI::printIndiAndConnect(Individual & sci)
+void UI::printIndiAndConnect(Individual& sci)
 {
     printIndi(sci);
     int id = sci.getId();
@@ -1399,7 +1398,6 @@ void UI::printIndiAndConnect(Individual & sci)
 
 void UI::printCompAndConnect(Computer& comp)
 {
-
     printComp(comp);
     int id = comp.getId();
     People temp = core.getConnectedSci(id);
@@ -1428,7 +1426,6 @@ void UI::printComp(Computer& temp) const
     {
         cout << "Not built." << endl;
     }
-
 }
 
 void UI::searchSciLink()
@@ -1441,7 +1438,7 @@ void UI::searchSciLink()
     if(!cin.fail())
     {
          People p = core.getData().sortIndiAlphaFront();
-         for(int i = 0 ; i <p.getSize(); i++)
+         for(int i = 0; i < p.getSize(); i++)
          {
              if(id == p.getIndi(i).getId())
              {
@@ -1451,10 +1448,10 @@ void UI::searchSciLink()
          if(found == true)
 
          {
-             Machines mac=core.getConnectedComp(id);
+             Machines mac = core.getConnectedComp(id);
              Individual i1 = core.getData().getSingleIndi(id);
              string s = i1.getName() + " " + i1.getSurname();
-             cout << "You picked the scientist " << s << " is that correct(y/n)?";
+             cout << "You picked the scientist " << s << " is that correct(y/n)? ";
              char input;
              cin >> input;
              while((input != 'y' && input != 'Y' && input != 'n'&& input != 'N') || cin.fail())
@@ -1479,7 +1476,7 @@ void UI::searchSciLink()
                  else
                 {
                      cout << endl;
-                     cout << "The following computers are connected to the scientist " << s << ":"<<endl;
+                     cout << "The following computers are connected to the scientist " << s << ": " << endl;
                      printComplist(mac);
                 }
              }
@@ -1499,7 +1496,6 @@ void UI::searchSciLink()
         cin.ignore();
         searchSciLink();
     }
-
 }
 
 void UI::searchComLink()
@@ -1513,7 +1509,7 @@ void UI::searchComLink()
     if(!cin.fail())
     {
         Machines mac = core.getData().sortCompAlphaFront();
-        for(int i = 0 ; i <mac.getSize(); i++)
+        for(int i = 0; i < mac.getSize(); i++)
         {
             if(id == mac.getComputer(i).getId())
             {
@@ -1525,10 +1521,10 @@ void UI::searchComLink()
          {   People p = core.getConnectedSci(id);
              Computer c1 = core.getData().getSingleComp(id);
              string s = c1.getName();
-             cout<<"You picked the computer "<< s <<" is that correct(y/n)?";
+             cout << "You picked the computer "<< s <<" is that correct(y/n)? ";
              char input;
              cin >> input;
-             while((input != 'y' && input != 'Y' && input != 'n' && input != 'N' )|| cin.fail())
+             while((input != 'y' && input != 'Y' && input != 'n' && input != 'N' ) || cin.fail())
              {
                 if((input != 'y' || input != 'Y' || input != 'n' || input != 'N' ) || cin.fail())
                 {
