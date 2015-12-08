@@ -5,11 +5,6 @@ People::People()
 
 }
 
-void People::addIndi(const Individual& i1)
-{
-    person.push_back(i1);
-}
-
 vector <Individual> People::getPerson() const
 {
     return person;
@@ -23,6 +18,27 @@ Individual People::getIndi(const int i) const
 int People::getSize() const
 {
     return(person.size());
+}
+
+void People::addIndi(const Individual& i1)
+{
+    person.push_back(i1);
+}
+
+void People::removeIndi(string name)
+{
+    string tempName;
+    vector<Individual> newlist;
+
+    for (unsigned int i = 0; i < person.size(); i++)
+    {
+        tempName = person[i].getName() + " " + person[i].getSurname();
+        if(tempName != name)
+        {
+            newlist.push_back(person[i]);
+        }
+    }
+    person = newlist;
 }
 
 void People::swap(const int i, const int j)
@@ -51,22 +67,6 @@ bool People::checkIndiOrder(const int i, const int j)
         }
      } while(t2 < t1);
     return(t2 > t1);
-}
-
-void People::removeIndi(string name)
-{
-    string tempName;
-    vector<Individual> newlist;
-
-    for (unsigned int i = 0; i < person.size(); i++)
-    {
-        tempName = person[i].getName() + " " + person[i].getSurname();
-        if(tempName != name)
-        {
-            newlist.push_back(person[i]);
-        }
-    }
-    person = newlist;
 }
 
 bool People::checkIndiOrder(const Individual& i1, const Individual& i2)

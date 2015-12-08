@@ -104,11 +104,13 @@ People Core::sortSciByDeathYear()
             dead.addIndi(temp.getIndi(i));
         }
     }
+    // Seperates alive and dead computer scientists
 
     for(int i = 0; i < alive.getSize(); i++)
     {
         dead.addIndi(alive.getIndi(i));
     }
+    // Puts the alive at the end of the list
 
     return dead;
 }
