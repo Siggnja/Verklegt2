@@ -14,17 +14,26 @@ class Machines
 public:
     Machines();
 
-    //vector <Computer> getComputers() const;
-    //void addIndi(const Individual& i1);
     void addMach(const Computer& com);
-    vector <Computer> getComs() const;
-    int getSize() const;
-    void swap(const int i, const int j);
-    bool checkCompOrder(const int i, const int j);
+    // Adds a computer to the vector
     void removeComputer(string name);
-    bool checkCompOrder(const Computer& c1, const Computer& c2);
+    // Removes Computer from vector
+
+    vector <Computer> getComs() const;
+    // Returns the computer vector
+    int getSize() const;
+    // Returns the size of the vector
     Computer getComputer(const int i) const;
+    // Returns computer at vector index i
+
     bool checkYearOrder(const Computer& c1, const Computer& c2);
+    bool checkCompOrder(const Computer& c1, const Computer& c2);
+    bool checkCompOrder(const int i, const int j);
+    // Checks the order of computers
+
+    void swap(const int i, const int j);
+    // Swaps two vector indexes
+
 private:
     vector<Computer> computers;
 };
