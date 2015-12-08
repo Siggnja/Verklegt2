@@ -2,7 +2,6 @@
 #define COMPUTER_H
 
 #include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -14,10 +13,9 @@ public:
     Computer(int yearr, string namee, string typee);
     // The constructors, with and without id
 
-    friend bool operator == (const Computer& c1,const Computer& c2);
+    friend bool operator == (const Computer& c1, const Computer& c2);
     // Overloaded == operator, checks if two computers are the same
 
-    void setId(int i);
     void setYear(int i);
     void setName(string str);
     void setType(string str);

@@ -1,10 +1,10 @@
 #ifndef CORE_H
 #define CORE_H
 
+#include <string>
 #include "people.h"
 #include "machines.h"
 #include "sqlitedata.h"
-#include <string>
 
 using namespace std;
 

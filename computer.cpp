@@ -12,16 +12,12 @@ Computer::Computer(int idd, int yearr, string namee, string typee)
     name = namee;
     type = typee;
 }
+
 Computer::Computer(int yearr, string namee, string typee)
 {
     year = yearr;
     name = namee;
     type = typee;
-}
-
-void Computer::setId(int i)
-{
-    id = i;
 }
 
 void Computer::setYear(int i)
@@ -59,7 +55,7 @@ string Computer::getType() const
     return type;
 }
 
-bool operator == (const Computer& c1,const Computer& c2)
+bool operator == (const Computer& c1, const Computer& c2)
 {
-    return(c1.getName() == c2.getName() && c1.getType()==c2.getType() && c1.getYear()==c2.getYear());
+    return(c1.getName() == c2.getName() && c1.getType() == c2.getType() && c1.getYear() == c2.getYear());
 }

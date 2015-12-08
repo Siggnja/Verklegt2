@@ -14,7 +14,7 @@ Individual::Individual(const string surnam, const string nam, const char gend, c
     death = dea;
 }
 
-Individual::Individual(const int i,const string surnam, const string nam, const string gend, const int bir, const int dea)
+Individual::Individual(const int i, const string surnam, const string nam, const string gend, const int bir, const int dea)
 {
     id = i;
     name = nam;
@@ -22,19 +22,6 @@ Individual::Individual(const int i,const string surnam, const string nam, const 
     gender = gend[0];
     birth = bir;
     death = dea;
-}
-
-bool operator == (const Individual& indi, const Individual& indi2)
-{
-    if (indi.birth == indi2.birth && indi.death == indi2.death && indi.surname == indi2.surname
-       && indi.gender == indi2.gender && indi.name == indi2.name)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
 }
 
 void Individual::setName(string str)
@@ -62,6 +49,11 @@ void Individual::setDeath(int i)
     death = i;
 }
 
+int Individual::getId() const
+{
+    return id;
+}
+
 string Individual::getName() const
 {
     return name;
@@ -76,10 +68,6 @@ char Individual::getGender() const
 {
     return gender;
 }
-int Individual::getId() const
-{
-    return id;
-}
 
 int Individual::getBirth() const
 {
@@ -89,4 +77,10 @@ int Individual::getBirth() const
 int Individual::getDeath() const
 {
     return death;
+}
+
+bool operator == (const Individual& indi, const Individual& indi2)
+{
+    return(indi.birth == indi2.birth && indi.death == indi2.death && indi.surname == indi2.surname
+            && indi.gender == indi2.gender && indi.name == indi2.name);
 }
