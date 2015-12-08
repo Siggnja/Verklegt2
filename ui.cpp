@@ -1206,7 +1206,7 @@ void UI::removeConnection()
    else
    {
        errorInput();
-       addConnection();
+       removeConnection();
    }
    if(strue && ctrue)
    {
