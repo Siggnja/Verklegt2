@@ -1581,7 +1581,7 @@ void UI::removeSci()
     bool removed = false;
     cin.ignore();
     cout << endl;
-    cout << "Type the id of the individual: ";
+    cout << "Type the id of the Scientist: ";
     cin >> id;
     cout << "Are you sure you want to remove this Scientist from the database? " << endl;
     cout << "Select letter(y/n): ";
