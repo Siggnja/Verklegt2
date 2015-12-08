@@ -12,7 +12,7 @@ public:
     Computer();
     Computer(int idd, int yearr, string namee, string typee);
     Computer(int yearr, string namee, string typee);
-    // The constructors, with and without id.
+    // The constructors, with and without id
 
     friend bool operator == (const Computer& c1,const Computer& c2);
     // Overloaded == operator, checks if two computers are the same
@@ -34,8 +34,6 @@ private:
     int year;
     string name;
     string type;
-    // User typse in the types
-
 };
 
 #endif // COMPUTER_H

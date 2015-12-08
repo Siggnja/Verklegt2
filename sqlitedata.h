@@ -13,50 +13,52 @@ class SQLiteData
 public:
     SQLiteData();
 
-    // Aukaföll sem hægt er að búa til
-    // Machines getCompFromBase();
-    // People getRelationToComp(const int i); <- skilar people sem tengjast tölvu með id i
-    // Machines getRelationToIndi(const int i); <- skilar machines sem tengjast tölvunarfræðing með id i
     void addNewIndi(const Individual i1,bool& found);
+    void addNewComp(const Computer c1,bool& notfound);
+
+    bool searchForId(const int id, const string tablename);
+    int getDatabaseSize(const string temp);
+
     People sortIndiAlphaFront();
     People sortIndiAlphaBack();
     People sortIndiBYear();
     People sortIndiByDYear();
+
+    Machines sortCompAlphaFront();
+    Machines sortCompAlphaBack();
+    Machines sortCompBYear();
+    Machines sortCompByType();
 
     People searchIndiByName(const string name);
     People searchIndiByByear(const int year, bool& found);
     People searchIndiByDyear(const int year, bool& found);
     People searchIndiByGender(const char gender);
 
+    Machines searchCompByName(const string name);
+    Machines searchCompByByear(const int year, bool& found);
+    Machines searchCompByType(const string type);
+
     void updateIndiName(const string name, const int id);
     void updateIndiSurname(const string name, const int id);
     void updateIndiBYear(const int year, const int id);
     void updateIndiDYear(const int year, const int id);
     void updateIndiGender(const char gender, const int id);
-    void deleteIndi(const int id);
-    Individual getSingleIndi(const int id);
-    // Gets a single Scientist based on hid id
-    void addNewComp(const Computer c1,bool& notfound);
-    Machines sortCompAlphaFront();
-    Machines sortCompAlphaBack();
-    Machines sortCompBYear();
-    Machines sortCompByType();
-    //Here we have to give the user options to pick from the varieties of types so he can pick from,
-    //and have a switch sentence which return the exact string of the type you are looking for
-
-    Machines searchCompByName(const string name);
-    Machines searchCompByByear(const int year, bool& found);
-    Machines searchCompByType(const string type);
 
     void updateCompName(const string name, const int id);
     void updateCompType(const string type, const int id);
     void updateCompBYear(const int year, const int id);
+
+    void deleteIndi(const int id);
     void deleteComp(const int id);
+
+    Individual getSingleIndi(const int id);
+    // Gets a single Scientist based on hid id
     Computer getSingleComp(const int id);
     // Gets a single Computer based on hid id
 
     vector<int> getRelationsToComp(const int i);
     vector<int> getRelationsToSci(const int i);
+
     void createConnection(const int idSci, const int idComp);
     void deleteConnectionWithIndi(const int idSci);
     void deleteConnectionWithComp(const int idComp);
@@ -65,7 +67,6 @@ public:
     // tha removar hann einnig oll tengst vid annahvort tolvuna eda scientistinn
     //spurning med thessa nafnagift -- vera samraemi her
 
-    int getDatabaseSize(const string temp);
 private:
     Machines doQueryComp(const string que);
     Machines doQueryCompOrOther(const string que1, const string que2, bool& found);

@@ -10,12 +10,6 @@ using namespace std;
 
 class Core
 {
-private:
-    People list;
-    Machines complist;
-    SQLiteData newdata;
-    void swap(const int i, const int j);
-    bool checkIfIndiIsNew(const Individual i1);
 public:
     Core();
     Core(const People& p1);
@@ -31,10 +25,10 @@ public:
 
     void addIndividual(const Individual& ind, bool& notfound);
     void addComputer(const Computer& com, bool& notfound);
-    void addConnection(const int idSci,const int idComp);
+    void addConnection(const int idSci, const int idComp);
     void removeIndividual(const int i, bool& removed);
     void removeComputer(const int id, bool& removed);
-    void removeConnection(const int idSci,const int idComp);
+    void removeConnection(const int idSci, const int idComp);
 
     string getSurname(int i) const;
     string getName(int i) const;
@@ -92,6 +86,13 @@ public:
 
     int getMachineSizeInNewdata();
     int getPeopleSizeInNewdata();
+
+private:
+    People list;
+    Machines complist;
+    SQLiteData newdata;
+    void swap(const int i, const int j);
+    bool checkIfIndiIsNew(const Individual i1);
 };
 
 #endif // CORE_H

@@ -126,6 +126,29 @@ void  SQLiteData::updateIndiGender(const char gender, const int id)
     string Query = updateSci + " " + setGender + gender + " '" + " " + findId + int_to_string(id);
     executeQuery(Query);
 }
+
+bool SQLiteData::searchForId(const int id, const string tablename)
+{
+    string que = "SELECT * FROM " + tablename + " AS s " + findId + int_to_string(id);
+    int var;
+
+    db.open();
+    QString Q = QString::fromStdString(que);
+    QSqlQuery queryname(db);
+    queryname.exec(Q);
+
+    while(queryname.next())
+    {
+        var = queryname.value("id").toUInt();
+    }
+    db.close();
+    if(var)
+    {
+        return true;
+    }
+    return false;
+}
+
 void  SQLiteData::deleteIndi(const int id)
 {
     string Query = updateSci + " " + setDel + " " + findId + int_to_string(id);
@@ -525,3 +548,4 @@ int SQLiteData::getDatabaseSize(const string temp)
     db.close();
     return size;
 }
+

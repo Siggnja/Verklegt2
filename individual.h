@@ -11,15 +11,14 @@ using namespace std;
 
 class Individual
 {
-
 public:
     Individual();
     Individual(const int i,const string surnam, const string nam, const string gend, const int bir, const int dea);
     Individual(const string surnam, const string nam, const char gend, const int bir, const int dea);
     // Constructors with and without id
 
-    friend bool operator ==(const Individual& indi, const Individual& indi2);
-    //Overloaded == operator, checks if individuals are the same
+    friend bool operator == (const Individual& indi, const Individual& indi2);
+    // Overloaded == operator, checks if individuals are the same
 
     void setName(string str);
     void setSurname(string str);

@@ -20,14 +20,14 @@ public:
     // Returns the vector person
 
     Individual getIndi(const int i) const;
-    //returns an individual at person[i]
+    // Returns an individual at person[i]
     int getSize() const;
     // Returns the size of the vector
 
     void addIndi(const Individual& i1);
     // Adds an individual to vector Person
     void removeIndi(string name);
-    //removes an individual from the vector Person
+    // Removes an individual from the vector Person
 
     void swap(const int i, const int j);
     // Swaps the indexes of two individuals in vector
@@ -40,6 +40,6 @@ public:
 private:
     bool checkIndiOrder(const int i, const int j);
     vector <Individual> person;
-    //saves individuals in vector to file
+    // A vector with elements of type Individual
 };
 #endif // PEOPLE_H

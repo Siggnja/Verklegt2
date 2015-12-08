@@ -3,6 +3,7 @@
 
 #include "core.h"
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 class UI
@@ -92,7 +93,7 @@ public:
     void entriesMatched();
     void noMatch();
     void inDatabase();
-    void readingString(string gender);
+    //void readingString(string gender);
     // Cout sentencses
 
 private:
