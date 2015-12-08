@@ -6,6 +6,7 @@
 
 using namespace std;
 
+
 const string selectAllSci = "SELECT * FROM Scientist as s WHERE s.deleted = 0";
 const string selectAllComp = "SELECT * FROM Computer as s WHERE s.deleted = 0";
 const string selectCount = "SELECT COUNT(*) AS COUNT FROM ";
@@ -58,6 +59,4 @@ const string selectAllDelComp = "SELECT * FROM Computer as s WHERE s.deleted = 1
 const string selectAllDelRel = "SELECT * FROM Scientist as s WHERE s.deleted = 1";
 
 
-
 #endif // GLOBALCONSTANTS
-

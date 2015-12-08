@@ -1,7 +1,7 @@
 #ifndef CORE_H
 #define CORE_H
 
-#include <string>
+#include <iostream>
 #include "people.h"
 #include "machines.h"
 #include "sqlitedata.h"
