@@ -10,8 +10,6 @@
 
 #include "individual.h"
 
-//const string FILENAME = "people.txt";
-
 using namespace std;
 
 class People
