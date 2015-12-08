@@ -89,12 +89,10 @@ public:
     void removeConnection();
     // Remove functions
 
-    void errorFile();
     void errorInput();
     void entriesMatched();
     void noMatch();
     void inDatabase();
-    //void readingString(string gender);
     // Cout sentencses
 
 private:
