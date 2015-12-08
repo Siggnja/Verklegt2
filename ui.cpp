@@ -1532,9 +1532,9 @@ void UI::searchComLink()
              cout<<"You picked the computer "<<s<<" is that correct(y/n)?";
              char input;
              cin >> input;
-             while((input !='y'&&input !='Y'&&input !='n'&& input !='N')||cin.fail())
+             while((input != 'y' && input != 'Y' && input != 'n' && input != 'N' )||cin.fail())
              {
-                if((input !='y'||input !='Y'||input !='n'|| input !='N')||cin.fail())
+                if((input != 'y' || input != 'Y' || input != 'n' || input != 'N' ) || cin.fail())
                 {
                     errorInput();
                     cin >> input;
