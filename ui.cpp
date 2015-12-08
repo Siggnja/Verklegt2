@@ -1124,7 +1124,6 @@ void UI::removeCom()
     if (removed)
     {
         cout << "The computer has been removed." << endl;
-
     }
     else if (!removed)
     {
@@ -1145,7 +1144,6 @@ void UI::removeSci()
 
     if (removed)
     {
-        core.removeIndividual(id, removed); //
         cout << "The individual has been removed." << endl;
     }
     else if (!removed)
@@ -1153,6 +1151,7 @@ void UI::removeSci()
         cout << "The individual was not found in list and therefore not removed." << endl;
     }
 }
+
 void UI::removeConnection()
 {
     int s,c;

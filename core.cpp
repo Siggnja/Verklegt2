@@ -46,30 +46,28 @@ void Core::addComputer(const Computer& com, bool& notfound)
 }
 
 void Core::removeIndividual(const int id, bool& removed)
-{
-    newdata.deleteIndi(id);
-
-    for(int j = 0; j < getPeopleSizeInNewdata(); j++)
+{   
+    removed = newdata.searchForId(id, "scientist");
+    if(removed == true)
     {
-        if(list.getIndi(j).getId() == id)
-        {
-            removed = true;
-            return;
-        }
+        newdata.deleteIndi(id);
+    }
+    else
+    {
+        return;
     }
 }
 
 void Core::removeComputer(const int id, bool& removed)
 {
-    newdata.deleteComp(id);
-
-    for(int j = 0; j < getMachineSizeInNewdata(); j++)
+    removed = newdata.searchForId(id, "computer");
+    if(removed == true)
     {
-        if(complist.getComputer(j).getId() == id)
-        {
-            removed = true;
-            return;
-        }
+        newdata.deleteComp(id);
+    }
+    else
+    {
+        return;
     }
 }
 
