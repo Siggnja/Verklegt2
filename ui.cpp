@@ -331,7 +331,7 @@ void UI::searchLinkMenu()
 void UI::sortSciMenu()
 {
     char choice;
-    cout << "Print by: " << endl;
+    cout << endl << "Print by: " << endl;
     cout << "(A) Alphabetic order." << endl
          << "(R) Reverse alphabetic order." << endl
          << "(B) Year of Birth." << endl
@@ -391,7 +391,7 @@ void UI::sortSciMenu()
 void UI::sortComMenu()
 {
     char choice;
-    cout << "Print by: " << endl;
+    cout << endl << "Print by: " << endl;
     cout << "(A) Alphabetic order." << endl
          << "(R) Reverse alphabetic order." << endl
          << "(T) Type alphabetic order." << endl
@@ -489,7 +489,7 @@ void UI::searchSciName()
     People result;
     string searchStr;
     cin.ignore();
-    cout << "Enter a name to search for: " ;
+    cout << endl << "Enter a name to search for: " ;
     getline(cin, searchStr);
     result = core.searchNam(searchStr);
     if(result.getSize() != 0)
@@ -535,7 +535,7 @@ void UI::searchBirth()
 {
     bool found = false;
     int ansYear;
-    cout << "Enter a birth year: ";
+    cout << endl << "Enter a birth year: ";
     cin >> ansYear;
     if(!cin.fail())
     {
@@ -570,7 +570,7 @@ void UI::searchDeath()
 {
     bool found = false;
     int ansYear;
-    cout << "Enter a death year: ";
+    cout << endl << "Enter a death year: ";
     cin >> ansYear;
     if(!cin.fail())
     {
@@ -606,7 +606,7 @@ void UI::searchComName()
     Machines result;
     string searchStr;
     cin.ignore();
-    cout << "Enter a name to search for: " ;
+    cout << endl << "Enter a name to search for: " ;
     getline(cin, searchStr);
     result = core.searchComName(searchStr);
     if(result.getSize() != 0)
@@ -625,7 +625,7 @@ void UI::searchComType()
     Machines result;
     string searchStr;
     cin.ignore();
-    cout << "Enter a type to search for: " ;
+    cout << endl << "Enter a type to search for: " ;
     getline(cin, searchStr);
     result = core.searchComType(searchStr);
     if(result.getSize() != 0)
@@ -643,7 +643,7 @@ void UI::searchComYear()
 {
     bool found = false;
     int ansYear;
-    cout << "Enter year of creation: ";
+    cout << endl << "Enter year of creation: ";
     cin >> ansYear;
     if(!cin.fail())
     {
@@ -827,6 +827,7 @@ void UI::sortComLink()
 
 void UI::updateSciMenu()
 {
+    cout << endl;
     int id, count;
     bool found = false;
     cout << "Please enter the id of the Scientist you want to change: ";
@@ -1134,7 +1135,7 @@ void UI::updateCompMenu()
 {
         int id, count;
         bool found=false;
-        cout << "Please enter the id of the Computer you want to change: ";
+        cout << endl << "Please enter the id of the Computer you want to change: ";
         cin >> id;
         cout << endl;
         if(!cin.fail())
@@ -1208,7 +1209,7 @@ void UI::updateCompName(const int id)
 {
     string name;
     char ans;
-    cout << "Please insert a new name: ";
+    cout << endl <<"Please insert a new name: ";
     cin.ignore();
     getline(cin, name);
     Computer i1 = core.getData().getSingleComp(id);

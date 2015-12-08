@@ -1,9 +1,9 @@
 #ifndef UI_H
 #define UI_H
 
-#include "core.h"
 #include <iostream>
 #include <iomanip>
+#include "core.h"
 
 using namespace std;
 
