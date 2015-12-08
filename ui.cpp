@@ -1019,7 +1019,7 @@ void UI::addComputer()
     cout << "Type: ";
     getline(cin, type);
 
-    cout << "Was the computer created(y/n)?";
+    cout << "Was the computer created(y/n)? ";
     cin >> ans;
     while((ans !='y'&&ans !='Y'&&ans !='n'&& ans !='N')||cin.fail())
     {
@@ -1051,7 +1051,7 @@ void UI::addComputer()
 
 void UI::addConnection()
 {
-    int s,c;
+    int s, c;
     bool strue=false,ctrue=false;
     do
     {
@@ -1078,9 +1078,9 @@ void UI::addConnection()
            cin >> c;
        }while(cin.fail());
        Machines c1 = core.getData().sortCompAlphaFront();
-       for(int i = 0; i<c1.getSize();i++)
+       for(int i = 0; i < c1.getSize(); i++)
        {
-           if(c1.getComputer(i).getId()==c)
+           if(c1.getComputer(i).getId() == c)
            {
                ctrue = true;
            }
@@ -1097,7 +1097,7 @@ void UI::addConnection()
        core.addConnection(s,c);
        Individual i = core.getData().getSingleIndi(s);
        Computer j = core.getData().getSingleComp(c);
-       cout << "Linking succecfull!" << endl;
+       cout << "Linking successfull!" << endl;
        cout << "Scientist: " << i.getSurname() << " is now linked with computer: " << j.getName() <<endl;
    }
    else
@@ -1196,7 +1196,7 @@ void UI::removeConnection()
        core.removeConnection(s,c);
        Individual i = core.getData().getSingleIndi(s);
        Computer j = core.getData().getSingleComp(c);
-       cout << "Linking removed succecfully!" << endl;
+       cout << "Linking removed successfully!" << endl;
        cout << "Scientist: " << i.getSurname() << " is no longer linked with computer: " << j.getName() <<endl;
    }
 
@@ -1300,7 +1300,7 @@ void UI::printCompIndent(Computer &id) const
 
     if(id.getYear() == 0)
     {
-        cout << "Unbuilt";
+        cout << "Not built";
     }
     else
     {
@@ -1460,7 +1460,7 @@ void UI::searchSciLink()
              {
                  if(mac.getSize()==0)
                  {
-                     cout<<"No computers connected to this scientist"<<endl;
+                     cout << "No computers connected to this scientist" << endl;
                  }
 
                  else
@@ -1597,7 +1597,7 @@ void UI::inDatabase()
     cout << "This instance is already in the database " << endl;
 }
 
-void UI::readingString(string gender)
+/*void UI::readingString(string gender)
 {
     cout << "--- Reading " << gender << " ---" << endl;
-}
+}*/
