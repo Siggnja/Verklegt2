@@ -1205,7 +1205,14 @@ void UI::removeConnection()
 void UI::printScientists(People& sci)
 {
     cout << endl;
-    cout << "Id\t" << "Name\t\t" << "Gender \t" << "Life" << endl;
+    //cout << " Id\t" << "Name\t\t\t\t" << "Gender \t" << "Life" << endl;
+    cout << right << setw(3) << "Id" << "\t" << left << setw(30) << "Name" << setw(10) << "Gender" << "\tLife" << endl;
+
+    for(int i = 0; i < 74; i++)
+    {
+        cout << "-";
+    }
+    cout << endl;
 
     for(int i = 0; i < sci.getSize(); i++)
     {
@@ -1330,29 +1337,10 @@ void UI::printList(People& list) const
 
 void UI::printIndi(Individual& temp) const
 {
+    string name = temp.getSurname() + ", " + temp.getName();
     cout << endl;
-    /*cout << "Id: " << temp.getId() << endl;
-    cout << "Name: " << temp.getName() << " " << temp.getSurname() << endl;
-    cout << "Gender: ";
-    if(temp.getGender() == 'f' || temp.getGender() == 'F')
-    {
-        cout << "Female" << endl;
-    }
-    else
-    {
-        cout << "Male" << endl;
-    }
-    cout << temp.getBirth() << " - ";
-    if(temp.getDeath() == 0)
-    {
-        cout << "Today" << endl;
-    }
-    else
-    {
-        cout << temp.getDeath() << endl;
-    }*/
 
-    cout << temp.getId() << "\t" << temp.getSurname() << ", " << temp.getName() << "\t";
+    cout << right << setw(3) << temp.getId() << "\t" << left << setw(30) << name << setw(10);// << "\t";
 
     if(temp.getGender() == 'f' || temp.getGender() == 'F')
     {
