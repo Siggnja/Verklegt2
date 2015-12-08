@@ -754,7 +754,7 @@ void UI::searchComYear()
         if(found)
         {
             entriesMatched();
-            printComplist(result);
+            printComputers(result);
         }
         else if (!found)
         {
@@ -764,7 +764,7 @@ void UI::searchComYear()
             {
                 cout << "However these computers were found within"
                         " a 10 year range of given year: " << endl;
-                printComplist(result);
+                printComputers(result);
             }
         }
     }
@@ -788,7 +788,7 @@ void UI::searchComName()
     if (result.getSize() != 0)
     {
         entriesMatched();
-        printComplist(result);
+        printComputers(result);
     }
     else
     {
@@ -807,7 +807,7 @@ void UI::searchComType()
     if (result.getSize() != 0)
     {
         entriesMatched();
-        printComplist(result);
+        printComputers(result);
     }
     else
     {
@@ -1403,7 +1403,7 @@ void UI::printCompAndConnect(Computer& comp)
     People temp = core.getConnectedSci(id);
     printConnectedSci(temp);
 }
-
+/*
 void UI::printComplist(Machines& complist) const
 {
     for (int i = 0; i < complist.getSize(); i++)
@@ -1411,7 +1411,7 @@ void UI::printComplist(Machines& complist) const
         Computer com = complist.getComputer(i);
         printComp(com);
     }
-}
+}*/
 
 void UI::printComp(Computer& temp) const
 {
@@ -1477,7 +1477,7 @@ void UI::searchSciLink()
                 {
                      cout << endl;
                      cout << "The following computers are connected to the scientist " << s << ": " << endl;
-                     printComplist(mac);
+                     printComputers(mac);
                 }
              }
          }

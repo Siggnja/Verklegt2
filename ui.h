@@ -85,7 +85,7 @@ public:
     void printScientistsConnections(People& sci);
     // Calls on print (Indi/Comp) AndConnect to print lost
 
-    void printComplist(Machines& list) const;
+    //void printComplist(Machines& list) const;
     void printComputers(Machines& comps);
 
     void printScientists(People& sci);
