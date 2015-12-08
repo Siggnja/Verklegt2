@@ -973,7 +973,7 @@ void UI::addIndividual()
     cin >> ans;
     while((ans != 'y' &&ans != 'Y' && ans != 'n' && ans != 'N' ) || cin.fail())
     {
-       if((ans != 'y' ||ans != 'Y' ||ans != 'n' || ans != 'N' )||cin.fail())
+       if((ans != 'y' ||ans != 'Y' ||ans != 'n' || ans != 'N' ) || cin.fail())
        {
            errorInput();
            cin >> ans;
@@ -1026,14 +1026,14 @@ void UI::addComputer()
     cin >> ans;
     while((ans != 'y' && ans != 'Y' && ans != 'n' && ans != 'N' ) || cin.fail())
     {
-       if((ans != 'y' ||ans != 'Y' || ans != 'n' || ans !='N' ) || cin.fail())
+       if((ans != 'y' ||ans != 'Y' || ans != 'n' || ans != 'N' ) || cin.fail())
        {
            errorInput();
            cin >> ans;
        }
     }
 
-    if(ans == 'y'|| ans =='Y')
+    if(ans == 'y' || ans =='Y' )
     {
         cout << "Creation year: ";
         cin >> year;
@@ -1449,21 +1449,21 @@ void UI::searchSciLink()
          {
              if(id == p.getIndi(i).getId())
              {
-                 found=true;
+                 found = true;
              }
          }
-         if(found==true)
+         if(found == true)
 
          {
              Machines mac=core.getConnectedComp(id);
              Individual i1 = core.getData().getSingleIndi(id);
-             string s = i1.getName()+" "+i1.getSurname();
+             string s = i1.getName() + " " + i1.getSurname();
              cout << "You picked the scientist " << s << " is that correct(y/n)?";
              char input;
              cin >> input;
-             while((input !='y'&&input !='Y'&&input !='n'&& input !='N')||cin.fail())
+             while((input != 'y' && input != 'Y' && input != 'n'&& input != 'N') || cin.fail())
              {
-                if((input !='y'||input !='Y'||input !='n'|| input !='N')||cin.fail())
+                if((input != 'y' || input != 'Y' || input != 'n' || input != 'N') || cin.fail())
                 {
                     errorInput();
                     cin >> input;
@@ -1475,7 +1475,7 @@ void UI::searchSciLink()
              }
              else if(input == 'y' || input == 'Y' )
              {
-                 if(mac.getSize()==0)
+                 if(mac.getSize() == 0)
                  {
                      cout << "No computers connected to this scientist" << endl;
                  }
@@ -1521,18 +1521,18 @@ void UI::searchComLink()
         {
             if(id == mac.getComputer(i).getId())
             {
-               found=true;
+               found = true;
 
             }
         }
-         if(found==true)
-         {   People p=core.getConnectedSci(id);
+         if(found == true)
+         {   People p = core.getConnectedSci(id);
              Computer c1 = core.getData().getSingleComp(id);
              string s = c1.getName();
-             cout<<"You picked the computer "<<s<<" is that correct(y/n)?";
+             cout<<"You picked the computer "<< s <<" is that correct(y/n)?";
              char input;
              cin >> input;
-             while((input != 'y' && input != 'Y' && input != 'n' && input != 'N' )||cin.fail())
+             while((input != 'y' && input != 'Y' && input != 'n' && input != 'N' )|| cin.fail())
              {
                 if((input != 'y' || input != 'Y' || input != 'n' || input != 'N' ) || cin.fail())
                 {
