@@ -1641,15 +1641,6 @@ void UI::printCompAndConnect(Computer& comp)
     People temp = core.getConnectedSci(id);
     printConnectedSci(temp);
 }
-/*
-void UI::printComplist(Machines& complist) const
-{
-    for (int i = 0; i < complist.getSize(); i++)
-    {
-        Computer com = complist.getComputer(i);
-        printComp(com);
-    }
-}*/
 
 void UI::printComp(Computer& temp) const
 {
