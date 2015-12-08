@@ -146,13 +146,8 @@ void UI::comMenu()
                     updateCompMenu();
                     break;
         case 'm':
-<<<<<<< HEAD
-        case 'M':   return;
-=======
-        case 'M':   clearScreen();
-                    clearScreen();
+        case 'M':  clearScreen();
                     return;
->>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -163,72 +158,6 @@ void UI::comMenu()
     }
     comMenu();
 }
-<<<<<<< HEAD
-void UI::searchLinkMenu()
-{
-    clearScreen();
-    cout << "What do you want to do?" << endl;
-    cout << "(S) Search for a scientist and return computers he is connected to." << endl;
-    cout << "(C) Search for a computer and return scientists he is connected to." << endl;
-    cout << "(M) Return to menu." << endl;
-    cout << "(Q) Quit program. " << endl;
-    cout << "Select a letter: ";
-    char ans;
-    cin >>ans;
-
-    switch(ans)
-    {
-          case 's':
-          case 'S': searchSciLink();
-                    break;
-          case 'c':
-          case 'C': searchComLink();
-                    break;
-          case 'm':
-          case 'M': return;
-                    break;
-          case 'q':
-          case 'Q': cout << endl;
-                    exit(1);
-                    break;
-          default:  errorInput();
-                    break;
-    }
-}
-
-void UI::printLinkMenu()
-{
-    clearScreen();
-    cout << "What do you want to do?" << endl;
-    cout << "(S) Print scientists and computers connected to them?" << endl;
-    cout << "(C) Print computers and scientists connected to them? " << endl;
-    cout << "(M) Return to menu? " << endl;
-    cout << "(Q) Quit program. " << endl;
-    cout << "Select a letter: ";
-    char ans;
-    cin >> ans;
-
-    switch(ans)
-    {
-          case 's':
-          case 'S': sortSciLink();
-                    break;
-          case 'c':
-          case 'C': sortComLink();
-                    break;
-          case 'm':
-          case 'M': return;
-                    break;
-          case 'q':
-          case 'Q': cout << endl;
-                    exit(1);
-                    break;
-          default:  errorInput();
-                    break;
-    }
-}
-=======
->>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
 
 void UI::linkMenu()
 {
@@ -347,13 +276,9 @@ void UI::searchComMenu()
                     searchComYear();
                     break;
         case 'm':
-<<<<<<< HEAD
-        case 'M':   return;
-=======
         case 'M':   clearScreen();
                     clearScreen();
                     return;
->>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -447,14 +372,9 @@ void UI::sortSciMenu()
                         printScientists(temp);
                     }
                     break;
-<<<<<<< HEAD
-        case 'm':
-        case 'M':   return;
-=======
         case 'M':
         case 'm':   clearScreen();
                     return;
->>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
                     break;
         case 'q':
         case 'Q':   exit(1);
@@ -894,43 +814,10 @@ void UI::sortSciLink()
     People temp = core.sortSciAlpabetFront();
     printScientistsConnections(temp);
 }
-
-<<<<<<< HEAD
-                    {
-                        People temp = core.sortSciAlpabetBack();
-                        printScientists(temp);
-                    }
-                    break;
-        case 'b':
-        case 'B':   cout << endl << "--- Printing by year of Birth --- " << endl;
-                    {
-                        People temp = core.sortSciByBirthYear();
-                        printScientists(temp);
-                    }
-                    break;
-        case 'd':
-        case 'D':   cout << endl << "--- Printing by year of Death --- " << endl;
-                    {
-                        People temp = core.sortSciByDeathYear();
-                        printScientists(temp);
-                    }
-                    break;
-        case 'M':
-        case 'm':   return;
-                    break;
-        case 'q':
-        case 'Q':   exit(1);
-                    break;
-        default:    errorInput();
-                    sortSciMenu();
-                    break;
-    }
-=======
 void UI::sortComLink()
 {
     Machines temp = core.sortCompAlpabetBack();
     printComputersConnection(temp);
->>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
 }
 
 void UI::updateSciMenu()
@@ -1456,11 +1343,7 @@ void UI::addIndividual()
     int birth, death;
     char gender;
     bool notfound = false;
-<<<<<<< HEAD
-
-=======
     cout << endl << "Enter the following information:" << endl;
->>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
     cin.ignore();
     cout << endl;
     char ans;
@@ -1555,17 +1438,14 @@ void UI::addIndividual()
          else
          {
              cout << endl;
-             cout << "This Individual is already in the database! " << endl;
+             cout << "This Scientist is already in the database! " << endl;
          }
     }
 }
 
 void UI::addComputer()
 {
-<<<<<<< HEAD
-=======
     cout << endl << "Enter the following information:" << endl;
->>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
     string name, type;
     int year;
     char ans;
@@ -1598,14 +1478,44 @@ void UI::addComputer()
     }
 
     Computer temp(year, name, type);
-    core.addComputer(temp, notfound);
     if(notfound)
     {
-        cout << endl;
-        cout << "This Computer is already in the database! " << endl;
+
+    }
+    cout << "Are you sure you want to add this Scientist to the database? " << endl;
+    cout << "Select letter(y/n): ";
+    cin>>ans;
+    while(cin.fail() || (ans!='y' && ans!='n'))
+    {
+        if(cin.fail() || (ans!='y' && ans!='n'))
+        {
+            errorInput();
+        }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
+
+    }
+    if(ans == 'n')
+    {
+        cout << "The computer was not added!" << endl;
+    }
+    else if(ans == 'y')
+    {
+        core.addComputer(temp, notfound);
+         if(!notfound)
+         {
+             cout << endl;
+             cout << "The computer has been added to the database!" << endl;
+         }
+         else
+         {
+             cout << endl;
+             cout << "This Computer is already in the database! " << endl;
+         }
     }
 }
-
 void UI::addConnection()
 {
     int s, c;
@@ -1983,181 +1893,8 @@ void UI::printCompAndConnect(Computer& comp)
     People temp = core.getConnectedSci(id);
     printConnectedSci(temp);
 }
-/*
-void UI::printComplist(Machines& complist) const
-{
-    for (int i = 0; i < complist.getSize(); i++)
-    {
-        Computer com = complist.getComputer(i);
-        printComp(com);
-    }
-}*/
 
-<<<<<<< HEAD
-void UI::printComp(Computer& temp) const
-{
-    cout << right << setw(3) << temp.getId() << "\t" << left << setw(25) << temp.getName() << setw(15)
-         << temp.getType() << "\t";
-
-    if(temp.getYear() != 0)
-    {
-        cout << temp.getYear() << endl;
-    }
-    else
-    {
-        cout << "Not built." << endl;
-    }
-}
-
-void UI::searchSciLink()
-{
-    cout << endl;
-    bool found = false;
-    int id;
-    cout << "Enter scientist ID: " ;
-    cin >> id;
-    if(!cin.fail())
-    {
-         People p = core.getData().sortIndiAlphaFront();
-         for(int i = 0; i < p.getSize(); i++)
-         {
-             if(id == p.getIndi(i).getId())
-             {
-                 found = true;
-             }
-         }
-         if(found == true)
-
-         {
-             Machines mac = core.getConnectedComp(id);
-             Individual i1 = core.getData().getSingleIndi(id);
-             string s = i1.getName() + " " + i1.getSurname();
-             cout << "You picked the scientist " << s << " is that correct(y/n)? ";
-             char input;
-             cin >> input;
-             while((input != 'y' && input != 'Y' && input != 'n'&& input != 'N') || cin.fail())
-             {
-                if((input != 'y' || input != 'Y' || input != 'n' || input != 'N') || cin.fail())
-                {
-                    errorInput();
-                    cin >> input;
-                }
-             }
-             if(input == 'n' || input == 'N')
-             {
-             searchSciLink();
-             }
-             else if(input == 'y' || input == 'Y' )
-             {
-                 if(mac.getSize() == 0)
-                 {
-                     cout << "No computers connected to this scientist" << endl;
-                 }
-
-                 else
-                {
-                     cout << endl;
-                     cout << "The following computers are connected to the scientist " << s << ": " << endl;
-                     printComputers(mac);
-                }
-             }
-         }
-         else
-         {
-             cout << "No scientist has this id!" << endl;
-             cin.clear();
-             cin.ignore();
-             searchSciLink();
-         }
-    }
-    else
-    {
-        errorInput();
-        cin.clear();
-        cin.ignore();
-        searchSciLink();
-    }
-}
-
-void UI::searchComLink()
-{
-    cout << endl;
-    bool found = false;
-    int id;
-    cout << "Enter computer ID: ";
-
-    cin >> id;
-    if(!cin.fail())
-    {
-        Machines mac = core.getData().sortCompAlphaFront();
-        for(int i = 0; i < mac.getSize(); i++)
-        {
-            if(id == mac.getComputer(i).getId())
-            {
-               found = true;
-
-            }
-        }
-         if(found == true)
-         {   People p = core.getConnectedSci(id);
-             Computer c1 = core.getData().getSingleComp(id);
-             string s = c1.getName();
-             cout << "You picked the computer "<< s <<" is that correct(y/n)? ";
-             char input;
-             cin >> input;
-             while((input != 'y' && input != 'Y' && input != 'n' && input != 'N' ) || cin.fail())
-             {
-                if((input != 'y' || input != 'Y' || input != 'n' || input != 'N' ) || cin.fail())
-                {
-                    errorInput();
-                    cin >> input;
-                }
-             }
-             if(input == 'n' || input == 'N')
-             {
-                 searchComLink();
-             }
-             else if(input == 'y' || input == 'Y')
-             {
-                  if(p.getSize() == 0)
-                  {
-                      cout << "No scientists connected to this computer" << endl;
-                  }
-                  else
-                  {
-                      cout << endl;
-                      cout << "The following scientists are connected to computer " << s << ": " << endl;
-                      printList(p);
-                  }
-              }
-         }
-         else
-         {
-             cout << "No computer has this id!" << endl;
-             cin.clear();
-             cin.ignore();
-             searchComLink();
-         }
-    }
-    else
-    {
-         errorInput();
-         cin.clear();
-         cin.ignore();
-         searchComLink();
-    }
-}
-
-void UI::sortSciLink()
-{
-    People temp = core.sortSciAlpabetFront();
-    printScientistsConnections(temp);
-}
-
-void UI::sortComLink()
-=======
 void UI::welcomeMessage()
->>>>>>> 1e80babb867902a0194ab6552d4db75dfbe28674
 {
     cout << "--- Welcome to the databases of famous computer scientists and of computers ---" << endl;
     cout << "\t" << "    In these databases you can add, remove, sort and search" << endl;
