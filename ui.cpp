@@ -1,17 +1,10 @@
 #include "ui.h"
 
-// á að gera if/for/while/switch/return(...)      ->án bils
-// eða if (...)     ->með bili
 
 UI::UI()
 {
 
 }
-
-/*UI::UI(const string filename)
-{
-    core.createList(filename);
-}*/
 
 void UI::run()
 {
@@ -1322,6 +1315,7 @@ void UI::printConnectedComp(Machines& comps) const
 {
     for(int i = 0; i < comps.getSize(); i++)
     {
+        cout<<"Connection "<<(i+1)<<": ";
         Computer temp = comps.getComputer(i);
         printCompIndent(temp);
     }
@@ -1329,8 +1323,10 @@ void UI::printConnectedComp(Machines& comps) const
 
 void UI::printConnectedSci(People& sci) const
 {
+
     for(int i = 0; i < sci.getSize(); i++)
     {
+        cout<<"Connection "<<(i+1)<<": ";
         Individual temp = sci.getIndi(i);
         printIndiIndent(temp);
     }
