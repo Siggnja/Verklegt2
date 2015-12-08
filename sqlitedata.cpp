@@ -519,6 +519,7 @@ bool SQLiteData::searchForId(const int id, const string tablename)
         var = queryname.value("id").toUInt();
     }
     db.close();
+
     if(var == id)
     {
         return true;
