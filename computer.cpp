@@ -58,8 +58,8 @@ string Computer::getType() const
 {
     return type;
 }
+
 bool operator == (const Computer& c1,const Computer& c2)
 {
-
     return(c1.getName() == c2.getName() && c1.getType()==c2.getType() && c1.getYear()==c2.getYear());
 }
