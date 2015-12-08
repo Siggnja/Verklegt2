@@ -56,7 +56,6 @@ void UI::ask()
     cout << "(A) Add to list." << endl;
     cout << "(S) Search list." << endl;
     cout << "(P) Print list." << endl;
-    cout << "(L) Print list size." << endl;
     cout << "(R) Remove from list." << endl;
     cout << "(C) Change information."<<endl;
     cout << "(M) Return to main menu." << endl;
@@ -211,12 +210,12 @@ void UI::printLinkMenu()
 void UI::linkMenu()
 {
     cout << "What do you want to do?" << endl;
-    cout << "(S) Search connections"<<endl;
-    cout << "(A) Add a connection" << endl;
-    cout << "(P) Print connections" << endl;
-    cout << "(R) Remove a connection" << endl;
-    cout << "(M) Return to main menu" << endl;
-    cout << "(Q) Quit program" << endl;
+    cout << "(S) Search connections."<<endl;
+    cout << "(A) Add a connection." << endl;
+    cout << "(P) Print connections." << endl;
+    cout << "(R) Remove a connection." << endl;
+    cout << "(M) Return to main menu." << endl;
+    cout << "(Q) Quit program." << endl;
     cout << "Select a letter: ";
     char ans;
     cin >> ans;
@@ -250,6 +249,7 @@ void UI::linkMenu()
 
 void UI::searchComMenu()
 {
+    clearScreen();
     cout << endl;
     char choice;
     cout << "Search by: " << endl;
@@ -313,8 +313,8 @@ void UI::searchSciMenu()
         case 'd':
         case 'D':   searchDeath();
                     break;
-        case 'M':
-        case 'm':   return;
+        case 'm':
+        case 'M':   return;
                     break;
         case 'q':
         case 'Q':   exit(1);
@@ -324,13 +324,13 @@ void UI::searchSciMenu()
     }
 }
 
+
 void UI::sortComMenu()
 {
     clearScreen();
     char choice;
     cout << "Print by: " << endl;
-    cout << "(U) Unordered." << endl
-         << "(A) Alphabetic order." << endl
+    cout << "(A) Alphabetic order." << endl
          << "(R) Reverse alphabetic order." << endl
          << "(T) Type alphabetic order." << endl
          << "(C) Year of Creation." << endl
@@ -445,6 +445,7 @@ void UI::updateSciMenu()
     bool found = false;
     cout << "Please enter the id of the Scientist you want to change: ";
     cin >> id;
+    cout << endl;
     if(!cin.fail())
     {
         People p1 = core.getData().sortIndiAlphaFront();
@@ -470,6 +471,7 @@ void UI::updateSciMenu()
                 cout << "(M)Return to Menu." << endl;
                 cout << "Select a letter: ";
                 cin >> choice;
+                cout << endl;
                 switch(choice)
                 {
                     case 'n':
@@ -519,25 +521,87 @@ void UI::updateSciMenu()
 void UI::updateIndiName(const int id)
 {
     string name;
+    char ans;
     cout << "Please insert a new name: ";
     cin.ignore();
     getline(cin, name);
-    core.updateIndiName(name, id);
-    cout << "The scientist is now registered as:" << endl;
     Individual i1 = core.getData().getSingleIndi(id);
+    string oldname = i1.getSurname();
+    cout << "Do you want to change Scientist" << endl;
+    cout << "From:" << endl;
     printIndi(i1);
+    core.updateIndiName(name,id);
+    cout << endl;
+    cout << "To:" << endl;
+    i1 = core.getData().getSingleIndi(id);
+    printIndi(i1);
+    cout << "Select letter(y/n): ";
+    cin >> ans;
+    while(cin.fail() || (ans!='y' && ans!='n'))
+    {
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
+        if(cin.fail() || (ans!='y' && ans!='n'))
+        {
+            errorInput();
+        }
+    }
+    if(ans == 'n')
+    {
+        core.updateIndiSurname(oldname,id);
+        cout << endl;
+        cout << "No changes were made!" << endl;
+    }
+    else if(ans == 'y')
+    {
+        cout << endl;
+         cout << "Update succecfull!" << endl;
+    }
 }
 
 void UI::updateIndiSurname(const int id)
 {
     string surname;
+    char ans;
     cout << "Please insert a new surname: ";
     cin.ignore();
     getline(cin, surname);
-    core.updateIndiSurname(surname, id);
-    cout << "The scientist is now registered as:" << endl;
     Individual i1 = core.getData().getSingleIndi(id);
+    string oldname = i1.getName();
+    cout << "Do you want to change Scientist" << endl;
+    cout << "From:" << endl;
     printIndi(i1);
+    core.updateIndiSurname(surname,id);
+    cout << endl;
+    cout << "To:" << endl;
+    i1 = core.getData().getSingleIndi(id);
+    printIndi(i1);
+    cout << "Select letter(y/n): ";
+    cin >> ans;
+    while(cin.fail() || (ans!='y' && ans!='n'))
+    {
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
+        if(cin.fail() || (ans!='y' && ans!='n'))
+        {
+            errorInput();
+        }
+    }
+    if(ans == 'n')
+    {
+        core.updateIndiName(oldname,id);
+        cout << endl;
+        cout << "No changes were made!" << endl;
+    }
+    else if(ans == 'y')
+    {
+        cout << endl;
+         cout << "Update succecfull!" << endl;
+    }
 }
 
 void UI::updateIndiGender(const int id)
