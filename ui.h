@@ -64,19 +64,32 @@ public:
 
     void welcomeMessage();
     void printIndi(Individual& id) const;
-    void printIndiIndent(Individual &id) const;
-    void printIndiAndConnect(Individual & temp);
+
+
     void printList(People& list) const;
     void printComp(Computer& id) const;
+
     void printCompIndent(Computer &id) const;
+    void printIndiIndent(Individual &id) const;
+    // Prints information indented, only prints id and name
+
+    void printIndiAndConnect(Individual & temp);
     void printCompAndConnect(Computer& temp);
+    // Prints an individual or computer and all connected instances
+
     void printConnectedComp(Machines& comps) const;
     void printConnectedSci(People& sci) const;
-    void printComplist(Machines& list) const;
-    void printComputers(Machines& comps);
+    // Calls on print (Comp/Indi) indent
+
     void printComputersConnection(Machines &comps);
-    void printScientists(People& sci);
     void printScientistsConnections(People& sci);
+    // Calls on print (Indi/Comp) AndConnect to print lost
+
+    //void printComplist(Machines& list) const;
+    void printComputers(Machines& comps);
+
+    void printScientists(People& sci);
+
     // Print functions
 
     void addIndividual();
@@ -89,12 +102,10 @@ public:
     void removeConnection();
     // Remove functions
 
-    void errorFile();
     void errorInput();
     void entriesMatched();
     void noMatch();
     void inDatabase();
-    //void readingString(string gender);
     // Cout sentencses
 
 private:

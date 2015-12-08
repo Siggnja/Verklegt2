@@ -1,8 +1,6 @@
 #include <QCoreApplication>
 #include <QtSql>
 #include <iostream>
-#include <QtSql>
-
 #include "ui.h"
 
 using namespace std;

@@ -5,11 +5,6 @@ Core::Core()
 
 }
 
-Core::Core(const People& p1)
-{
-    list = p1;
-}
-
 void Core::setList(const People p1)
 {
     list = p1;
@@ -20,15 +15,14 @@ void Core::setComplist(const Machines c1)
     complist = c1;
 }
 
-
 void Core::addIndividual(const Individual& ind, bool& notfound)
 {
-    newdata.addNewIndi(ind,notfound);
+    newdata.addNewIndi(ind, notfound);
 }
 
 void Core::addComputer(const Computer& com, bool& notfound)
 {
-    newdata.addNewComp(com,notfound);
+    newdata.addNewComp(com, notfound);
 }
 
 void Core::removeIndividual(const int id, bool& removed)
@@ -86,7 +80,7 @@ People Core::sortSciByDeathYear()
     {
         dead.addIndi(alive.getIndi(i));
     }
-    // Puts the alive at the end of the list
+    // Puts those alive at the end of the list
 
     return dead;
 }
@@ -114,7 +108,7 @@ Machines Core::sortCompType()
 Machines Core::getConnectedComp(int id)
 {
     Machines tempMach;
-    vector<int> connections= newdata.getRelationsToSci(id);
+    vector<int> connections = newdata.getRelationsToSci(id);
     for(unsigned int i = 0; i < connections.size(); i++)
     {
         int ident = connections[i];
@@ -127,7 +121,7 @@ Machines Core::getConnectedComp(int id)
 People Core::getConnectedSci(int id)
 {
     People tempSci;
-    vector<int> connections= newdata.getRelationsToComp(id);
+    vector<int> connections = newdata.getRelationsToComp(id);
     for(unsigned int i = 0; i < connections.size(); i++)
     {
         int ident = connections[i];
@@ -135,7 +129,6 @@ People Core::getConnectedSci(int id)
         tempSci.addIndi(tempIndi);
     }
     return tempSci;
-
 }
 
 People Core::getList() const
@@ -228,31 +221,19 @@ int Core::id(int i) const
     return getComputers().getComputer(i).getId();
 }
 
-bool Core::checkIfIndiIsNew(const Individual i1)
-{
-    bool check = true;
-    for(int i = 0; i < list.getSize(); i++)
-    {
-        if(list.getIndi(i) == i1)
-        {
-            check = false;
-        }
-    }
-    return check;
-}
 void Core::createConnection(const Individual& i1, const Computer& c1, bool& found)
 {
     vector <int> relComp = newdata.getRelationsToComp(c1.getId());
-    for(unsigned int i =0 ; i < relComp.size();i++)
+    for(unsigned int i =0 ; i < relComp.size(); i++)
     {
-        if(relComp[i]==i1.getId())
+        if(relComp[i] == i1.getId())
         {
             found = true;
         }
     }
     if(!found)
     {
-    newdata.createConnection(i1.getId(),c1.getId());
+        newdata.createConnection(i1.getId(),c1.getId());
     }
 }
 
@@ -268,70 +249,68 @@ int Core::getPeopleSizeInNewdata()
 
 void Core::updateIndiName(const string name, const int id)
 {
-    newdata.updateIndiName(name,id);
+    newdata.updateIndiName(name, id);
 }
 
 void Core::updateIndiSurname(const string name, const int id)
 {
-    newdata.updateIndiSurname(name,id);
+    newdata.updateIndiSurname(name, id);
 }
 
 void Core::updateIndiBYear(const int year, const int id)
 {
-    newdata.updateIndiBYear(year,id);
+    newdata.updateIndiBYear(year, id);
 }
 
 void Core::updateIndiDYear(const int year, const int id)
 {
-    newdata.updateIndiDYear(year,id);
+    newdata.updateIndiDYear(year, id);
 }
 
 void Core::updateIndiGender(const char gender, const int id)
 {
-    newdata.updateIndiGender(gender,id);
+    newdata.updateIndiGender(gender, id);
 }
 
-void Core::updateIndiAll(const string name, const string surname,const char gender,const int byear,const int dyear,const int id)
+void Core::updateIndiAll(const string name, const string surname, const char gender, const int byear, const int dyear, const int id)
 {
-    newdata.updateIndiName(name,id);
-    newdata.updateIndiSurname(surname,id);
-    newdata.updateCompBYear(byear,id);
-    newdata.updateIndiDYear(dyear,id);
-    newdata.updateIndiGender(gender,id);
-
+    newdata.updateIndiName(name, id);
+    newdata.updateIndiSurname(surname, id);
+    newdata.updateCompBYear(byear, id);
+    newdata.updateIndiDYear(dyear, id);
+    newdata.updateIndiGender(gender, id);
 }
 
 void Core::updateCompName(const string name, const int id)
 {
-    newdata.updateCompName(name,id);
+    newdata.updateCompName(name, id);
 }
 
 void Core::updateCompType(const string type, const int id)
 {
-    newdata.updateCompType(type,id);
+    newdata.updateCompType(type, id);
 }
 
 void Core::updateCompBYear(const int year, const int id)
 {
-    newdata.updateCompBYear(year,id);
+    newdata.updateCompBYear(year, id);
 }
 
 void Core::updateCompAll(const int year,const string name,const string type,const int id)
 {
-    newdata.updateCompName(name,id);
-    newdata.updateCompType(type,id);
-    newdata.updateCompBYear(year,id);
+    newdata.updateCompName(name, id);
+    newdata.updateCompType(type, id);
+    newdata.updateCompBYear(year, id);
 }
 
 void Core::addConnection(const int idSci,const int idComp)
 {
-    newdata.createConnection(idSci,idComp);
+    newdata.createConnection(idSci, idComp);
 }
 
 void Core::removeConnection(const int idSci,const int idComp)
 {
     newdata.deleteConnectionWithIndiAndComp(idSci,idComp);
-
 }
 
 SQLiteData Core::getData() const

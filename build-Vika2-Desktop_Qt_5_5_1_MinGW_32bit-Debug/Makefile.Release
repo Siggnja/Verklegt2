@@ -200,13 +200,6 @@ release/main.o: ../main.cpp C:/Qt/5.5/mingw492_32/include/QtCore/QCoreApplicatio
 		C:/Qt/5.5/mingw492_32/include/QtCore/qisenum.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../ui.h \
-		../core.h \
-		../people.h \
-		../individual.h \
-		../machines.h \
-		../computer.h \
-		../sqlitedata.h \
 		C:/Qt/5.5/mingw492_32/include/QtSql/QtSql \
 		C:/Qt/5.5/mingw492_32/include/QtSql/QtSqlDepends \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QtCore \
@@ -397,6 +390,13 @@ release/main.o: ../main.cpp C:/Qt/5.5/mingw492_32/include/QtCore/QCoreApplicatio
 		C:/Qt/5.5/mingw492_32/include/QtSql/qsqlrelationaltablemodel.h \
 		C:/Qt/5.5/mingw492_32/include/QtSql/qsqltablemodel.h \
 		C:/Qt/5.5/mingw492_32/include/QtSql/qtsqlversion.h \
+		../ui.h \
+		../core.h \
+		../people.h \
+		../individual.h \
+		../machines.h \
+		../computer.h \
+		../sqlitedata.h \
 		../globalconstants.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\main.cpp
 
