@@ -1231,6 +1231,7 @@ void UI::removeConnection()
 void UI::printScientists(People& sci)
 {
     cout << endl;
+    cout << "Id\t" << "Name\t\t" << "Gender \t" << "Life" << endl;
 
     for(int i = 0; i < sci.getSize(); i++)
     {
@@ -1347,7 +1348,7 @@ void UI::printList(People& list) const
 void UI::printIndi(Individual& temp) const
 {
     cout << endl;
-    cout << "Id: " << temp.getId() << endl;
+    /*cout << "Id: " << temp.getId() << endl;
     cout << "Name: " << temp.getName() << " " << temp.getSurname() << endl;
     cout << "Gender: ";
     if(temp.getGender() == 'f' || temp.getGender() == 'F')
@@ -1366,7 +1367,34 @@ void UI::printIndi(Individual& temp) const
     else
     {
         cout << temp.getDeath() << endl;
+    }*/
+
+    cout << temp.getId() << "\t" << temp.getSurname() << ", " << temp.getName() << "\t";
+
+    if(temp.getGender() == 'f' || temp.getGender() == 'F')
+    {
+        cout << "Female";
     }
+    else
+    {
+        cout << "Male";
+    }
+
+    cout << "\t";
+
+    cout << temp.getBirth() << " - ";
+    if(temp.getDeath() == 0)
+    {
+        cout << "Today";
+    }
+    else
+    {
+        cout << temp.getDeath();
+    }
+
+
+    cout << endl;
+
 }
 
 void UI::printIndiAndConnect(Individual & sci)
