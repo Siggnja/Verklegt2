@@ -35,6 +35,7 @@ public:
 
 private:
     vector<Computer> computers;
+    // A vector with elements of type Computer
 };
 
 #endif // MACHINES_H
