@@ -1231,6 +1231,14 @@ void UI::printScientists(People& sci)
 void UI::printScientistsConnections(People& sci)
 {
     cout << endl;
+    cout << right << setw(3) << "Id" << "\t" << left << setw(30) << "Name" << setw(10) << "Gender" << "\tLife" << endl;
+
+    for(int i = 0; i < 74; i++)
+    {
+        cout << "-";
+    }
+    cout << endl;
+
     for(int i = 0; i < sci.getSize(); i++)
     {
         Individual temp = sci.getIndi(i);
@@ -1262,6 +1270,14 @@ void UI::printComputers(Machines &comps)
 void UI::printComputersConnection(Machines &comps)
 {
     cout << endl;
+    cout << right << setw(3) << "Id" << "\t" << left << setw(25) << "Name" << setw(15)
+        << "Type" << "\tYear" << endl;
+    for(int i = 0; i < 74; i++)
+    {
+        cout << "-";
+    }
+    cout << endl;
+
     for(int i = 0; i < comps.getSize(); i++)
     {
         Computer temp = comps.getComputer(i);
@@ -1310,25 +1326,34 @@ void UI::printCompIndent(Computer &id) const
 
 void UI::printConnectedComp(Machines& comps) const
 {
-    cout << endl;
-    for(int i = 0; i < comps.getSize(); i++)
+
+    if(comps.getSize() > 0)
     {
-        cout<<"Connection "<<(i+1)<<": ";
-        Computer temp = comps.getComputer(i);
-        printCompIndent(temp);
+        cout << "\t" << "Id" << "\t" << "Name" << endl;
+        cout << "\t-----------------------" << endl;
+        for(int i = 0; i < comps.getSize(); i++)
+        {
+                Computer temp = comps.getComputer(i);
+            printCompIndent(temp);
+        }
     }
 }
 
 void UI::printConnectedSci(People& sci) const
 {
-    cout << endl;
-    for(int i = 0; i < sci.getSize(); i++)
+    if(sci.getSize() > 0)
     {
-        cout<<"Connection "<<(i+1)<<": ";
-        Individual temp = sci.getIndi(i);
-        printIndiIndent(temp);
+        cout << "\t" << "Id" << "\t" << "Name" << endl;
+        cout << "\t-----------------------" << endl;
+
+        for(int i = 0; i < sci.getSize(); i++)
+        {
+            Individual temp = sci.getIndi(i);
+            printIndiIndent(temp);
+        }
     }
-    cout << endl;
+    cout<<endl;
+
 }
 
 void UI::printList(People& list) const
@@ -1378,6 +1403,7 @@ void UI::printIndiAndConnect(Individual & sci)
 
 void UI::printCompAndConnect(Computer& comp)
 {
+
     printComp(comp);
     int id = comp.getId();
     People temp = core.getConnectedSci(id);
