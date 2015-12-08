@@ -14,8 +14,8 @@ class SQLiteData
 public:
     SQLiteData();
 
-    void addNewIndi(const Individual i1,bool& found);
-    void addNewComp(const Computer c1,bool& notfound);
+    void addNewIndi(const Individual i1, bool& found);
+    void addNewComp(const Computer c1, bool& notfound);
     // Adds a new scientist or computer to database
 
     void deleteIndi(const int id);
