@@ -21,10 +21,10 @@ void UI::run()
 void UI::choiceMenu()
 {
     cout << endl;
-    cout << "(S) Work with scientist database " << endl
-         << "(C) Work with computer database " << endl
-         << "(L) Work with linking of databases" << endl
-         << "(Q) Quit program"<< endl;
+    cout << "(S) Work with scientist database." << endl
+         << "(C) Work with computer database." << endl
+         << "(L) Work with linking of databases." << endl
+         << "(Q) Quit program."<< endl;
     cout << "Select a letter: ";
 }
 
@@ -53,21 +53,20 @@ void UI::choiceSwitch(char ans)
 void UI::ask()
 {
     cout << endl;
-    cout << "Do you want to: " << endl;
-    cout << "(A) Add to list? " << endl;
-    cout << "(S) Search list? " << endl;
-    cout << "(P) Print list? " << endl;
-    cout << "(L) Print list size?" << endl;
-    cout << "(R) Remove from list? " << endl;
-    cout << "(C) Change information?"<<endl;
-    cout << "(M) Return to main menu? " << endl;
+    cout << "What do you want to do?" << endl;
+    cout << "(A) Add to list." << endl;
+    cout << "(S) Search list." << endl;
+    cout << "(P) Print list." << endl;
+    cout << "(L) Print list size." << endl;
+    cout << "(R) Remove from list." << endl;
+    cout << "(C) Change information."<<endl;
+    cout << "(M) Return to main menu." << endl;
     cout << "(Q) Quit program. " << endl;
     cout << "Select a letter: ";
 }
 
 void UI::sciMenu()
 {
-    //system("CLS");
     char ans;
     ask();
     cin >> ans;
@@ -145,11 +144,11 @@ void UI::comMenu()
 }
 void UI::searchLinkMenu()
 {
-    cout<<endl;
-    cout << "Do you want to: " << endl;
-    cout << "(S) Search for a scientist and return computers he is connected to?" << endl;
-    cout << "(C) Search for a computer and return scientists he is connected to? " << endl;
-    cout << "(M) Return to menu? " << endl;
+    clearScreen();
+    cout << "What do you want to do?" << endl;
+    cout << "(S) Search for a scientist and return computers he is connected to." << endl;
+    cout << "(C) Search for a computer and return scientists he is connected to." << endl;
+    cout << "(M) Return to menu." << endl;
     cout << "(Q) Quit program. " << endl;
     cout << "Select a letter: ";
     char ans;
@@ -177,8 +176,8 @@ void UI::searchLinkMenu()
 
 void UI::printLinkMenu()
 {
-    cout << endl;
-    cout << "Do you want to: " << endl;
+    clearScreen();
+    cout << "What do you want to do?" << endl;
     cout << "(S) Print scientists and computers connected to them?" << endl;
     cout << "(C) Print computers and scientists connected to them? " << endl;
     cout << "(M) Return to menu? " << endl;
@@ -208,14 +207,14 @@ void UI::printLinkMenu()
 
 
 void UI::linkMenu()
-{   cout<<endl;
-    cout << "Do you want to: " << endl;
-    cout << "(S) Search connections?"<<endl;
-    cout << "(A) Add a connection? " << endl;
-    cout << "(P) Print connections? " << endl;
-    cout << "(R) Remove a connection? " << endl;
-    cout << "(M) Return to main menu? " << endl;
-    cout << "(Q) Quit program. " << endl;
+{
+    cout << "What do you want to do?" << endl;
+    cout << "(S) Search connections"<<endl;
+    cout << "(A) Add a connection" << endl;
+    cout << "(P) Print connections" << endl;
+    cout << "(R) Remove a connection" << endl;
+    cout << "(M) Return to main menu" << endl;
+    cout << "(Q) Quit program" << endl;
     cout << "Select a letter: ";
     char ans;
     cin >> ans;
@@ -251,11 +250,11 @@ void UI::searchComMenu()
     cout << endl;
     char choice;
     cout << "Search by: " << endl;
-    cout << "(N) Name" << endl
-         << "(T) Type" << endl
-         << "(C) Year of Creation" << endl
-         << "(Q) Quit program" <<endl
-         << "(M) Return to Menu"<<endl;
+    cout << "(N) Name." << endl
+         << "(T) Type." << endl
+         << "(C) Year of Creation." << endl
+         << "(Q) Quit program." <<endl
+         << "(M) Return to Menu."<<endl;
     cout << "Select a letter: ";
     cin >> choice;
     switch(choice)
@@ -279,20 +278,20 @@ void UI::searchComMenu()
         default:    errorInput();
                     searchComMenu();
     }
-    searchComMenu();
 }
 
 void UI::searchSciMenu()
 {
+    clearScreen();
     cout << endl;
     char choice;
     cout << "Search by: " << endl;
-    cout << "(N) Name" << endl
-         << "(G) Gender" << endl
-         << "(B) Year of Birth" << endl
-         << "(D) Year of Death" << endl
-         << "(M) Return to Menu" << endl
-         << "(Q) Quit program " << endl;
+    cout << "(N) Name." << endl
+         << "(G) Gender." << endl
+         << "(B) Year of Birth." << endl
+         << "(D) Year of Death." << endl
+         << "(M) Return to Menu." << endl
+         << "(Q) Quit program." << endl;
     cout << "Select a letter: ";
     cin >> choice;
 
@@ -319,21 +318,20 @@ void UI::searchSciMenu()
         default:    errorInput();
                     searchSciMenu();
     }
-    searchSciMenu();
 }
 
 void UI::sortComMenu()
 {
+    clearScreen();
     char choice;
-    cout << endl;
     cout << "Print by: " << endl;
-    cout << "(U) Unordered" << endl
-         << "(A) Alphabetic order" << endl
-         << "(R) Reverse alphabetic order" << endl
-         << "(T) Type alphabetic order" << endl
-         << "(C) Year of Creation" << endl
-         << "(M) Return to Menu" << endl
-         << "(Q) Quit program " << endl;
+    cout << "(U) Unordered." << endl
+         << "(A) Alphabetic order." << endl
+         << "(R) Reverse alphabetic order." << endl
+         << "(T) Type alphabetic order." << endl
+         << "(C) Year of Creation." << endl
+         << "(M) Return to Menu." << endl
+         << "(Q) Quit program." << endl;
     cout << "Select a letter: ";
     cin >> choice;
     switch(choice)
@@ -377,20 +375,19 @@ void UI::sortComMenu()
                     sortSciMenu();
                     break;
     }
-    sortComMenu();
 }
 
 void UI::sortSciMenu()
 {
+    clearScreen();
     char choice;
-    cout << endl;
     cout << "Print by: " << endl;
-    cout << "(A) Alphabetic order" << endl
-         << "(R) Reverse alphabetic order" << endl
-         << "(B) Year of Birth" << endl
-         << "(D) Year of Death" << endl
-         << "(M) Return to Menu" << endl
-         << "(Q) Quit program " << endl;
+    cout << "(A) Alphabetic order." << endl
+         << "(R) Reverse alphabetic order." << endl
+         << "(B) Year of Birth." << endl
+         << "(D) Year of Death." << endl
+         << "(M) Return to Menu." << endl
+         << "(Q) Quit program." << endl;
     cout << "Select a letter: ";
     cin >> choice;
 
@@ -435,7 +432,6 @@ void UI::sortSciMenu()
                     sortSciMenu();
                     break;
     }
-    sortSciMenu();
 }
 void UI::updateSciMenu()
 {
@@ -460,12 +456,12 @@ void UI::updateSciMenu()
                 char choice;
                 count = 0;
                 cout << "What do you want to change?" << endl;
-                cout << "(N)Name" << endl;
-                cout << "(S)Surname" << endl;
-                cout << "(B)Year of birth" << endl;
-                cout << "(D)Year of death" << endl;
-                cout << "(G)Gender" << endl;
-                cout << "(M)Return to main menu" << endl;
+                cout << "(N)Name." << endl;
+                cout << "(S)Surname." << endl;
+                cout << "(B)Year of birth." << endl;
+                cout << "(D)Year of death." << endl;
+                cout << "(G)Gender." << endl;
+                cout << "(M)Return to Menu." << endl;
                 cout << "Select a letter: ";
                 cin >> choice;
                 switch(choice)
@@ -635,10 +631,10 @@ void UI::updateCompMenu()
                     char choice;
                     count = 0;
                     cout << "What do you want to change?" << endl;
-                    cout << "(N)Name" << endl;
-                    cout << "(T)Type" << endl;
-                    cout << "(B)Year of birth" << endl;
-                    cout << "(M)Return to main menu" << endl;
+                    cout << "(N)Name." << endl;
+                    cout << "(T)Type." << endl;
+                    cout << "(B)Year of birth." << endl;
+                    cout << "(M)Return to main menu." << endl;
                     cout << "Select a letter: ";
                     cin >> choice;
                     switch(choice)
@@ -1558,6 +1554,10 @@ void UI::inDatabase()
 {
     cout << "This instance is already in the database " << endl;
 }
+void UI::clearScreen()
+ {
+    system("cls||clear");
+ }
 
 /*void UI::readingString(string gender)
 {

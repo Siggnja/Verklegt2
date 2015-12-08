@@ -98,6 +98,7 @@ public:
 
 private:
     Core core;
+    void clearScreen();
 };
 
 #endif // UI_H
