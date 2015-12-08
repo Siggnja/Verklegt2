@@ -13,6 +13,7 @@ People SQLiteData::sortIndiAlphaFront()
     People p1 = doQuerySci(Query);
     return p1;
 }
+
 People SQLiteData::sortIndiAlphaBack()
 {
     string Query = selectAllSci + " " + orderBySurnameDe;
@@ -88,6 +89,7 @@ People SQLiteData::searchIndiByName(const string name)
     }
     return p1;
 }
+
 void SQLiteData::updateIndiName(const string name, const int id)
 {
 
@@ -101,6 +103,7 @@ void  SQLiteData::updateIndiSurname(const string name, const int id)
     string Query = updateSci + " " + setSurname + name + "'" + " " + findId + intToString(id);
     executeQuery(Query);
 }
+
 void  SQLiteData::updateIndiBYear(const int year, const int id)
 {
     string Query = updateSci + " " + setBYear + intToString(year) + " " + findId + intToString(id);
@@ -113,17 +116,20 @@ void  SQLiteData::updateIndiDYear(const int year, const int id)
     string Query = updateSci + " " + setDYear + intToString(year) + " " + findId + intToString(id);
     executeQuery(Query);
 }
+
 void  SQLiteData::updateIndiGender(const char gender, const int id)
 {
     string Query = updateSci + " " + setGender + gender + " '" + " " + findId + intToString(id);
     executeQuery(Query);
 }
+
 Machines SQLiteData::sortCompAlphaFront()
 {
     string Query = selectAllComp + " " + orderByName;
     Machines p1 = doQueryComp(Query);
     return p1;
 }
+
 Machines  SQLiteData::sortCompAlphaBack()
 {
     string Query = selectAllComp + " " + orderByNameDe;
@@ -193,13 +199,15 @@ void SQLiteData::deleteComp(const int id)
     executeQuery(Query);
     deleteConnectionWithComp(id);
 }
+
 void  SQLiteData::deleteIndi(const int id)
 {
     string Query = updateSci + " " + setDel + " " + findId + intToString(id);
     executeQuery(Query);
     deleteConnectionWithIndi(id);
 }
-void SQLiteData::addNewIndi(const Individual i1,bool& found)
+
+void SQLiteData::addNewIndi(const Individual i1, bool& found)
 {
     string Query1 = createNewSci + i1.getSurname() + "','" + i1.getName() + "','" + i1.getGender() + "'," + intToString(i1.getBirth()) + "," + intToString(i1.getDeath()) + ")";
     string Query2 = selectAllSci;
@@ -256,6 +264,7 @@ void SQLiteData::addNewComp(const Computer c1, bool& found)
     }
     db.close();
 }
+
 Machines SQLiteData::doQueryComp(const string que)
 {
     db.open();
@@ -377,6 +386,7 @@ Machines SQLiteData::doQueryCompOrOther(const string que1, const string que2, bo
     db.close();
     return p1;
 }
+
 void SQLiteData::executeQuery(const string query)
 {
     db.open();
@@ -426,6 +436,7 @@ vector<int> SQLiteData::getRelationsToSci(const int i)
     db.close();
     return temp;
 }
+
 void SQLiteData::createConnection(const int idSci, const int idComp)
 {
     string Query1 = createNewRelation + intToString(idSci) + ", " + intToString(idComp) + ")";
@@ -456,7 +467,8 @@ void SQLiteData::deleteConnectionWithComp(const int idComp)
     executeQuery(Query);
 
 }
-void SQLiteData::deleteConnectionWithIndiAndComp(const int idSci,const int idComp)
+
+void SQLiteData::deleteConnectionWithIndiAndComp(const int idSci, const int idComp)
 {
     string Query = updateRel + " " + setDel + " " + findCompId + intToString(idComp) + "AND scientist_id = " +intToString(idSci);
     executeQuery(Query);
@@ -504,6 +516,7 @@ int SQLiteData::getDatabaseSize(const string temp)
     db.close();
     return size;
 }
+
 bool SQLiteData::searchForId(const int id, const string tablename)
 {
     string que = "SELECT * FROM " + tablename + " AS s " + findId + intToString(id);
