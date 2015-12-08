@@ -157,24 +157,19 @@ void UI::searchLinkMenu()
     switch(ans)
     {
           case 's':
-          case 'S':
-                    searchSciLink();
+          case 'S': searchSciLink();
                     break;
           case 'c':
-          case 'C':
-                    searchComLink();
+          case 'C': searchComLink();
                     break;
           case 'm':
-          case 'M':
-                    return;
+          case 'M': return;
                     break;
           case 'q':
-          case 'Q':
-                    cout << endl;
+          case 'Q': cout << endl;
                     exit(1);
                     break;
-          default:
-                    errorInput();
+          default:  errorInput();
                     break;
 
     }
@@ -182,7 +177,7 @@ void UI::searchLinkMenu()
 
 void UI::printLinkMenu()
 {
-    cout<<endl;
+    cout << endl;
     cout << "Do you want to: " << endl;
     cout << "(S) Print scientists and computers connected to them?" << endl;
     cout << "(C) Print computers and scientists connected to them? " << endl;
@@ -190,31 +185,25 @@ void UI::printLinkMenu()
     cout << "(Q) Quit program. " << endl;
     cout << "Select a letter: ";
     char ans;
-    cin >>ans;
+    cin >> ans;
     switch(ans)
     {
           case 's':
-          case 'S':
-                    sortSciLink();
+          case 'S': sortSciLink();
                     break;
           case 'c':
-          case 'C':
-                    sortComLink();
+          case 'C': sortComLink();
                     break;
           case 'm':
-          case 'M':
-                    return;
+          case 'M': return;
                     break;
           case 'q':
-          case 'Q':
-                    cout << endl;
+          case 'Q': cout << endl;
                     exit(1);
                     break;
-          default:
-                    errorInput();
+          default:  errorInput();
                     break;
     }
-
 }
 
 
@@ -352,29 +341,29 @@ void UI::sortComMenu()
         case 'a':
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
                     {
-                    Machines temp = core.sortCompAlpabetFront();
-                    printComputers(temp);
+                        Machines temp = core.sortCompAlpabetFront();
+                        printComputers(temp);
                     }
                     break;
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
                     {
-                    Machines temp = core.sortCompAlpabetBack();
-                    printComputers(temp);
+                        Machines temp = core.sortCompAlpabetBack();
+                        printComputers(temp);
                     }
                     break;
         case 'c':
         case 'C':   cout << endl << "--- Printing by year of Creation --- " << endl;
                     {
-                    Machines temp = core.sortCompBuildYear();
-                    printComputers(temp);
+                        Machines temp = core.sortCompBuildYear();
+                        printComputers(temp);
                     }
                     break;
         case 't':
         case 'T':   cout << endl << "--- Printing by alphebetical type order ---" << endl;
                     {
-                    Machines temp = core.sortCompType();
-                    printComputers(temp);
+                        Machines temp = core.sortCompType();
+                        printComputers(temp);
                     }
                     break;
         case 'm':
@@ -410,30 +399,30 @@ void UI::sortSciMenu()
         case 'a':
         case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
                     {
-                    People temp = core.sortSciAlpabetFront();
-                    printScientists(temp);
+                        People temp = core.sortSciAlpabetFront();
+                        printScientists(temp);
                     }
                     break;
         case 'r':
         case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
 
                     {
-                    People temp = core.sortSciAlpabetBack();
-                    printScientists(temp);
+                        People temp = core.sortSciAlpabetBack();
+                        printScientists(temp);
                     }
                     break;
         case 'b':
         case 'B':   cout << endl << "--- Printing by year of Birth --- " << endl;
                     {
-                    People temp = core.sortSciByBirthYear();
-                    printScientists(temp);
+                        People temp = core.sortSciByBirthYear();
+                        printScientists(temp);
                     }
                     break;
         case 'd':
         case 'D':   cout << endl << "--- Printing by year of Death --- " << endl;
                     {
-                    People temp = core.sortSciByDeathYear();
-                    printScientists(temp);
+                        People temp = core.sortSciByDeathYear();
+                        printScientists(temp);
                     }
                     break;
         case 'M':
@@ -451,8 +440,8 @@ void UI::sortSciMenu()
 
 void UI::updateSciMenu()
 {
-    int id,count;
-    bool found=false;
+    int id, count;
+    bool found = false;
     cout << "Please enter the id of the Scientist you want to change: ";
     cin >> id;
     if(!cin.fail())
@@ -498,8 +487,7 @@ void UI::updateSciMenu()
                     case 'G':   updateIndiGender(id);
                                 break;
                     case 'm':
-                    case 'M':
-                                return;
+                    case 'M':   return;
                                 break;
 
 
@@ -507,9 +495,8 @@ void UI::updateSciMenu()
                                 errorInput();
                                 updateSciMenu();
                                 break;
-
                 }
-             }while(count==-1);
+             }while(count == -1);
         }
         else
         {
@@ -517,7 +504,6 @@ void UI::updateSciMenu()
             cin.clear();
             cin.ignore();
             updateSciMenu();
-
         }
    }
    else
@@ -555,18 +541,18 @@ void UI::updateIndiSurname(const int id)
 }
 void UI::updateIndiGender(const int id)
 {
-    Individual i1 =core.getData().getSingleIndi(id);
-    if(i1.getGender()=='m')
+    Individual i1 = core.getData().getSingleIndi(id);
+    if(i1.getGender() == 'm')
     {
-        core.updateIndiGender('f',id);
+        core.updateIndiGender('f', id);
         cout << "--- Changing the scientist from male to female ---" << endl;
     }
     else
     {
-        core.updateIndiGender('m',id);
+        core.updateIndiGender('m', id);
         cout << "--- Changing the scientist from female to male ---" << endl;
     }
-    i1=core.getData().getSingleIndi(id);
+    i1 = core.getData().getSingleIndi(id);
     cout << "The scientist is now registered as:" << endl;
     printIndi(i1);
 }
@@ -615,9 +601,9 @@ void UI::updateIndiDYear(const int id)
         }
     }while(cin.fail());
     Individual i1 = core.getData().getSingleIndi(id);
-    if(i1.getBirth()>year)
+    if(i1.getBirth() > year)
     {
-        core.updateIndiBYear(year,id);
+        core.updateIndiBYear(year, id);
     }
     else
     {
@@ -631,14 +617,14 @@ void UI::updateIndiDYear(const int id)
 
 void UI::updateCompMenu()
 {
-        int id,count;
+        int id, count;
         bool found=false;
         cout << "Please enter the id of the Computer you want to change: ";
         cin >> id;
         if(!cin.fail())
         {
             Machines c1 = core.getData().sortCompAlphaFront();
-            for(int i = 0 ; i <c1.getSize(); i++)
+            for(int i = 0 ; i < c1.getSize(); i++)
             {
                 if(id == c1.getComputer(i).getId())
                 {
@@ -670,14 +656,12 @@ void UI::updateCompMenu()
                         case 'B':   updateCompBYear(id);
                                     break;
                         case 'm':
-                        case 'M':
-                                    return;
+                        case 'M':   return;
                                     break;
                         default:    count = -1;
                                     errorInput();
                                     updateCompMenu();
                                     break;
-
                     }
                  }while(count==-1);
             }
@@ -687,7 +671,6 @@ void UI::updateCompMenu()
                 cin.clear();
                 cin.ignore();
                 updateSciMenu();
-
             }
        }
        else
