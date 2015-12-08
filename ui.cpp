@@ -206,9 +206,9 @@ void UI::printLinkMenu()
     }
 }
 
-
 void UI::linkMenu()
 {
+    cout << endl;
     cout << "What do you want to do?" << endl;
     cout << "(S) Search connections."<<endl;
     cout << "(A) Add a connection." << endl;
