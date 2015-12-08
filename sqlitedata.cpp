@@ -61,9 +61,9 @@ People SQLiteData::searchIndiByName(const string name)
 {
     string Query = selectAllSci + " " + searchName + name + "%'" + " " + searchSurname +name + "%'" ;
     People p1 = doQuerySci(Query);
-    if(p1.getSize()==0)
+    if(p1.getSize() == 0)
     {
-        Query = "SELECT (name ||' '||surname)AS expr1 FROM Scientist WHERE expr1 LIKE '%" + name +"%'";
+        Query = "SELECT (name ||' '||surname)AS expr1 FROM Scientist WHERE expr1 LIKE '%" + name + "%'";
         db.open();
         QString Q = QString::fromStdString(Query);
         QSqlQuery queryname(db);
@@ -237,7 +237,7 @@ void SQLiteData::addNewComp(const Computer c1, bool& found)
     int count = 0;
     for(int i = 0; i<p1.getSize();i++)
     {
-        if(c1==p1.getComputer(i))
+        if(c1 == p1.getComputer(i))
         {
             found = true;
             count = i;

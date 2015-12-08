@@ -756,7 +756,7 @@ void UI::searchComYear()
             entriesMatched();
             printComputers(result);
         }
-        else if (!found)
+        else if(!found)
         {
             cout << endl;
             noMatch();
@@ -785,7 +785,7 @@ void UI::searchComName()
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
     result = core.searchComName(searchStr);
-    if (result.getSize() != 0)
+    if(result.getSize() != 0)
     {
         entriesMatched();
         printComputers(result);
@@ -804,7 +804,7 @@ void UI::searchComType()
     cout << "Enter a type to search for: " ;
     getline(cin, searchStr);
     result = core.searchComType(searchStr);
-    if (result.getSize() != 0)
+    if(result.getSize() != 0)
     {
         entriesMatched();
         printComputers(result);
@@ -823,7 +823,7 @@ void UI::searchSciName()
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
     result = core.searchNam(searchStr);
-    if (result.getSize() != 0)
+    if(result.getSize() != 0)
     {
         entriesMatched();
         printList(result);
@@ -876,7 +876,7 @@ void UI::searchBirth()
             entriesMatched();
             printList(result);
         }
-        else if (!found)
+        else if(!found)
         {
             cout << endl;
             noMatch();
@@ -911,7 +911,7 @@ void UI::searchDeath()
             entriesMatched();
             printList(result);
         }
-        else if (!found)
+        else if(!found)
         {
             cout << endl;
             noMatch();
@@ -947,7 +947,8 @@ void UI::addIndividual()
     cout << "Given name: ";
     getline(cin, name);
 
-    do{
+    do
+    {
         cout << "Gender (m/f): ";
         cin >> gender;
         if(gender != 'f' && gender != 'm' && gender != 'F' && gender != 'M')
@@ -956,7 +957,8 @@ void UI::addIndividual()
         }
     } while(gender != 'f' && gender != 'm' && gender != 'F' && gender != 'M');
 
-    do {
+    do
+    {
         cin.clear();
         cin.ignore();
         cout << "Year of birth: ";
@@ -978,9 +980,10 @@ void UI::addIndividual()
        }
     }
 
-    if (ans == 'n' || ans == 'N')
+    if(ans == 'n' || ans == 'N')
     {
-        do {
+        do
+        {
             cin.clear();
             cin.ignore();
             cout << "Year of death: ";
@@ -1120,11 +1123,11 @@ void UI::removeCom()
 
     core.removeComputer(id, removed);
 
-    if (removed)
+    if(removed)
     {
         cout << "The computer has been removed." << endl;
     }
-    else if (!removed)
+    else if(!removed)
     {
         cout << "The computer was not found in list and therefore not removed." << endl;
     }
@@ -1140,11 +1143,11 @@ void UI::removeSci()
     cin >> id;
     core.removeIndividual(id, removed);
 
-    if (removed)
+    if(removed)
     {
         cout << "The individual has been removed." << endl;
     }
-    else if (!removed)
+    else if(!removed)
     {
         cout << "The individual was not found in list and therefore not removed." << endl;
     }
@@ -1418,7 +1421,7 @@ void UI::printComp(Computer& temp) const
     cout << right << setw(3) << temp.getId() << "\t" << left << setw(25) << temp.getName() << setw(15)
          << temp.getType() << "\t";
 
-    if (temp.getYear() != 0)
+    if(temp.getYear() != 0)
     {
         cout << temp.getYear() << endl;
     }
@@ -1579,11 +1582,6 @@ void UI::sortComLink()
     printComputersConnection(temp);
 }
 
-void UI::errorFile()
-{
-    cout << "Something went wrong while opening the file" << endl;
-}
-
 void UI::errorInput()
 {
     cout << "Invalid input, try again." << endl;
@@ -1603,12 +1601,9 @@ void UI::inDatabase()
 {
     cout << "This instance is already in the database " << endl;
 }
-void UI::clearScreen()
- {
-    system("cls||clear");
- }
 
-/*void UI::readingString(string gender)
+void UI::clearScreen()
 {
-    cout << "--- Reading " << gender << " ---" << endl;
-}*/
+    system("cls||clear");
+}
+
