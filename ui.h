@@ -15,21 +15,33 @@ public:
     void run();
     // Runs the program
 
-    void ask();
-    void menu();
-    void sciMenu();
-    void comMenu();
     void choiceMenu();
     void choiceSwitch(char ans);
+
+    void ask();
+    void sciMenu();
+    void comMenu();
     void linkMenu();
-    void searchLinkMenu();
-    void printLinkMenu();
-    void menu(char ans, People& list);
-    void searchComMenu();
+
     void searchSciMenu();
-    void sortComMenu();
+    void searchComMenu();
+    void searchLinkMenu();
+
     void sortSciMenu();
+    void sortComMenu();
+    void printLinkMenu();
     // Takes the user through menus of what can be done with the database
+
+    void searchSciName();
+    void searchGender();
+    void searchBirth();
+    void searchDeath();
+    // Search functions for scientists
+
+    void searchComName();
+    void searchComType();
+    void searchComYear();
+    // Search functions for computers
 
     void searchSciLink();
     void searchComLink();
@@ -38,17 +50,6 @@ public:
     void sortSciLink();
     void sortComLink();
     // Sort functions for linked databases
-
-    void searchComType();
-    void searchComYear();
-    void searchComName();
-    // Search functions for computers
-
-    void searchSciName();
-    void searchGender();
-    void searchBirth();
-    void searchDeath();
-    // Search functions for scientists
 
     void updateSciMenu();
     void updateIndiName(const int id);
@@ -64,32 +65,6 @@ public:
     void updateCompType(const int id);
     // Functions that change information about computers
 
-    void welcomeMessage();
-    void printIndi(Individual& id) const;
-
-    void printList(People& list) const;
-    void printComp(Computer& id) const;
-
-    void printCompIndent(Computer &id) const;
-    void printIndiIndent(Individual &id) const;
-    // Prints information indented, only prints id and name
-
-    void printIndiAndConnect(Individual & temp);
-    void printCompAndConnect(Computer& temp);
-    // Prints an individual or computer and all connected instances
-
-    void printConnectedComp(Machines& comps) const;
-    void printConnectedSci(People& sci) const;
-    // Calls on print (Comp/Indi) indent
-
-    void printComputersConnection(Machines &comps);
-    void printScientistsConnections(People& sci);
-    // Calls on print (Indi/Comp) AndConnect to print lost
-
-    void printComputers(Machines& comps);
-    void printScientists(People& sci);
-    // Print functions
-
     void addIndividual();
     void addComputer();
     void addConnection();
@@ -100,6 +75,31 @@ public:
     void removeConnection();
     // Remove functions
 
+    void printScientists(People& sci);
+    void printComputers(Machines& comps);
+
+    void printScientistsConnections(People& sci);
+    void printComputersConnection(Machines &comps);
+    // Calls on print (Indi/Comp) AndConnect to print lost
+
+    void printIndiIndent(Individual &id) const;
+    void printCompIndent(Computer &id) const;
+    // Prints information indented, only prints id and name
+
+    void printConnectedSci(People& sci) const;
+    void printConnectedComp(Machines& comps) const;
+    // Calls on print (Comp/Indi) indent
+
+    void printList(People& list) const;
+    void printComp(Computer& id) const;
+
+    void printIndi(Individual& id) const;
+
+    void printIndiAndConnect(Individual & temp);
+    void printCompAndConnect(Computer& temp);
+    // Prints an individual or computer and all connected instances
+
+    void welcomeMessage();
     void errorInput();
     void entriesMatched();
     void noMatch();
