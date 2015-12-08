@@ -11,7 +11,10 @@ class UI
 {
 public:
     UI();
+
     void run();
+    // Runs the program
+
     void ask();
     void menu();
     void sciMenu();
@@ -26,7 +29,7 @@ public:
     void searchSciMenu();
     void sortComMenu();
     void sortSciMenu();
-    // Asks what you want to do
+    // Takes the user through menus of what can be done with the database
 
     void searchSciLink();
     void searchComLink();
@@ -61,10 +64,8 @@ public:
     void updateCompType(const int id);
     // Functions that change information about computers
 
-
     void welcomeMessage();
     void printIndi(Individual& id) const;
-
 
     void printList(People& list) const;
     void printComp(Computer& id) const;
@@ -85,11 +86,8 @@ public:
     void printScientistsConnections(People& sci);
     // Calls on print (Indi/Comp) AndConnect to print lost
 
-    //void printComplist(Machines& list) const;
     void printComputers(Machines& comps);
-
     void printScientists(People& sci);
-
     // Print functions
 
     void addIndividual();
