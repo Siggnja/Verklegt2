@@ -101,6 +101,7 @@ void  SQLiteData::updateIndiSurname(const string name, const int id)
     string Query = updateSci + " " + setSurname + name + "'" + " " + findId + intToString(id);
     executeQuery(Query);
 }
+
 void  SQLiteData::updateIndiBYear(const int year, const int id)
 {
     string Query = updateSci + " " + setBYear + intToString(year) + " " + findId + intToString(id);
@@ -456,7 +457,7 @@ void SQLiteData::deleteConnectionWithComp(const int idComp)
     executeQuery(Query);
 }
 
-void SQLiteData::deleteConnectionWithIndiAndComp(const int idSci,const int idComp)
+void SQLiteData::deleteConnectionWithIndiAndComp(const int idSci, const int idComp)
 {
     string Query = updateRel + " " + setDel + " " + findCompId + intToString(idComp) + "AND scientist_id = " +intToString(idSci);
     executeQuery(Query);

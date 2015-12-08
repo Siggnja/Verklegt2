@@ -206,9 +206,9 @@ void UI::printLinkMenu()
     }
 }
 
-
 void UI::linkMenu()
 {
+    cout << endl;
     cout << "What do you want to do?" << endl;
     cout << "(S) Search connections."<<endl;
     cout << "(A) Add a connection." << endl;
@@ -625,6 +625,7 @@ void UI::updateIndiGender(const int id)
 void UI::updateIndiBYear(const int id)
 {
     int year;
+    char ans;
     do
     {
         cin.clear();
@@ -640,27 +641,56 @@ void UI::updateIndiBYear(const int id)
     Individual i1 = core.getData().getSingleIndi(id);
     if(i1.getDeath() > year)
     {
-        core.updateIndiBYear(year, id);
+        int old = i1.getBirth();
+        cout << "Do you want to change Scientist" << endl;
+        cout << "From:" << endl;
+        printIndi(i1);
+        core.updateIndiBYear(year,id);
+        cout << endl;
+        cout << "To:" << endl;
+        i1 = core.getData().getSingleIndi(id);
+        printIndi(i1);
+        cout << "Select letter(y/n): ";
+        cin >> ans;
+        while(cin.fail() || (ans!='y' && ans!='n'))
+        {
+            cin.clear();
+            cin.ignore();
+            cout << "Select letter(y/n): ";
+            cin >> ans;
+            if(cin.fail() || (ans!='y' && ans!='n'))
+            {
+                errorInput();
+            }
+        }
+        if(ans == 'n')
+        {
+            core.updateIndiBYear(old,id);
+            cout << endl;
+            cout << "No changes were made!" << endl;
+        }
+        else if(ans == 'y')
+        {
+            cout << endl;
+             cout << "Update succecfull!" << endl;
+        }
     }
     else
     {
         errorInput();
         updateIndiBYear(id);
     }
-
-    i1 = core.getData().getSingleIndi(id);
-    cout << "The scientist is now registered as:" << endl;
-    printIndi(i1);
 }
 
 void UI::updateIndiDYear(const int id)
 {
     int year;
+    char ans;
     do
     {
         cin.clear();
         cin.ignore();
-        cout << "Insert a new daeth year: ";
+        cout << "Insert a new year of death: ";
         cin >> year;
         if(cin.fail())
         {
@@ -669,19 +699,47 @@ void UI::updateIndiDYear(const int id)
     } while(cin.fail());
 
     Individual i1 = core.getData().getSingleIndi(id);
-    if(i1.getBirth() > year)
+    if(i1.getBirth() < year)
     {
-        core.updateIndiBYear(year, id);
+        int old = i1.getDeath();
+        cout << "Do you want to change Scientist" << endl;
+        cout << "From:" << endl;
+        printIndi(i1);
+        core.updateIndiDYear(year,id);
+        cout << endl;
+        cout << "To:" << endl;
+        i1 = core.getData().getSingleIndi(id);
+        printIndi(i1);
+        cout << "Select letter(y/n): ";
+        cin >> ans;
+        while(cin.fail() || (ans!='y' && ans!='n'))
+        {
+            cin.clear();
+            cin.ignore();
+            cout << "Select letter(y/n): ";
+            cin >> ans;
+            if(cin.fail() || (ans!='y' && ans!='n'))
+            {
+                errorInput();
+            }
+        }
+        if(ans == 'n')
+        {
+            core.updateIndiDYear(old,id);
+            cout << endl;
+            cout << "No changes were made!" << endl;
+        }
+        else if(ans == 'y')
+        {
+            cout << endl;
+             cout << "Update succecfull!" << endl;
+        }
     }
     else
     {
         errorInput();
         updateIndiBYear(id);
     }
-
-    i1 = core.getData().getSingleIndi(id);
-    cout << "The scientist is now registered as:" << endl;
-    printIndi(i1);
 }
 
 void UI::updateCompMenu()
