@@ -51,6 +51,7 @@ void UI::choiceSwitch(char ans)
 
 void UI::ask()
 {
+    clearScreen();
     cout << endl;
     cout << "What do you want to do?" << endl;
     cout << "(A) Add to list." << endl;
@@ -91,7 +92,8 @@ void UI::sciMenu()
         case 'R':   removeSci();
                     break;
         case 'm':
-        case 'M':   return;
+        case 'M':   clearScreen();
+                    return;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -131,7 +133,8 @@ void UI::comMenu()
         case 'C':   updateCompMenu();
                     break;
         case 'm':
-        case 'M':   return;
+        case 'M':   clearScreen();
+                    return;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -163,7 +166,8 @@ void UI::searchLinkMenu()
           case 'C': searchComLink();
                     break;
           case 'm':
-          case 'M': return;
+          case 'M': clearScreen();
+                    return;
                     break;
           case 'q':
           case 'Q': cout << endl;
@@ -195,7 +199,8 @@ void UI::printLinkMenu()
           case 'C': sortComLink();
                     break;
           case 'm':
-          case 'M': return;
+          case 'M': clearScreen();
+                    return;
                     break;
           case 'q':
           case 'Q': cout << endl;
@@ -208,6 +213,7 @@ void UI::printLinkMenu()
 
 void UI::linkMenu()
 {
+    clearScreen();
     cout << endl;
     cout << "What do you want to do?" << endl;
     cout << "(S) Search connections."<<endl;
@@ -235,7 +241,8 @@ void UI::linkMenu()
         case 'R':   removeConnection();
                     break;
         case 'm':
-        case 'M':   return;
+        case 'M':   clearScreen();
+                    return;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -273,7 +280,8 @@ void UI::searchComMenu()
         case 'C':   searchComYear();
                     break;
         case 'm':
-        case 'M':   return;
+        case 'M':   clearScreen();
+                    return;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -314,7 +322,8 @@ void UI::searchSciMenu()
         case 'D':   searchDeath();
                     break;
         case 'm':
-        case 'M':   return;
+        case 'M':   clearScreen();
+                    return;
                     break;
         case 'q':
         case 'Q':   exit(1);
@@ -370,7 +379,8 @@ void UI::sortComMenu()
                     }
                     break;
         case 'm':
-        case 'M':   return;
+        case 'M':   clearScreen();
+                    return;
                     break;
         case 'q':
         case 'Q':   cout << endl;
@@ -428,7 +438,8 @@ void UI::sortSciMenu()
                     }
                     break;
         case 'M':
-        case 'm':   return;
+        case 'm':   clearScreen();
+                    return;
                     break;
         case 'q':
         case 'Q':   exit(1);
@@ -490,7 +501,8 @@ void UI::updateSciMenu()
                     case 'G':   updateIndiGender(id);
                                 break;
                     case 'm':
-                    case 'M':   return;
+                    case 'M':   clearScreen();
+                                return;
                                 break;
 
                     default:    count = -1;
@@ -539,14 +551,14 @@ void UI::updateIndiName(const int id)
     cin >> ans;
     while(cin.fail() || (ans!='y' && ans!='n'))
     {
-        cin.clear();
-        cin.ignore();
-        cout << "Select letter(y/n): ";
-        cin >> ans;
         if(cin.fail() || (ans!='y' && ans!='n'))
         {
             errorInput();
         }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
     }
     if(ans == 'n')
     {
@@ -582,14 +594,14 @@ void UI::updateIndiSurname(const int id)
     cin >> ans;
     while(cin.fail() || (ans!='y' && ans!='n'))
     {
-        cin.clear();
-        cin.ignore();
-        cout << "Select letter(y/n): ";
-        cin >> ans;
         if(cin.fail() || (ans!='y' && ans!='n'))
         {
             errorInput();
         }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
     }
     if(ans == 'n')
     {
@@ -655,14 +667,14 @@ void UI::updateIndiBYear(const int id)
         cin >> ans;
         while(cin.fail() || (ans!='y' && ans!='n'))
         {
-            cin.clear();
-            cin.ignore();
-            cout << "Select letter(y/n): ";
-            cin >> ans;
             if(cin.fail() || (ans!='y' && ans!='n'))
             {
                 errorInput();
             }
+            cin.clear();
+            cin.ignore();
+            cout << "Select letter(y/n): ";
+            cin >> ans;
         }
         if(ans == 'n')
         {
@@ -715,14 +727,14 @@ void UI::updateIndiDYear(const int id)
         cin >> ans;
         while(cin.fail() || (ans!='y' && ans!='n'))
         {
-            cin.clear();
-            cin.ignore();
-            cout << "Select letter(y/n): ";
-            cin >> ans;
             if(cin.fail() || (ans!='y' && ans!='n'))
             {
                 errorInput();
             }
+            cin.clear();
+            cin.ignore();
+            cout << "Select letter(y/n): ";
+            cin >> ans;
         }
         if(ans == 'n')
         {
@@ -787,7 +799,8 @@ void UI::updateCompMenu()
                         case 'B':   updateCompBYear(id);
                                     break;
                         case 'm':
-                        case 'M':   return;
+                        case 'M':   clearScreen();
+                                    return;
                                     break;
                         default:    count = -1;
                                     errorInput();
@@ -834,14 +847,14 @@ void UI::updateCompName(const int id)
     cin >> ans;
     while(cin.fail() || (ans!='y' && ans!='n'))
     {
-        cin.clear();
-        cin.ignore();
-        cout << "Select letter(y/n): ";
-        cin >> ans;
         if(cin.fail() || (ans!='y' && ans!='n'))
         {
             errorInput();
         }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
     }
     if(ans == 'n')
     {
@@ -886,14 +899,14 @@ void UI::updateCompBYear(const int id)
     cin >> ans;
     while(cin.fail() || (ans!='y' && ans!='n'))
     {
-        cin.clear();
-        cin.ignore();
-        cout << "Select letter(y/n): ";
-        cin >> ans;
         if(cin.fail() || (ans!='y' && ans!='n'))
         {
             errorInput();
         }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
     }
     if(ans == 'n')
     {
@@ -930,14 +943,14 @@ void UI::updateCompType(const int id)
     cin >> ans;
     while(cin.fail() || (ans!='y' && ans!='n'))
     {
-        cin.clear();
-        cin.ignore();
-        cout << "Select letter(y/n): ";
-        cin >> ans;
         if(cin.fail() || (ans!='y' && ans!='n'))
         {
             errorInput();
         }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
     }
     if(ans == 'n')
     {
@@ -1153,11 +1166,12 @@ void UI::searchDeath()
 
 void UI::addIndividual()
 {
+    clearScreen();
     string surname, name;
     int birth, death;
     char gender;
     bool notfound = false;
-
+    cout << "Enter the following information:" << endl;
     cin.ignore();
     cout << endl;
     char ans;
@@ -1222,16 +1236,45 @@ void UI::addIndividual()
         death = 0;
     }
     Individual temp(surname, name, gender, birth, death);
-    core.addIndividual(temp, notfound);
-    if(notfound)
+    cout << "Are you sure you want to add this Scientist to the database? " << endl;
+    cout << "Select letter(y/n): ";
+    cin>>ans;
+    while(cin.fail() || (ans!='y' && ans!='n'))
     {
-        cout << endl;
-        cout << "This Individual is already in the database! " << endl;
+        if(cin.fail() || (ans!='y' && ans!='n'))
+        {
+            errorInput();
+        }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
+
+    }
+    if(ans == 'n')
+    {
+        cout << "The scientist was not added!" << endl;
+    }
+    else if(ans == 'y')
+    {
+         core.addIndividual(temp, notfound);
+         if(!notfound)
+         {
+             cout << endl;
+             cout << "The scientist has been added to the database!" << endl;
+         }
+         else
+         {
+             cout << endl;
+             cout << "This Individual is already in the database! " << endl;
+         }
     }
 }
 
 void UI::addComputer()
 {
+    clearScreen();
+    cout << "Enter the following information:" << endl;
     string name, type;
     int year;
     char ans;
