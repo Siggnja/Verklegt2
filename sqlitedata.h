@@ -73,7 +73,7 @@ private:
     People doQuerySciOrOther(const string que1, const string qui2, bool& found);
     People doQuerySci(const string que);
     void executeQuery(const string query);
-    string int_to_string(int i);
+    string intToString(int i);
     QSqlDatabase db;
 };
 
