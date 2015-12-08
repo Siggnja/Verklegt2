@@ -90,7 +90,27 @@ People Core::sortSciByBirthYear()
 
 People Core::sortSciByDeathYear()
 {
-    return newdata.sortIndiByDYear();
+    People temp = newdata.sortIndiByDYear();
+    People alive, dead;
+
+    for(int i = 0; i < temp.getSize(); i++)
+    {
+        if(temp.getIndi(i).getDeath() == 0)
+        {
+            alive.addIndi(temp.getIndi(i));
+        }
+        else
+        {
+            dead.addIndi(temp.getIndi(i));
+        }
+    }
+
+    for(int i = 0; i < alive.getSize(); i++)
+    {
+        dead.addIndi(alive.getIndi(i));
+    }
+
+    return dead;
 }
 
 Machines Core::sortCompAlpabetFront()
@@ -277,19 +297,22 @@ void Core::updateIndiSurname(const string name, const int id)
 {
     newdata.updateIndiSurname(name,id);
 }
+
 void Core::updateIndiBYear(const int year, const int id)
 {
     newdata.updateIndiBYear(year,id);
 }
+
 void Core::updateIndiDYear(const int year, const int id)
 {
     newdata.updateIndiDYear(year,id);
 }
+
 void Core::updateIndiGender(const char gender, const int id)
 {
     newdata.updateIndiGender(gender,id);
 }
-//tilgangslaust
+
 void Core::updateIndiAll(const string name, const string surname,const char gender,const int byear,const int dyear,const int id)
 {
     newdata.updateIndiName(name,id);
@@ -299,9 +322,9 @@ void Core::updateIndiAll(const string name, const string surname,const char gend
     newdata.updateIndiGender(gender,id);
 
 }
+
 void Core::updateCompName(const string name, const int id)
 {
-
     newdata.updateCompName(name,id);
 }
 
@@ -314,23 +337,25 @@ void Core::updateCompBYear(const int year, const int id)
 {
     newdata.updateCompBYear(year,id);
 }
-//tilgangslaust
+
 void Core::updateCompAll(const int year,const string name,const string type,const int id)
 {
     newdata.updateCompName(name,id);
     newdata.updateCompType(type,id);
     newdata.updateCompBYear(year,id);
 }
+
 void Core::addConnection(const int idSci,const int idComp)
 {
     newdata.createConnection(idSci,idComp);
 }
+
 void Core::removeConnection(const int idSci,const int idComp)
 {
     newdata.deleteConnectionWithIndiAndComp(idSci,idComp);
 }
+
 SQLiteData Core::getData() const
 {
-
     return newdata;
- }
+}
