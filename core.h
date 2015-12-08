@@ -10,12 +10,6 @@ using namespace std;
 
 class Core
 {
-private:
-    People list;
-    Machines complist;
-    SQLiteData newdata;
-    void swap(const int i, const int j);
-    bool checkIfIndiIsNew(const Individual i1);
 public:
     Core();
     Core(const People& p1);
@@ -92,6 +86,13 @@ public:
 
     int getMachineSizeInNewdata();
     int getPeopleSizeInNewdata();
+
+private:
+    People list;
+    Machines complist;
+    SQLiteData newdata;
+    void swap(const int i, const int j);
+    bool checkIfIndiIsNew(const Individual i1);
 };
 
 #endif // CORE_H
