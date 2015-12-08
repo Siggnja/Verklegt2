@@ -14,15 +14,13 @@ public:
     Core();
 
     SQLiteData getData() const;
-    // Returns the
-
-    //void createList(const string filename);
+    // Returns the newdata variable
 
     People sortSciAlpabetFront();
     People sortSciAlpabetBack();
     People sortSciByBirthYear();
     People sortSciByDeathYear();
-    // Returns sorted People class value
+    // Returns a sorted People class variable
 
     void addIndividual(const Individual& ind, bool& notfound);
     void addComputer(const Computer& com, bool& notfound);
@@ -52,18 +50,18 @@ public:
     People searchGend(bool& found, char ansGender, People& result);
     People searchBir(bool& found, int ansYear);
     People searchDea(bool& found, int ansYear);
-    //functions used to search for Individuals in database with specific traits
+    // Functions used to search for Individuals in database with specific traits
 
     Machines searchComName(string searchStr);
     Machines searchComType(string searchStr);
     Machines searchComYear(bool& found, int ansYear);
-    //functions used to search for Computers in database with specific traits
+    // Functions used to search for Computers in database with specific traits
 
     Machines sortCompAlpabetFront();
     Machines sortCompAlpabetBack();
     Machines sortCompBuildYear();
     Machines sortCompType();
-    // Returns sorted Machine class value
+    // Returns a sorted Machine class variable
 
     void updateIndiName(const string name, const int id);
     void updateIndiSurname(const string name, const int id);
@@ -71,13 +69,13 @@ public:
     void updateIndiDYear(const int year, const int id);
     void updateIndiGender(const char gender, const int id);
     void updateIndiAll(const string name, const string surname,const char gender,const int byear,const int dyear, const int id);
-    // Updates values inside Scientist table
+    // Changes values inside Scientist table
 
     void updateCompName(const string name, const int id);
     void updateCompType(const string type, const int id);
     void updateCompBYear(const int year, const int id);
     void updateCompAll(const int year,const string name,const string type,const int id);
-    // Uppdates values inside Computer table
+    // Changes values inside Computer table
 
     Machines getConnectedComp(int id);
     People getConnectedSci(int id);
@@ -91,15 +89,12 @@ public:
     void setComplist(const Machines c1);
     // Set funtions
 
-    void createConnection(const Individual& i1, const Computer& c1,bool& found);
-    // Creates
-
-    string makeLower(string& temp);
-    // Converts the string variable temp to all lower letters */
+    void createConnection(const Individual& i1, const Computer& c1, bool& found);
+    // Creates connections
 
     int getMachineSizeInNewdata();
     int getPeopleSizeInNewdata();
-    // Gets the size of the database
+    // Returns the size of the database
 
 private:
     People list;
