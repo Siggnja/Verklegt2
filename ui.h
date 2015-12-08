@@ -93,7 +93,7 @@ public:
     void entriesMatched();
     void noMatch();
     void inDatabase();
-    void readingString(string gender);
+    //void readingString(string gender);
     // Cout sentencses
 
 private:
