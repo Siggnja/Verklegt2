@@ -1138,7 +1138,6 @@ void UI::removeCom()
     if (removed)
     {
         cout << "The computer has been removed." << endl;
-
     }
     else if (!removed)
     {
@@ -1159,7 +1158,6 @@ void UI::removeSci()
 
     if (removed)
     {
-        core.removeIndividual(id, removed); //
         cout << "The individual has been removed." << endl;
     }
     else if (!removed)
