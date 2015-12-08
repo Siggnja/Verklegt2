@@ -145,6 +145,7 @@ void UI::comMenu()
     }
     comMenu();
 }
+
 void UI::searchLinkMenu()
 {
     clearScreen();
