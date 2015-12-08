@@ -1577,26 +1577,51 @@ void UI::addConnection()
 void UI::removeSci()
 {
     int id;
+    char ans;
     bool removed = false;
     cin.ignore();
     cout << endl;
     cout << "Type the id of the individual: ";
     cin >> id;
-    core.removeIndividual(id, removed);
+    cout << "Are you sure you want to remove this Scientist from the database? " << endl;
+    cout << "Select letter(y/n): ";
+    cin>>ans;
+    while(cin.fail() || (ans!='y' && ans!='n'))
+    {
+        if(cin.fail() || (ans!='y' && ans!='n'))
+        {
+            errorInput();
+        }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
 
-    if(removed)
-    {
-        cout << "The individual has been removed." << endl;
     }
-    else if(!removed)
+    if(ans == 'n')
     {
-        cout << "The individual was not found in list and therefore not removed." << endl;
+        cout << "The scientist was not removed!" << endl;
+    }
+    else if(ans == 'y')
+    {
+         core.removeIndividual(id, removed);
+         if(removed)
+         {
+             cout << endl;
+             cout << "The scientist has been removed from the database!" << endl;
+         }
+         else
+         {
+             cout << endl;
+              cout << "The scientist was not found in list and therefore not removed." << endl;
+         }
     }
 }
 
 void UI::removeCom()
 {
     int id;
+    char ans;
     bool removed = false;
     cin.ignore();
     cout << endl;
@@ -1604,15 +1629,38 @@ void UI::removeCom()
     cout << "Type the id of the computer: ";
     cin >> id;
 
-    core.removeComputer(id, removed);
+    cout << "Are you sure you want to remove this Computer from the database? " << endl;
+    cout << "Select letter(y/n): ";
+    cin>>ans;
+    while(cin.fail() || (ans!='y' && ans!='n'))
+    {
+        if(cin.fail() || (ans!='y' && ans!='n'))
+        {
+            errorInput();
+        }
+        cin.clear();
+        cin.ignore();
+        cout << "Select letter(y/n): ";
+        cin >> ans;
 
-    if(removed)
-    {
-        cout << "The computer has been removed." << endl;
     }
-    else if(!removed)
+    if(ans == 'n')
     {
-        cout << "The computer was not found in list and therefore not removed." << endl;
+        cout << "The computer was not removed!" << endl;
+    }
+    else if(ans == 'y')
+    {
+            core.removeComputer(id, removed);
+         if(removed)
+         {
+             cout << endl;
+             cout << "The computer has been removed from the database!" << endl;
+         }
+         else
+         {
+             cout << endl;
+              cout << "The computer was not found in list and therefore not removed." << endl;
+         }
     }
 }
 
