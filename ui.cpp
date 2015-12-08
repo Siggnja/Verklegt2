@@ -1314,7 +1314,7 @@ void UI::printCompIndent(Computer &id) const
 void UI::printConnectedComp(Machines& comps) const
 {
     for(int i = 0; i < comps.getSize(); i++)
-    {
+    {   cout<<endl;
         cout<<"Connection "<<(i+1)<<": ";
         Computer temp = comps.getComputer(i);
         printCompIndent(temp);
@@ -1325,7 +1325,7 @@ void UI::printConnectedSci(People& sci) const
 {
 
     for(int i = 0; i < sci.getSize(); i++)
-    {
+    {   cout<<endl;
         cout<<"Connection "<<(i+1)<<": ";
         Individual temp = sci.getIndi(i);
         printIndiIndent(temp);
