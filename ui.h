@@ -19,9 +19,12 @@ public:
     void choiceSwitch(char ans);
 
     void ask();
+    //Ask the user of what actions to take - sort/search/ etc...
+
     void sciMenu();
     void comMenu();
     void linkMenu();
+    //The main menus for Scientists/Computers/Linking
 
     void searchSciMenu();
     void searchComMenu();
@@ -80,11 +83,11 @@ public:
 
     void printScientistsConnections(People& sci);
     void printComputersConnection(Machines &comps);
-    // Calls on print (Indi/Comp) AndConnect to print lost
+    // Calls on print (Indi/Comp) And Connects to print lost
 
     void printIndiIndent(Individual &id) const;
     void printCompIndent(Computer &id) const;
-    // Prints information indented, only prints id and name
+    // Prints information indented, only prints id and name - used in Linking
 
     void printConnectedSci(People& sci) const;
     void printConnectedComp(Machines& comps) const;
@@ -108,6 +111,7 @@ public:
 private:
     Core core;
     void clearScreen();
+    //Clears the terminal - called upon when a new action is about to be performed
 };
 
 #endif // UI_H

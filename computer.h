@@ -4,7 +4,7 @@
 #include <iostream>
 
 using namespace std;
-
+//This Class holds a Computer and it's values
 class Computer
 {
 public:

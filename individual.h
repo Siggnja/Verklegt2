@@ -4,14 +4,14 @@
 #include <iostream>
 
 using namespace std;
-
+//This Class holds a single Scientist/Individual and his values
 class Individual
 {
 public:
     Individual();
     Individual(const string surnam, const string nam, const char gend, const int bir, const int dea);
     Individual(const int i, const string surnam, const string nam, const string gend, const int bir, const int dea);
-    // Constructors with and without id
+    // Constructors with and without id -
 
     void setName(string str);
     void setSurname(string str);

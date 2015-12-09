@@ -6,7 +6,7 @@
 #include "computer.h"
 
 using namespace std;
-
+//This class stores a group of Computers
 class Machines
 {
 public:

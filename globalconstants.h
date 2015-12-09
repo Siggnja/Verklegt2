@@ -6,6 +6,8 @@
 
 using namespace std;
 
+//Below are constants used in the SQLiteData class when commands in SQLite are used
+
 const string selectSci = "SELECT * FROM Scientist";
 const string selectComp = "SELECT * FROM Computer";
 

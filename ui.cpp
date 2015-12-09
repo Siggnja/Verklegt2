@@ -1186,7 +1186,7 @@ void UI::updateCompMenu()
                 cout << "No Computer has this id!" << endl;
                 cin.clear();
                 cin.ignore();
-                updateSciMenu();
+                updateCompMenu();
             }
        }
        else
@@ -1351,8 +1351,6 @@ void UI::addIndividual()
     getline(cin, surname);
     cout << "Given name: ";
     getline(cin, name);
-    People p1 = core.sortSciAlpabetFront();
-    int size1 = p1.getSize();
     do
     {
         cout << "Gender (m/f): ";
@@ -1545,7 +1543,7 @@ void UI::addConnection()
            cin.ignore();
            cout << "Please enter the id of the Computer : ";
            cin >> c;
-       } while(cin.fail());
+       }while(cin.fail());
        Machines c1 = core.getData().sortCompAlphaFront();
        for(int i = 0; i < c1.getSize(); i++)
        {
@@ -1606,17 +1604,17 @@ void UI::removeSci()
     }
     else if(ans == 'y')
     {
-         core.removeIndividual(id, removed);
-         if(removed)
-         {
-             cout << endl;
-             cout << "The scientist has been removed from the database!" << endl;
-         }
-         else
-         {
-             cout << endl;
-              cout << "The scientist was not found in list and therefore not removed." << endl;
-         }
+        core.removeIndividual(id, removed);
+        if(removed)
+        {
+            cout << endl;
+            cout << "The scientist has been removed from the database!" << endl;
+        }
+        else
+        {
+            cout << endl;
+             cout << "The scientist was not found in list and therefore not removed." << endl;
+        }
     }
 }
 
@@ -1676,7 +1674,7 @@ void UI::removeConnection()
         cin.ignore();
         cout << "Please enter the id of the Scientist: ";
         cin >> s;
-    } while(cin.fail());
+    }while(cin.fail());
    People p1 = core.getData().sortIndiAlphaFront();
    for(int i = 0; i < p1.getSize(); i++)
    {
@@ -1931,10 +1929,10 @@ void UI::printCompAndConnect(Computer& comp)
 void UI::welcomeMessage()
 {
     cout << "--- Welcome to the databases of famous computer scientists and of computers ---" << endl;
-    cout << "\t" << "    In these databases you can add, remove, sort and search" << endl;
+    cout << "        In these databases you can add, remove, sort, search and update" << endl;
     cout << "\t \t" << " At this moment we have "<< core.getPeopleSizeInNewdata() << " computer scientists" << endl;
     cout << "\t \t \t " << "      and "<< core.getMachineSizeInNewdata() << " computers" << endl;
-    cout << "------------------------------------Enjoy!------------------------------------" << endl;
+    cout << "------------------------------------Enjoy!--------------------------------------" << endl;
 }
 
 void UI::errorInput()

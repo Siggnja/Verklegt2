@@ -6,7 +6,7 @@
 #include "individual.h"
 
 using namespace std;
-
+//This class stores a group of Scientists/Individuals
 class People
 {
 public:

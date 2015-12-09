@@ -38,12 +38,12 @@ public:
     People searchIndiByByear(const int year, bool& found);
     People searchIndiByDyear(const int year, bool& found);
     People searchIndiByGender(const char gender);
-    // Returns a people vector containing elements that fit the search criteria
+    // Returns a people vector of individuals(scientists) containing elements that fit the search criteria
 
     Machines searchCompByName(const string name);
     Machines searchCompByByear(const int year, bool& found);
     Machines searchCompByType(const string type);
-    // Return a machine vector containing elements that fit the search criteria
+    // Return a machines vector of computers containing elements that fit the search criteria
 
     void updateIndiName(const string name, const int id);
     void updateIndiSurname(const string name, const int id);
@@ -85,9 +85,15 @@ private:
     // Converts an integer variable to a string variable
 
     Machines doQueryComp(const string que);
+    //Takes in a string query - Converts in to a Qstring and executes - return Machines vector that the fit the sqllite command
     Machines doQueryCompOrOther(const string que1, const string que2, bool& found);
-    People doQuerySciOrOther(const string que1, const string qui2, bool& found);
+    //Takes in two string querys - if the first gives no result then i executes the second command - returns a Machines vector
+    //The bool value is to check if the first query gave any results
     People doQuerySci(const string que);
+    //Takes in a string query - Converts in to a Qstring and executes - return People vector that the fit the sqllite command
+    People doQuerySciOrOther(const string que1, const string qui2, bool& found);
+    //Takes in two string querys - if the first gives no result then i executes the second command - returns a People vector
+    //The bool value is to check if the first query gave any results
     void executeQuery(const string query);
     // Execute a specified query
     void deleteConnectionWithIndi(const int idSci);

@@ -272,15 +272,6 @@ void Core::updateIndiGender(const char gender, const int id)
     newdata.updateIndiGender(gender, id);
 }
 
-void Core::updateIndiAll(const string name, const string surname, const char gender, const int byear, const int dyear, const int id)
-{
-    newdata.updateIndiName(name, id);
-    newdata.updateIndiSurname(surname, id);
-    newdata.updateCompBYear(byear, id);
-    newdata.updateIndiDYear(dyear, id);
-    newdata.updateIndiGender(gender, id);
-}
-
 void Core::updateCompName(const string name, const int id)
 {
     newdata.updateCompName(name, id);
@@ -293,13 +284,6 @@ void Core::updateCompType(const string type, const int id)
 
 void Core::updateCompBYear(const int year, const int id)
 {
-    newdata.updateCompBYear(year, id);
-}
-
-void Core::updateCompAll(const int year,const string name,const string type,const int id)
-{
-    newdata.updateCompName(name, id);
-    newdata.updateCompType(type, id);
     newdata.updateCompBYear(year, id);
 }
 
@@ -317,3 +301,20 @@ SQLiteData Core::getData() const
 {
     return newdata;
 }
+/*
+void Core::updateIndiAll(const string name, const string surname, const char gender, const int byear, const int dyear, const int id)
+{
+    newdata.updateIndiName(name, id);
+    newdata.updateIndiSurname(surname, id);
+    newdata.updateCompBYear(byear, id);
+    newdata.updateIndiDYear(dyear, id);
+    newdata.updateIndiGender(gender, id);
+}
+void Core::updateCompAll(const int year,const string name,const string type,const int id)
+{
+    newdata.updateCompName(name, id);
+    newdata.updateCompType(type, id);
+    newdata.updateCompBYear(year, id);
+}
+*/
+//The functions above are not used in current version
