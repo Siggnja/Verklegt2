@@ -491,7 +491,7 @@ void UI::searchSciName()
     if(result.getSize() != 0)
     {
         entriesMatched();
-        printList(result);
+        printScientists(result);
     }
     else
     {
@@ -513,7 +513,7 @@ void UI::searchGender()
         if(result.getSize() != 0)
         {
             entriesMatched();
-            printList(result);
+            printScientists(result);
         }
         else
         {
@@ -539,7 +539,7 @@ void UI::searchBirth()
         if(found)
         {
             entriesMatched();
-            printList(result);
+            printScientists(result);
         }
         else if(!found)
         {
@@ -549,7 +549,7 @@ void UI::searchBirth()
             {
                 cout << "However these individuals were found within"
                         " a 10 year range of given year: " << endl;
-                printList(result);
+                printScientists(result);
             }
         }
     }
@@ -574,7 +574,7 @@ void UI::searchDeath()
         if(found)
         {
             entriesMatched();
-            printList(result);
+            printScientists(result);
         }
         else if(!found)
         {
@@ -584,7 +584,7 @@ void UI::searchDeath()
             {
                 cout << "However these individuals were found within"
                         " a 10 year range of given year: " << endl;
-                printList(result);
+                printScientists(result);
             }
         }
     }
@@ -788,7 +788,7 @@ void UI::searchComLink()
                   {
                       cout << endl;
                       cout << "The following scientists are connected to computer " << s << ": " << endl;
-                      printList(p);
+                      printScientists(p);
                   }
               }
          }
@@ -1342,7 +1342,7 @@ void UI::addIndividual()
     string surname, name;
     int birth, death;
     char gender;
-    bool notfound = false;
+    bool notfound = true;
     cout << endl << "Enter the following information:" << endl;
     cin.ignore();
     cout << endl;
@@ -1351,7 +1351,8 @@ void UI::addIndividual()
     getline(cin, surname);
     cout << "Given name: ";
     getline(cin, name);
-
+    People p1 = core.sortSciAlpabetFront();
+    int size1 = p1.getSize();
     do
     {
         cout << "Gender (m/f): ";
@@ -1373,17 +1374,18 @@ void UI::addIndividual()
             errorInput();
         }
     } while(cin.fail());
-
-    cout << "Is the individual alive?(y/n) ";
-    cin >> ans;
-    while((ans != 'y' &&ans != 'Y' && ans != 'n' && ans != 'N' ) || cin.fail())
+    do
     {
-       if((ans != 'y' ||ans != 'Y' ||ans != 'n' || ans != 'N' ) || cin.fail())
+        cin.clear();
+        cin.ignore();
+        cout << "Is the individual alive?(y/n) ";
+        cin >> ans;
+       if((ans != 'y' && ans != 'Y' && ans != 'n' && ans != 'N' ) || cin.fail())
        {
            errorInput();
-           cin >> ans;
+
        }
-    }
+    }while((ans != 'y' &&ans != 'Y' && ans != 'n' && ans != 'N' ) || cin.fail());
 
     if(ans == 'n' || ans == 'N')
     {
@@ -1482,7 +1484,7 @@ void UI::addComputer()
     {
 
     }
-    cout << "Are you sure you want to add this Scientist to the database? " << endl;
+    cout << "Are you sure you want to add this Computer to the database? " << endl;
     cout << "Select letter(y/n): ";
     cin>>ans;
     while(cin.fail() || (ans!='y' && ans!='n'))
@@ -1867,15 +1869,6 @@ void UI::printConnectedComp(Machines& comps) const
     }
 }
 
-void UI::printList(People& list) const
-{
-    for (int i = 0; i < list.getSize(); i++)
-    {
-        Individual id = list.getIndi(i);
-        printIndi(id);
-    }
-}
-
 void UI::printComp(Computer& temp) const
 {
     cout << right << setw(3) << temp.getId() << "\t" << left << setw(25) << temp.getName() << setw(15)
@@ -1890,13 +1883,6 @@ void UI::printComp(Computer& temp) const
         cout << "Not built." << endl;
     }
 }
-
-// ---------------------------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------------------------
-// --------------- komin hingað
-// ---------------------------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------------------------
-
 
 void UI::printIndi(Individual& temp) const
 {

@@ -202,29 +202,40 @@ void  SQLiteData::deleteIndi(const int id)
     executeQuery(Query);
     deleteConnectionWithIndi(id);
 }
-
 void SQLiteData::addNewIndi(const Individual i1, bool& found)
 {
     string Query1 = createNewSci + i1.getSurname() + "','" + i1.getName() + "','" + i1.getGender() + "'," + intToString(i1.getBirth()) + "," + intToString(i1.getDeath()) + ")";
-    string Query2 = selectAllSci;
+    string Query2 = selectSci;
     People p1 = doQuerySci(Query2);
-        found = false;
+    People p2 = sortIndiAlphaFront();
+    found = false;
+    bool founddeleted = false;
     int count = 0;
     for(int i = 0; i < p1.getSize(); i++)
     {
         if(i1 == p1.getIndi(i))
         {
-            found = true;
+            founddeleted = true;
             count = i;
             break;
         }
     }
-    if(found)
+    for(int i = 0; i < p2.getSize(); i++)
+    {
+        if(i1 == p2.getIndi(i))
+        {
+            founddeleted = false;
+            found = true;
+            break;
+        }
+    }
+
+    if(founddeleted)
     {
         string Query3 = updateSci + " " + setDel0 + " " + findId + intToString(p1.getIndi(count).getId());
         executeQuery(Query3);
     }
-    else
+    else if(!found)
     {
         executeQuery(Query1);
     }
@@ -234,25 +245,37 @@ void SQLiteData::addNewIndi(const Individual i1, bool& found)
 void SQLiteData::addNewComp(const Computer c1, bool& found)
 {
     string Query1 = createNewComp + c1.getName() + "'," + intToString(c1.getYear()) + ",'" + c1.getType() + "')";
-    string Query2 = selectAllComp;
+    string Query2 = selectComp;
     Machines p1 = doQueryComp(Query2);
+    Machines p2 = sortCompAlphaFront();
     found = false;
+    bool founddeleted = false;
     int count = 0;
     for(int i = 0; i < p1.getSize(); i++)
     {
         if(c1 == p1.getComputer(i))
         {
+            founddeleted = true;
+            count = i;
+            break;
+        }
+    }
+    for(int i = 0; i < p2.getSize(); i++)
+    {
+        if(c1 == p2.getComputer(i))
+        {
+            founddeleted = false;
             found = true;
             count = i;
             break;
         }
     }
-    if(found)
+    if(founddeleted)
     {
         string Query3 = updateComp + " " + setDel0 + " " + findId + intToString(p1.getComputer(count).getId());
         executeQuery(Query3);
     }
-    else
+    else if(!found)
     {
         executeQuery(Query1);
     }

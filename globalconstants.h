@@ -6,6 +6,8 @@
 
 using namespace std;
 
+const string selectSci = "SELECT * FROM Scientist";
+const string selectComp = "SELECT * FROM Computer";
 
 const string selectAllSci = "SELECT * FROM Scientist as s WHERE s.deleted = 0";
 const string selectAllComp = "SELECT * FROM Computer as s WHERE s.deleted = 0";
